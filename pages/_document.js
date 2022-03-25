@@ -1,4 +1,4 @@
-import {Html, Head, Main, NextScript} from "next/document";
+import {Html, Head, Main, NextScript} from "next/document"
 
 export default function Document() {
   return (
@@ -12,6 +12,7 @@ export default function Document() {
         <link rel="stylesheet" href="../assets/css/slick-slide.min.css" />
         <link rel="stylesheet" href="../assets/css/fontawesome.min.css" />
         <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/sass/style.scss" />
         <link rel="stylesheet" href="../assets/css/responsive.css" />
       </Head>
       <body className="sc5">
@@ -19,5 +20,5 @@ export default function Document() {
         <NextScript />
       </body>
     </Html>
-  );
+  )
 }

@@ -20,7 +20,6 @@ const SwiperCourse = ({Filter}) => {
         loop={true}
         slidesPerView={4}
         loopedSlides={10}
-        autoResize={false}
         breakpoints={{
           320: {
             slidesPerView: 1,
@@ -32,11 +31,11 @@ const SwiperCourse = ({Filter}) => {
           },
           640: {
             slidesPerView: 2,
-            spaceBetween: 10,
+            spaceBetween: 20,
           },
           1024: {
             slidesPerView: 2,
-            spaceBetween: 0,
+            spaceBetween: 20,
           },
           1200: {
             slidesPerView: 3,
@@ -61,16 +60,16 @@ const SwiperCourse = ({Filter}) => {
           ))}
         </div>
       </Swiper>
-      <div className="swiper-prev">
-        <button className="duration-500 w-[35px] bg-white/[.8] hover:bg-orange-400  shadow-xl flex justify-center items-center rounded-3xl  absolute z-50 top-[11rem] left-0 md:left-1">
+      <div className="swiper-prev cursor-pointer">
+        <div className="duration-500 w-[35px] bg-white/[.8] hover:bg-orange-400  shadow-xl flex justify-center items-center rounded-3xl  absolute z-50 top-[11rem] left-0 md:left-1">
           <p style={{fontSize: 22}}> &#x276E; </p>
-        </button>
+        </div>
       </div>
 
-      <div className="swiper-next">
-        <button className="bg-white/[.8] w-[35px] hover:bg-orange-400 shadow-md flex justify-center items-center rounded-3xl  absolute z-50 top-[11rem] right-0 md:right-1">
+      <div className="swiper-next cursor-pointer">
+        <div className="duration-500 bg-white/[.8] w-[35px] hover:bg-orange-400 shadow-md flex justify-center items-center rounded-3xl  absolute z-50 top-[11rem] right-0 md:right-1">
           <p style={{fontSize: 22}}> &#x276F; </p>
-        </button>
+        </div>
       </div>
     </>
   )

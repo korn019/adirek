@@ -16,12 +16,13 @@ const LandingScreen = () => {
           }}>
           เปิดประตู "สู่การเรียนรู้" ให้ทุกวันคือการสร้างโอกาสใหม่
         </p>
-        <a className="btn btn-base" href="category.html" style={{fontSize: "clamp(2rem, 8vw, 1.2rem)", marginTop: 20}}>
-          ค้นหาคอร์สเรียนออนไลน์
-        </a>
+
+        <button className="btn " style={{fontSize: "clamp(2rem, 8vw, 1.2rem)", marginTop: 30}}>
+          <a href="#"></a> ค้นหาคอร์สเรียนออนไลน์
+        </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LandingScreen;
+export default LandingScreen

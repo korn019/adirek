@@ -1,13 +1,11 @@
 const SingleCourse = ({course}) => {
   console.log(course.รูปถ่าย)
   return (
-    <div className="item" key={course}>
-      <div className="single-course-wrap">
+    <div className="item" key={course} style={{}}>
+      <div className="single-course-wrap  hover:border-2 hover:border-[#006fff]">
         <div className="thumb w-full h-full">
-          <a href="#" className="cat cat-blue">
-            เริ่มต้น
-          </a>
           <img
+            className="object-cover"
             src={typeof course.รูปถ่าย == "undefined" ? "assets/img/logo-mock.jpg" : course.รูปถ่าย}
             alt="img"
           />
@@ -20,7 +18,13 @@ const SingleCourse = ({course}) => {
           </h6>
           <div className="user-area">
             <div className="user-details ">
-              <img src="assets/img/author/1.png" alt="img" />
+              <img
+                className="w-[1.5rem] h-[1.5rem]"
+                src={
+                  typeof course.รูปถ่าย == "undefined" ? "assets/img/logo-mock.jpg" : course.รูปถ่าย
+                }
+                alt="img"
+              />
               <a href="#">
                 {course.ชื่อจริง} {course.นามสกุล}
               </a>

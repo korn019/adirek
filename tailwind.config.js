@@ -26,7 +26,11 @@ module.exports = {
         f5xl: "3rem",
         f6xl: "4rem",
         f7xl: "5rem",
-      },
+      }, 
+      animation: {
+        'youtubeSlide': 'youtubeSlide 4s infinite alternate',
+         'color-animation': 'color-animation 5s linear infinite'
+      }
     },
   },
   plugins: [],
