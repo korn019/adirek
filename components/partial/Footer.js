@@ -1,16 +1,16 @@
 const Footer = () => {
   return (
     <>
-      <footer class="footer-area">
-        <div class="footer-inner">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 col-md-4 col-sm-6">
-                <div class="footer-widget widget widget_link">
-                  <h4 class="widget-title">หลักสูตร</h4>
-                  <div class="row">
-                    <div class="col-lg-4">
-                      <ul class="pe-5">
+      <footer className="footer-area">
+        <div className="footer-inner">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8 col-md-4 col-sm-6">
+                <div className="footer-widget widget widget_link">
+                  <h4 className="widget-title">หลักสูตร</h4>
+                  <div className="row">
+                    <div className="col-lg-4">
+                      <ul className="pe-5">
                         <li>
                           <a href="category.html">UI &amp; UX</a>
                         </li>
@@ -34,8 +34,8 @@ const Footer = () => {
                         </li>
                       </ul>
                     </div>
-                    <div class="col-lg-4">
-                      <ul class="pe-5">
+                    <div className="col-lg-4">
+                      <ul className="pe-5">
                         <li>
                           <a href="category.html">Architectural Design</a>
                         </li>
@@ -59,7 +59,7 @@ const Footer = () => {
                         </li>
                       </ul>
                     </div>
-                    <div class="col-lg-4">
+                    <div className="col-lg-4">
                       <ul>
                         <li>
                           <a href="category.html">ถ่ายรูปและแต่งรูป</a>
@@ -87,10 +87,10 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-              <div class="col-lg-2 col-md-4 col-sm-6">
-                <div class="footer-widget widget widget_link">
-                  <h4 class="widget-title">การเชื่อมโยง</h4>
-                  <ul class="pe-4">
+              <div className="col-lg-2 col-md-4 col-sm-6">
+                <div className="footer-widget widget widget_link">
+                  <h4 className="widget-title">การเชื่อมโยง</h4>
+                  <ul className="pe-4">
                     <li>
                       <a href="blog.html">ข่าวสาร และ บทความ</a>
                     </li>
@@ -104,10 +104,10 @@ const Footer = () => {
                   </ul>
                 </div>
               </div>
-              <div class="col-lg-2 col-md-4 col-sm-6">
-                <div class="footer-widget widget widget_link">
-                  <h4 class="widget-title">ช่วยเหลือ</h4>
-                  <ul class="pe-4">
+              <div className="col-lg-2 col-md-4 col-sm-6">
+                <div className="footer-widget widget widget_link">
+                  <h4 className="widget-title">ช่วยเหลือ</h4>
+                  <ul className="pe-4">
                     <li>
                       <a href="home.html">เอกสาร</a>
                     </li>
@@ -127,38 +127,38 @@ const Footer = () => {
           </div>
         </div>
         {/* <!--Footer bottom--> */}
-        <div class="container">
-          <div class="footer-bottom">
-            <div class="row">
-              <div class="col-xl-7 align-self-center">
-                <div class="d-md-flex align-items-center mb-4 mb-xl-0">
-                  <div class="logo d-inline-block">
+        <div className="container">
+          <div className="footer-bottom">
+            <div className="row">
+              <div className="col-xl-7 align-self-center">
+                <div className="d-md-flex align-items-center mb-4 mb-xl-0">
+                  <div className="logo d-inline-block">
                     <img src="assets/img/logo.png" alt="img" />
                   </div>
-                  <div class="copyright-area">
+                  <div className="copyright-area">
                     <p>© 2021 - อดิเรก. All Rights Reserved</p>
                   </div>
                 </div>
               </div>
-              <div class="col-xl-5 align-self-center text-xl-end">
-                <ul class="social-area d-inline-block">
+              <div className="col-xl-5 align-self-center text-xl-end">
+                <ul className="social-area d-inline-block">
                   <li>
-                    <a class="active" href="#">
-                      <i class="fab fa-facebook-f"></i>
+                    <a className="active" href="#">
+                      <i className="fab fa-facebook-f"></i>
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fab fa-instagram"></i>
+                      <i className="fab fa-instagram"></i>
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fab fa-line"></i>
+                      <i className="fab fa-line"></i>
                     </a>
                   </li>
                 </ul>
-                <select class="single-select float-sm-end">
+                <select className="single-select float-sm-end">
                   <option>ภาษาไทย</option>
                   <option value="asc">English</option>
                 </select>
@@ -171,9 +171,9 @@ const Footer = () => {
       {/* <!-- footer area end --> */}
 
       {/* <!-- back-to-top end --> */}
-      <div class="back-to-top">
-        <span class="back-top">
-          <i class="fas fa-angle-double-up"></i>
+      <div className="back-to-top">
+        <span className="back-top">
+          <i className="fas fa-angle-double-up"></i>
         </span>
       </div>
       <script src="../../assets/js/jquery.3.6.min.js"></script>

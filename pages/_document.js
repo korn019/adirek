@@ -1,9 +1,19 @@
-import { Html, Head, Main, NextScript } from "next/document";
+import {Html, Head, Main, NextScript} from "next/document";
 
 export default function Document() {
   return (
     <Html>
-      <Head/>
+      <Head>
+        <link rel="stylesheet" href="../assets/css/animate.min.css" />
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../assets/css/magnific.min.css" />
+        <link rel="stylesheet" href="../assets/css/nice-select.min.css" />
+        <link rel="stylesheet" href="../assets/css/owl.min.css" />
+        <link rel="stylesheet" href="../assets/css/slick-slide.min.css" />
+        <link rel="stylesheet" href="../assets/css/fontawesome.min.css" />
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/responsive.css" />
+      </Head>
       <body>
         <Main />
         <NextScript />
