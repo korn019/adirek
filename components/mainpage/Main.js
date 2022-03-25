@@ -1,3 +1,4 @@
+import Course from "../course/Course";
 import LandingScreen from "./LandingScreen";
 import SlideCourse from "./SlideCourse";
 
@@ -6,6 +7,7 @@ const Main = () => {
     <>
       <LandingScreen />
       <SlideCourse />
+      <Course />
     </>
   );
 };
