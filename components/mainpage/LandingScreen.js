@@ -7,17 +7,17 @@ const LandingScreen = () => {
         </video>
         <div class="video-quote text-center">
           <p
-            style="
-            color: white;
-            font-size: clamp(3rem, 6vw, 5rem);
-            line-height: 0.9;
-            font-weight: 900;
-            letter-spacing: -0.025em;
-            margin-top: 1em;
-          ">
+            style={{
+              color: white,
+              fontSize: "clamp(3rem, 6vw, 5rem)",
+              lineHeight: 0.9,
+              fontWeight: 900,
+              letterSpacing: "-0.025em",
+              marginTop: "1em",
+            }}>
             เปิดประตู "สู่การเรียนรู้" ให้ทุกวันคือการสร้างโอกาสใหม่
           </p>
-          <a class="btn btn-base" href="category.html" style="font-size: clamp(2rem, 8vw, 1.2rem); margin-top: 20px">
+          <a class="btn btn-base" href="category.html" style={{fontSize: "clamp(2rem, 8vw, 1.2rem)", marginTop: 20}}>
             ค้นหาคอร์สเรียนออนไลน์
           </a>
         </div>
