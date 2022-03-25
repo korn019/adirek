@@ -1,4 +1,4 @@
-const Test = () => {
+const Header = () => {
   return (
     <div>
       {" "}
