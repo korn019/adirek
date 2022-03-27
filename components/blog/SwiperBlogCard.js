@@ -1,11 +1,10 @@
 import React, {seState, useEffect} from "react"
 import {Swiper, SwiperSlide} from "swiper/react"
 import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
+import BlogCard from "./BlogCard"
 
-import SingleCourse from "./SingleCourse"
 
-const SwiperCourse = ({Filter}) => {
-  
+const SwiperBlogCard = ({Article}) => {
   return (
     <>
       <Swiper
@@ -13,13 +12,10 @@ const SwiperCourse = ({Filter}) => {
           nextEl: ".swiper-next",
           prevEl: ".swiper-prev",
         }}
-        modules={[Navigation, Autoplay, Pagination]}
+        modules={[Navigation, Autoplay]}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
-        }}
-        pagination={{
-          dynamicBullets: true,
         }}
         loop={true}
         slidesPerView={4}
@@ -55,21 +51,21 @@ const SwiperCourse = ({Filter}) => {
           },
         }}>
         <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1 px-5">
-          {Filter.map((d, id) => (
+          {Article.map((d, id) => (
             <SwiperSlide key={id}>
-              <SingleCourse course={d} />
+              <BlogCard article={d} />
             </SwiperSlide>
           ))}
         </div>
       </Swiper>
       <div className="swiper-prev cursor-pointer">
-        <div className="duration-500 w-[35px] bg-white/[.8] hover:bg-orange-400  shadow-xl flex justify-center items-center rounded-3xl  absolute z-50 top-[11rem] left-0 md:left-1">
+        <div className="duration-500 w-[35px] bg-white/[.8] hover:bg-orange-400  shadow-xl flex justify-center items-center rounded-3xl  absolute z-50 top-[11rem] left-0 md:-left-5">
           <p style={{fontSize: 22}}> &#x276E; </p>
         </div>
       </div>
 
       <div className="swiper-next cursor-pointer">
-        <div className="duration-500 bg-white/[.8] w-[35px] hover:bg-orange-400 shadow-md flex justify-center items-center rounded-3xl  absolute z-50 top-[11rem] right-0 md:right-1">
+        <div className="duration-500 bg-white/[.8] w-[35px] hover:bg-orange-400 shadow-md flex justify-center items-center rounded-3xl  absolute z-50 top-[11rem] right-0 md:-right-5">
           <p style={{fontSize: 22}}> &#x276F; </p>
         </div>
       </div>
@@ -77,4 +73,4 @@ const SwiperCourse = ({Filter}) => {
   )
 }
 
-export default SwiperCourse
+export default SwiperBlogCard

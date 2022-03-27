@@ -1,7 +1,6 @@
 const SingleCourse = ({course}) => {
-  console.log(course.รูปถ่าย)
   return (
-    <div className="item" key={course} style={{}}>
+    <div className="item" style={{}}>
       <div className="single-course-wrap  hover:border-2 hover:border-[#006fff]">
         <div className="thumb w-full h-full">
           <img

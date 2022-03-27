@@ -13,6 +13,7 @@ module.exports = {
         body: ["DBHeaventRounded"],
         text: ["DBGinSiamX", "Georgia"],
         textBold: ["DBGinSiamXBd", "Georgia"],
+        Poppins: ["Poppins"],
       },
       fontSize: {
         fsm: `clamp(0.83rem, 0.54vw + 0.62rem, 1rem)`,
@@ -26,11 +27,11 @@ module.exports = {
         f5xl: "3rem",
         f6xl: "4rem",
         f7xl: "5rem",
-      }, 
+      },
       animation: {
-        'youtubeSlide': 'youtubeSlide 4s infinite alternate',
-         'color-animation': 'color-animation 5s linear infinite'
-      }
+        youtubeSlide: "youtubeSlide 4s infinite alternate",
+        "color-animation": "color-animation 5s linear infinite",
+      },
     },
   },
   plugins: [],

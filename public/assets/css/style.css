@@ -40,6 +40,7 @@ Version: 1.0.1
 
 --------------------------------------------------------------*/
 @import url("https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 :root {
   --body-font-size: 16px;
@@ -4020,7 +4021,7 @@ ul {
   transition: 0.5s;
   position: relative;
   border-radius: 8px;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 .single-course-wrap:hover {
   box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.08);
@@ -6605,10 +6606,32 @@ button:hover:after {
 .youtube {
   animation: youtubeSlide 4s infinite alternate;
 }
-@keyframes youtubeSlide{
-  from{
-      transform: translateX(0);
-  }to {
-     transform: translateX(40px);
+@keyframes youtubeSlide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(40px);
+  }
+}
+.single-testimonial-wrap {
+  box-shadow: 0px 10px 20px 3px rgba(0, 0, 0, 0.2);
+}
+
+.bg-testimonal {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

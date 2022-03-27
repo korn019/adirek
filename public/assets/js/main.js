@@ -194,26 +194,26 @@
     })
 
     /**client-slider**/
-    $(".client-slider").owlCarousel({
-      loop: true,
-      margin: 30,
-      nav: true,
-      dots: true,
-      smartSpeed: 1500,
-      navText: [leftAngle, rightAngle],
-      responsive: {
-        0: {
-          items: 2,
-        },
-        767: {
-          items: 4,
-          margin: 20,
-        },
-        1300: {
-          items: 6,
-        },
-      },
-    })
+    // $(".client-slider").owlCarousel({
+    //   loop: true,
+    //   margin: 30,
+    //   nav: true,
+    //   dots: true,
+    //   smartSpeed: 1500,
+    //   navText: [leftAngle, rightAngle],
+    //   responsive: {
+    //     0: {
+    //       items: 2,
+    //     },
+    //     767: {
+    //       items: 4,
+    //       margin: 20,
+    //     },
+    //     1300: {
+    //       items: 6,
+    //     },
+    //   },
+    // })
 
     /**lesson-slider**/
     $(".lesson-slider").owlCarousel({

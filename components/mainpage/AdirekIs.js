@@ -1,4 +1,8 @@
+import {useState, useEffect} from "react"
+
 const AdirekIs = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <>
       <section className="text-gray-700 body-font -mt-36">
@@ -110,41 +114,41 @@ const AdirekIs = () => {
       </section> */}
 
       <section className="relative  bg-blueGray-50 ">
-        <div className="items-center flex flex-wrap">
-          <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
+        <div className="items-center  flex-wrap grid grid-cols-1 lg:grid-cols-2">
+          <div className="w-full xl:w-9/12 ml-auto mr-auto px-4">
             <iframe
               src="https://www.youtube.com/embed/I9TCLKlMzpc"
-              frameborder="0"
-              allowfullscreen
-              className="animate-none md:animate-[youtubeSlide_4s_infinite_alternate] aspect-video  w-full h-full  rounded-lg "></iframe>
+              frameBorder="0"
+              allowFullScreen
+              className="animate-none xl:animate-[youtubeSlide_4s_infinite_alternate] aspect-video  w-full h-full  rounded-lg "></iframe>
           </div>
-          <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
+          <div className="w-full  ml-auto mr-auto px-4">
             <div className="md:pr-12">
               <h3 className="mb-6  mt-8 text-3xl font-title text-f2xl md:text-fxl lg:text-f3xl title-word-3 title-word-2 animate-[color-animation_3s_linear_infinite]">
                 ติดอาวุธทางความรู้ไปกับอดิเรก
               </h3>
-              <p className="mt-4 text-lg leading-relaxed text-grey-500">
+              <p className="mt-4 indent-5 text-lg leading-relaxed text-grey-500">
                 หากคุณคือคนหนึ่งที่ต้องการเรียนรู้สิ่งใหม่ๆหรือเพิ่มทักษะที่น่าสนใจเราคือชุมชนที่รวบรวมผู้สอนที่มีความรู้ความสามารถและประสบการณ์ในสาขาต่างๆที่พร้อมจะถ่ายทอดองค์ความรู้และประสบการณ์ให้กับคุณ
               </p>
-              <p className="lead text-content-justify mt-4 text-lg leading-relaxed !text-grey-500">
-                เปิดโอกาสให้คุณได้พบเจอกับผู้สอนที่ดีที่สุดและตรงใจที่สุดสามารถเลือกสไตล์การสอนให้หมาะกับสไการเรียนของคุณ
-                ทุกเรื่องที่คุณสนใจ ทุกทักษะที่คุณตามหา พร้อมสื่อสารกันโดยตรง ไม่ผ่านคนกลาง
-                สามารถกำหนดวัน เวลา สถานที่
-                รวมทั้งสามารถเลือกรูปแบบผู้สอนที่ผู้ยนต้องการได้อย่างอิสระ ยังไม่รวมพีเจอร์อื่น ๆ
-                อีกมากมายที่จะทำให้การเรียนรู้ของคุณเกิดขึ้นได้ทุกที่ ทุกเวลา
-                การันตีได้ผลจริงพร้อมช่วยสร้างความมั่นใจและความก้าวหน้าให้กับคุณได้ง่าย ๆ ไปกับ
-                อดิเรกหากคุณคือคนหนึ่งที่ต้องการเรียนรู้สิ่งใหม่ๆหรือเพิ่มทักษะที่น่าสนใจเราคือชุมชนที่รวบรวมผู้สอนที่มีความรู้ความสามารถและประสบการณ์ในสาขาต่างๆที่พร้อมจะถ่ายทอดองค์ความรู้และประสบการณ์ให้กับคุณ
+              <p className=" indent-5  mt-4 text-lg leading-relaxed !text-grey-500">
+                เปิดโอกาสให้คุณได้พบเจอกับผู้สอนที่ดีที่สุดและตรงใจที่สุด
+                สามารถเลือกสไตล์การสอนให้เหมาะกับสไตล์การเรียนของคุณทุกเรื่องที่คุณสนใจ
+                ทุกทักษะที่คุณตามหา พร้อมสื่อสารกันโดยตรง ไม่ผ่านคนกลาง สามารถกำหนดวัน เวลา สถานที่
+                รวมทั้งสามารถเลือกรูปแบบผู้สอนที่ผู้เรียนต้องการได้อย่างอิสระ
+              </p>
+              <p className=" indent-5  mt-4 text-lg leading-relaxed !text-grey-500">
+                หากคุณคือคนหนึ่งที่ต้องการเรียนรู้สิ่งใหม่ๆหรือเพิ่มทักษะที่น่าสนใจเราคือชุมชนที่รวบรวมผู้สอนที่มีความรู้ความสามารถและประสบการณ์ในสาขาต่างๆที่พร้อมจะถ่ายทอดองค์ความรู้และประสบการณ์ให้กับคุณ
               </p>
               <ul className="list-none mt-6">
                 <li className="py-2">
                   <div className="flex items-center">
                     <div>
                       <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
-                        <i className="fas fa-fingerprint"></i>
+                        {/* <i className="fas fa-fingerprint"></i> */}
                       </span>
                     </div>
                     <div>
-                      <h4 className="text-blueGray-500">Carefully crafted components</h4>
+                      <h4 className="text-blueGray-500">ทุกการเรียนรู้ เริ่มต้นที่ อดิเรก</h4>
                     </div>
                   </div>
                 </li>
@@ -152,11 +156,13 @@ const AdirekIs = () => {
                   <div className="flex items-center">
                     <div>
                       <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
-                        <i className="fab fa-html5"></i>
+                        {/* <i className="fab fa-html5"></i> */}
                       </span>
                     </div>
                     <div>
-                      <h4 className="text-blueGray-500">Amazing page examples</h4>
+                      <h4 className="text-blueGray-500">
+                        อดิเรก จุดเริ่มต้นของสังคมแห่งการเรียนรู้ไม่มีที่สิ้นสุด
+                      </h4>
                     </div>
                   </div>
                 </li>
@@ -164,11 +170,28 @@ const AdirekIs = () => {
                   <div className="flex items-center">
                     <div>
                       <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
-                        <i className="far fa-paper-plane"></i>
+                        {/* <i className="far fa-paper-plane"></i> */}
                       </span>
                     </div>
                     <div>
-                      <h4 className="text-blueGray-500">Dynamic components</h4>
+                      <h4 className="text-blueGray-500">
+                        อดิเรก เราเปิดประตสู่ทุกการเรียนรู้ ให้ทุกวันคือการสร้างโอกาสใหม่สำหรับคณ
+                      </h4>
+                    </div>
+                  </div>
+                </li>
+                <li className="py-2">
+                  <div className="flex items-center">
+                    <div>
+                      <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
+                        {/* <i className="far fa-paper-plane"></i> */}
+                      </span>
+                    </div>
+                    <div>
+                      <h4 className="text-blueGray-500">
+                        อดิเรก
+                        ประตูสู่การเรียนรู้ทุกเรื่องที่คุณสนใจและช่องท่างที่จะเปลี่ยนงานอดิเรกของคุณให้เป็นรายได้
+                      </h4>
                     </div>
                   </div>
                 </li>
@@ -180,7 +203,7 @@ const AdirekIs = () => {
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap items-center md:justify-between justify-center">
               <div className="w-full md:w-6/12 px-4 mx-auto text-center">
-                <div className="text-sm text-blueGray-500 font-semibold py-1">
+                {/* <div className="text-sm text-blueGray-500 font-semibold py-1">
                   Made with{" "}
                   <a
                     href="https://www.creative-tim.com/product/notus-js"
@@ -197,117 +220,11 @@ const AdirekIs = () => {
                     Creative Tim
                   </a>
                   .
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
         </footer>
-      </section>
-
-      <section className="bg-black">
-        <div className="h-32"></div>
-        <div className="relative bg-gray-50 text-black-500 pt-8 pb-6">
-          <div
-            className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
-            style={{height: 80}}>
-            <svg
-              className="absolute bottom-0 overflow-hidden"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-              version="1.1"
-              viewBox="0 0 2560 100"
-              x="0"
-              y="0">
-              <polygon
-                className="text-gray-50 fill-current"
-                points="2560 0 2560 100 0 100"></polygon>
-            </svg>
-          </div>
-
-          <section className="pt-6 pb-4 md:pb-12 ">
-            <div className="mx-auto px-4">
-              <div className="flex flex-wrap justify-center text-center mb-12">
-                <div className="w-full lg:w-6/12 px-4">
-                  <h4 className="text-f3xl md:text-7xl text-black-500 font-title ">
-                    ข้อดีของการเป็น Partner กับเรา
-                  </h4>
-                </div>
-              </div>
-              <div className="flex flex-wrap justify-center text-center ">
-                <div className="w-full md:w-1/2 lg:w-1/3 lg:mb-0 mb-12 px-4">
-                  <div className="px-6">
-                    {" "}
-                    <div className="single-intro-wrap-2  items-center max-w-full mx-auto">
-                      <div className="justify-center items-center flex">
-                        <img src="assets/img/intro/01.png" alt="img" />
-                      </div>
-                      <div className="wrap-details">
-                        <h4 className="fs-4 text-black">
-                          <a href="#">ข้อดีของการเป็น Partner กับเรา</a>
-                        </h4>
-                        <p className="text-black">
-                          การันตีได้ผลจริงพร้อมช่วยสร้างความมั่นใจและความก้าวหน้าให้กับคุณได้ง่าย
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="w-full md:w-1/2 lg:w-1/3 lg:mb-0 mb-12 px-4">
-                  <div className="px-6">
-                    {" "}
-                    <div className="single-intro-wrap-2  items-center max-w-full mx-auto">
-                      <div className="justify-center items-center flex">
-                        <img src="assets/img/intro/02.png" className="" alt="img" />
-                      </div>
-                      <div className="wrap-details">
-                        <h4 className="fs-4 text-black">
-                          <a href="#">การสร้างโอกาส</a>
-                        </h4>
-                        <p className="text-black">
-                          ทุกเรื่องที่คุณสนใจ และช่องทางที่จะเปลี่ยนงานอดิเรกของคุณให้เป็นรายได้
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="w-full md:w-1/2 lg:w-1/3 lg:mb-0 mb-12 px-4">
-                  <div className="px-6">
-                    {" "}
-                    <div className="single-intro-wrap-2  items-center max-w-full mx-auto">
-                      <div className="justify-center items-center flex">
-                        <img src="assets/img/intro/03.png" className="" alt="img" />
-                      </div>
-                      <div className="wrap-details">
-                        <h4 className="fs-4 text-black">
-                          <a href="#">การเป็นที่รู้จักเข้าถึงกลุ่มเป้าหมายและผลลัพธ์</a>
-                        </h4>
-                        <p className="text-black">
-                          จุดเริ่มต้นของสังคมแห่งการเรียนรู้ไม่มีที่สิ้นสุด
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <hr className="my-6 border-gray-400" />
-          <div className="flex flex-wrap items-center md:justify-between justify-center">
-            <div className="w-full md:w-4/12 px-4 mx-auto text-center">
-              <div className="text-sm text-gray-600 font-semibold py-1">
-                <a
-                  href="https://github.com/ahampriyanshu"
-                  className="text-gray-600 hover:text-gray-900 font-title text-flg">
-                  <span className="title-word title-word-1">อ</span>
-                  <span className="title-word title-word-2">ดิ</span>
-                  <span className="title-word title-word-3">เ</span>
-                  <span className="title-word title-word-4">ร</span>
-                  <span className="title-word title-word-3">ก</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
     </>
   )

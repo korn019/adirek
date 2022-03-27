@@ -4,7 +4,6 @@ import {Swiper, SwiperSlide} from "swiper/react"
 import SingleCourse from "./SingleCourse"
 import SwiperCourse from "./SwiperCourse"
 
-SwiperCore.use([Navigation])
 
 const Course = () => {
   const [data, setData] = useState([])

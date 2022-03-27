@@ -1,5 +1,5 @@
-import Header from "./partial/Header";
-import Footer from "./partial/Footer";
+import Header from "./partial/Header"
+import Footer from "./partial/Footer"
 export default function Layout({children}) {
   return (
     <>
@@ -7,5 +7,5 @@ export default function Layout({children}) {
       {children}
       <Footer />
     </>
-  );
+  )
 }

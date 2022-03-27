@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 const Header = () => {
   return (
     <>
@@ -28,9 +30,11 @@ const Header = () => {
               </button>
             </div>
             <div className="logo">
-              <a className="main-logo" href="index.html">
-                <img src="assets/img/logo.png" alt="img" />
-              </a>
+              <Link href="/">
+                <a className="main-logo">
+                  <img src="/assets/img/logo.png" alt="img" />
+                </a>
+              </Link>
             </div>
             <div className="nav-right-part nav-right-part-mobile">
               <ul>
@@ -41,7 +45,6 @@ const Header = () => {
                 </li>
               </ul>
             </div>
-            s
             <div className="collapse navbar-collapse" id="themefie_main_menu">
               <div className="single-input-wrap">
                 <input type="text" placeholder="ค้นหาหลักสูตร..." />
@@ -54,7 +57,9 @@ const Header = () => {
                   <a href="category.html">หลักสูตรคอร์สเรียนทั้งหมด</a>
                 </li>
                 <li className="menu-item">
-                  <a href="blog.html">บทความและข่าวสาร</a>
+                  <Link href="Blog">
+                    <a>บทความและข่าวสาร</a>
+                  </Link>
                 </li>
                 <li className="menu-item">
                   <a href="instructor.html">มาร่วมสอนกับเรา</a>
@@ -143,7 +148,7 @@ const Header = () => {
         </nav>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
