@@ -1,13 +1,25 @@
 import BreadcrumbPage from "../../components/BreadcrumbPage"
 import Layout from "../../components/Layout"
-import {useRouter} from "next/router"
+import {useState, useEffect} from "react"
+
 const BlogContent = () => {
-  const router = useRouter()
-  const {article} = router.query
-  console.log(article)
+  const [view, setView] = useState()
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const inspiration = localStorage.getItem("@inspirationViewCountView")
+      setView(inspiration)
+    }
+  }, [])
+
   return (
     <Layout>
-      <BreadcrumbPage title="การสร้างแรงบันดาลใจในที่ทำงาน" />
+      <BreadcrumbPage
+        title="การสร้างแรงบันดาลใจในที่ทำงาน"
+        bread1="บทความ"
+        href1="/Blog"
+        breadActive="การสร้างแรงบันดาลใจในที่ทำงาน"
+        hrefActive=""
+      />
       <section className="area-blog">
         <div className="container align-items-center">
           <div className="row ">
@@ -19,7 +31,7 @@ const BlogContent = () => {
                     <li>22 มีนาคม 2022</li>
                     <li>
                       {" "}
-                      <i className="fas fa-eye"></i> <span id="Pefection"></span> view
+                      <i className="fas fa-eye"></i> <span id="Pefection"></span> {view} view
                     </li>
                     <li>
                       <i className="fas fa-share-square  text-[#808080d9] text-[19px]"> </i>
@@ -34,7 +46,7 @@ const BlogContent = () => {
                 </div>
               </div>
               <div className="article-image">
-                <img src="/assets/img/blog/perfectionist.jpg" alt="image" className="w-100" />
+                <img src="/assets/img/blog/inspiration.jpg" alt="image" className="w-100" />
               </div>
               <div className="article-content ">
                 <h2 className="font-title text-f3xl">การสร้างแรงบันดาลใจในที่ทำงาน</h2>

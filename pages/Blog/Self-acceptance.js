@@ -1,13 +1,24 @@
 import BreadcrumbPage from "../../components/BreadcrumbPage"
 import Layout from "../../components/Layout"
-import {useRouter} from "next/router"
-const BlogContent = () => {
-  const router = useRouter()
-  const {article} = router.query
+import {useState, useEffect} from "react"
 
+const BlogContent = () => {
+  const [view, setView] = useState()
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const Acceptance = localStorage.getItem("@AcceptanceCountView")
+      setView(Acceptance)
+    }
+  }, [])
   return (
     <Layout>
-      <BreadcrumbPage title="การยอมรับตนเอง self-acceptance" />
+      <BreadcrumbPage
+        title="การยอมรับตนเอง self-acceptance"
+        bread1="บทความ"
+        href1="/Blog"
+        breadActive="การยอมรับตนเอง self-acceptance"
+        hrefActive=""
+      />
       <section className="area-blog">
         <div className="container align-items-center">
           <div className="row ">
@@ -19,7 +30,7 @@ const BlogContent = () => {
                     <li>22 มีนาคม 2022</li>
                     <li>
                       {" "}
-                      <i className="fas fa-eye"></i> <span id="Pefection"></span> view
+                      <i className="fas fa-eye"></i> <span id="Pefection"></span> {view} view
                     </li>
                     <li>
                       <i className="fas fa-share-square  text-[#808080d9] text-[19px]"> </i>

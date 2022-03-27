@@ -4,7 +4,15 @@ import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
 import BlogCard from "./BlogCard"
 
 
-const SwiperBlogCard = ({Article}) => {
+const SwiperBlogCard = ({
+  Article,
+  setPerfectionistView,
+  perfectionistView,
+  setAcceptanceView,
+  acceptanceView,
+  setInspirationView,
+  inspirationView,
+}) => {
   return (
     <>
       <Swiper
@@ -14,7 +22,7 @@ const SwiperBlogCard = ({Article}) => {
         }}
         modules={[Navigation, Autoplay]}
         autoplay={{
-          delay: 2500,
+          delay: 10000,
           disableOnInteraction: false,
         }}
         loop={true}
@@ -53,7 +61,15 @@ const SwiperBlogCard = ({Article}) => {
         <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1 px-5">
           {Article.map((d, id) => (
             <SwiperSlide key={id}>
-              <BlogCard article={d} />
+              <BlogCard
+                article={d}
+                setPerfectionistView={setPerfectionistView}
+                perfectionistView={perfectionistView}
+                setAcceptanceView={setAcceptanceView}
+                acceptanceView={acceptanceView}
+                setInspirationView={setInspirationView}
+                inspirationView={inspirationView}
+              />
             </SwiperSlide>
           ))}
         </div>

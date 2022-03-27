@@ -54,7 +54,9 @@ const Header = () => {
               </div>
               <ul className="navbar-nav menu-open text-end">
                 <li className="menu-item">
-                  <a href="category.html">หลักสูตรคอร์สเรียนทั้งหมด</a>
+                  <Link href="Category">
+                    <a>หลักสูตรคอร์สเรียนทั้งหมด</a>
+                  </Link>
                 </li>
                 <li className="menu-item">
                   <Link href="Blog">

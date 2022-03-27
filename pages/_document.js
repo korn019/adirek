@@ -14,6 +14,10 @@ export default function Document() {
         <link rel="stylesheet" href="../assets/css/style.css" />
         <link rel="stylesheet" href="../assets/sass/style.scss" />
         <link rel="stylesheet" href="../assets/css/responsive.css" />
+        <link
+          rel="stylesheet"
+          href="../assets/jquery.Thailand.js/dist/jquery.Thailand.min.css"/>
+
       </Head>
       <body className="sc5">
         <Main />

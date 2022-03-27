@@ -190,8 +190,17 @@ const Footer = () => {
       <script src="../../assets/js/slick-slider.min.js"></script>
       <script src="../../assets/js/wow.min.js"></script>
       <script src="../../assets/js/main.js"></script>
+      <script
+        type="text/javascript"
+        src="../../assets/jquery.Thailand.js/dependencies/JQL.min.js"></script>
+      <script
+        type="text/javascript"
+        src="../../assets/jquery.Thailand.js/dependencies/typeahead.bundle.js"></script>
+      <script
+        type="text/javascript"
+        src="../../assets/jquery.Thailand.js/dist/jquery.Thailand.min.js"></script>
     </>
-  );
+  )
 };
 
 export default Footer;

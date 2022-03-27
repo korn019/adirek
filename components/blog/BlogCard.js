@@ -1,17 +1,74 @@
-import Link from 'next/link'
-import { useState } from 'react'
-const BlogCard = ({article}) => {
-   const [mainURL, setMainURL] = useState({name: ""})
-   const handleClick = () => {
-     window.location.href = `/Blog/${article.url}`
-   }
+import Link from "next/link"
+import {useRouter} from "next/router"
+import {useState} from "react"
+const BlogCard = ({
+  article,
+  setPerfectionistView,
+  perfectionistView,
+  setAcceptanceView,
+  acceptanceView,
+  setInspirationView,
+  inspirationView,
+}) => {
+  const router = useRouter()
+  const CountView = () => {
+    if (typeof window !== "undefined") {
+      if (article.url == "Perfectionist") {
+        var xhr = new XMLHttpRequest()
+        xhr.open(
+          "GET",
+          "https://api.countapi.xyz/hit/adirek-nextjs.herokuapp.comBlogPerfectionist/awesomeclick"
+        )
+        xhr.responseType = "json"
+        xhr.onload = function () {
+          localStorage.setItem("@PerfectionistCountView", this.response.value)
+          router.push(`/Blog/${article.url}`)
+        }
+        xhr.send()
+      } else if (article.url == "Inspiration") {
+        var xhr = new XMLHttpRequest()
+        xhr.open(
+          "GET",
+          "https://api.countapi.xyz/hit/adirek-nextjs.herokuapp.comBlogInspiration/awesomeclick"
+        )
+        xhr.responseType = "json"
+        xhr.onload = function () {
+          localStorage.setItem("@inspirationViewCountView", this.response.value)
+          router.push(`/Blog/${article.url}`)
+        }
+        xhr.send()
+      } else if (article.url == "Self-acceptance") {
+        var xhr = new XMLHttpRequest()
+        xhr.open(
+          "GET",
+          "https://api.countapi.xyz/hit/adirek-nextjs.herokuapp.comBlogSelf-acceptance/awesomeclick"
+        )
+        xhr.responseType = "json"
+        xhr.onload = function () {
+          localStorage.setItem("@AcceptanceCountView", this.response.value)
+          console.log(this.response.value)
+          router.push(`/Blog/${article.url}`)
+        }
+        xhr.send()
+      }
+    }
+  }
+
   return (
     <>
-      <section className="text-gray-700 body-font group" onClick={handleClick}>
+      <section className="text-gray-700 body-font group">
         <div className="h-full  group-hover:border-none border-2 border-gray-200 rounded-lg overflow-hidden hover:shadow-lg duration-500">
           <div class="w-full h-full">
             <div class=" group-hover:scale-105 group-hover:ease-in group-hover:duration-500">
-              <img className=" w-full object-cover object-center " src={article.img} alt="blog" />
+              <Link href=''>
+                <a onClick={CountView}>
+                  <img
+                    className=" w-full object-cover object-center "
+                    src={article.img}
+                    alt="blog"
+                  />
+                </a>
+              </Link>
             </div>
           </div>
           <div className="p-6 group-hover:bg-white group-hover:duration-500 group-hover:shadow-[0_2px_48px_0_rgba(0,0,0,0.08)]">
@@ -19,8 +76,8 @@ const BlogCard = ({article}) => {
               {article.date}
             </h2>
             <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-              <Link href={`/Blog/${article.url}`}>
-                <a>{article.title}</a>
+              <Link href="">
+                <a onClick={CountView}>{article.title}</a>
               </Link>
             </h1>
             <p className="leading-relaxed mb-3 truncate">{article.subtitle}</p>

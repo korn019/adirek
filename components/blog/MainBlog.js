@@ -1,10 +1,25 @@
+import {useState, useEffect} from "react"
 import BlogCard from "./BlogCard"
 import SwiperBlogCard from "./SwiperBlogCard"
 
 const MainBlog = () => {
+
   
-
-
+  const [perfectionistView, setPerfectionistView] = useState(0)
+  const [acceptanceView, setAcceptanceView] = useState(0)
+  const [inspirationView, setInspirationView] = useState(0)
+  
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const perfection = localStorage.getItem("@PerfectionistCountView")
+      const acceptance = localStorage.getItem("@AcceptanceCountView")
+      const inspiration = localStorage.getItem("@inspirationViewCountView")
+      setPerfectionistView(JSON.parse(perfection))
+      setInspirationView(JSON.parse(inspiration))
+      setAcceptanceView(JSON.parse(acceptance))
+    }
+  }, []);
+  
   const Article = [
     {
       id: 1,
@@ -13,7 +28,7 @@ const MainBlog = () => {
       subtitle:
         "เมื่อพูดถึงการที่ใครสักคนหนึ่งรักในความสมบูรณ์แบบ แน่นอนว่าสิ่งที่ผู้ฟังจินตนาการถึงมักเป็นผลงานที่ยอดเยี่ยมไร้ที่ติใช่ไหมคะ",
       img: "/assets/img/blog/perfectionist.jpg",
-      view: 5,
+      view: perfectionistView,
       comment: 3,
       date: "22 มีนาคม 2022",
     },
@@ -24,7 +39,7 @@ const MainBlog = () => {
       subtitle:
         "เราทราบกันดีว่ามนุษย์เป็นสิ่งมีชีวิตที่อยู่รวมกันเป็นสังคม ดังนั้นความต้องการได้รับการยอมรับนั้นจึงเป็นสัญชาตญาณพื้นฐานของมนุษย์เพื่อให้สามารถดำรงชีพอยู่ได้",
       img: "/assets/img/blog/self-acceptance.jpg",
-      view: 5,
+      view: acceptanceView,
       comment: 3,
       date: "22 มีนาคม 2022",
     },
@@ -36,7 +51,7 @@ const MainBlog = () => {
         "เราไม่อาจปฏิเสธได้ว่าในองค์กรหนึ่งนั้นต้องอาศัยความร่วมมือกันจากทีมงานอย่างมีประสิทธิภาพไม่ใช่เพียงตัวเราท่านั้น ที่ต้องการแรงบันดาลใจเพื่อที่จะดึงความสามารถที่มีอยู่ออกมาได้อย่างเต็มที่คนรอบข้างตัวเราเองก็ต้องการสิ่งนั้น เช่นเดียวกัน",
 
       img: "/assets/img/blog/inspiration.jpg",
-      view: 5,
+      view: inspirationView,
       comment: 3,
       date: "22 มีนาคม 2022",
     },
@@ -54,7 +69,15 @@ const MainBlog = () => {
           </div>
 
           <div className="relative">
-            <SwiperBlogCard Article={Article} />
+            <SwiperBlogCard
+              Article={Article}
+              setPerfectionistView={setPerfectionistView}
+              perfectionistView={perfectionistView}
+              setAcceptanceView={setAcceptanceView}
+              acceptanceView={acceptanceView}
+              setInspirationView={setInspirationView}
+              inspirationView={inspirationView}
+            />
           </div>
         </div>
       </section>

@@ -35,7 +35,9 @@ const Breadcrumb = ({bread1, bread2, breadActive, href1, href2, hrefActive}) => 
                 </svg>
               </span>
               <Link href={href1}>
-                <a className="text-gray-600 dark:text-gray-200 hover:underline">{bread1}</a>
+                <a className="text-gray-600 dark:text-gray-200 hover:underline font-title text-fmd">
+                  {bread1}
+                </a>
               </Link>
             </>
           ) : null}
@@ -56,7 +58,9 @@ const Breadcrumb = ({bread1, bread2, breadActive, href1, href2, hrefActive}) => 
                 </svg>
               </span>
               <Link href={href2}>
-                <a className="text-gray-600 dark:text-gray-200 hover:underline">{bread2}</a>
+                <a className="text-gray-600 dark:text-gray-200 hover:underline font-title text-fmd">
+                  {bread2}
+                </a>
               </Link>
             </>
           ) : null}
@@ -76,7 +80,10 @@ const Breadcrumb = ({bread1, bread2, breadActive, href1, href2, hrefActive}) => 
                 </svg>
               </span>
               <Link href={hrefActive}>
-                <a className="text-blue-600 dark:text-blue-400 hover:underline"> {breadActive}</a>
+                <a className="text-blue-600 dark:text-blue-400 hover:underline font-title text-fmd">
+                  {" "}
+                  {breadActive}
+                </a>
               </Link>
             </>
           ) : null}

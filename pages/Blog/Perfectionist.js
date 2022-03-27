@@ -1,13 +1,25 @@
 import BreadcrumbPage from "../../components/BreadcrumbPage"
 import Layout from "../../components/Layout"
 import {useRouter} from "next/router"
-const BlogContent = () => {
-  const router = useRouter()
-  const {article} = router.query
-  console.log(article)
+import {useState, useEffect} from "react"
+const Perfectionist = () => {
+  const [view, setView] = useState()
+ useEffect(() => {
+   if (typeof window !== "undefined") {
+     const perfection = localStorage.getItem("@PerfectionistCountView")
+     setView(perfection)
+   }
+ }, [])
+
   return (
     <Layout>
-      <BreadcrumbPage title="Perfectionist สาเหตุหนึ่งของซึมเศร้า" />
+      <BreadcrumbPage
+        title="Perfectionist สาเหตุหนึ่งของซึมเศร้า"
+        bread1="บทความ"
+        href1="/Blog"
+        breadActive=" Perfectionist สาเหตุหนึ่งของซึมเศร้า"
+        hrefActive=""
+      />
       <section className="area-blog">
         <div className="container align-items-center">
           <div className="row ">
@@ -19,7 +31,7 @@ const BlogContent = () => {
                     <li>22 มีนาคม 2022</li>
                     <li>
                       {" "}
-                      <i className="fas fa-eye"></i> <span id="Pefection"></span> view
+                      <i className="fas fa-eye"></i> <span id="Pefection"></span> {view} view
                     </li>
                     <li>
                       <i className="fas fa-share-square  text-[#808080d9] text-[19px]"> </i>
@@ -132,4 +144,4 @@ const BlogContent = () => {
   )
 }
 
-export default BlogContent
+export default Perfectionist
