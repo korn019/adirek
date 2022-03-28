@@ -426,20 +426,9 @@ const filterCheck = () => {
                                 </div>
                             </form>
                         </div>
-                        <div class="d-none d-md-block widget widget-select-inner">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 widget widget-select-inner">
                             <section class="justify-content-start align-items-start">
-                                <div class=" d-flex justify-content-center align-items-center"
-                                    style={{backgroundColor:'#bcbcbc',width:'70%',height:'400px'}}>
-                                    <div class="">
-                                        <h2>Banner Ads</h2>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                        <div class="d-block d-md-none widget widget-select-inner">
-                            <section class="justify-content-start align-items-start">
-                                <div class=" d-flex justify-content-center align-items-center"
-                                    style={{backgroundColor:'#bcbcbc',width:'70%',height:'200px'}}>
+                                <div class=" d-flex justify-content-center align-items-center w-full md:w-[100%] xl:w-[70%] h-[200px] md:h-[400px] bg-[#bcbcbc]">
                                     <div class="">
                                         <h2>Banner Ads</h2>
                                     </div>

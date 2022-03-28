@@ -54,21 +54,25 @@ const Header = () => {
               </div>
               <ul className="navbar-nav menu-open text-end">
                 <li className="menu-item">
-                  <Link href="Category">
+                  <Link href="/Category">
                     <a>หลักสูตรคอร์สเรียนทั้งหมด</a>
                   </Link>
                 </li>
                 <li className="menu-item">
-                  <Link href="Blog">
+                  <Link href="/Blog">
                     <a>บทความและข่าวสาร</a>
                   </Link>
                 </li>
                 <li className="menu-item">
-                  <a href="instructor.html">มาร่วมสอนกับเรา</a>
+                  <Link href="/Instructor">
+                    <a>มาร่วมสอนกับเรา</a>
+                  </Link>
                 </li>
 
                 <li className="current-menu-item menu-item">
-                  <a href="contact.html">ติดต่อเรา</a>
+                  <Link href="/Contact">
+                    <a>ติดต่อเรา</a>
+                  </Link>
                 </li>
               </ul>
             </div>

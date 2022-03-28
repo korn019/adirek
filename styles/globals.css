@@ -38,3 +38,7 @@
   font-family: "DBGinSiamXBd";
   src: url("/assets/fonts/DBGinSiamXBd.ttf");
 }
+
+.subtext {
+  @apply  indent-5 text-lg leading-loose text-[#000000bf] ;
+}

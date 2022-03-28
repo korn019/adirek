@@ -7,6 +7,7 @@ import SwiperCourse from "./SwiperCourse"
 
 const Course = () => {
   const [data, setData] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
   const getData = () => {
     fetch("../../assets/json/db.json", {
@@ -22,18 +23,20 @@ const Course = () => {
       .then(function (myJson) {
         // console.log(myJson);
         setData(myJson)
+        setIsLoading(true)
       })
   }
   const ID = data.forEach(function (e, i) {
     e["id"] = ++i
   })
-  const Filter = data.filter((x) => {
-    return x.filterCategory === "Web Design"
+  const Filter = data.map((x) => {
+    return x
   })
 
   useEffect(() => {
     getData()
   }, [])
+
 
   return (
     <>
@@ -46,9 +49,11 @@ const Course = () => {
               </div>
             </div>
 
-            <div className="relative px-4 md:px-6">
+            {isLoading ?
+             (<div className="relative px-4 md:px-6">
               <SwiperCourse Filter={Filter} />
-            </div>
+             </div>) : (<h1 className="font-title text-f3xl">กำลังโหลดข้อมูล....</h1>)}
+          
           </div>
         </div>
       </section>

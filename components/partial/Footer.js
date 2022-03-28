@@ -199,7 +199,9 @@ const Footer = () => {
       <script
         type="text/javascript"
         src="../../assets/jquery.Thailand.js/dist/jquery.Thailand.min.js"></script>
+        
     </>
+    
   )
 };
 
