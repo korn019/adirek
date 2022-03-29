@@ -58,8 +58,8 @@ const BlogCard = ({
     <>
       <section className="text-gray-700 body-font group">
         <div className="h-full  group-hover:border-none border-2 border-gray-200 rounded-lg overflow-hidden hover:shadow-lg duration-500">
-          <div class="w-full h-full">
-            <div class=" group-hover:scale-105 group-hover:ease-in group-hover:duration-500">
+          <div className="w-full h-full">
+            <div className=" group-hover:scale-105 group-hover:ease-in group-hover:duration-500">
               <Link href=''>
                 <a onClick={CountView}>
                   <img

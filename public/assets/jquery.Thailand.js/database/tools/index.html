@@ -24,7 +24,7 @@
 
 <body>
 
-    <div class="uk-container">
+    <div ="uk-container">
         
         <h1>Database Tools</h1>
         <p>
@@ -32,10 +32,10 @@
         </p>
 
         <form id="convert">
-            <div class="uk-margin">
+            <div ="uk-margin">
                 <h2>เลือกไฟล์ฐานข้อมูลต้นฉบับ</h2>
                 <input type="file" id="file" accept=".json">
-                <button class="uk-button uk-button-primary">เริ่ม</button>
+                <button ="uk-button uk-button-primary">เริ่ม</button>
             </div>
         </form>
         
@@ -171,16 +171,16 @@
         function logs(txt, status) {
             switch (status) {
                 case 'error':
-                    txt = '<span class="uk-text-danger">' + txt + '</span>';
+                    txt = '<span ="uk-text-danger">' + txt + '</span>';
                     break;
                 case 'warn':
-                    txt = '<span class="uk-text-warning">' + txt + '</span>';
+                    txt = '<span ="uk-text-warning">' + txt + '</span>';
                     break;
                 case 'success':
-                    txt = '<span class="uk-text-success">' + txt + '</span>';
+                    txt = '<span ="uk-text-success">' + txt + '</span>';
                     break;
                 case 'info':
-                    txt = '<span class="uk-text-primary">' + txt + '</span>';
+                    txt = '<span ="uk-text-primary">' + txt + '</span>';
                     break;
             }
             $('#logs').html('[' + new Date().toString().split(' ')[4] + '] ' + txt + '\r' + $('#logs').html());

@@ -110,12 +110,12 @@ const InstructorDetail = ({e}) => {
           <div className="space-y-1">
             <h1 className="font-title text-f3xl">หมวดหมู่:</h1>
             <div className="align-items-center justify-content-center bg-[#eaf0f6] border-b-2 border-gray-200 rounded-lg p-2">
-              <div class="ml-1 title text-black text-[32px]">
+              <div className="ml-1 title text-black text-[32px]">
                 {typeof e.ช่องทางการสอน == "undefined" ? "ไม่พบข้อมูล" : e.ช่องทางการสอน}{" "}
               </div>
             </div>
             <div className="align-items-center justify-content-center bg-[#eaf0f6] border-b-2 border-gray-200 rounded-lg p-2">
-              <div class="ml-1 title text-black text-[32px]">
+              <div className="ml-1 title text-black text-[32px]">
                 {typeof e.Category == "undefined" ? "ไม่พบข้อมูล" : e.Category}
               </div>
             </div>
@@ -191,13 +191,13 @@ const InstructorDetail = ({e}) => {
           <h1 className="title text-[#cf9b3b]">Review</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
             <ol className="list-decimal" style={{color:'#808191'}}>
-              <li class="subtext">
+              <li className="subtext">
                 สอนเข้าใจง่าย
               </li>
-              <li class="subtext">
+              <li className="subtext">
                 เนื้อหากระชับ ชัดเจน
               </li>
-              <li class="subtext">
+              <li className="subtext">
                 คุณครูน่ารัก
               </li>
             </ol>

@@ -58,11 +58,11 @@ const MainBlog = () => {
   ]
   return (
     <>
-      <section class="pd-top-135 pd-bottom-120">
-        <div class="container px-9">
-          <div class="row">
-            <div class="col-md-8">
-              <div class="section-title">
+      <section className="pd-top-135 pd-bottom-120">
+        <div className="container px-9">
+          <div className="row">
+            <div className="col-md-8">
+              <div className="section-title">
                 <h2>บทความ/ข่าวสาร</h2>
               </div>
             </div>
@@ -88,37 +88,37 @@ const MainBlog = () => {
 export default MainBlog
 
 {
-  /* <div class="blog-slider  owl-carousel ">
-            <div class="item">
-              <div class="single-course-wrap single-blog-post ">
-                <div class="thumb">
+  /* <div className="blog-slider  owl-carousel ">
+            <div className="item">
+              <div className="single-course-wrap single-blog-post ">
+                <div className="thumb">
                   <a href="javascript:;" onclick="PerfectionClick()">
                     <img src="assets/img/blog/perfectionist.jpg" alt="img" />
                   </a>
                 </div>
-                <div class="wrap-details wrap-details-details blog-post-content">
+                <div className="wrap-details wrap-details-details blog-post-content">
                   <h6>
-                    <a href="javascript:;" onclick="PerfectionClick()" class="cursor-pointer">
+                    <a href="javascript:;" onclick="PerfectionClick()" className="cursor-pointer">
                       Perfectionist สาเหตุหนึ่งของซึมเศร้า
                     </a>
                   </h6>
-                  <p class="text-[#000000BF]">
+                  <p className="text-[#000000BF]">
                     เมื่อพูดถึงการที่ใครสักคนหนึ่งรักในความสมบูรณ์แบบ
                     แน่นอนว่าสิ่งที่ผู้ฟังจินตนาการถึงมักเป็นผลงานที่ยอดเยี่ยมไร้ที่ติใช่ไหมคะ
                   </p>
-                  <div class="price-wrap">
-                    <div class="row align-items-center">
-                      <div class="col-6">
+                  <div className="price-wrap">
+                    <div className="row align-items-center">
+                      <div className="col-6">
                         <a href="#">By Admin</a>
                       </div>
-                      <div class="col-6 text-end">
-                        <div class="date">22 มีนาคม 2022</div>
+                      <div className="col-6 text-end">
+                        <div className="date">22 มีนาคม 2022</div>
                       </div>
-                      <div class="col-12 text-end ">
-                        <div class="d-flex  justify-content-end align-items-center ">
+                      <div className="col-12 text-end ">
+                        <div className="d-flex  justify-content-end align-items-center ">
                           <div>
                             {" "}
-                            <i class="fas fa-eye text-[#808080] text-[16px]"></i>
+                            <i className="fas fa-eye text-[#808080] text-[16px]"></i>
                           </div>
                           <div className="ml-1">
                             <span id="Pefection"></span> View
@@ -131,36 +131,36 @@ export default MainBlog
               </div>
             </div>
 
-            {/* <div class="item">
-                <div class="single-course-wrap single-blog-post">
-                  <div class="thumb">
+            {/* <div className="item">
+                <div className="single-course-wrap single-blog-post">
+                  <div className="thumb">
                     <a href="javascript:;" onclick="SelfAcceptClick()">
                       <img src="assets/img/blog/self-acceptance.jpg" alt="img" />
                     </a>
                   </div>
-                  <div class="wrap-details wrap-details-details blog-post-content">
+                  <div className="wrap-details wrap-details-details blog-post-content">
                     <h6>
                       <a href="javascript:;" onclick="SelfAcceptClick()">
                         การยอมรับตนเอง self-acceptance{" "}
                       </a>
                     </h6>
-                    <p class="" style="color:#000000BF;">
+                    <p className="" style="color:#000000BF;">
                       เราทราบกันดีว่ามนุษย์เป็นสิ่งมีชีวิตที่อยู่รวมกันเป็นสังคม
                       ดังนั้นความต้องการได้รับการยอมรับนั้นจึงเป็นสัญชาตญาณพื้นฐานของมนุษย์เพื่อให้สามารถดำรงชีพอยู่ได้{" "}
                     </p>
-                    <div class="price-wrap">
-                      <div class="row align-items-center">
-                        <div class="col-6">
+                    <div className="price-wrap">
+                      <div className="row align-items-center">
+                        <div className="col-6">
                           <a href="#">By Admin</a>
                         </div>
-                        <div class="col-6 text-end">
-                          <div class="date">22 มีนาคม 2022</div>
+                        <div className="col-6 text-end">
+                          <div className="date">22 มีนาคม 2022</div>
                         </div>
-                        <div class="col-12 text-end ">
-                          <div class="d-flex  justify-content-end align-items-center ">
+                        <div className="col-12 text-end ">
+                          <div className="d-flex  justify-content-end align-items-center ">
                             <div>
                               {" "}
-                              <i class="fas fa-eye" style="color:#808080;font-size:16px;"></i>
+                              <i className="fas fa-eye" style="color:#808080;font-size:16px;"></i>
                             </div>
                             <div style="margin-left:5px;">
                               {" "}
@@ -176,14 +176,14 @@ export default MainBlog
 }
 
 {
-  /* <div class="item">
-                <div class="single-course-wrap single-blog-post">
-                  <div class="thumb">
+  /* <div className="item">
+                <div className="single-course-wrap single-blog-post">
+                  <div className="thumb">
                     <a href="javascript:;" onclick="InspirationClick()">
                       <img src="assets/img/blog/inspiration.jpg" alt="img" />
                     </a>
                   </div>
-                  <div class="wrap-details wrap-details-details blog-post-content">
+                  <div className="wrap-details wrap-details-details blog-post-content">
                     <h6>
                       <a href="javascript:;" onclick="InspirationClick()">
                         การสร้างแรงบันดาลใจในที่ทำงาน
@@ -195,19 +195,19 @@ export default MainBlog
                       ที่ต้องการแรงบันดาลใจเพื่อที่จะดึงความสามารถที่มีอยู่ออกมาได้อย่างเต็มที่คนรอบข้าง
                       ตัวเราเองก็ต้องการสิ่งนั้น เช่นเดียวกัน
                     </p>
-                    <div class="price-wrap">
-                      <div class="row align-items-center">
-                        <div class="col-6">
+                    <div className="price-wrap">
+                      <div className="row align-items-center">
+                        <div className="col-6">
                           <a href="#">By Admin</a>
                         </div>
-                        <div class="col-6 text-end">
-                          <div class="date">22 มีนาคม 2022</div>
+                        <div className="col-6 text-end">
+                          <div className="date">22 มีนาคม 2022</div>
                         </div>
-                        <div class="col-12 text-end ">
-                          <div class="d-flex  justify-content-end align-items-center ">
+                        <div className="col-12 text-end ">
+                          <div className="d-flex  justify-content-end align-items-center ">
                             <div>
                               {" "}
-                              <i class="fas fa-eye" style="color:#808080;font-size:16px;"></i>
+                              <i className="fas fa-eye" style="color:#808080;font-size:16px;"></i>
                             </div>
                             <div style="margin-left:5px;">
                               {" "}

@@ -1,6 +1,5 @@
 import Link from "next/link"
 const SingleCourse = ({course,index}) => {
-  console.log(index+1)
   return (
     <div className="item h-[400px]">
       <div className="single-course-wrap  hover:border-2 hover:border-[#006fff]">

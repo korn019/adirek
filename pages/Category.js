@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 export default function Category() {
     return (
       <Layout>
-        <BreadcrumbPage title="หลักสูตรทั้งหมด" breadActive="หลักสูตรทั้งหมด" hrefActive="Blog" />
+        <BreadcrumbPage title="หลักสูตรทั้งหมด" breadActive="หลักสูตรทั้งหมด" hrefActive="/Category" />
         <MainCategory/>
       </Layout>
     )
