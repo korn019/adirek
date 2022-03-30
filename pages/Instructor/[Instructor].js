@@ -15,18 +15,17 @@ const Instructor = () => {
       },
     })
       .then(function (response) {
-        // console.log(response);
         return response.json()
       })
       .then(function (myJson) {
-        // console.log(myJson);
         setData(myJson)
       })
   }
+  // สร้าง Id ใน JSON
   const Id = data.forEach(function (e, i) {
-    return i
+    e["id"] = i
   })
-  console.log(Id)
+
   const Filter = data.filter((x) => {
     return x.filterCategory === "Web Design"
   })
@@ -34,19 +33,17 @@ const Instructor = () => {
   useEffect(() => {
     getData()
   }, [])
-  console.log(data)
   return (
     <Layout>
-      <div class="instector-banner-area" style={{height: 400}}></div>
+      <div className="instector-banner-area" style={{height: 400}}></div>
       {data.map((e, id) => {
-        return Instructor == `id=${id}` ? (
-          <>
-            <div class="pd-bottom-115">
-              <div class="container">
-                <InstructorDetail e={e} key={id} />{" "}
+        return Instructor == `id=${e.id}` ? (
+            <div className="pd-bottom-115" key={e.id}>
+              {console.log(e)}
+              <div className="container">
+                <InstructorDetail e={e} />
               </div>
             </div>
-          </>
         ) : null
       })}
     </Layout>

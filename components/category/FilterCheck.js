@@ -3,20 +3,27 @@ import Checkbox from "./CheckBox"
 
 const filterCheck = ({
   CourseCheck,
+  PriceData,
   isCheckAll,
   setIsCheckAll,
   isCheck,
   setIsCheck,
   list,
   setList,
+  price,
+  setPrice,
   handleClick,
   handleSelectAll,
   valueCourse,
+  handleClickPrice,
+  isCheckPrice,
+  setIsCheckPrice,
 }) => {
   useEffect(() => {
     setList(CourseCheck)
+    setPrice(PriceData)
   }, [])
-
+  // console.log(PriceData)
   //   const handleSelectAll = (e) => {
   //     setIsCheckAll(!isCheckAll)
   //     setIsCheck(list.map((li) => li.id))
@@ -32,6 +39,28 @@ const filterCheck = ({
   //       setIsCheck(isCheck.filter((item) => item !== id))
   //     }
   //   }
+  // console.log(isCheck)
+
+  const PriceCourse = price.map((item) => {
+    return (
+      <ul key={item.id}>
+        <li>
+          <div className="single-form-check form-check">
+            <Checkbox
+              type="checkbox"
+              name={item.value}
+              id={item.id}
+              handleClick={handleClickPrice}
+              isChecked={isCheckPrice.includes(item.value)}
+            />
+            <label className="form-check-label" htmlFor="flexCheckDefault2">
+              {item.value} บาท
+            </label>
+          </div>
+        </li>
+      </ul>
+    )
+  })
 
   const Course = list.map((check) => {
     return (
@@ -69,125 +98,14 @@ const filterCheck = ({
               />
               ทั้งหมด
             </div>
-            <label className="form-check-label" htmlFor="flexCheckDefault2">
-              {Course}
-            </label>
+            {/* <label className="form-check-label" htmlFor="flexCheckDefault2"> */}
+            {Course}
+            {/* </label> */}
           </div>
-          {/* <!-- <div className="widget widget-select-inner">
-                            <h4 className="widget-title">ระดับ</h4>
-                            <ul>
-                                <li>
-                                    <div className="single-form-check form-check">
-                                        <input className="form-check-input" type="checkbox" value="เริ่มต้น"
-                                            id="flexCheckDefault25"/>
-                                        <label className="form-check-label" htmlFor="flexCheckDefault25">
-                                            เริ่มต้น
-                                        </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="single-form-check form-check">
-                                        <input className="form-check-input" type="checkbox" value="ระดับกลาง"
-                                            id="flexCheckDefault26"/>
-                                        <label className="form-check-label" htmlFor="flexCheckDefault26">
-                                            ระดับกลาง
-                                        </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="single-form-check form-check">
-                                        <input className="form-check-input" type="checkbox" value="ระดับผู้เชี่ยวชาญ"
-                                            id="flexCheckDefault27"/>
-                                        <label className="form-check-label" htmlFor="flexCheckDefault27">
-                                            ระดับผู้เชี่ยวชาญ
-                                        </label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="widget widget-select-inner">
-                            <h4 className="widget-title">Rating</h4>
-                            <ul>
-                                <li>
-                                    <div className="single-form-check form-check">
-                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault27"/>
-                                        <label className="form-check-label" htmlFor="flexCheckDefault27">
-                                        <div className="user-rating">
-                                            <span>
-                                                <i className="fa fa-star"></i> 
-                                                <i className="fa fa-star"></i> 
-                                                <i className="fa fa-star"></i> 
-                                                <i className="fa fa-star"></i> 
-                                                <i className="fa fa-star"></i> 
-                                          </span>
-                                            5.0
-                                        </div>
-                                        </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="single-form-check form-check">
-                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault27"/>
-                                        <label className="form-check-label" htmlFor="flexCheckDefault28">
-                                        <div className="user-rating">
-                                            <span>
-                                                <i className="fa fa-star"></i> 
-                                                <i className="fa fa-star"></i> 
-                                                <i className="fa fa-star"></i> 
-                                                <i className="fa fa-star"></i> 
-                                          </span>
-                                            4.0
-                                        </div>
-                                        </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="single-form-check form-check">
-                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault27"/>
-                                        <label className="form-check-label" htmlFor="flexCheckDefault29">
-                                        <div className="user-rating">
-                                            <span>
-                                                <i className="fa fa-star"></i> 
-                                                <i className="fa fa-star"></i> 
-                                                <i className="fa fa-star"></i> 
-                                          </span>
-                                            3.0
-                                        </div>
-                                        </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="single-form-check form-check">
-                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault27"/>
-                                        <label className="form-check-label" htmlFor="flexCheckDefault30">
-                                        <div className="user-rating">
-                                            <span>
-                                                <i className="fa fa-star"></i> 
-                                                <i className="fa fa-star"></i> 
-                                          </span>
-                                            2.0
-                                        </div>
-                                        </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="single-form-check form-check">
-                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault27"/>
-                                        <label className="form-check-label" htmlFor="flexCheckDefault31">
-                                        <div className="user-rating">
-                                            <span>
-                                                <i className="fa fa-star"></i> 
-                                          </span>
-                                            1.0
-                                        </div>
-                                        </label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div> --> */}
           <div className="widget widget-select-inner">
             <h4 className="widget-title">ราคา</h4>
-            <ul>
+            {PriceCourse}
+            {/* <ul>
               <li>
                 <div className="single-form-check form-check">
                   <input
@@ -197,7 +115,7 @@ const filterCheck = ({
                     id="flexCheckDefault33"
                   />
                   <label className="form-check-label" htmlFor="flexCheckDefault33">
-                    299-500 บาท
+                    0-500 บาท
                   </label>
                 </div>
               </li>
@@ -235,8 +153,30 @@ const filterCheck = ({
                     3001-5000 บาท
                   </label>
                 </div>
+                <div className="single-form-check form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    value="5001-10000"
+                    id="flexCheckDefault36"
+                  />
+                  <label className="form-check-label" htmlFor="flexCheckDefault36">
+                    5001-10000 บาท
+                  </label>
+                </div>
+                <div className="single-form-check form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    value="3001-5000"
+                    id="flexCheckDefault36"
+                  />
+                  <label className="form-check-label" htmlFor="flexCheckDefault36">
+                    10001-20000 บาท
+                  </label>
+                </div>
               </li>
-            </ul>
+            </ul> */}
           </div>
           <div className="widget widget-select-inner">
             <h4 className="widget-title">สถานที่</h4>

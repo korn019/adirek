@@ -4,9 +4,9 @@ import {Swiper, SwiperSlide} from "swiper/react"
 import SingleCourse from "./SingleCourse"
 import SwiperCourse from "./SwiperCourse"
 
-
 const Course = () => {
   const [data, setData] = useState([])
+  const [dataJson, setDataJson] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
   const getData = () => {
@@ -25,19 +25,19 @@ const Course = () => {
         setData(myJson)
         setIsLoading(true)
       })
-  }
-  const ID = data.forEach(function (e, i) {
-    e["id"] = ++i
-  })
+    }
+   const ID = data.forEach(function (e, i) {
+     e["id"] = i
+   })
+
   const Filter = data.map((x) => {
     return x
   })
-
+  
   useEffect(() => {
     getData()
+    // setData(dataJson.map((item, id) => Object.assign(item, {id})))
   }, [])
-
-
   return (
     <>
       <section className="trending-courses-area pd-top-100 pd-bottom-100">
@@ -49,11 +49,13 @@ const Course = () => {
               </div>
             </div>
 
-            {isLoading ?
-             (<div className="relative px-4 md:px-6">
-              <SwiperCourse Filter={Filter} />
-             </div>) : (<h1 className="font-title text-f3xl">กำลังโหลดข้อมูล....</h1>)}
-          
+            {isLoading ? (
+              <div className="relative px-4 md:px-6">
+                <SwiperCourse Filter={Filter} />
+              </div>
+            ) : (
+              <h1 className="font-title text-f3xl">กำลังโหลดข้อมูล....</h1>
+            )}
           </div>
         </div>
       </section>

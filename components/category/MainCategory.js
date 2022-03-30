@@ -4,6 +4,7 @@ import SingleCourse from "../course/SingleCourse"
 import FilterCheck from "./FilterCheck"
 import PaginatedItems from "./PaginatedItems"
 import {CourseCheck} from "./Check"
+import {PriceData} from "./Price"
 
 const MainCategory = () => {
   const [data, setData] = useState([])
@@ -11,7 +12,12 @@ const MainCategory = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [isCheckAll, setIsCheckAll] = useState(false)
   const [isCheck, setIsCheck] = useState([])
+  const [isCheckAllPrice, setIsCheckAllPrice] = useState(false)
+  const [isCheckPrice, setIsCheckPrice] = useState([])
   const [list, setList] = useState([])
+
+  const [price, setPrice] = useState([])
+  const [checkPrice, setCheckPrice] = useState([])
 
   const handleSelectAll = (e) => {
     setIsCheckAll(!isCheckAll)
@@ -22,12 +28,33 @@ const MainCategory = () => {
   }
   
   const handleClick = (e) => {
-    const {id, checked, name} = e.target
+    const {checked, name} = e.target
     setIsCheck([...isCheck, name])
+      // setIsCheckPrice([...isCheckPrice, name])
     if (!checked) {
       setIsCheck(isCheck.filter((item) => item !== name))
+      //  setIsCheckPrice(isCheckPrice.filter((item) => item !== name))
     }
   }
+  
+  const handleClickPrice = (e) => {
+    const {checked, name} = e.target
+    setIsCheckPrice([...isCheckPrice, name])
+    // console.log(e.target.name)
+    if (!checked) {
+      setIsCheckPrice(isCheckPrice.filter((item) => item !== name))
+    }
+  }
+    // const handleClick = (e) => {
+    //   if (e.target.checked) {
+    //     setIsCheck([...isCheck, e.target.name])
+    //   } else {
+    //     setIsCheck(isCheck.filter((id) => id !== e.target.value))
+    //   }
+    // }
+
+
+  
 
   const getData = () => {
     fetch("../../assets/json/db.json", {
@@ -57,31 +84,34 @@ const MainCategory = () => {
         <div className="row">
           <FilterCheck
             CourseCheck={CourseCheck}
+            PriceData={PriceData}
             isCheckAll={isCheckAll}
             setIsCheckAll={setIsCheckAll}
             isCheck={isCheck}
             setIsCheck={setIsCheck}
+            isCheckPrice={isCheckPrice}
+            setIsCheckPrice={setIsCheckPrice}
             list={list}
             setList={setList}
+            price={price}
+            setPrice={setPrice}
             handleSelectAll={handleSelectAll}
             handleClick={handleClick}
+            handleClickPrice={handleClickPrice}
           />
           <div className="col-lg-9">
             <div className="row">
               {(() => {
                 if (isLoading) {
                   return (
-                    // <div className="   grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3  md:space-x-2 lg:space-x-2">
-                    //   {data.map((course, index) => {
-                    //     return <SingleCourse course={course} key={index} index={index} />
-                    //   })}
-                    // </div>
                     <PaginatedItems
                       isLoading={isLoading}
                       itemsPerPage={12}
                       data={data}
                       isCheck={isCheck}
                       isCheckAll={isCheckAll}
+                      isCheckPrice={isCheckPrice}
+                      setIsCheckPrice={setIsCheckPrice}
                     />
                   )
                 } else if (isCheckAll == false) {

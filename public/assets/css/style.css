@@ -6509,7 +6509,27 @@ button:hover:after {
     background-color: var(--background-1);
   }
 }
+@keyframes boxMove-2 {
+  from {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+    background-color: var(--background-2);
+  }
+  to {
+    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+    background-color: var(--background-1);
+  }
+}
 @keyframes boxMove-3 {
+  from {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+    background-color: var(--background-2);
+  }
+  to {
+    transform: rotate(-360deg) translateX(150px) rotate(-360deg);
+    background-color: var(--background-1);
+  }
+}
+@-webkit-keyframes  boxMove-3 {
   from {
     transform: rotate(0deg) translateX(150px) rotate(0deg);
     background-color: var(--background-2);

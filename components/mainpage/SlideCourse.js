@@ -1,3 +1,4 @@
+import {useState} from "react"
 import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
 import {Swiper, SwiperSlide} from "swiper/react"
 import SingleSlideCourse from "./SingleSlideCourse"
@@ -9,6 +10,7 @@ const SlideCourse = () => {
     {id: 4, course: "ทำอาหารและขนม", img: "assets/img/intro/004.png", available: 236},
     {id: 5, course: "Design", img: "assets/img/intro/005.png", available: 236},
   ]
+  const [data, setData] = useState(SlideCourseData)
   return (
     <>
       <div className="container">
@@ -26,7 +28,6 @@ const SlideCourse = () => {
                   autoplay={{
                     delay: 4000,
                   }}
-                
                   loop={true}
                   slidesPerView={4}
                   breakpoints={{
@@ -60,8 +61,8 @@ const SlideCourse = () => {
                     },
                   }}>
                   <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1 px-5">
-                    {SlideCourseData.map((SlideCourseData, index) => (
-                      <SwiperSlide key={index}>
+                    {data.map((SlideCourseData) => (
+                      <SwiperSlide key={SlideCourseData.id}>
                         <SingleSlideCourse item={SlideCourseData} />
                       </SwiperSlide>
                     ))}
