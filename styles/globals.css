@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @font-face {
   font-family: "DB-Adman-X-Bd";
   src: url("/assets/fonts/DB-Adman-X-Bd.ttf");

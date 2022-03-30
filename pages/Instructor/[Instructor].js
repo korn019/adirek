@@ -8,7 +8,7 @@ const Instructor = () => {
   const [data, setData] = useState([])
 
   const getData = () => {
-    fetch("../../assets/json/db.json", {
+    fetch("../../assets/json/user.json", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -37,8 +37,8 @@ const Instructor = () => {
     <Layout>
       <div className="instector-banner-area" style={{height: 400}}></div>
       {data.map((e, id) => {
-        return Instructor == `id=${e.id}` ? (
-            <div className="pd-bottom-115" key={e.id}>
+        return Instructor == `id=${e.record}` ? (
+            <div className="pd-bottom-115" key={e.record}>
               {console.log(e)}
               <div className="container">
                 <InstructorDetail e={e} />

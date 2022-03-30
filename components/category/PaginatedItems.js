@@ -12,6 +12,18 @@ const PaginatedItems = ({
   isLoading,
   setIsCheckPrice,
   isCheckPrice,
+  subdistrict,
+  setSubDistrict,
+  district,
+  setDistrict,
+  province,
+  setProvince,
+  zipcode,
+  setZipcode,
+  onSelect,
+  setError,
+  fullAddress,
+  setFullAddress,
 }) => {
   const [currentItems, setCurrentItems] = useState(null)
   const [pageCount, setPageCount] = useState(0)
@@ -48,7 +60,7 @@ const PaginatedItems = ({
   let strInt = int2.toString()
 
   const Filter = data.filter((course) => {
-    let priceFromUser = parseFloat(course.ราคาคอร์สเรียน.replace(/,/g, ""))
+    // let priceFromUser = parseFloat(course.ราคาคอร์สเรียน.replace(/,/g, ""))
     // เช็คค่าจาก CheckFilter ว่ามี filterCategory เหมือนกันกับในข้อมูล userมั้ย
     // console.log(checkFilter && checkPriceFilter)
     return course
@@ -61,15 +73,30 @@ const PaginatedItems = ({
     priceVal = arrAmount[i].split("-") // just split once
   }
 
+  var placeTest = []
+  var placeTest2 = province
+  // console.log(placeTest2)
+  for (var i = 0; i < 1; i++) {
+    placeTest.push(placeTest2)
+  }
+  // console.log(typeof placeTest)
+
+  let myArrayFilteredPlace = data.filter(function (v) {
+
+  })
+
   let myArrayFiltered = data.filter(function (v) {
+    let rt = "12,000++"
+    // console.log(v.ราคาคอร์สเรียน.replace(/\W+/g, ""))
+    console.log( parseFloat(v.ราคาคอร์สเรียน.replace(/\W+/g, "")))
     if (arrCourse.length === 0 && arrAmount.length === 0) {
       return v
     } else if (arrCourse.length > 0 && arrAmount.length === 0) {
       return arrCourse.includes(v.filterCategory)
     } else if (priceVal[1] && arrAmount.length == 1 && arrCourse.length == 0) {
-
       return (
-        parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) >= parseFloat(priceVal[0]) && parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) <= parseFloat(priceVal[1])
+        parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
+        parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) <= parseFloat(priceVal[1])
       )
     } else if (priceVal[1] && arrAmount.length == 1 && arrCourse.length > 0) {
       return (
@@ -90,7 +117,7 @@ const PaginatedItems = ({
   // console.log(checkPriceFilter)
   const items = myArrayFiltered.map((course) => {
     // console.log(course)
-    return <SingleCourse course={course} key={course.id} index={course.id} />
+    return <SingleCourse course={course} key={course.record} index={course.record} />
   })
 
   const handlePageClick = (event) => {

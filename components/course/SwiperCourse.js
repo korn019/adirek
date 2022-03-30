@@ -56,9 +56,9 @@ const SwiperCourse = ({Filter}) => {
         }}>
         <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1 px-5">
           {Filter.map((d) => (
-            <SwiperSlide key={d.id}>
-              {/* {  console.log(d.id)} */}
-              <SingleCourse course={d} index={d.id}/>
+            <SwiperSlide key={d.record}>
+              {/* {  console.log(d.record)} */}
+              <SingleCourse course={d} index={d.record} />
             </SwiperSlide>
           ))}
         </div>

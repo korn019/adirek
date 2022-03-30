@@ -10,7 +10,7 @@ const Course = () => {
   const [isLoading, setIsLoading] = useState(false)
 
   const getData = () => {
-    fetch("../../assets/json/db.json", {
+    fetch("../../assets/json/user.json", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",

@@ -50,7 +50,7 @@ const SingleCourse = ({course,index}) => {
               </div>
               <div className="col-6 text-end">
                 <div className="price">
-                  <p className="truncate ... price"> {course.ราคาคอร์สเรียน}</p>
+                  <p className="truncate ... price"> {course.ราคาคอร์สเรียน} บาท</p>
                 </div>
               </div>
             </div>

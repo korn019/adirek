@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react"
 import Checkbox from "./CheckBox"
+import FilterPlace from "./FilterPlace"
 
 const filterCheck = ({
   CourseCheck,
@@ -18,6 +19,19 @@ const filterCheck = ({
   handleClickPrice,
   isCheckPrice,
   setIsCheckPrice,
+  subdistrict,
+  setSubDistrict,
+  district,
+  setDistrict,
+  province,
+  setProvince,
+  zipcode,
+  setZipcode,
+  fullAddress,
+  setFullAddress,
+  onSelect,
+  error,
+  setError,
 }) => {
   useEffect(() => {
     setList(CourseCheck)
@@ -39,7 +53,7 @@ const filterCheck = ({
   //       setIsCheck(isCheck.filter((item) => item !== id))
   //     }
   //   }
-  // console.log(isCheck)
+  // console.log(district)
 
   const PriceCourse = price.map((item) => {
     return (
@@ -105,98 +119,24 @@ const filterCheck = ({
           <div className="widget widget-select-inner">
             <h4 className="widget-title">ราคา</h4>
             {PriceCourse}
-            {/* <ul>
-              <li>
-                <div className="single-form-check form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value="299-500"
-                    id="flexCheckDefault33"
-                  />
-                  <label className="form-check-label" htmlFor="flexCheckDefault33">
-                    0-500 บาท
-                  </label>
-                </div>
-              </li>
-              <li>
-                <div className="single-form-check form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value="501-1000"
-                    id="flexCheckDefault34"
-                  />
-                  <label className="form-check-label" htmlFor="flexCheckDefault34">
-                    501-1000 บาท
-                  </label>
-                </div>
-                <div className="single-form-check form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value="1001-3000"
-                    id="flexCheckDefault35"
-                  />
-                  <label className="form-check-label" htmlFor="flexCheckDefault35">
-                    1001-3000 บาท
-                  </label>
-                </div>
-                <div className="single-form-check form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value="3001-5000"
-                    id="flexCheckDefault36"
-                  />
-                  <label className="form-check-label" htmlFor="flexCheckDefault36">
-                    3001-5000 บาท
-                  </label>
-                </div>
-                <div className="single-form-check form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value="5001-10000"
-                    id="flexCheckDefault36"
-                  />
-                  <label className="form-check-label" htmlFor="flexCheckDefault36">
-                    5001-10000 บาท
-                  </label>
-                </div>
-                <div className="single-form-check form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value="3001-5000"
-                    id="flexCheckDefault36"
-                  />
-                  <label className="form-check-label" htmlFor="flexCheckDefault36">
-                    10001-20000 บาท
-                  </label>
-                </div>
-              </li>
-            </ul> */}
           </div>
           <div className="widget widget-select-inner">
             <h4 className="widget-title">สถานที่</h4>
-            <div id="loader">
-              <div className="uk-spinner"></div> รอสักครู่ กำลังโหลดฐานข้อมูล...
-            </div>
-            <form id="place" className="place" style={{display: "none"}} autoComplete="off">
-              <div className="single-form-place">
-                <label className="form-check-label">จังหวัด</label>
-                <input name="province" className="uk-input uk-width-1-1" type="text" />
-              </div>
-              <div className="single-form-place">
-                <label className="form-check-label">ตำบล / แขวง</label>
-                <input name="district" className="uk-input uk-width-1-1" type="text" />
-              </div>
-              <div className="single-form-place">
-                <label className="form-check-label">อำเภอ / เขต</label>
-                <input name="amphoe" className="uk-input uk-width-1-1" type="text" />
-              </div>
-            </form>
+            <FilterPlace
+              setError={setError}
+              error={error}
+              subdistrict={subdistrict}
+              setSubDistrict={setSubDistrict}
+              district={district}
+              setDistrict={setDistrict}
+              province={province}
+              setProvince={setProvince}
+              zipcode={zipcode}
+              setZipcode={setZipcode}
+              fullAddress={fullAddress}
+              setFullAddress={setFullAddress}
+              onSelect={onSelect}
+            />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 widget widget-select-inner">
             <section className="justify-content-start align-items-start">

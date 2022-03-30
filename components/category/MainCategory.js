@@ -7,6 +7,7 @@ import {CourseCheck} from "./Check"
 import {PriceData} from "./Price"
 
 const MainCategory = () => {
+  //Filter Course & Price
   const [data, setData] = useState([])
   const [dataJson, setDataJson] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -15,6 +16,25 @@ const MainCategory = () => {
   const [isCheckAllPrice, setIsCheckAllPrice] = useState(false)
   const [isCheckPrice, setIsCheckPrice] = useState([])
   const [list, setList] = useState([])
+
+  // Filter Address
+  const [subdistrict, setSubDistrict] = useState("")
+  const [district, setDistrict] = useState("")
+  const [province, setProvince] = useState("")
+  const [zipcode, setZipcode] = useState("")
+  const [fullAddress, setFullAddress] = useState({})
+  const [error, setError] = useState({})
+
+  function onSelect(fulladdress) {
+    const {subdistrict, district, province, zipcode} = fulladdress
+    setSubDistrict(subdistrict)
+    setDistrict(district)
+    setProvince(province)
+    setZipcode(zipcode)
+    setFullAddress([subdistrict, district, province, zipcode])
+    setError("")
+    console.log("some fulladdress: ", fullAddress)
+  }
 
   const [price, setPrice] = useState([])
   const [checkPrice, setCheckPrice] = useState([])
@@ -26,38 +46,39 @@ const MainCategory = () => {
       setIsCheck([])
     }
   }
-  
+
   const handleClick = (e) => {
     const {checked, name} = e.target
     setIsCheck([...isCheck, name])
-      // setIsCheckPrice([...isCheckPrice, name])
+    // setIsCheckPrice([...isCheckPrice, name])
     if (!checked) {
       setIsCheck(isCheck.filter((item) => item !== name))
       //  setIsCheckPrice(isCheckPrice.filter((item) => item !== name))
     }
   }
-  
+
   const handleClickPrice = (e) => {
     const {checked, name} = e.target
-    setIsCheckPrice([...isCheckPrice, name])
+    setIsCheckPrice([name])
     // console.log(e.target.name)
     if (!checked) {
       setIsCheckPrice(isCheckPrice.filter((item) => item !== name))
     }
   }
-    // const handleClick = (e) => {
-    //   if (e.target.checked) {
-    //     setIsCheck([...isCheck, e.target.name])
-    //   } else {
-    //     setIsCheck(isCheck.filter((id) => id !== e.target.value))
-    //   }
-    // }
+  // const handleClick = (e) => {
+  //   if (e.target.checked) {
+  //     setIsCheck([...isCheck, e.target.name])
+  //   } else {
+  //     setIsCheck(isCheck.filter((id) => id !== e.target.value))
+  //   }
+  // }
 
-
-  
+  function loadData() {
+    return data
+  }
 
   const getData = () => {
-    fetch("../../assets/json/db.json", {
+    fetch("../../assets/json/user.json", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -77,7 +98,6 @@ const MainCategory = () => {
     getData()
     setData(dataJson.map((item, id) => Object.assign(item, {id})))
   }, [dataJson])
-  
   return (
     <section className="trending-courses-area pd-top-135 pd-bottom-130">
       <div className="container">
@@ -98,6 +118,19 @@ const MainCategory = () => {
             handleSelectAll={handleSelectAll}
             handleClick={handleClick}
             handleClickPrice={handleClickPrice}
+            error={error}
+            setError={setError}
+            subdistrict={subdistrict}
+            setSubDistrict={setSubDistrict}
+            district={district}
+            setDistrict={setDistrict}
+            province={province}
+            setProvince={setProvince}
+            zipcode={zipcode}
+            setZipcode={setZipcode}
+            fullAddress={fullAddress}
+            setFullAddress={setFullAddress}
+            onSelect={onSelect}
           />
           <div className="col-lg-9">
             <div className="row">
@@ -112,23 +145,24 @@ const MainCategory = () => {
                       isCheckAll={isCheckAll}
                       isCheckPrice={isCheckPrice}
                       setIsCheckPrice={setIsCheckPrice}
+                      error={error}
+                      setError={setError}
+                      subdistrict={subdistrict}
+                      setSubDistrict={setSubDistrict}
+                      district={district}
+                      setDistrict={setDistrict}
+                      province={province}
+                      setProvince={setProvince}
+                      zipcode={zipcode}
+                      setZipcode={setZipcode}
+                      fullAddress={fullAddress}
+                      setFullAddress={setFullAddress}
                     />
                   )
                 } else if (isCheckAll == false) {
                   return <h1 className="font-title text-f3xl">กำลังโหลดข้อมูล....</h1>
                 }
               })()}
-              {/* {isLoading ? (
-                <PaginatedItems
-                  itemsPerPage={12}
-                  data={data}
-                  valueCourse={valueCourse}
-                  isCheck={isCheck}
-                  isCheckAll={isCheckAll}
-                />
-              ) : (
-                <h1 className="font-title text-f3xl">กำลังโหลดข้อมูล....</h1>
-              )} */}
             </div>
           </div>
         </div>
