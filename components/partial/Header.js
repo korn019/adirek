@@ -2,9 +2,17 @@ import Link from "next/link"
 import {useEffect, useState, useContext} from "react"
 import {CourseCheck} from "../course/Courselabel"
 import {SearchCourseContext} from "../../pages/Category"
+import {useRouter} from "next/router"
 const Header = () => {
   const [course, setCourse] = useState(CourseCheck)
+    const router = useRouter()
    const {searchCourse,setSearchCourse} = useContext(SearchCourseContext)
+   
+   const enterandgo = (event) => {
+      if (event.keyCode === 13) {
+          router.push(`/Search/${searchCourse}`)
+      }
+    }
   return (
     <>
       <div className="search-popup" id="search-popup">
@@ -64,9 +72,10 @@ const Header = () => {
                   placeholder="ค้นหาหลักสูตร..."
                   onChange={(e) => setSearchCourse(e.target.value)}
                   value={searchCourse}
+                  onKeyDown={(e) => enterandgo(e)}
                 />
-                <Link href={`/Search/${searchCourse}`} >
-                  <button>
+                <Link href={`/Search/${searchCourse}`}>
+                  <button onKeyDown={(e) => enterandgo(e)}>
                     <i className="fa fa-search"></i>
                   </button>
                 </Link>
