@@ -12,8 +12,8 @@ function FilterPlace(props) {
     setDistrict,  
     province,
     setProvince,
-    zipcode,
-    setZipcode,
+    // zipcode,
+    // setZipcode,
     onSelect,
     setError,
     fullAddress,
@@ -55,7 +55,7 @@ function FilterPlace(props) {
   // console.log(district)
   return (
     <div className="address flex flex-col space-y-1 ">
-      <div className="flex justify-start focus:outline-none ">
+      {/* <div className="flex justify-start focus:outline-none ">
         <InputAddress
           style={{width: "100%", outlineStyle: "none", fontSize: "1rem", fontWeight: "900"}}
           placeholder="แขวง / ตำบล"
@@ -79,11 +79,11 @@ function FilterPlace(props) {
           }}
           onSelect={onSelect}
         />
-      </div>
+      </div> */}
       <div className="flex justify-start">
         <InputAddress
           style={{width: "100%", outlineStyle: "none", fontSize: "1rem", fontWeight: "900"}}
-          placeholder="จังหวัด"
+          placeholder="กรอกที่อยู่ที่ต้องการค้นหา"
           address="province"
           value={province}
           onChange={(e) => {
@@ -93,7 +93,7 @@ function FilterPlace(props) {
           onSelect={onSelect}
         />
 
-        <InputAddress
+        {/* <InputAddress
           style={{width: "100%", outlineStyle: "none", fontSize: "1rem", fontWeight: "900"}}
           placeholder="เลขไปรษณีย์"
           address="zipcode"
@@ -103,7 +103,7 @@ function FilterPlace(props) {
             setError("")
           }}
           onSelect={onSelect}
-        />
+        /> */}
       </div>
     </div>
   )

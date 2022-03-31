@@ -75,32 +75,67 @@ const PaginatedItems = ({
 
   var placeTest = []
   var placeTest2 = province
-  // console.log(placeTest2)
+  console.log(province)
   for (var i = 0; i < 1; i++) {
     placeTest.push(placeTest2)
   }
-  // console.log(typeof placeTest)
 
-  let myArrayFilteredPlace = data.filter(function (v) {
-
-  })
+  let myArrayFilteredPlace = data.filter(function (v) {})
 
   let myArrayFiltered = data.filter(function (v) {
-    let rt = "12,000++"
-    // console.log(v.ราคาคอร์สเรียน.replace(/\W+/g, ""))
-    console.log( parseFloat(v.ราคาคอร์สเรียน.replace(/\W+/g, "")))
-    if (arrCourse.length === 0 && arrAmount.length === 0) {
+   
+
+    // for (v.กรณีเรียนนอกสถานที่ !== undefined && v.กรณีเรียนนอกสถานที่.includes(province)) = definePlace
+// console.log(definePlace)  
+    // if(province === ""){
+    //   return v
+    // }else if (v.กรณีเรียนนอกสถานที่ !== undefined && v.กรณีเรียนนอกสถานที่.includes(province)) {
+    //   return v
+    // }
+    if (arrCourse.length === 0 && arrAmount.length === 0 && province.length == 0) { // ถ้าไม่มีค่าที่กรอกให้แสดงทั้งหมด
       return v
-    } else if (arrCourse.length > 0 && arrAmount.length === 0) {
+
+    } else if (arrCourse.length > 0 && arrAmount.length === 0 && province.length === 0) { // แสดงค่าตาม Course ที่กรอก
       return arrCourse.includes(v.filterCategory)
-    } else if (priceVal[1] && arrAmount.length == 1 && arrCourse.length == 0) {
+
+    } else if (priceVal[1] && arrAmount.length == 1 && arrCourse.length == 0 &&  province.length === 0) {  // แสดงค่าตามราคาที่กรอก
       return (
         parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
         parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) <= parseFloat(priceVal[1])
       )
+    } else if(arrCourse.length === 0 && arrAmount.length === 0 && province.length > 0){ // แสดงค่าตามจังหวัดที่กรอก
+      if(v.กรณีเรียนนอกสถานที่ !== undefined){
+        return v.กรณีเรียนนอกสถานที่.includes(province)
+      }
+    } else if (priceVal[1] && arrAmount.length == 1 && province.length > 0 && arrCourse.length == 0) { // แสดงค่าตามราคาที่กรอกและจังหวัดที่กรอก
+      if (v.กรณีเรียนนอกสถานที่ !== undefined) {
+        return (
+          parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
+          parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) <= parseFloat(priceVal[1]) &&
+          v.กรณีเรียนนอกสถานที่.includes(province)
+        )
+      }
+    } else if (arrCourse.length > 0 && province.length > 0 && arrAmount.length == 0) { // แสดงค่าตาม Course ที่กรอกและจังหวัดที่กรอก
+      if (v.กรณีเรียนนอกสถานที่ !== undefined) {
+        return arrCourse.includes(v.filterCategory) && v.กรณีเรียนนอกสถานที่.includes(province)
+      }
+    } else if (priceVal[1] && arrAmount.length == 1 && arrCourse.length > 0 && province.length > 0) { // แสดงค่าตาม Course ที่กรอกและราคาที่กรอกและจังหวัดที่กรอก
+      if (v.กรณีเรียนนอกสถานที่ !== undefined) {
+        return (
+          arrCourse.includes(v.filterCategory) &&
+          v.กรณีเรียนนอกสถานที่.includes(province) &&
+          parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
+          parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) <= parseFloat(priceVal[1])
+        )
+      }
     } else if (priceVal[1] && arrAmount.length == 1 && arrCourse.length > 0) {
       return (
         arrCourse.indexOf(v.filterCategory) != -1 &&
+        parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
+        parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) <= parseFloat(priceVal[1])
+      )
+    } else if (priceVal[1] && arrAmount.length == 1) {
+      return (
         parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
         parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) <= parseFloat(priceVal[1])
       )
@@ -114,9 +149,8 @@ const PaginatedItems = ({
       return checkFilter.indexOf(v.filterCategory) != -1
     }
   })
-  // console.log(checkPriceFilter)
+
   const items = myArrayFiltered.map((course) => {
-    // console.log(course)
     return <SingleCourse course={course} key={course.record} index={course.record} />
   })
 
@@ -125,7 +159,6 @@ const PaginatedItems = ({
     setItemOffset(newOffset)
   }
 
-  // console.log(Number("123-123"))
   return (
     <>
       {myArrayFiltered.length > 0 ? (

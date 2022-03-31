@@ -25,8 +25,6 @@ const filterCheck = ({
   setDistrict,
   province,
   setProvince,
-  zipcode,
-  setZipcode,
   fullAddress,
   setFullAddress,
   onSelect,
@@ -131,8 +129,6 @@ const filterCheck = ({
               setDistrict={setDistrict}
               province={province}
               setProvince={setProvince}
-              zipcode={zipcode}
-              setZipcode={setZipcode}
               fullAddress={fullAddress}
               setFullAddress={setFullAddress}
               onSelect={onSelect}

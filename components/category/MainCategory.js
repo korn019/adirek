@@ -21,19 +21,18 @@ const MainCategory = () => {
   const [subdistrict, setSubDistrict] = useState("")
   const [district, setDistrict] = useState("")
   const [province, setProvince] = useState("")
-  const [zipcode, setZipcode] = useState("")
+  // const [zipcode, setZipcode] = useState("")
   const [fullAddress, setFullAddress] = useState({})
   const [error, setError] = useState({})
 
   function onSelect(fulladdress) {
-    const {subdistrict, district, province, zipcode} = fulladdress
+    const {subdistrict, district, province} = fulladdress
     setSubDistrict(subdistrict)
     setDistrict(district)
     setProvince(province)
-    setZipcode(zipcode)
-    setFullAddress([subdistrict, district, province, zipcode])
+    // setZipcode(zipcode)
+    setFullAddress([subdistrict, district, province])
     setError("")
-    console.log("some fulladdress: ", fullAddress)
   }
 
   const [price, setPrice] = useState([])
@@ -65,17 +64,8 @@ const MainCategory = () => {
       setIsCheckPrice(isCheckPrice.filter((item) => item !== name))
     }
   }
-  // const handleClick = (e) => {
-  //   if (e.target.checked) {
-  //     setIsCheck([...isCheck, e.target.name])
-  //   } else {
-  //     setIsCheck(isCheck.filter((id) => id !== e.target.value))
-  //   }
-  // }
 
-  function loadData() {
-    return data
-  }
+
 
   const getData = () => {
     fetch("../../assets/json/user.json", {
@@ -126,8 +116,6 @@ const MainCategory = () => {
             setDistrict={setDistrict}
             province={province}
             setProvince={setProvince}
-            zipcode={zipcode}
-            setZipcode={setZipcode}
             fullAddress={fullAddress}
             setFullAddress={setFullAddress}
             onSelect={onSelect}
@@ -153,8 +141,6 @@ const MainCategory = () => {
                       setDistrict={setDistrict}
                       province={province}
                       setProvince={setProvince}
-                      zipcode={zipcode}
-                      setZipcode={setZipcode}
                       fullAddress={fullAddress}
                       setFullAddress={setFullAddress}
                     />
