@@ -2,6 +2,7 @@ import Layout from "../../components/Layout"
 import {useRouter} from "next/router"
 import {useState, useEffect} from "react"
 import InstructorDetail from "../../components/Instructor/InstructorDetail"
+import { SearchCourseProvider } from "../Category"
 const Instructor = () => {
   const router = useRouter()
   const {Instructor} = router.query
@@ -34,19 +35,20 @@ const Instructor = () => {
     getData()
   }, [])
   return (
-    <Layout>
-      <div className="instector-banner-area" style={{height: 400}}></div>
-      {data.map((e, id) => {
-        return Instructor == `id=${e.record}` ? (
+    <SearchCourseProvider>
+      <Layout>
+        <div className="instector-banner-area" style={{height: 400}}></div>
+        {data.map((e, id) => {
+          return Instructor == `id=${e.record}` ? (
             <div className="pd-bottom-115" key={e.record}>
-              {console.log(e)}
               <div className="container">
                 <InstructorDetail e={e} />
               </div>
             </div>
-        ) : null
-      })}
-    </Layout>
+          ) : null
+        })}
+      </Layout>
+    </SearchCourseProvider>
   )
 }
 

@@ -2,15 +2,17 @@ import {useState} from "react"
 import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
 import {Swiper, SwiperSlide} from "swiper/react"
 import SingleSlideCourse from "./SingleSlideCourse"
+import {CourseCheck} from "../course/Courselabel"
+
 const SlideCourse = () => {
   const SlideCourseData = [
-    {id: 1, course: "ถ่ายรูปและแต่งรูป", img: "assets/img/intro/001.png", available: 236},
+    {id: 1, course: "Design", img: "assets/img/intro/001.png", available: 236},
     {id: 2, course: "วิชาการ", img: "assets/img/intro/002.png", available: 236},
     {id: 3, course: "แต่งหน้า", img: "assets/img/intro/003.png", available: 236},
     {id: 4, course: "ทำอาหารและขนม", img: "assets/img/intro/004.png", available: 236},
     {id: 5, course: "Design", img: "assets/img/intro/005.png", available: 236},
   ]
-  const [data, setData] = useState(SlideCourseData)
+  const [data, setData] = useState(CourseCheck)
   return (
     <>
       <div className="container">

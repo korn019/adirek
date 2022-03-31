@@ -13,21 +13,24 @@ const Main = () => {
     <>
       <LandingScreen />
       <SlideCourse />
-      <AdirekIs />
-      <div className="pt-12">
-        <BannerAds />
+      <div className="test-class">
+        <AdirekIs />
+        <div className="pt-12">
+          <BannerAds />
+        </div>
+        <Partner />
+        <div className="">
+          <BannerAds />
+        </div>
+        <Course />
+        <Activity />
+        <Testimonial />
+        <div className="py-24">
+          <BannerAds />
+        </div>
+        <ClientArea />
       </div>
-      <Partner />
-      <div className="">
-        <BannerAds />
-      </div>
-      <Course />
-      <Activity />
-      <Testimonial />
-      <div className="py-24">
-        <BannerAds />
-      </div>
-      <ClientArea />
+
       {/* <BlogCard /> */}
     </>
   )

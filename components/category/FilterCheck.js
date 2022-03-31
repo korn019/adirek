@@ -1,7 +1,7 @@
-import {useEffect, useState} from "react"
+import {useEffect, useState,useContext} from "react"
 import Checkbox from "./CheckBox"
 import FilterPlace from "./FilterPlace"
-
+import {SearchCourseContext} from '../../pages/Category'
 const filterCheck = ({
   CourseCheck,
   PriceData,
@@ -30,11 +30,15 @@ const filterCheck = ({
   onSelect,
   error,
   setError,
+  resetButton,
 }) => {
   useEffect(() => {
     setList(CourseCheck)
     setPrice(PriceData)
   }, [])
+       const {setSearchCourse, searchCourse} = useContext(SearchCourseContext)
+
+
   // console.log(PriceData)
   //   const handleSelectAll = (e) => {
   //     setIsCheckAll(!isCheckAll)
@@ -66,7 +70,7 @@ const filterCheck = ({
               isChecked={isCheckPrice.includes(item.value)}
             />
             <label className="form-check-label" htmlFor="flexCheckDefault2">
-              {item.value} บาท
+              {item.label} บาท
             </label>
           </div>
         </li>
@@ -134,6 +138,15 @@ const filterCheck = ({
               onSelect={onSelect}
             />
           </div>
+          <div className="widget widget-select-inner">
+            <button
+              onClick={resetButton}
+              type="button"
+              className="text-2xl text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg  px-2 py-1 text-center mr-2 mb-2">
+              Reset
+            </button>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 widget widget-select-inner">
             <section className="justify-content-start align-items-start">
               <div className=" d-flex justify-content-center align-items-center w-full md:w-[100%] xl:w-[70%] h-[200px] md:h-[400px] bg-[#bcbcbc]">

@@ -2,13 +2,11 @@ import {useState, useEffect} from "react"
 import BlogCard from "./BlogCard"
 import SwiperBlogCard from "./SwiperBlogCard"
 
-const MainBlog = () => {
-
-  
+const MainBlog = ({search, setSearch}) => {
   const [perfectionistView, setPerfectionistView] = useState(0)
   const [acceptanceView, setAcceptanceView] = useState(0)
   const [inspirationView, setInspirationView] = useState(0)
-  
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       const perfection = localStorage.getItem("@PerfectionistCountView")
@@ -18,8 +16,8 @@ const MainBlog = () => {
       setInspirationView(JSON.parse(inspiration))
       setAcceptanceView(JSON.parse(acceptance))
     }
-  }, []);
-  
+  }, [])
+
   const Article = [
     {
       id: 1,
@@ -71,6 +69,8 @@ const MainBlog = () => {
           <div className="relative">
             <SwiperBlogCard
               Article={Article}
+              search={search}
+              setSearch={setSearch}
               setPerfectionistView={setPerfectionistView}
               perfectionistView={perfectionistView}
               setAcceptanceView={setAcceptanceView}

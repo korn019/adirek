@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 const LandingScreen = () => {
   return (
     <div className="row-hero">
@@ -18,7 +20,7 @@ const LandingScreen = () => {
         </p>
 
         <button className="btn " style={{fontSize: "clamp(2rem, 8vw, 1.2rem)", marginTop: 30}}>
-          <a href="#"></a> ค้นหาคอร์สเรียนออนไลน์
+          <Link href="/Category">ค้นหาคอร์สเรียนออนไลน์</Link>
         </button>
       </div>
     </div>

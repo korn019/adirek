@@ -1,5 +1,5 @@
 import Link from "next/link"
-const SingleCourse = ({course,index}) => {
+const SingleCourseHorizontal = ({course, index}) => {
   return (
     <div className="item h-[400px]">
       <div className="single-course-wrap  hover:border-2 hover:border-[#006fff]">
@@ -67,4 +67,4 @@ const SingleCourse = ({course,index}) => {
   )
 }
 
-export default SingleCourse
+export default SingleCourseHorizontal

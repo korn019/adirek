@@ -4,15 +4,30 @@ import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
 import BlogCard from "./BlogCard"
 
 
-const SwiperBlogCard = ({
-  Article,
-  setPerfectionistView,
-  perfectionistView,
-  setAcceptanceView,
-  acceptanceView,
-  setInspirationView,
-  inspirationView,
-}) => {
+const SwiperBlogCard = (
+  {
+    Article,
+    setPerfectionistView,
+    perfectionistView,
+    setAcceptanceView,
+    acceptanceView,
+    setInspirationView,
+    inspirationView,
+    search,
+    setSearch,
+  }
+) => {
+  const searchArticle = Article.filter((article) => {
+    if (search == "") {
+      return article
+    } else if (
+      article.title.toLowerCase().includes(search.toLowerCase()) ||
+      article.subtitle.toLowerCase().includes(search.toLowerCase()) ||
+      article.date.toLowerCase().includes(search.toLowerCase())
+    ) {
+      return article
+    }
+  })
   return (
     <>
       <Swiper
@@ -59,19 +74,21 @@ const SwiperBlogCard = ({
           },
         }}>
         <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1 px-5">
-          {Article.map((d, id) => (
-            <SwiperSlide key={id}>
-              <BlogCard
-                article={d}
-                setPerfectionistView={setPerfectionistView}
-                perfectionistView={perfectionistView}
-                setAcceptanceView={setAcceptanceView}
-                acceptanceView={acceptanceView}
-                setInspirationView={setInspirationView}
-                inspirationView={inspirationView}
-              />
-            </SwiperSlide>
-          ))}
+          {searchArticle.map((d, id) => {
+            return (
+              <SwiperSlide key={id}>
+                <BlogCard
+                  article={d}
+                  setPerfectionistView={setPerfectionistView}
+                  perfectionistView={perfectionistView}
+                  setAcceptanceView={setAcceptanceView}
+                  acceptanceView={acceptanceView}
+                  setInspirationView={setInspirationView}
+                  inspirationView={inspirationView}
+                />
+              </SwiperSlide>
+            )
+          })}
         </div>
       </Swiper>
       <div className="swiper-prev cursor-pointer">

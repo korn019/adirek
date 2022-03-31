@@ -1,3 +1,5 @@
+
+import Link from "next/link"
 const SingleSlideCourse = ({item}) => {
   return (
     <>
@@ -8,7 +10,9 @@ const SingleSlideCourse = ({item}) => {
           </div>
           <div className="wrap-details">
             <h6 className="text-center">
-              <a href="#">{item.course}</a>
+              <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
+                <a>{item.value}</a>
+              </Link>
             </h6>
             <p>มี {item.available} หลักสูตรให้เลือก</p>
           </div>

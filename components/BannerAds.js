@@ -12,7 +12,7 @@ const BannerAds = () => {
           <p className="text-3xl font-bold text-white">Multimedia products</p>
           <p className="text-2xl mb-10 leading-none text-white">Atractive designs for your brand</p>
           <a
-            href="#"
+            href="/Contact"
             className="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">
             Contact us
           </a>

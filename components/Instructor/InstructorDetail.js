@@ -1,4 +1,7 @@
+import { useState } from "react";
 const InstructorDetail = ({e}) => {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <>
       <div
@@ -10,7 +13,7 @@ const InstructorDetail = ({e}) => {
               <div className="card-body">
                 <div className="">
                   <img
-                    src={typeof e.รูปถ่าย == "undefined" ? "/assets/img/user.png" : e.รูปถ่าย}
+                    src={typeof e.รูปถ่าย == "undefined" ? "/assets/img/user.png" : `/${e.รูปถ่าย}`}
                     alt="img"
                     className="object-scale-down w-[370px] h-[240px]"
                   />
@@ -79,29 +82,76 @@ const InstructorDetail = ({e}) => {
             <div className="col-span-1 md:col-span-1">
               <h1 className="font-title text-f3xl">คอร์สเรียน</h1>
             </div>
-            <div className="bg-slate-700 rounded-lg flex items-center justify-between  px-2 col-span-1 lg:col-span-1">
-              <h1 className="font-title text-f3xl text-white">โทรหาผู้สอน</h1>
-              <i className="fa fa-phone text-[#cf9b3b] text-3xl"></i>
+            <div className="bg-slate-700 rounded-lg  px-2 col-span-1 lg:col-span-1">
+              <a href={`tel:${e.เบอร์โทร}`} className="flex items-center justify-between ">
+                <h1 className="font-title text-f3xl text-white">โทรหาผู้สอน</h1>
+                <i className="fa fa-phone text-[#cf9b3b] text-3xl"></i>
+              </a>
             </div>
           </div>
 
-          <div className="mt-5 space-y-6">
+          <div className="mt-5 space-y-2">
             <div className="grid grid-cols-3 ">
               <p className="line-clamp-3 col-span-2 font-body !text-2xl subtext">
                 1.{e.รายละเอียดคอร์สเรียน}
               </p>
               <h5 className="line-clamp-3 col-span-1 text-right font-body text-flg">
-                {e.ราคาคอร์สเรียน}
+                {parseFloat(e.ราคาคอร์สเรียน.replace(/,/g, ""))} บาท
               </h5>
             </div>
-            <div className="grid grid-cols-3 ">
-              <h5 className="line-clamp-3 col-span-2 font-body !text-2xl subtext">
-                2.{e.รายละเอียดคอร์สเรียน}
-              </h5>
-              <h5 className="line-clamp-3 col-span-1 text-right font-body text-flg">
-                {e.ราคาคอร์สเรียน}
-              </h5>
-            </div>
+            <button
+              className="text-black font-bold uppercase text-sm px-2 py-1   rounded hover:border  ease-linear transition-all duration-150"
+              type="button"
+              onClick={() => setShowModal(true)}>
+              อ่านเพิ่มเติม
+            </button>
+            {showModal ? (
+              <>
+                <div
+                  className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                  <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                    {/*content*/}
+                    <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                      {/*header*/}
+                      <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+                        <h3 className="text-3xl font-semibold">{e.Category}</h3>
+                        <button
+                          className="p-1 ml-auto bg-transparent border-0 text-black float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                          onClick={() => setShowModal(false)}>
+                          <span className="bg-transparent text-red-500  h-6 w-6 text-3xl block outline-none focus:outline-none">
+                            ×
+                          </span>
+                        </button>
+                      </div>
+                      {/*body*/}
+                      <div className="relative p-6 flex-auto">
+                        <p className="my-4 text-slate-500 text-lg leading-relaxed">
+                          {e.รายละเอียดคอร์สเรียน}
+                        </p>
+                      </div>
+                      {/*footer*/}
+                      <div className="bg-red-500 flex items-center justify-between p-6 border-t border-solid border-slate-200 rounded-b">
+                        <div
+                          className="text-black background-transparent  font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                          type="button">
+                          <h1 className="font-title text-f3xl text-white">
+                            {parseFloat(e.ราคาคอร์สเรียน.replace(/,/g, ""))} บาท
+                          </h1>
+                        </div>
+                        <a href={`tel:${e.เบอร์โทร}`}>
+                          <div
+                            className="bg-emerald-500 text-white active:bg-emerald-600 font-title text-3xl uppercase px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                            type="button">
+                            โทร
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+              </>
+            ) : null}
           </div>
         </div>
 
@@ -190,16 +240,10 @@ const InstructorDetail = ({e}) => {
           {" "}
           <h1 className="title text-[#cf9b3b]">Review</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-            <ol className="list-decimal" style={{color:'#808191'}}>
-              <li className="subtext">
-                สอนเข้าใจง่าย
-              </li>
-              <li className="subtext">
-                เนื้อหากระชับ ชัดเจน
-              </li>
-              <li className="subtext">
-                คุณครูน่ารัก
-              </li>
+            <ol className="list-decimal" style={{color: "#808191"}}>
+              <li className="subtext">สอนเข้าใจง่าย</li>
+              <li className="subtext">เนื้อหากระชับ ชัดเจน</li>
+              <li className="subtext">คุณครูน่ารัก</li>
             </ol>
           </div>
         </div>

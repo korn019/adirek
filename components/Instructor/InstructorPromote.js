@@ -1,6 +1,6 @@
 import {Swiper, SwiperSlide} from "swiper/react"
 import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
-
+import Link from "next/link"
 const InstructorPromote = () => {
   return (
     <>
@@ -31,7 +31,301 @@ const InstructorPromote = () => {
           </div>
         </div>
       </section>
-      <section className="bg-black">
+
+      <section className="text-gray-700 body-font my-20 ">
+        <div className=" justify-center items-center test-class ">
+          <div className="grid  grid-cols-1 lg:grid-cols-2 ">
+            <div className="body--container">
+              <img
+                className="text w-[400px] h-[400px] object-cover"
+                alt="Adirek"
+                src="assets/img/Logo-Adirek.png"
+              />
+              <div className="bubble--container">
+                <div className="bubble bubble--large"></div>
+                <div className="bubble bubble--one top-[200px] left-[-50px] sm:left-0 sm:top-[400px]"></div>
+                <div className="bubble bubble--two top-50 left-0 sm:top-[400px] sm:right-0"></div>
+                <div className="bubble bubble--three top-[300px] left-0 sm:top-[450px] sm:left-0"></div>
+              </div>
+            </div>
+
+            <div className=" text-center">
+              <h1 className="title-font text-f5xl sm:text-f4xl  mb-4 font-title  text-gray-900">
+                <span className="title-word title-word-1">อ</span>
+                <span className="title-word title-word-2">ดิ</span>
+                <span className="title-word title-word-3">เ</span>
+                <span className="title-word title-word-4">ร</span>
+                <span className="title-word title-word-3">ก</span>
+                <span className="title-word title-word-3"> ร่วมสอนกับเรา</span>
+              </h1>
+              <div className="">
+                <p className="mb-8 leading-relaxed text-md md:text-fbase">
+                  เปลี่ยน “ความรู้” ให้เป็น “รายได้” ที่ อดิเรก
+                </p>
+                <p className="mb-8 leading-relaxed text-md md:text-fbase">
+                  เปลี่ยน “ความรู้” ให้เป็น “รายได้” โดยไม่ต้องลงทุนไปกับ อดิเรก
+                </p>
+                <p className="mb-8 leading-relaxed text-md md:text-fbase">
+                  เปลี่ยน “ความรู้” ให้เป็น “รายได้” เริ่มง่ายๆด้วยตัวคุณเองที่ อดิเรก
+                </p>
+                <p className="mb-8 leading-relaxed text-md md:text-fbase">
+                  เปลี่ยน “ความชอบ” ให้เป็น “รายได้” ใช้ชีวิตแบบชิลล์ๆ เริ่มต้นที่ อดิเรก
+                </p>
+                <p className="mb-8 leading-relaxed text-md md:text-fbase">
+                  ใช้“ความรู้” ของคุณเพื่อสร้าง “รายได้” และพัฒนาทักษะให้กับผู้เรียนที่ อดิเรก{" "}
+                </p>
+                <p className="mb-8 leading-relaxed text-md md:text-fbase">
+                  อย่าให้ Skill ของคุณต้องสูญเปล่า เปลี่ยน Skill ให้เป็นรายได้ที่ อดิเรก{" "}
+                </p>
+                <div className="flex justify-center">
+                  <button className="btn font-body text-3xl">
+                    <Link href="/Contact">ติดต่อเรา</Link>{" "}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <div className="h-32"></div>
+        <div className="relative bg-gray-50 text-black-500 ">
+          <div
+            className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
+            style={{height: 80}}>
+            <svg
+              className="absolute bottom-0 overflow-hidden"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              version="1.1"
+              viewBox="0 0 2560 100"
+              x="0"
+              y="0">
+              <polygon
+                className="text-gray-50  test-class fill-current"
+                points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+          </div>
+        </div> */}
+
+        <div className="bg-red-400 h-10 mt-24"></div>
+        <div className="py-24 items-center test-class flex-wrap grid grid-cols-1 lg:grid-cols-2 z-50">
+          <div className="w-full xl:w-9/12 ml-auto mr-auto px-4">
+            <iframe
+              src="https://www.youtube.com/embed/I9TCLKlMzpc"
+              frameBorder="0"
+              allowFullScreen
+              className="animate-none xl:animate-[youtubeSlide_4s_infinite_alternate] aspect-video  w-full h-full  rounded-lg "></iframe>
+          </div>
+          <div className="w-full  ml-auto mr-auto px-4">
+            <div className="md:pr-12">
+              <h2 className="mb-6  mt-8 text-3xl font-title text-f2xl md:text-fxl lg:text-f3xl ">
+                <span className="text-f4xl title-word-3 title-word-2 animate-[color-animation_3s_linear_infinite]">
+                  อดิเรก &nbsp;
+                </span>
+                คืออะไร?
+              </h2>
+              <p className="mt-4 indent-5 text-lg leading-relaxed text-grey-500  text-md">
+                อดิเรก คือ
+                แพลตฟอร์มการเรียนรู้รูปแบบใหม่ที่ทำหน้าที่เป็นพื้นที่อิสระเพื่อเชื่อมระหว่างผู้เรียนและผู้สอน
+                ไว้ด้วยกัน พร้อมสื่อสารกัน โดยตรง ไม่ผ่านคนกลาง สามารถกำหนดวัน เวลา
+                สถานที่ได้อย่างอิสระ
+              </p>
+              <ul className="list-none mt-6">
+                <ul>
+                  <p className="leading-relaxed font-body text-3xl">
+                    <strong>สิ่งที่คุณจะได้จากการสอนที่ อดิเรก</strong>{" "}
+                  </p>
+                </ul>
+                <li className="py-2">
+                  <div className="flex items-center">
+                    <div>
+                      <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
+                        {/* <i className="fas fa-fingerprint"></i> */}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="leading-relaxed  text-lg">
+                        ช่องทางรายได้ใหม่ๆ
+                        เปลี่ยนความรู้และความสามารถของคุณให้เป็นรายได้โดยที่ไม่ต้องลงทุน
+                        ไม่มีหักเปอร์เซ็นต์ หรือคอมมิชชั่นใดๆ{" "}
+                        <strong className="font-black"> ฟรีทุกอย่าง! </strong>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li className="py-2">
+                  <div className="flex items-center">
+                    <div>
+                      <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
+                        {/* <i className="fab fa-html5"></i> */}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="leading-relaxed  text-lg">
+                        เพิ่มทักษะให้กับผู้อื่นได้แบ่งปันความรู้
+                        ช่วยเพิ่มทักษะให้กับผู้เรียนที่มีความสนใจ
+                        ช่วยผลักดันผู้เรียนไปสู่ประตูแห่งโอกาสใหม่ ๆ
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li className="py-2">
+                  <div className="flex items-center">
+                    <div>
+                      <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
+                        {/* <i className="far fa-paper-plane"></i> */}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="leading-relaxed  text-lg">
+                        เวลาการทำงานที่ยืดหยุ่น กำหนดรายละเอียดต่างๆ ได้ด้วยตนเอง ไม่ว่าจะเป็นวัน
+                        เวลา รายละเอียด แม้กระทั่งราคาคอร์ส
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li className="py-2">
+                  <div className="flex items-center">
+                    <div>
+                      <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
+                        {/* <i className="far fa-paper-plane"></i> */}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="leading-relaxed text-lg">
+                        สร้างสังคมแห่งการเรียนรู้ เพียงคุณมีความรู้และความสามารถ
+                        และมีใจที่อยากแบ่งปันความรู้ให้กับผู้อื่น
+                        คุณก็เป็นส่วนหนึ่งในการสร้างสังคมแห่งการเรียนรู้ไปกับเราได้
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li className="py-2">
+                  <div className="flex items-center">
+                    <div>
+                      <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
+                        {/* <i className="far fa-paper-plane"></i> */}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="leading-relaxed  text-lg">
+                        เพิ่มทักษะให้กับตัวคุณเอง สร้างคอร์สเรียนได้ง่าย ๆ
+                        แม้ไม่มีประสบการณ์ในการสอนมาก่อน เพราะเรามีทีมงานคอยให้
+                        คำปรึกษาและช่วยเหลือคุณตลอด 24 ชั่วโมง
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="min-w-screen min-h-screen bg-svg flex items-center justify-center px-5 py-5">
+          <div
+            className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden"
+            style={{maxWidth: 1000}}>
+            <div className="md:flex w-full ">
+              <div className="hidden md:block w-1/2 bg-indigo-500 py-10 px-5 md:px-10">
+                <div className="text-center  items-center justify-center">
+                  <h1 className="font-title text-f3xl text-white">ขั้นตอนการสอนกับเรา</h1>
+                  <div className=" text-white text-f3xl font-body text-left">
+                    <ol>
+                      <li>ลงทะเบียนสมัครเป็นผู้สอน</li>
+                      <li>รอการติดต่อกลับ</li>
+                      <li>เริ่มสอนได้ทันที</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+              <div className="w-full md:w-1/2 py-10 px-5 md:px-10">
+                <div className="text-center mb-10">
+                  <h1 className="font-title text-f4xl text-gray-900">ลงทะเบียน</h1>
+                  <p>กรอกข้อมูลลงทะเบียนเพื่อให้เราติดต่อกับ</p>
+                </div>
+                <div>
+                  <div className="flex -mx-3">
+                    <div className="w-1/2 px-3 mb-5">
+                      <label for="" className="text-xs font-semibold px-1">
+                        ชื่อจริง
+                      </label>
+                      <div className="flex">
+                        <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                          <i className="mdi mdi-account-outline text-gray-400 text-lg"></i>
+                        </div>
+                        <input
+                          type="text"
+                          className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                          placeholder="ชื่อจริง"
+                        />
+                      </div>
+                    </div>
+                    <div className="w-1/2 px-3 mb-5">
+                      <label for="" className="text-xs font-semibold px-1">
+                        นามสกุล
+                      </label>
+                      <div className="flex">
+                        <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                          <i className="mdi mdi-account-outline text-gray-400 text-lg"></i>
+                        </div>
+                        <input
+                          type="text"
+                          className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                          placeholder="นามสกุล"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex -mx-3">
+                    <div className="w-full px-3 mb-5">
+                      <label for="" className="text-xs font-semibold px-1">
+                        Email
+                      </label>
+                      <div className="flex">
+                        <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                          <i className="mdi mdi-email-outline text-gray-400 text-lg"></i>
+                        </div>
+                        <input
+                          type="email"
+                          className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                          placeholder="adirek@hotmail.com"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex -mx-3">
+                    <div className="w-full px-3 mb-12">
+                      <label for="" className="text-xs font-semibold px-1">
+                        เบอร์โทรศัพท์
+                      </label>
+                      <div className="flex">
+                        <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                          <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
+                        </div>
+                        <input
+                          className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                          placeholder="เบอร์โทรศัพท์"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex -mx-3">
+                    <div className="w-full px-3 mb-5">
+                      <button className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-0 font-title text-f3xl">
+                        ยืนยัน
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-red-400">
         <div className="h-32"></div>
         <div className="relative bg-gray-50 text-black-500">
           <div
@@ -117,6 +411,7 @@ const InstructorPromote = () => {
           </div>
         </div>
       </section>
+
       <div className="text-center pd-top-135 bg-white">
         <div className="container">
           <div className="row justify-content-center">

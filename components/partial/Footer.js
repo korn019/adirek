@@ -1,4 +1,8 @@
+    import {CourseCheck} from "../course/Courselabel"
+import {useState, useEffect} from "react"
+import Link from "next/link"
 const Footer = () => {
+  const [course, setCourse] = useState(CourseCheck)
   return (
     <>
       <footer className="footer-area">
@@ -8,7 +12,20 @@ const Footer = () => {
               <div className="col-lg-8 col-md-4 col-sm-6">
                 <div className="footer-widget widget widget_link">
                   <h4 className="widget-title">หลักสูตร</h4>
-                  <div className="row">
+                  <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-3">
+                    {course.map((e, id) => {
+                      return (
+                        <>
+                          <div className="p-2 md:p-0" key={e.id}>
+                            <Link href={`/Course/${e.value}`} as={`/Course/${e.value}`}>
+                              <a>{e.value}</a>
+                            </Link>
+                          </div>
+                        </>
+                      )
+                    })}
+                  </div>
+                  {/* <div className="row">
                     <div className="col-lg-4">
                       <ul className="pe-5">
                         <li>
@@ -84,7 +101,7 @@ const Footer = () => {
                         </li>
                       </ul>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div className="col-lg-2 col-md-4 col-sm-6">
@@ -92,14 +109,14 @@ const Footer = () => {
                   <h4 className="widget-title">การเชื่อมโยง</h4>
                   <ul className="pe-4">
                     <li>
-                      <a href="blog.html">ข่าวสาร และ บทความ</a>
+                      <a href="/Blog">ข่าวสาร และ บทความ</a>
                     </li>
 
                     <li>
-                      <a href="course.html">หลักสูตร</a>
+                      <a href="/Category">หลักสูตร</a>
                     </li>
                     <li>
-                      <a href="instructor.html">สอนบน อดิเรก</a>
+                      <a href="/Instructor">สอนบน อดิเรก</a>
                     </li>
                   </ul>
                 </div>
@@ -114,11 +131,11 @@ const Footer = () => {
                     <li>
                       <a href="faq.html">คำถามที่พบบ่อย</a>
                     </li>
-                    <li>
+                    {/* <li>
                       <a href="dashboard.html">รายงาน</a>
-                    </li>
+                    </li> */}
                     <li>
-                      <a href="contact.html">ติดต่อเรา</a>
+                      <a href="/Contact">ติดต่อเรา</a>
                     </li>
                   </ul>
                 </div>
@@ -136,7 +153,7 @@ const Footer = () => {
                     <img src="/assets/img/logo.png" alt="img" />
                   </div>
                   <div className="copyright-area">
-                    <p>© 2021 - อดิเรก. All Rights Reserved</p>
+                    <p>© 2022 - อดิเรก. All Rights Reserved</p>
                   </div>
                 </div>
               </div>
@@ -199,9 +216,7 @@ const Footer = () => {
       <script
         type="text/javascript"
         src="../../assets/jquery.Thailand.js/dist/jquery.Thailand.min.js"></script>
-        
     </>
-    
   )
 };
 

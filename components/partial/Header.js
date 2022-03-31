@@ -1,6 +1,10 @@
 import Link from "next/link"
-
+import {useEffect, useState, useContext} from "react"
+import {CourseCheck} from "../course/Courselabel"
+import {SearchCourseContext} from "../../pages/Category"
 const Header = () => {
+  const [course, setCourse] = useState(CourseCheck)
+   const {searchCourse,setSearchCourse} = useContext(SearchCourseContext)
   return (
     <>
       <div className="search-popup" id="search-popup">
@@ -9,7 +13,15 @@ const Header = () => {
             <input type="text" className="form-control" placeholder="Search....." />
           </div>
           <button type="submit" className="submit-btn">
-            <i className="fa fa-search"></i>
+            <Link
+              href={{
+                pathname: "/Categort",
+                query: searchCourse, // the data
+              }}>
+              <a>
+                <i className="fa fa-search"></i>
+              </a>
+            </Link>
           </button>
         </form>
       </div>
@@ -47,10 +59,17 @@ const Header = () => {
             </div>
             <div className="collapse navbar-collapse" id="themefie_main_menu">
               <div className="single-input-wrap">
-                <input type="text" placeholder="ค้นหาหลักสูตร..." />
-                <button>
-                  <i className="fa fa-search"></i>
-                </button>
+                <input
+                  type="text"
+                  placeholder="ค้นหาหลักสูตร..."
+                  onChange={(e) => setSearchCourse(e.target.value)}
+                  value={searchCourse}
+                />
+                <Link href={`/Search/${searchCourse}`} >
+                  <button>
+                    <i className="fa fa-search"></i>
+                  </button>
+                </Link>
               </div>
               <ul className="navbar-nav menu-open text-end">
                 <li className="menu-item">
@@ -79,38 +98,19 @@ const Header = () => {
           </div>
         </nav>
       </header>
+
       <div className="category-responsive d-xl-none d-block">
         <div className="container">
           <div className="category-slider owl-carousel">
-            <div className="item">
-              <a href="category.html">Design</a>
-            </div>
-            <div className="item">
-              <a href="category.html">วิชาการ</a>
-            </div>
-            <div className="item">
-              <a href="category.html">แต่งหน้า</a>
-            </div>
-            <div className="item">
-              <a href="category.html">ดนตรี</a>
-            </div>
-            <div className="item">
-              <a href="category.html">ถ่ายรูปและแต่งรูป</a>
-            </div>
-            <div className="item">
-              <a href="category.html">กีฬา</a>
-            </div>
-
-            <div className="item">
-              <a href="category.html">บุคลิกภาพ</a>
-            </div>
-
-            <div className="item">
-              <a href="category.html">ทำอาหารและขนม</a>
-            </div>
-            <div className="item">
-              <a href="category.html">จัดดอกไม้และจัดสวนถาด</a>
-            </div>
+            {course.map((item, index) => {
+              return (
+                <div className="item" key={item.id}>
+                  <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
+                    <a>{item.value}</a>
+                  </Link>
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>
@@ -121,33 +121,15 @@ const Header = () => {
           <div className="container nav-container">
             <div className="collapse navbar-collapse">
               <ul className="navbar-nav menu-open">
-                <li>
-                  <a href="category.html">Design</a>
-                </li>
-                <li>
-                  <a href="category.html">วิชาการ</a>
-                </li>
-                <li>
-                  <a href="category.html">แต่งหน้า</a>
-                </li>
-                <li>
-                  <a href="category.html">ดนตรี</a>
-                </li>
-                <li>
-                  <a href="category.html">ถ่ายรูปและแต่งรูป</a>
-                </li>
-                <li>
-                  <a href="category.html">กีฬา</a>
-                </li>
-                <li>
-                  <a href="category.html">บุคลิกภาพ</a>
-                </li>
-                <li>
-                  <a href="category.html">ทำอาหารและขนม</a>
-                </li>
-                <li>
-                  <a href="category.html">จัดดอกไม้และจัดสวนถาด</a>
-                </li>
+                {course.map((item, index) => {
+                  return (
+                    <li key={item.id}>
+                      <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
+                        <a>{item.value}</a>
+                      </Link>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
           </div>

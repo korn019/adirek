@@ -1,13 +1,18 @@
-import {useState, useEffect} from "react"
+import {useState, useEffect, useContext} from "react"
 import ReactPaginate from "react-paginate"
 import SingleCourse from "../course/SingleCourse"
 import FilterCheck from "./FilterCheck"
 import PaginatedItems from "./PaginatedItems"
 import {CourseCheck} from "./Check"
 import {PriceData} from "./Price"
+import {useRouter} from "next/router"
+import {SearchCourseContext} from "../../pages/Category"
 
 const MainCategory = () => {
+  //  console.log(`searchCourse: ${setSearchCourse}`)
   //Filter Course & Price
+   const {searchCourse, setSearchCourse} = useContext(SearchCourseContext)
+
   const [data, setData] = useState([])
   const [dataJson, setDataJson] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -17,6 +22,7 @@ const MainCategory = () => {
   const [isCheckPrice, setIsCheckPrice] = useState([])
   const [list, setList] = useState([])
 
+  const [reset, setReset] = useState(false)
   // Filter Address
   const [subdistrict, setSubDistrict] = useState("")
   const [district, setDistrict] = useState("")
@@ -52,6 +58,7 @@ const MainCategory = () => {
     // setIsCheckPrice([...isCheckPrice, name])
     if (!checked) {
       setIsCheck(isCheck.filter((item) => item !== name))
+       
       //  setIsCheckPrice(isCheckPrice.filter((item) => item !== name))
     }
   }
@@ -65,6 +72,17 @@ const MainCategory = () => {
     }
   }
 
+  const resetButton = () => {
+    setIsCheckAll(false)
+    setIsCheck([])
+    setIsCheckAllPrice(false)
+    setIsCheckPrice([])
+    setSubDistrict("")
+    setDistrict("")
+    setProvince("")
+    setFullAddress({})
+    setError("")
+  }
 
 
   const getData = () => {
@@ -119,6 +137,7 @@ const MainCategory = () => {
             fullAddress={fullAddress}
             setFullAddress={setFullAddress}
             onSelect={onSelect}
+            resetButton={resetButton}
           />
           <div className="col-lg-9">
             <div className="row">

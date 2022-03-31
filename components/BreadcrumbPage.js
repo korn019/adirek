@@ -1,6 +1,6 @@
 import Breadcrumb from "./Breadcrumb";
 
-const BreadcrumbPage = ({title, bread1, bread2, breadActive, href1, href2, hrefActive}) => {
+const BreadcrumbPage = ({title, bread1, bread2, breadActive, href1, href2, hrefActive,Search}) => {
   return (
     <div className="border-b border-[#e5f1fb]">
       <div className="container ">
@@ -20,8 +20,12 @@ const BreadcrumbPage = ({title, bread1, bread2, breadActive, href1, href2, hrefA
           </div>
         </div>
         <div className="">
-          <h1 className="title-font text-f5xl sm:text-f4xl  mb-4 font-title  text-gray-900">
-            <span className="title-word title-word-1">{title}</span>
+          <h1 className="title-font sm:text-f4xl  mb-4 font-title  text-gray-900">
+            {Search ? (
+              <span className="title-word  text-f2xl">{title}</span>
+            ) : (
+              <span className="title-word  text-f4xl">{title}</span>
+            )}
           </h1>
         </div>
       </div>

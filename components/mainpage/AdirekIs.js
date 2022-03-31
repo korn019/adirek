@@ -1,12 +1,12 @@
 import {useState, useEffect} from "react"
-
+import Link from "next/link"
 const AdirekIs = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <>
       <section className="text-gray-700 body-font -mt-36">
-        <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+        <div className="container mx-auto flex px-6 py-24 md:flex-row flex-col items-center">
           <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center z-50">
             <h1 className="title-font text-f5xl sm:text-f4xl  mb-4 font-title  text-gray-900">
               <span className="title-word title-word-1">อ</span>
@@ -29,7 +29,9 @@ const AdirekIs = () => {
               </p>
             </div>
             <div className="flex justify-center">
-              <button className="btn font-body text-3xl"> ติดต่อเรา</button>
+              <button className="btn font-body text-3xl">
+                <Link href="/Contact">ติดต่อเรา</Link>{" "}
+              </button>
             </div>
           </div>
           <div className=" lg:max-w-lg lg:w-full md:w-1/2 w-5/6 img-hover-zoom">
@@ -148,7 +150,7 @@ const AdirekIs = () => {
                       </span>
                     </div>
                     <div>
-                      <h4 className="text-blueGray-500">ทุกการเรียนรู้ เริ่มต้นที่ อดิเรก</h4>
+                      <p className="leading-relaxed">ทุกการเรียนรู้ เริ่มต้นที่ อดิเรก</p>
                     </div>
                   </div>
                 </li>
@@ -160,9 +162,9 @@ const AdirekIs = () => {
                       </span>
                     </div>
                     <div>
-                      <h4 className="text-blueGray-500">
+                      <p className="leading-relaxed">
                         อดิเรก จุดเริ่มต้นของสังคมแห่งการเรียนรู้ไม่มีที่สิ้นสุด
-                      </h4>
+                      </p>
                     </div>
                   </div>
                 </li>
@@ -174,9 +176,9 @@ const AdirekIs = () => {
                       </span>
                     </div>
                     <div>
-                      <h4 className="text-blueGray-500">
+                      <p className="leading-relaxed">
                         อดิเรก เราเปิดประตสู่ทุกการเรียนรู้ ให้ทุกวันคือการสร้างโอกาสใหม่สำหรับคณ
-                      </h4>
+                      </p>
                     </div>
                   </div>
                 </li>
@@ -188,10 +190,10 @@ const AdirekIs = () => {
                       </span>
                     </div>
                     <div>
-                      <h4 className="text-blueGray-500">
+                      <p className="leading-relaxed">
                         อดิเรก
                         ประตูสู่การเรียนรู้ทุกเรื่องที่คุณสนใจและช่องท่างที่จะเปลี่ยนงานอดิเรกของคุณให้เป็นรายได้
-                      </h4>
+                      </p>
                     </div>
                   </div>
                 </li>

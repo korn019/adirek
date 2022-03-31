@@ -1,8 +1,9 @@
 import ReactPaginate from "react-paginate"
-import {useState, useEffect} from "react"
+import {useState, useEffect, useContext} from "react"
 import SingleCourse from "../course/SingleCourse"
 import CourseNoCheckBox from "./CourseNoCheckBox"
-
+import {SearchCourseContext} from "../../pages/Category"
+import {useRouter} from "next/router"
 const PaginatedItems = ({
   itemsPerPage,
   data,
@@ -25,6 +26,15 @@ const PaginatedItems = ({
   fullAddress,
   setFullAddress,
 }) => {
+  const router = useRouter()
+  const query = Object.keys(router.query).toString()
+  const {searchCourse, setSearchCourse} = useContext(SearchCourseContext)
+  // const {searchCourse, setSearchCourse} = useState(SearchCourseContext)
+
+  // let getparam = Object.keys(query)
+  // let out = getparam.map((item) => item)
+  // let str = out.toString()
+
   const [currentItems, setCurrentItems] = useState(null)
   const [pageCount, setPageCount] = useState(0)
   const [itemOffset, setItemOffset] = useState(0)
@@ -40,7 +50,7 @@ const PaginatedItems = ({
     const endOffset = itemOffset + itemsPerPage
     setCurrentItems(items.slice(itemOffset, endOffset))
     setPageCount(Math.ceil(items.length / itemsPerPage))
-  }, [itemOffset, itemsPerPage, data, isCheck, isCheckPrice])
+  }, [itemOffset, itemsPerPage, data, isCheck, isCheckPrice, searchCourse, province])
 
   // เก็บค่า Course from CheckBox
   const checkFilter = isCheck.map((item) => {
@@ -67,47 +77,84 @@ const PaginatedItems = ({
   })
 
   var priceVal = ["0", "0"]
+  // let ster = checkPriceFilter
   var arrAmount = checkPriceFilter
   var arrCourse = checkFilter
   for (var i = 0; i < arrAmount.length; i++) {
     priceVal = arrAmount[i].split("-") // just split once
   }
-
+  // if(checkPriceFilter !== undefined){ return checkPriceFilter.replace(/,/g, "")}
+  // console.log(typeof checkPriceFilter.toString())
   var placeTest = []
   var placeTest2 = province
   // console.log(province)
   for (var i = 0; i < 1; i++) {
     placeTest.push(placeTest2)
   }
-
   let myArrayFilteredPlace = data.filter(function (v) {})
 
   let myArrayFiltered = data.filter(function (v) {
-   
-
     // for (v.กรณีเรียนนอกสถานที่ !== undefined && v.กรณีเรียนนอกสถานที่.includes(province)) = definePlace
-// console.log(definePlace)  
+    // console.log(definePlace)
     // if(province === ""){
     //   return v
     // }else if (v.กรณีเรียนนอกสถานที่ !== undefined && v.กรณีเรียนนอกสถานที่.includes(province)) {
     //   return v
     // }
-    if (arrCourse.length === 0 && arrAmount.length === 0 && province.length == 0) { // ถ้าไม่มีค่าที่กรอกให้แสดงทั้งหมด
+    if (
+      arrCourse.length === 0 &&
+      arrAmount.length === 0 &&
+      province.length == 0 &&
+      searchCourse.length == 0
+    ) {
+      // ถ้าไม่มีค่าที่กรอกให้แสดงทั้งหมด
       return v
-
-    } else if (arrCourse.length > 0 && arrAmount.length === 0 && province.length === 0) { // แสดงค่าตาม Course ที่กรอก
+    } else if (
+      (arrCourse.length === 0 &&
+        arrAmount.length === 0 &&
+        province.length === 0 &&
+        searchCourse.length > 0)
+    ) {
+      if (searchCourse !== undefined) {
+        if (searchCourse.length == 0) {
+          return v
+        } else if (searchCourse.length > 0) {
+          return (
+            v.Category.toLowerCase().includes(searchCourse.toLowerCase()) ||
+            v.ชื่อจริง.toLowerCase().includes(searchCourse.toLowerCase()) ||
+            v.รายละเอียดคอร์สเรียน.toLowerCase().includes(searchCourse.toLowerCase()) ||
+            v.ราคาคอร์สเรียน.toLowerCase().includes(searchCourse.toLowerCase())
+          )
+        }
+      } else {
+        return v
+      }
+    } else if (arrCourse.length > 0 && arrAmount.length === 0 && province.length === 0) {
+      // แสดงค่าตาม Course ที่กรอก
       return arrCourse.includes(v.filterCategory)
-
-    } else if (priceVal[1] && arrAmount.length == 1 && arrCourse.length == 0 &&  province.length === 0) {  // แสดงค่าตามราคาที่กรอก
+    } else if (
+      priceVal[1] &&
+      arrAmount.length == 1 &&
+      arrCourse.length == 0 &&
+      province.length === 0
+    ) {
+      // แสดงค่าตามราคาที่กรอก
       return (
         parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
         parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) <= parseFloat(priceVal[1])
       )
-    } else if(arrCourse.length === 0 && arrAmount.length === 0 && province.length > 0){ // แสดงค่าตามจังหวัดที่กรอก
-      if(v.กรณีเรียนนอกสถานที่ !== undefined){
+    } else if (arrCourse.length === 0 && arrAmount.length === 0 && province.length > 0) {
+      // แสดงค่าตามจังหวัดที่กรอก
+      if (v.กรณีเรียนนอกสถานที่ !== undefined) {
         return v.กรณีเรียนนอกสถานที่.includes(province)
       }
-    } else if (priceVal[1] && arrAmount.length == 1 && province.length > 0 && arrCourse.length == 0) { // แสดงค่าตามราคาที่กรอกและจังหวัดที่กรอก
+    } else if (
+      priceVal[1] &&
+      arrAmount.length == 1 &&
+      province.length > 0 &&
+      arrCourse.length == 0
+    ) {
+      // แสดงค่าตามราคาที่กรอกและจังหวัดที่กรอก
       if (v.กรณีเรียนนอกสถานที่ !== undefined) {
         return (
           parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
@@ -115,11 +162,18 @@ const PaginatedItems = ({
           v.กรณีเรียนนอกสถานที่.includes(province)
         )
       }
-    } else if (arrCourse.length > 0 && province.length > 0 && arrAmount.length == 0) { // แสดงค่าตาม Course ที่กรอกและจังหวัดที่กรอก
+    } else if (arrCourse.length > 0 && province.length > 0 && arrAmount.length == 0) {
+      // แสดงค่าตาม Course ที่กรอกและจังหวัดที่กรอก
       if (v.กรณีเรียนนอกสถานที่ !== undefined) {
         return arrCourse.includes(v.filterCategory) && v.กรณีเรียนนอกสถานที่.includes(province)
       }
-    } else if (priceVal[1] && arrAmount.length == 1 && arrCourse.length > 0 && province.length > 0) { // แสดงค่าตาม Course ที่กรอกและราคาที่กรอกและจังหวัดที่กรอก
+    } else if (
+      priceVal[1] &&
+      arrAmount.length == 1 &&
+      arrCourse.length > 0 &&
+      province.length > 0
+    ) {
+      // แสดงค่าตาม Course ที่กรอกและราคาที่กรอกและจังหวัดที่กรอก
       if (v.กรณีเรียนนอกสถานที่ !== undefined) {
         return (
           arrCourse.includes(v.filterCategory) &&
@@ -175,12 +229,12 @@ const PaginatedItems = ({
           </div>
           <div className="flex justify-center items-center grid-cols-1 lg:grid-cols-3 w-full">
             <ReactPaginate
-              nextLabel="next >"
+              nextLabel="ถัดไป"
               onPageChange={handlePageClick}
               pageRangeDisplayed={1}
               marginPagesDisplayed={1}
               pageCount={pageCount}
-              previousLabel="< previous"
+              previousLabel="ก่อนหน้า"
               pageClassName="page-item"
               pageLinkClassName="page-link"
               previousClassName="page-item"

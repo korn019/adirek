@@ -1,15 +1,20 @@
 import Link from "next/link"
 import {useRouter} from "next/router"
 import {useState} from "react"
-const BlogCard = ({
-  article,
-  setPerfectionistView,
-  perfectionistView,
-  setAcceptanceView,
-  acceptanceView,
-  setInspirationView,
-  inspirationView,
-}) => {
+const BlogCard = (
+  {
+    article,
+    setPerfectionistView,
+    perfectionistView,
+    setAcceptanceView,
+    acceptanceView,
+    setInspirationView,
+    inspirationView,
+  },
+  props
+) => {
+  const {search, setSearch} = props
+
   const router = useRouter()
   const CountView = () => {
     if (typeof window !== "undefined") {
@@ -60,7 +65,7 @@ const BlogCard = ({
         <div className="h-full  group-hover:border-none border-2 border-gray-200 rounded-lg overflow-hidden hover:shadow-lg duration-500">
           <div className="w-full h-full">
             <div className=" group-hover:scale-105 group-hover:ease-in group-hover:duration-500">
-              <Link href=''>
+              <Link href="">
                 <a onClick={CountView}>
                   <img
                     className=" w-full object-cover object-center "
