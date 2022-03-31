@@ -46,7 +46,7 @@ const BlogCard = ({
         xhr.responseType = "json"
         xhr.onload = function () {
           localStorage.setItem("@AcceptanceCountView", this.response.value)
-          console.log(this.response.value)
+          // console.log(this.response.value)
           router.push(`/Blog/${article.url}`)
         }
         xhr.send()

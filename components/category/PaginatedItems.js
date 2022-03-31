@@ -75,7 +75,7 @@ const PaginatedItems = ({
 
   var placeTest = []
   var placeTest2 = province
-  console.log(province)
+  // console.log(province)
   for (var i = 0; i < 1; i++) {
     placeTest.push(placeTest2)
   }

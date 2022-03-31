@@ -2,7 +2,7 @@ import { useState } from "react"
 
 const SearchCourse = () => {
     const [search,setSearch]=useState(0)
-    console.log(search.length)
+    // console.log(search.length)
     return (
       <div className="blog-cat ">
         <div className="category-navbar navbar-area mt-0 border-top-0 border-blue-400 border-1">
