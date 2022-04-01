@@ -18,16 +18,19 @@ import {
   TwitterShareButton,
 } from "react-share"
 const BlogContent = () => {
-   const shareUrl = window.location
-   const title = "Adirek"
+  const [url, setUrl] = useState("")
+  const shareUrl =`${url}`
+  console.log(typeof shareUrl)
+  const title = "Adirek"
+
   const [view, setView] = useState()
   useEffect(() => {
     if (typeof window !== "undefined") {
       const inspiration = localStorage.getItem("@inspirationViewCountView")
       setView(inspiration)
+      setUrl(window.location.href)
     }
   }, [])
-console.log(shareUrl)
   return (
     <SearchCourseProvider>
       <Layout>
