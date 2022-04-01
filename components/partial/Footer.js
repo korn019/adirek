@@ -160,7 +160,7 @@ const Footer = () => {
               <div className="col-xl-5 align-self-center text-xl-end">
                 <ul className="social-area d-inline-block">
                   <li>
-                    <a className="" href="#">
+                    <a className=" " href="#">
                       <i className="fab fa-facebook-f"></i>
                     </a>
                   </li>
