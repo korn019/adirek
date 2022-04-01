@@ -93,7 +93,7 @@ const Partner = () => {
             <div className="w-full md:w-4/12 px-4 mx-auto text-center">
               <div className="text-sm text-gray-600 font-semibold py-1">
                 <a
-                  href="https://github.com/ahampriyanshu"
+                  href="#"
                   className="text-gray-600 hover:text-gray-900 font-title text-flg">
                   <span className="title-word title-word-1">อ</span>
                   <span className="title-word title-word-2">ดิ</span>

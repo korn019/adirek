@@ -160,7 +160,7 @@ const Footer = () => {
               <div className="col-xl-5 align-self-center text-xl-end">
                 <ul className="social-area d-inline-block">
                   <li>
-                    <a className="active" href="#">
+                    <a className="" href="#">
                       <i className="fab fa-facebook-f"></i>
                     </a>
                   </li>
@@ -175,10 +175,10 @@ const Footer = () => {
                     </a>
                   </li>
                 </ul>
-                <select className="single-select float-sm-end">
+                {/* <select className="single-select float-sm-end">
                   <option>ภาษาไทย</option>
                   <option value="asc">English</option>
-                </select>
+                </select> */}
               </div>
             </div>
           </div>
@@ -188,11 +188,11 @@ const Footer = () => {
       {/* <!-- footer area end --> */}
 
       {/* <!-- back-to-top end --> */}
-      {/* <div className="back-to-top">
+      <div className="back-to-top">
         <span className="back-top">
           <i className="fas fa-angle-double-up"></i>
         </span>
-      </div> */}
+      </div>
       <script src="../../assets/js/jquery.3.6.min.js"></script>
       <script src="../../assets/js/bootstrap.min.js"></script>
       <script src="../../assets/js/imageloded.min.js"></script>

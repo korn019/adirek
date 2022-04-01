@@ -9,42 +9,7 @@ export const CourseCheck = [
     img: "assets/img/intro/001.png",
     available: 236,
   },
-  // {
-  //   id: '2',
-  //   value: "Web Design",
-  // },
-  // {
-  //   id: '3',
-  //   value: "Graphic Design & Illustration",
-  // },
-  // {
-  //   id: '4',
-  //   value: "Design Tools",
-  // },
-  // {
-  //   id: '5',
-  //   value: "Game Design",
-  // },
-  // {
-  //   id: '6',
-  //   value: "3D & Animation",
-  // },
-  // {
-  //   id: '7',
-  //   value: "Fashion Design",
-  // },
-  // {
-  //   id: '8',
-  //   value: "Architectural Design",
-  // },
-  // {
-  //   id: '9',
-  //   value: "Interior Design",
-  // },
-  // {
-  //   id: '10',
-  //   value: "Other Design",
-  // },
+
   {
     id: 2,
     value: "วิชาการ",
@@ -118,42 +83,83 @@ export const CourseCheck = [
     available: 236,
   },
   // {
-  //   id: '11',
+  //   id: '14',
+  //   value: "Web Design",
+  // },
+  // {
+  //   id: '15,
+  //   value: "Graphic Design & Illustration",
+  // },
+  // {
+  //   id: '16',
+  //   value: "Design Tools",
+  // },
+  // {
+  //   id: '17',
+  //   value: "Game Design",
+  // },
+  // {
+  //   id: '18',
+  //   value: "3D & Animation",
+  // },
+  // {
+  //   id: '19',
+  //   value: "Fashion Design",
+  // },
+  // {
+  //   id: '20',
+  //   value: "Architectural Design",
+  // },
+  // {
+  //   id: '21',
+  //   value: "Interior Design",
+  // },
+  // {
+  //   id: '22',
+  //   value: "Other Design",
+  // },
+  // {
+  //   id: '23',
   //   value: "คณิตศาสตร์",
   // },
+  // 
   // {
-  //   id: '12',
-  //   value: "ภาษา",
+  //   id: '24',
+  //   value: "สอนภาษา (ทุกภาษา)",
   // },
   // {
-  //   id: '13',
+  //   id: '25',
   //   value: "ทำอาหารและขนม",
   // },
 
   // {
-  //   id: "15",
+  //   id: "26",
   //   value: "ถ่ายรูปและแต่งรูป",
   // },
   // {
-  //   id: "16",
+  //   id: "27",
   //   value: "บุคลิกภาพ",
   // },
   // {
-  //   id: "17",
+  //   id: "28",
   //   value: "การพูด",
   // },
 
   // {
-  //   id: '19',
+  //   id: '29',
   //   value: "งานฝีมือ",
   // },
 
   // {
-  //   id: '22',
+  //   id: '30',
   //   value: "จัดดอกไม้และจัดสวนถาด",
   // },
   // {
-  //   id: '23',
+  //   id: '31',
   //   value: "วาดรูป",
+  // },
+  // {
+  //   id: '32',
+  //   value: "สอนวิทยาศาสตร์",
   // },
 ]

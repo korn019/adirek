@@ -9,43 +9,41 @@ const Instructor = () => {
   const router = useRouter()
   const {Course} = router.query
   const [data, setData] = useState(CourseCheck)
+  const [dataJson, setDataJson] = useState([])
 
-//   const getData = () => {
-//     fetch("../../assets/json/user.json", {
-//       headers: {
-//         "Content-Type": "application/json",
-//         Accept: "application/json",
-//       },
-//     })
-//       .then(function (response) {
-//         return response.json()
-//       })
-//       .then(function (myJson) {
-//         setData(myJson)
-//       })
-//   }
-//   // สร้าง Id ใน JSON
-//   const Id = data.forEach(function (e, i) {
-//     e["id"] = i
-//   })
+  const getData = () => {
+    fetch("../../assets/json/user.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then(function (response) {
+        return response.json()
+      })
+      .then(function (myJson) {
+        setDataJson(myJson)
+      })
+  }
+  // สร้าง Id ใน JSON
+  const Id = data.forEach(function (e, i) {
+    e["id"] = i
+  })
 
-//   const Filter = data.filter((x) => {
-//     return x.filterCategory === "Web Design"
-//   })
+  const Filter = dataJson.filter((x) => {
+    return Course.includes(x.filterCategory) || Course.includes(x.Category)
+  })
 
-//   useEffect(() => {
-//     getData()
-//   }, [])
-console.log(Course)
+  useEffect(() => {
+    getData()
+  }, [])
   return (
     <SearchCourseProvider>
       <Layout>
-       
         {/* <div className="instector-banner-area" style={{height: 400}}></div> */}
         {data.map((e, id) => {
           return Course == e.value ? (
             <>
-
               <div className="pd-bottom-115" key={e.id}>
                 <div className="container">
                   <CoursePage e={e} />

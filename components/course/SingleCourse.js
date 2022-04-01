@@ -1,24 +1,28 @@
 import Link from "next/link"
-const SingleCourse = ({course,index}) => {
+const SingleCourse = ({course, index}) => {
   return (
     <div className="item h-[400px]">
       <div className="single-course-wrap  hover:border-2 hover:border-[#006fff]">
-        <div className="thumb w-full h-[190px]">
-          <img
-            className="object-fill "
-            src={
-              typeof course.รูปถ่าย == "undefined"
-                ? "/assets/img/logo-mock.jpg"
-                : `/${course.รูปถ่าย}`
-            }
-            alt="img"
-          />
+        <div className="thumb w-full h-[190px] cursor-pointer">
+          <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
+            <img
+              className="object-fill "
+              src={
+                typeof course.รูปถ่าย == "undefined"
+                  ? "/assets/img/logo-mock.jpg"
+                  : `/${course.รูปถ่าย}`
+              }
+              alt="img"
+            />
+          </Link>
         </div>
         <div className="wrap-details">
           <h6 className="truncate ...">
-            <a href="#" className="font-title text-flg">
-              {course.รายละเอียดคอร์สเรียน}
-            </a>
+            <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
+              <a href="#" className="font-title text-flg">
+                {course.รายละเอียดคอร์สเรียน}
+              </a>
+            </Link>
           </h6>
           <div className="user-area w-full">
             <div className="user-details truncate">
@@ -51,7 +55,11 @@ const SingleCourse = ({course,index}) => {
             <div className="row align-items-center">
               <div className="col-6">
                 <p className="truncate ...">
-                  <a href="">{course.Category}</a>
+                  <Link
+                    href={`/Course/${course.filterCategory}`}
+                    as={`/Course/${course.filterCategory}`}>
+                    <a href="">{course.Category}</a>
+                  </Link>
                 </p>
               </div>
               <div className="col-6 text-end">

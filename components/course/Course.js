@@ -3,6 +3,8 @@ import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
 import {Swiper, SwiperSlide} from "swiper/react"
 import SingleCourse from "./SingleCourse"
 import SwiperCourse from "./SwiperCourse"
+import Skeleton from "react-loading-skeleton"
+import "react-loading-skeleton/dist/skeleton.css"
 
 const Course = () => {
   const [data, setData] = useState([])
@@ -48,13 +50,23 @@ const Course = () => {
                 <h2>คอร์สขายดี</h2>
               </div>
             </div>
+    
 
             {isLoading ? (
               <div className="relative px-4 md:px-6">
-                <SwiperCourse Filter={Filter} />
+                <SwiperCourse Filter={Filter} isLoading={isLoading} />
               </div>
             ) : (
-              <h1 className="font-title text-f3xl">กำลังโหลดข้อมูล....</h1>
+              <div className="relative px-4 md:px-6">
+                <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1 px-5">
+                  <Skeleton count={6} />
+                  <Skeleton count={6} />
+                  <Skeleton count={6} />
+                  <Skeleton count={6} />
+                  <Skeleton count={6} />
+                </div>
+              </div>
+              // <h1 className="font-title text-f3xl">กำลังโหลดข้อมูล....</h1>
             )}
           </div>
         </div>
