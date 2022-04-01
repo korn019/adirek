@@ -15,6 +15,8 @@ const SwiperBlogCard = (
     inspirationView,
     search,
     setSearch,
+    test,
+    setTest
   }
 ) => {
   const searchArticle = Article.filter((article) => {

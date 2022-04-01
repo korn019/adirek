@@ -1,6 +1,7 @@
 import Link from "next/link"
 import {useRouter} from "next/router"
 import {useState} from "react"
+import { useEffect } from "react"
 const BlogCard = (
   {
     article,
@@ -58,6 +59,9 @@ const BlogCard = (
       }
     }
   }
+
+  
+
 
   return (
     <>

@@ -8,9 +8,7 @@ export const SEO = {
     description: "เปิดประตูสู่การเรียนรู้",
     images: [
       {
-        url: "/assets/img/logo.png",
-        width: 25,
-        height: 25,
+        url: "/assets/img/ogLogo.png",
         alt: "Adirek",
         type: "image/png",
       },

@@ -6,7 +6,6 @@ const MainBlog = ({search, setSearch}) => {
   const [perfectionistView, setPerfectionistView] = useState(0)
   const [acceptanceView, setAcceptanceView] = useState(0)
   const [inspirationView, setInspirationView] = useState(0)
-
   useEffect(() => {
     if (typeof window !== "undefined") {
       const perfection = localStorage.getItem("@PerfectionistCountView")
@@ -65,7 +64,6 @@ const MainBlog = ({search, setSearch}) => {
               </div>
             </div>
           </div>
-
           <div className="relative">
             <SwiperBlogCard
               Article={Article}
