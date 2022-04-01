@@ -1,16 +1,16 @@
 export const SEO = {
   title: "Adirek - ให้ทุกวันคือการสร้างโอกาสใหม่",
-  description: "This example uses more of the available config options.",
+  description: "เปิดประตูสู่การเรียนรู้",
   canonical: "https://adirek.vercel.app/",
   openGraph: {
     url: "https://adirek.vercel.app/",
     title: "Adirek - ให้ทุกวันคือการสร้างโอกาสใหม่",
-    description: "Open Graph Description",
+    description: "เปิดประตูสู่การเรียนรู้",
     images: [
       {
         url: "/assets/img/logo.png",
-        width: 150,
-        height: 150,
+        width: 25,
+        height: 25,
         alt: "Adirek",
         type: "image/png",
       },

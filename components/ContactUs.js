@@ -77,14 +77,14 @@ const ContactUs = () => {
 
               <div className="flex my-4 w-2/3 lg:w-1/2">
                 <a
-                  href="https://www.facebook.com/ENLIGHTENEERING/"
+                  href="#"
                   target="_blank"
                   rel="noreferrer"
                   className="rounded-full bg-white h-8 w-8 inline-block mx-1 text-center pt-1">
                   <i className="fab fa-facebook-f text-blue-900" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/company/enlighteneering-inc-"
+                  href="#"
                   target="_blank"
                   rel="noreferrer"
                   className="rounded-full bg-white h-8 w-8 inline-block mx-1 text-center pt-1">
