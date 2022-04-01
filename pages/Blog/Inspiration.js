@@ -55,7 +55,9 @@ const BlogContent = () => {
                       </li>
                       <li>
                         <i className="fas fa-share-square  text-[#808080d9] text-[19px]"> </i>
-                        <FacebookShareButton url={shareUrl} className="">
+                        <FacebookShareButton
+                          url={shareUrl}
+                          className="Demo__some-network__share-button">
                           <FacebookIcon size={20} round className="ml-2" />
                         </FacebookShareButton>
 
