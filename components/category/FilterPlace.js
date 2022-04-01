@@ -19,7 +19,10 @@ function FilterPlace(props) {
     fullAddress,
     setFullAddress,
   } = props
-
+  
+ function handleSubmit(e) {
+   e.preventDefault()
+ }
   //   const [subdistrict, setSubDistrict] = useState("")
   //   const [district, setDistrict] = useState("")
   //   const [province, setProvince] = useState("")
@@ -81,7 +84,25 @@ function FilterPlace(props) {
         />
       </div> */}
       <div className="flex justify-start">
-        <InputAddress
+        <form class="flex">
+          <input
+            class="rounded-l-lg p-1 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
+            placeholder="กรอกที่อยู่ที่ต้องการค้นหา"
+            address="province"
+            value={province}
+            onChange={(e) => {
+              setProvince(e.target.value)
+              setError("")
+            }}
+          />
+          <button
+            onClick={handleSubmit}
+            class="px-8 rounded-r-lg bg-yellow-400  text-gray-800 hover:text-blue-700 duration-500 font-bold p-2 uppercase border-yellow-500 border-t border-b border-r">
+            ค้นหา
+          </button>
+        </form>
+
+        {/* <InputAddress
           style={{width: "100%", outlineStyle: "none", fontSize: "1rem", fontWeight: "900"}}
           placeholder="กรอกที่อยู่ที่ต้องการค้นหา"
           address="province"
@@ -91,7 +112,7 @@ function FilterPlace(props) {
             setError("")
           }}
           onSelect={onSelect}
-        />
+        /> */}
 
         {/* <InputAddress
           style={{width: "100%", outlineStyle: "none", fontSize: "1rem", fontWeight: "900"}}

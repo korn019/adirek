@@ -1,6 +1,7 @@
 import {Swiper, SwiperSlide} from "swiper/react"
 import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
 import Link from "next/link"
+import BannerAds from "../BannerAds"
 const InstructorPromote = () => {
   return (
     <>
@@ -21,11 +22,13 @@ const InstructorPromote = () => {
                     world.
                   </p>
                 </div>
-                <button
-                  className="btn !font-title  text-fxl"
-                  style={{fontSize: "clamp(2rem, 8vw, 1.2rem)", marginTop: 30}}>
-                  <a href="#"></a> มาร่วมสอนกับเรา
-                </button>
+                <Link href="#register" >
+                  <button
+                    className="btn !font-title  text-fxl"
+                    style={{fontSize: "clamp(2rem, 8vw, 1.2rem)", marginTop: 30}}>
+                    <a ></a> มาร่วมสอนกับเรา
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -222,7 +225,7 @@ const InstructorPromote = () => {
         </div>
       </section>
 
-      <section>
+      <section id="register">
         <div class="min-w-screen min-h-screen bg-svg flex items-center justify-center px-5 py-5">
           <div
             className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden"
@@ -412,7 +415,11 @@ const InstructorPromote = () => {
         </div>
       </section>
 
-      <div className="text-center pd-top-135 bg-white">
+      <div className="pt-16">
+        <BannerAds />
+      </div>
+
+      <div className="text-center pd-top-110 bg-white">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-8">

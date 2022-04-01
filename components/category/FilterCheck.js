@@ -101,7 +101,7 @@ const filterCheck = ({
   return (
     <>
       <div className="col-lg-3">
-        <div className="dmne-sidebar">
+        <div className="dmne-sidebar grid grid-cols-2 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-1">
           <div className="widget widget-select-inner dropdown-filter">
             <h4 className="widget-title ">หลักสูตร</h4>
             <div className="single-form-check form-check">
@@ -138,6 +138,7 @@ const filterCheck = ({
               onSelect={onSelect}
             />
           </div>
+        </div>
           <div className="widget widget-select-inner">
             <button
               onClick={resetButton}
@@ -147,16 +148,15 @@ const filterCheck = ({
             </button>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 widget widget-select-inner">
-            <section className="justify-content-start align-items-start">
-              <div className=" d-flex justify-content-center align-items-center w-full md:w-[100%] xl:w-[70%] h-[200px] md:h-[400px] bg-[#bcbcbc]">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 widget widget-select-inner">
+            <section className="justify-content-start align-items-start my-14 lg:my-0">
+              <div className=" d-flex justify-content-center align-items-center w-full SM:w-[100%] xl:w-[70%] h-[200px] md:h-[400px] bg-[#bcbcbc]">
                 <div className="">
                   <h2>Banner Ads</h2>
                 </div>
               </div>
             </section>
           </div>
-        </div>
       </div>
     </>
   )

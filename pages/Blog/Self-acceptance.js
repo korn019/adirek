@@ -2,6 +2,7 @@ import BreadcrumbPage from "../../components/BreadcrumbPage"
 import Layout from "../../components/Layout"
 import {useState, useEffect} from "react"
 import {SearchCourseProvider} from "../Category"
+import BannerAds from "../../components/BannerAds"
 const BlogContent = () => {
   const [view, setView] = useState()
   useEffect(() => {
@@ -165,13 +166,17 @@ const BlogContent = () => {
           </div>
         </section>
 
-        <section className="pd-bottom-80 ">
+        <div className="pb-12">
+          <BannerAds />
+        </div>
+
+        {/* <section className="pd-bottom-80 ">
           <div className="container d-flex justify-content-center align-items-center bg-[#bcbcbc] w-full h-[170px]">
             <div className="">
               <h2>Banner Ads</h2>
             </div>
           </div>
-        </section>
+        </section> */}
       </Layout>
     </SearchCourseProvider>
   )

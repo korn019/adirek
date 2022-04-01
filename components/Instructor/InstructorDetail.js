@@ -80,7 +80,7 @@ const InstructorDetail = ({e}) => {
         <div className="lg:px-5">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 md:space-x-3">
             <div className="col-span-1 md:col-span-1">
-              <h1 className="font-title text-f3xl">คอร์สเรียน</h1>
+              <h1 className="font-title text-f3xl text-[#cf9b3b]">คอร์สเรียน</h1>
             </div>
             <div className="bg-slate-700 rounded-lg  px-2 col-span-1 lg:col-span-1">
               <a href={`tel:${e.เบอร์โทร}`} className="flex items-center justify-between ">
@@ -107,8 +107,7 @@ const InstructorDetail = ({e}) => {
             </button>
             {showModal ? (
               <>
-                <div
-                  className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
                   <div className="relative w-auto my-6 mx-auto max-w-3xl">
                     {/*content*/}
                     <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
@@ -158,7 +157,7 @@ const InstructorDetail = ({e}) => {
         <div className="mt-6 md:mt-0 lg:px-5">
           {" "}
           <div className="space-y-1">
-            <h1 className="font-title text-f3xl">หมวดหมู่:</h1>
+            <h1 className="font-title text-f3xl text-[#cf9b3b]">หมวดหมู่:</h1>
             <div className="align-items-center justify-content-center bg-[#eaf0f6] border-b-2 border-gray-200 rounded-lg p-2">
               <div className="ml-1 title text-black text-[32px]">
                 {typeof e.ช่องทางการสอน == "undefined" ? "ไม่พบข้อมูล" : e.ช่องทางการสอน}{" "}
@@ -172,7 +171,7 @@ const InstructorDetail = ({e}) => {
           </div>
           <div className="grid grid-cols-2 items-center justify-between mt-5">
             <div>
-              <h1 className="font-title text-f3xl">Rating</h1>
+              <h1 className="font-title text-f3xl text-[#cf9b3b]">Rating</h1>
             </div>
             <div className="text-right">
               <span>
@@ -228,7 +227,7 @@ const InstructorDetail = ({e}) => {
             <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">{e.เบอร์โทร}</p>
             <p className="lead font-bold">Address:</p>
             <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">
-              555/205 Nirvana Park,Bangkok
+              {typeof e.กรณีเรียนนอกสถานที่ == "undefined" ? "ไม่พบข้อมูล" : e.กรณีเรียนนอกสถานที่}
             </p>
             <p className="lead font-bold">Email:</p>
             <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">

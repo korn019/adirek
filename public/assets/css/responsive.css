@@ -67,7 +67,7 @@
     line-height: 60px;
   }
   .navbar-area .single-input-wrap {
-    display: none;
+    /* display: none; */
   }
   .navbar-area .right-search .single-input-wrap {
     display: inline-block;

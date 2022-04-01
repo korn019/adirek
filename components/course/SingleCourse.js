@@ -5,7 +5,7 @@ const SingleCourse = ({course,index}) => {
       <div className="single-course-wrap  hover:border-2 hover:border-[#006fff]">
         <div className="thumb w-full h-[190px]">
           <img
-            className="object-cover"
+            className="object-fill "
             src={
               typeof course.รูปถ่าย == "undefined"
                 ? "/assets/img/logo-mock.jpg"

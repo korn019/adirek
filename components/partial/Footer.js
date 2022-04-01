@@ -188,11 +188,11 @@ const Footer = () => {
       {/* <!-- footer area end --> */}
 
       {/* <!-- back-to-top end --> */}
-      <div className="back-to-top">
+      {/* <div className="back-to-top">
         <span className="back-top">
           <i className="fas fa-angle-double-up"></i>
         </span>
-      </div>
+      </div> */}
       <script src="../../assets/js/jquery.3.6.min.js"></script>
       <script src="../../assets/js/bootstrap.min.js"></script>
       <script src="../../assets/js/imageloded.min.js"></script>

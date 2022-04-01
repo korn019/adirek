@@ -15,7 +15,7 @@ const Main = () => {
       <SlideCourse />
       <div className="test-class">
         <AdirekIs />
-        <div className="pt-12">
+        <div className="py-12">
           <BannerAds />
         </div>
         <Partner />

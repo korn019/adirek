@@ -3,6 +3,8 @@ import BreadcrumbPage from "../components/BreadcrumbPage"
 import MainCategory from "../components/category/MainCategory"
 import Layout from "../components/Layout"
 import {useRouter} from "next/router"
+import SearchSection from "../components/category/SearchSection"
+import BannerAds from "../components/BannerAds"
 
 export const SearchCourseContext = createContext()
 
@@ -20,6 +22,7 @@ export default function Category() {
   const router = useRouter()
   const query = router.query
   console.log(query)
+  const [searchSection, setSearchSection] = useState("")
   return (
     <SearchCourseProvider>
       <Layout>
@@ -28,7 +31,11 @@ export default function Category() {
           breadActive="หลักสูตรทั้งหมด"
           hrefActive="/Category"
         />
-        <MainCategory />
+        {/* <SearchSection setSearchSection={setSearchSection} searchSection={searchSection} /> */}
+        <MainCategory setSearchSection={setSearchSection} searchSection={searchSection} />
+        <div className="pb-24">
+          <BannerAds />
+        </div>
       </Layout>
     </SearchCourseProvider>
   )

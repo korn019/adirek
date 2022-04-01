@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react"
 import ReactPaginate from "react-paginate"
+import BannerAds from "../BannerAds"
 import BreadcrumbPage from "../BreadcrumbPage"
 import SingleCourse from "./SingleCourse"
 import SwiperCourse from "./SwiperCourse"
@@ -99,6 +100,9 @@ const CoursePage = ({e}) => {
               activeClassName="active"
               renderOnZeroPageCount={null}
             />
+          </div>
+          <div className="pt-5">
+            <BannerAds />
           </div>
         </>
       ) : (

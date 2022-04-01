@@ -7,6 +7,7 @@ import {SearchCourseProvider} from "../Category"
 import BreadcrumbPage from "../../components/BreadcrumbPage"
 import ReactPaginate from "react-paginate"
 import SingleCourse from "../../components/course/SingleCourse"
+import BannerAds from "../../components/BannerAds"
 const CourseCategory = () => {
   const router = useRouter()
   const {Search} = router.query
@@ -123,7 +124,7 @@ const CourseCategory = () => {
               </div>
             </>
           ) : (
-            <div className="container p-20">
+            <div className="container p-8">
               <h1 className="font-title text-f3xl">ไม่พบข้อมูล โปรดลองใหม่อีกครั้ง....</h1>
             </div>
           )
@@ -132,6 +133,9 @@ const CourseCategory = () => {
             <h1 className="font-title text-f3xl">กำลังโหลดข้อมูล....</h1>
           </div>
         )}
+        <div className="py-24">
+          <BannerAds />
+        </div>
       </Layout>
     </SearchCourseProvider>
   )

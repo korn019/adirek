@@ -14,7 +14,7 @@ const Blog = () => {
       <BreadcrumbPage title="เรียนรู้ไปกับบทความของเรา" breadActive="บทความ" hrefActive="/Blog" />
       <SearchCourse search={search} setSearch={setSearch} />
       <MainBlog search={search} setSearch={setSearch} />
-      <div className="">
+      <div className="pb-12">
         <BannerAds />
       </div>
     </Layout>

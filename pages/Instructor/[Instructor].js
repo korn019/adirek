@@ -3,6 +3,7 @@ import {useRouter} from "next/router"
 import {useState, useEffect} from "react"
 import InstructorDetail from "../../components/Instructor/InstructorDetail"
 import { SearchCourseProvider } from "../Category"
+import BannerAds from "../../components/BannerAds"
 const Instructor = () => {
   const router = useRouter()
   const {Instructor} = router.query
@@ -47,6 +48,9 @@ const Instructor = () => {
             </div>
           ) : null
         })}
+      <div className="">
+        <BannerAds />
+      </div>
       </Layout>
     </SearchCourseProvider>
   )

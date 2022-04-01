@@ -7,11 +7,12 @@ import {CourseCheck} from "./Check"
 import {PriceData} from "./Price"
 import {useRouter} from "next/router"
 import {SearchCourseContext} from "../../pages/Category"
+import SearchCourse from "../blog/SearchCourse"
 
 const MainCategory = () => {
   //  console.log(`searchCourse: ${setSearchCourse}`)
   //Filter Course & Price
-   const {searchCourse, setSearchCourse} = useContext(SearchCourseContext)
+  const {searchCourse, setSearchCourse} = useContext(SearchCourseContext)
 
   const [data, setData] = useState([])
   const [dataJson, setDataJson] = useState([])
@@ -58,7 +59,7 @@ const MainCategory = () => {
     // setIsCheckPrice([...isCheckPrice, name])
     if (!checked) {
       setIsCheck(isCheck.filter((item) => item !== name))
-       
+
       //  setIsCheckPrice(isCheckPrice.filter((item) => item !== name))
     }
   }
@@ -84,7 +85,6 @@ const MainCategory = () => {
     setError("")
   }
 
-
   const getData = () => {
     fetch("../../assets/json/user.json", {
       headers: {
@@ -108,6 +108,7 @@ const MainCategory = () => {
   }, [dataJson])
   return (
     <section className="trending-courses-area pd-top-135 pd-bottom-130">
+
       <div className="container">
         <div className="row">
           <FilterCheck
