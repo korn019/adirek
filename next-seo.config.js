@@ -9,8 +9,8 @@ export const SEO = {
     images: [
       {
         url: "/assets/img/logo.png",
-        width: 800,
-        height: 600,
+        width: 300,
+        height: 200,
         alt: "Og Image Alt",
         type: "image/jpeg",
       },
