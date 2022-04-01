@@ -65,7 +65,9 @@ const BlogContent = () => {
                           <FacebookShareCount
                             url={shareUrl}
                             className="Demo__some-network__share-count">
-                            {(count) => count}
+                            {(shareCount) => (
+                              <span className="myShareCountWrapper">{shareCount}</span>
+                            )}
                           </FacebookShareCount>
                         </div>
                         <TwitterShareButton url={shareUrl} className="">
