@@ -27,6 +27,7 @@
     "react-dom": "17.0.2",
     "react-loading-skeleton": "^3.0.3",
     "react-paginate": "^8.1.2",
+    "react-share": "^4.4.0",
     "react-thailand-address-autocomplete": "^0.0.6",
     "swiper": "^6.8.4",
     "tailwindcss": "^3.0.23"

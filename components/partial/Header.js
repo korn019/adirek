@@ -82,7 +82,7 @@ const Header = () => {
   <!-- navbar start --> */}
       <header className="navbar-area">
         <nav className="navbar navbar-expand-lg">
-          <div className="container nav-container">
+          <div className="container nav-container flex items-center justify-center">
             <div className="responsive-mobile-menu">
               <button
                 className="menu toggle-btn d-block d-lg-none"
@@ -100,7 +100,7 @@ const Header = () => {
                 </a>
               </Link>
             </div>
-            <div className="nav-right-part nav-right-part-mobile">
+            <div className="nav-right-part nav-right-part-mobile ">
               <ul>
                 <li>
                   <button onClick={openModal}>
@@ -189,7 +189,7 @@ const Header = () => {
                   onChange={(e) => setSearchCourse(e.target.value)}
                   value={searchCourse}
                   onKeyDown={(e) => enterandgo(e)}
-                  className='w-full'
+                  className="w-full"
                 />
                 <Link href={searchCourse ? `/Search/${searchCourse}` : `/Category`}>
                   <button onKeyDown={(e) => enterandgo(e)}>

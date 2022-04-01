@@ -3,7 +3,23 @@ import Layout from "../../components/Layout"
 import {useState, useEffect} from "react"
 import {SearchCourseProvider} from "../Category"
 import BannerAds from "../../components/BannerAds"
+import {
+  EmailIcon,
+  FacebookIcon,
+  FacebookMessengerIcon,
+  LineIcon,
+  LineShareButton,
+  LinkedinIcon,
+  LivejournalIcon,
+  TwitterIcon,
+  WhatsappIcon,
+  FacebookShareButton,
+  FacebookShareCount,
+  TwitterShareButton,
+} from "react-share"
 const BlogContent = () => {
+   const shareUrl = window.location
+   const title = "Adirek"
   const [view, setView] = useState()
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -11,7 +27,7 @@ const BlogContent = () => {
       setView(inspiration)
     }
   }, [])
-
+console.log(shareUrl)
   return (
     <SearchCourseProvider>
       <Layout>
@@ -37,9 +53,15 @@ const BlogContent = () => {
                       </li>
                       <li>
                         <i className="fas fa-share-square  text-[#808080d9] text-[19px]"> </i>
-                        <i className="fab fa-facebook text-[#4267B2] text-[20px] ml-2"></i>
-                        <i className="fab fa-twitter text-[#1DA1F2] text-[20px] ml-2"></i>
-                        <i className="fab fa-line text-[#06c765] text-[20px] ml-2"></i>
+                        <FacebookShareButton url={shareUrl} quote={title} className="">
+                          <FacebookIcon size={20} round className="ml-2" />
+                        </FacebookShareButton>
+                        <TwitterShareButton url={shareUrl} quote={title} className="">
+                          <TwitterIcon size={20} round className="ml-2" />
+                        </TwitterShareButton>
+                        <LineShareButton url={shareUrl} quote={title} className="">
+                          <LineIcon size={20} round className="ml-2" />
+                        </LineShareButton>
                       </li>
                     </ul>
                     <h2 className="text-center font-title text-f3xl">
