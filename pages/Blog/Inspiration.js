@@ -19,9 +19,8 @@ import {
 } from "react-share"
 const BlogContent = () => {
   const [url, setUrl] = useState("")
-  const shareUrl =`${url}`
+  const shareUrl = `${url}`
   console.log(typeof shareUrl)
-  const title = "Adirek"
 
   const [view, setView] = useState()
   useEffect(() => {
@@ -56,13 +55,21 @@ const BlogContent = () => {
                       </li>
                       <li>
                         <i className="fas fa-share-square  text-[#808080d9] text-[19px]"> </i>
-                        <FacebookShareButton url={shareUrl} quote={title} className="">
+                        <FacebookShareButton url={shareUrl} className="">
                           <FacebookIcon size={20} round className="ml-2" />
                         </FacebookShareButton>
-                        <TwitterShareButton url={shareUrl} quote={title} className="">
+
+                        <div>
+                          <FacebookShareCount
+                            url={shareUrl}
+                            className="Demo__some-network__share-count">
+                            {(count) => count}
+                          </FacebookShareCount>
+                        </div>
+                        <TwitterShareButton url={shareUrl} className="">
                           <TwitterIcon size={20} round className="ml-2" />
                         </TwitterShareButton>
-                        <LineShareButton url={shareUrl} quote={title} className="">
+                        <LineShareButton url={shareUrl} className="">
                           <LineIcon size={20} round className="ml-2" />
                         </LineShareButton>
                       </li>
