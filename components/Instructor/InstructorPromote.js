@@ -27,25 +27,28 @@ const InstructorPromote = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (
-      instructor.firstName.length &&
-      instructor.lastName.length &&
-      instructor.email.length &&
-      instructor.tel.length == 0
-    ) {
-      setWarning(true)
-    }
+    // if (
+    //   instructor.firstName.length &&
+    //   instructor.lastName.length &&
+    //   instructor.email.length &&
+    //   instructor.tel.length == 0
+    // ) {
+    //   setWarning(true)
+    // }
     axios
       .post("http://localhost:4000/instructors/contact", instructor)
       .then(function (response) {
         console.log(response.data.message)
+        console.log("1")
         setWarnText(false)
         setIsOpen(true)
       })
       .catch(function (error) {
+        console.log('2')
         console.log(error.response.data.error)
         let err = error.response.data.error
-        setWarnText(err)
+        setWarning(true)
+        setWarnText(`***${err}***`)
       })
   }
   return (
@@ -291,7 +294,7 @@ const InstructorPromote = () => {
               <div className="w-full md:w-1/2 py-10 px-5 md:px-10">
                 <div className="text-center mb-10">
                   <h1 className="font-title text-f4xl text-gray-900">ลงทะเบียน</h1>
-                  <p>กรอกข้อมูลลงทะเบียนเพื่อให้เราติดต่อกับ</p>
+                  <p>กรอกข้อมูลลงทะเบียนเพื่อให้เราติดต่อกลับ</p>
                 </div>
                 <form onSubmit={handleSubmit}>
                   <div className="flex -mx-3">
@@ -312,7 +315,6 @@ const InstructorPromote = () => {
                           value={instructor.firstName}
                         />
                       </div>
-                      {warning ? null : warnText}
                     </div>
                     <div className="w-1/2 px-3 mb-5">
                       <label for="" className="text-xs font-semibold px-1">
@@ -372,6 +374,17 @@ const InstructorPromote = () => {
                       </div>
                     </div>
                   </div>
+                  {warning ?  (
+                    <>
+                      <div className="flex -mx-3 items-center justify-center text-center">
+                        <div className="w-full ">
+                          <p className="block w-full max-w-xs mx-auto  text-red-700 font-title text-fmd">
+                            {warnText}
+                          </p>
+                        </div>
+                      </div>
+                    </>
+                  ):null }
                   <div className="flex -mx-3">
                     <div className="w-full px-3 mb-5">
                       <button
@@ -419,9 +432,7 @@ const InstructorPromote = () => {
                                   </Dialog.Title>
                                 </div>
                                 <div className="my-4 items-center justify-center flex">
-                                  
                                   <p className="text-sm text-gray-500">
-                                    
                                     <Dialog.Title
                                       as="h3"
                                       className="text-f3xl font-title my-4  leading-6 text-gray-900">
@@ -435,7 +446,7 @@ const InstructorPromote = () => {
                                     type="button"
                                     className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                                     onClick={closeModal}>
-                                    ค้นหาเลย!
+                                 ตกลง
                                   </button>
                                 </div>
                               </div>

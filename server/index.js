@@ -167,7 +167,52 @@ app.post("/instructors/contact", (req, res) => {
   }
 })
 
+app.post("/contactus", (req, res) => {
+  var contactUs = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    tel: req.body.tel,
+    message: req.body.message,
+  }
+  if (
+    req.body.firstName.length &&
+    req.body.lastName.length &&
+    req.body.email.length &&
+    req.body.tel.length &&
+    req.body.message.length > 0
+  ) {
+    db.query("INSERT INTO contactus SET ?", contactUs, (err, results, fields) => {
+      if (!err) {
+        res.send({error: false, message: "เพิ่มข้อมูลเรียบร้อย"})
+      } else {
+        console.log(results)
+      }
+    })
+  } else if (
+    req.body.firstName.length ||
+    req.body.lastName.length ||
+    req.body.email.length ||
+    req.body.tel.length ||
+     req.body.message.length == 0
+  ) {
+    return res.status(400).send({error: "โปรดกรอกข้อมูลให้ครบถ้วน"})
+  }
+})
+
 app.listen("4000", () => {
   //
   console.log("start port 4000")
 })
+
+
+// CREATE TABLE contactus (
+// 	id int(1000) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+//     firstName varchar(1000) NOT NULL,
+//     lastName varchar(1000) NOT NULL,
+//     email varchar(1000) NOT NULL,
+//     tel varchar(1000) NOT NULL,
+//     message  text NOT NULL,
+//     created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+//     update_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+// ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
