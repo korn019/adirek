@@ -8,7 +8,7 @@ import {PriceData} from "./Price"
 import {useRouter} from "next/router"
 import {SearchCourseContext} from "../../pages/Category"
 import SearchCourse from "../blog/SearchCourse"
-
+import axios from "axios"
 const MainCategory = () => {
   //  console.log(`searchCourse: ${setSearchCourse}`)
   //Filter Course & Price
@@ -85,23 +85,34 @@ const MainCategory = () => {
     setError("")
   }
 
-  const getData = () => {
-    fetch("../../assets/json/user.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then(function (response) {
-        return response.json()
-      })
-      .then(function (myJson) {
-        setDataJson(myJson)
+  // const getData = () => {
+  //   fetch("../../assets/json/user.json", {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json",
+  //     },
+  //   })
+  //     .then(function (response) {
+  //       return response.json()
+  //     })
+  //     .then(function (myJson) {
+  //       setDataJson(myJson)
 
-        setIsLoading(true)
-      })
-  }
+  //       setIsLoading(true)
+  //     })
+  // }
   // console.log(data)
+    const getData = async () => {
+      axios
+        .get("http://localhost:4000/instructor")
+        .then((res) => {
+          setData(res.data)
+          setIsLoading(true)
+        })
+        .catch((err) => {
+          console.error(err)
+        })
+    }
   useEffect(() => {
     getData()
     setData(dataJson.map((item, id) => Object.assign(item, {id})))

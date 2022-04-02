@@ -2,7 +2,52 @@ import {Swiper, SwiperSlide} from "swiper/react"
 import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
 import Link from "next/link"
 import BannerAds from "../BannerAds"
+import {useState, Fragment} from "react"
+import axios from "axios"
+import {Dialog, Transition} from "@headlessui/react"
 const InstructorPromote = () => {
+  const [instructor, setInstructor] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    tel: "",
+  })
+  const [isOpen, setIsOpen] = useState(false)
+  const [warning, setWarning] = useState(false)
+  const [warnText, setWarnText] = useState()
+  const handleChange = (event) => {
+    setInstructor({...instructor, [event.target.name]: event.target.value})
+  }
+  function closeModal() {
+    setIsOpen(false)
+  }
+
+  function openModal() {
+    setIsOpen(true)
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (
+      instructor.firstName.length &&
+      instructor.lastName.length &&
+      instructor.email.length &&
+      instructor.tel.length == 0
+    ) {
+      setWarning(true)
+    }
+    axios
+      .post("http://localhost:4000/instructors/contact", instructor)
+      .then(function (response) {
+        console.log(response.data.message)
+        setWarnText(false)
+        setIsOpen(true)
+      })
+      .catch(function (error) {
+        console.log(error.response.data.error)
+        let err = error.response.data.error
+        setWarnText(err)
+      })
+  }
   return (
     <>
       <section className="banner-area instructor-banner p-0 bg-[#11142d]">
@@ -22,11 +67,11 @@ const InstructorPromote = () => {
                     world.
                   </p>
                 </div>
-                <Link href="#register" >
+                <Link href="#register">
                   <button
                     className="btn !font-title  text-fxl"
                     style={{fontSize: "clamp(2rem, 8vw, 1.2rem)", marginTop: 30}}>
-                    <a ></a> มาร่วมสอนกับเรา
+                    <a></a> มาร่วมสอนกับเรา
                   </button>
                 </Link>
               </div>
@@ -248,7 +293,7 @@ const InstructorPromote = () => {
                   <h1 className="font-title text-f4xl text-gray-900">ลงทะเบียน</h1>
                   <p>กรอกข้อมูลลงทะเบียนเพื่อให้เราติดต่อกับ</p>
                 </div>
-                <div>
+                <form onSubmit={handleSubmit}>
                   <div className="flex -mx-3">
                     <div className="w-1/2 px-3 mb-5">
                       <label for="" className="text-xs font-semibold px-1">
@@ -262,8 +307,12 @@ const InstructorPromote = () => {
                           type="text"
                           className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                           placeholder="ชื่อจริง"
+                          onChange={handleChange}
+                          name="firstName"
+                          value={instructor.firstName}
                         />
                       </div>
+                      {warning ? null : warnText}
                     </div>
                     <div className="w-1/2 px-3 mb-5">
                       <label for="" className="text-xs font-semibold px-1">
@@ -277,6 +326,9 @@ const InstructorPromote = () => {
                           type="text"
                           className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                           placeholder="นามสกุล"
+                          onChange={handleChange}
+                          name="lastName"
+                          value={instructor.lastName}
                         />
                       </div>
                     </div>
@@ -294,6 +346,9 @@ const InstructorPromote = () => {
                           type="email"
                           className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                           placeholder="adirek@hotmail.com"
+                          onChange={handleChange}
+                          name="email"
+                          value={instructor.email}
                         />
                       </div>
                     </div>
@@ -310,18 +365,87 @@ const InstructorPromote = () => {
                         <input
                           className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                           placeholder="เบอร์โทรศัพท์"
+                          onChange={handleChange}
+                          name="tel"
+                          value={instructor.tel}
                         />
                       </div>
                     </div>
                   </div>
                   <div className="flex -mx-3">
                     <div className="w-full px-3 mb-5">
-                      <button className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-0 font-title text-f3xl">
+                      <button
+                        type="submit"
+                        className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-0 font-title text-f3xl">
                         ยืนยัน
                       </button>
+                      <Transition show={isOpen} as={Fragment}>
+                        <Dialog
+                          as="div"
+                          className="fixed inset-0 z-10 overflow-y-auto"
+                          onClose={closeModal}>
+                          <div className="min-h-screen px-4 text-center">
+                            <Transition.Child
+                              as={Fragment}
+                              enter="ease-out duration-300"
+                              enterFrom="opacity-0"
+                              enterTo="opacity-100"
+                              leave="ease-in duration-200"
+                              leaveFrom="opacity-100"
+                              leaveTo="opacity-0">
+                              <Dialog.Overlay className="fixed inset-0 bg-black/[.2]" />
+                            </Transition.Child>
+
+                            {/* This element is to trick the browser into centering the modal contents. */}
+                            <span className="inline-block h-screen align-middle" aria-hidden="true">
+                              &#8203;
+                            </span>
+                            <Transition.Child
+                              as={Fragment}
+                              enter="ease-out duration-300"
+                              enterFrom="opacity-0 scale-95"
+                              enterTo="opacity-100 scale-100"
+                              leave="ease-in duration-200"
+                              leaveFrom="opacity-100 scale-100"
+                              leaveTo="opacity-0 scale-95">
+                              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+                                <div className="flex justify-end items-center">
+                                  <Dialog.Title
+                                    as="h3"
+                                    className="text-right leading-6 text-gray-900">
+                                    <button className="font-black" onClick={closeModal}>
+                                      X
+                                    </button>
+                                  </Dialog.Title>
+                                </div>
+                                <div className="my-4 items-center justify-center flex">
+                                  
+                                  <p className="text-sm text-gray-500">
+                                    
+                                    <Dialog.Title
+                                      as="h3"
+                                      className="text-f3xl font-title my-4  leading-6 text-gray-900">
+                                      ลงทะเบียนสำเร็จ
+                                    </Dialog.Title>
+                                  </p>
+                                </div>
+
+                                <div className="mt-4  items-center justify-center flex">
+                                  <button
+                                    type="button"
+                                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                                    onClick={closeModal}>
+                                    ค้นหาเลย!
+                                  </button>
+                                </div>
+                              </div>
+                            </Transition.Child>
+                          </div>
+                        </Dialog>
+                      </Transition>
                     </div>
                   </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>

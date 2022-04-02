@@ -5,37 +5,49 @@ import SingleCourse from "./SingleCourse"
 import SwiperCourse from "./SwiperCourse"
 import Skeleton from "react-loading-skeleton"
 import "react-loading-skeleton/dist/skeleton.css"
-
+import axios from "axios"
 const Course = () => {
   const [data, setData] = useState([])
   const [dataJson, setDataJson] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  const getData = () => {
-    fetch("../../assets/json/user.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then(function (response) {
-        // console.log(response);
-        return response.json()
-      })
-      .then(function (myJson) {
-        // console.log(myJson);
-        setData(myJson)
+  const getData = async () => {
+    axios
+      .get("http://localhost:4000/instructor")
+      .then((res) => {
+        setData(res.data)
         setIsLoading(true)
       })
-    }
-   const ID = data.forEach(function (e, i) {
-     e["id"] = i
-   })
+      .catch((err) => {
+        console.error(err)
+      })
+  }
+  // const getData = () => {
+  //   fetch("http://localhost:4000/instructor", {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json",
+  //     },
+  //   })
+  //     .then(function (response) {
+  //       // console.log(response);
+  //       return response.json()
+  //     })
+  //     .then(function (myJson) {
+  //       // console.log(myJson);
+  //       setData(myJson)
+  //       setIsLoading(true)
+  //     })
+  //   }
+
+  //  const ID = data.forEach(function (e, i) {
+  //    e["id"] = i
+  //  })
 
   const Filter = data.map((x) => {
     return x
   })
-  
+
   useEffect(() => {
     getData()
     // setData(dataJson.map((item, id) => Object.assign(item, {id})))
@@ -50,7 +62,6 @@ const Course = () => {
                 <h2>คอร์สขายดี</h2>
               </div>
             </div>
-    
 
             {isLoading ? (
               <div className="relative px-4 md:px-6">

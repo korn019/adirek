@@ -15,13 +15,11 @@ const Footer = () => {
                   <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-3">
                     {course.map((e, id) => {
                       return (
-                        <>
                           <div className="p-2 md:p-0" key={e.id}>
                             <Link href={`/Course/${e.value}`} as={`/Course/${e.value}`}>
                               <a>{e.value}</a>
                             </Link>
                           </div>
-                        </>
                       )
                     })}
                   </div>

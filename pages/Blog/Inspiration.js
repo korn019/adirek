@@ -50,15 +50,13 @@ const BlogContent = () => {
                       <li className="admin">By Admin</li>
                       <li>22 มีนาคม 2022</li>
                       <li>
-                        {" "}
                         <i className="fas fa-eye"></i> <span id="Pefection"></span> {view} view
                       </li>
                       <li>
-                        <i className="fas fa-share-square  text-[#808080d9] text-[19px]"> </i>
+                        {/* <i className="fas fa-share-square  text-[#808080d9] text-[19px]"> </i> */}
                         <FacebookShareButton url={shareUrl}  className="Demo__some-network__share-button">
                           <FacebookIcon size={20} round className="ml-2" />
                         </FacebookShareButton>
-                        
                         <TwitterShareButton url={shareUrl}  className="">
                           <TwitterIcon size={20} round className="ml-2" />
                         </TwitterShareButton>

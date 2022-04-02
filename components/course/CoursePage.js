@@ -4,32 +4,43 @@ import BannerAds from "../BannerAds"
 import BreadcrumbPage from "../BreadcrumbPage"
 import SingleCourse from "./SingleCourse"
 import SwiperCourse from "./SwiperCourse"
-
+import axios from "axios"
 const CoursePage = ({e}) => {
   const [data, setData] = useState([])
   const [dataJson, setDataJson] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  const getData = () => {
-    fetch("../../assets/json/user.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then(function (response) {
-        // console.log(response);
-        return response.json()
-      })
-      .then(function (myJson) {
-        // console.log(myJson);
-        setData(myJson)
+  // const getData = () => {
+  //   fetch("../../assets/json/user.json", {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json",
+  //     },
+  //   })
+  //     .then(function (response) {
+  //       // console.log(response);
+  //       return response.json()
+  //     })
+  //     .then(function (myJson) {
+  //       // console.log(myJson);
+  //       setData(myJson)
+  //       setIsLoading(true)
+  //     })
+  // }
+  // const ID = data.forEach(function (e, i) {
+  //   e["id"] = i
+  // })
+  const getData = async () => {
+    axios
+      .get("http://localhost:4000/instructor")
+      .then((res) => {
+        setData(res.data)
         setIsLoading(true)
       })
+      .catch((err) => {
+        console.error(err)
+      })
   }
-  const ID = data.forEach(function (e, i) {
-    e["id"] = i
-  })
 
   const Filter = data.filter((x) => {
     return x.filterCategory == e.value

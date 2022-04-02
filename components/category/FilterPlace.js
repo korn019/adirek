@@ -84,9 +84,9 @@ function FilterPlace(props) {
         />
       </div> */}
       <div className="flex justify-start">
-        <form class="flex">
+        <form className="flex">
           <input
-            class="rounded-l-lg p-1 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
+            className="rounded-l-lg p-1 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
             placeholder="กรอกที่อยู่ที่ต้องการค้นหา"
             address="province"
             value={province}
@@ -97,7 +97,7 @@ function FilterPlace(props) {
           />
           <button
             onClick={handleSubmit}
-            class="px-8 rounded-r-lg bg-yellow-400  text-gray-800 hover:text-blue-700 duration-500 font-bold p-2 uppercase border-yellow-500 border-t border-b border-r">
+            className="px-8 rounded-r-lg bg-yellow-400  text-gray-800 hover:text-blue-700 duration-500 font-bold p-2 uppercase border-yellow-500 border-t border-b border-r">
             ค้นหา
           </button>
         </form>

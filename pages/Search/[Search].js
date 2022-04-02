@@ -8,6 +8,8 @@ import BreadcrumbPage from "../../components/BreadcrumbPage"
 import ReactPaginate from "react-paginate"
 import SingleCourse from "../../components/course/SingleCourse"
 import BannerAds from "../../components/BannerAds"
+import axios from "axios"
+
 const CourseCategory = () => {
   const router = useRouter()
   const {Search} = router.query
@@ -24,21 +26,21 @@ const CourseCategory = () => {
     setItemOffset(newOffset)
   }
 
-  const getData = () => {
-    fetch("../../assets/json/user.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then(function (response) {
-        return response.json()
-      })
-      .then(function (myJson) {
-        setData(myJson)
-        setIsLoading(true)
-      })
-  }
+  // const getData = () => {
+  //   fetch("../../assets/json/user.json", {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json",
+  //     },
+  //   })
+  //     .then(function (response) {
+  //       return response.json()
+  //     })
+  //     .then(function (myJson) {
+  //       setData(myJson)
+  //       setIsLoading(true)
+  //     })
+  // }
   //   // สร้าง Id ใน JSON
   //   const Id = data.forEach(function (e, i) {
   //     e["id"] = i
@@ -47,7 +49,17 @@ const CourseCategory = () => {
   //   const Filter = data.filter((x) => {
   //     return x.filterCategory === "Web Design"
   //   })
-
+  const getData = async () => {
+    axios
+      .get("http://localhost:4000/instructor")
+      .then((res) => {
+        setData(res.data)
+        setIsLoading(true)
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }
   useEffect(() => {
     getData()
     const endOffset = itemOffset + 25
@@ -80,7 +92,11 @@ const CourseCategory = () => {
     <SearchCourseProvider>
       <Layout>
         <BreadcrumbPage
-          title={`ผลลัพธ์การค้นหาจำนวน ${courseCounter} คอร์สเรียน สำหรับคำค้นหา " ${Search} "`}
+          title={
+            SearchCateCourse.length > 0
+              ? `ผลลัพธ์การค้นหาจำนวน ${courseCounter} คอร์สเรียน สำหรับคำค้นหา " ${Search} "`
+              : `ไม่พบคำค้นหา " ${Search} " กรุณาลองใหม่อีกครั้ง`
+          }
           breadActive="ผลลัพธ์การค้นหา"
           hrefActive="#"
           bread1="หลักสูตรทั้งหมด"

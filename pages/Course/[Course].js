@@ -5,37 +5,50 @@ import {CourseCheck} from "../../components/course/Courselabel"
 import CoursePage from "../../components/course/CoursePage"
 import { SearchCourseProvider } from "../Category"
 import BannerAds from "../../components/BannerAds"
+import axios from "axios"
+
 const Instructor = () => {
   const router = useRouter()
   const {Course} = router.query
   const [data, setData] = useState(CourseCheck)
   const [dataJson, setDataJson] = useState([])
 
-  const getData = () => {
-    fetch("../../assets/json/user.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then(function (response) {
-        return response.json()
-      })
-      .then(function (myJson) {
-        setDataJson(myJson)
-      })
-  }
-  // สร้าง Id ใน JSON
-  const Id = data.forEach(function (e, i) {
-    e["id"] = i
-  })
+  // const getData = () => {
+  //   fetch("../../assets/json/user.json", {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json",
+  //     },
+  //   })
+  //     .then(function (response) {
+  //       return response.json()
+  //     })
+  //     .then(function (myJson) {
+  //       setDataJson(myJson)
+  //     })
+  // }
+  // // สร้าง Id ใน JSON
+  // const Id = data.forEach(function (e, i) {
+  //   e["id"] = i
+  // })
+  //   const getData = async () => {
+  //     axios
+  //       .get("http://localhost:4000/instructor")
+  //       .then((res) => {
+  //         dataJson(res.data)
+  //         // setIsLoading(true)
+  //       })
+  //       .catch((err) => {
+  //         console.error(err)
+  //       })
+  //   }
 
-  const Filter = dataJson.filter((x) => {
-    return Course.includes(x.filterCategory) || Course.includes(x.Category)
-  })
+  // const Filter = dataJson.filter((x) => {
+  //   return Course.includes(x.filterCategory) || Course.includes(x.Category)
+  // })
 
   useEffect(() => {
-    getData()
+    // getData()
   }, [])
   return (
     <SearchCourseProvider>

@@ -4,34 +4,45 @@ import {useState, useEffect} from "react"
 import InstructorDetail from "../../components/Instructor/InstructorDetail"
 import { SearchCourseProvider } from "../Category"
 import BannerAds from "../../components/BannerAds"
+import axios from "axios"
 const Instructor = () => {
   const router = useRouter()
   const {Instructor} = router.query
   const [data, setData] = useState([])
 
-  const getData = () => {
-    fetch("../../assets/json/user.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then(function (response) {
-        return response.json()
+  // const getData = () => {
+  //   fetch("../../assets/json/user.json", {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json",
+  //     },
+  //   })
+  //     .then(function (response) {
+  //       return response.json()
+  //     })
+  //     .then(function (myJson) {
+  //       setData(myJson)
+  //     })
+  // }
+  // // สร้าง Id ใน JSON
+  // const Id = data.forEach(function (e, i) {
+  //   e["id"] = i
+  // })
+
+  // const Filter = data.filter((x) => {
+  //   return x.filterCategory === "Web Design"
+  // })
+  const getData = async () => {
+    axios
+      .get("http://localhost:4000/instructor")
+      .then((res) => {
+        setData(res.data)
+        // setIsLoading(true)
       })
-      .then(function (myJson) {
-        setData(myJson)
+      .catch((err) => {
+        console.error(err)
       })
   }
-  // สร้าง Id ใน JSON
-  const Id = data.forEach(function (e, i) {
-    e["id"] = i
-  })
-
-  const Filter = data.filter((x) => {
-    return x.filterCategory === "Web Design"
-  })
-
   useEffect(() => {
     getData()
   }, [])
