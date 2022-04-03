@@ -1,7 +1,7 @@
 const Partner = () => {
   return (
     <>
-      <section className="bg-red-400">
+      <section className="bg-red-400 ">
         <div className="h-32"></div>
         <div className="relative bg-gray-50 text-black-500 pt-8 pb-6">
           <div

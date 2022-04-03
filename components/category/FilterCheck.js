@@ -101,7 +101,7 @@ const filterCheck = ({
   return (
     <>
       <div className="col-lg-3">
-        <div className="dmne-sidebar grid grid-cols-2 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-1">
+        <div className="dmne-sidebar grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-1">
           <div className="widget widget-select-inner dropdown-filter">
             <h4 className="widget-title ">หลักสูตร</h4>
             <div className="single-form-check form-check">

@@ -15,12 +15,12 @@ const Course = () => {
      axios
        .get("https://c11b-184-22-117-39.ngrok.io/api/instructor")
        .then((res) => {
-         console.log(res)
+        //  console.log(res)
          setData(res.data)
          setIsLoading(true)
        })
        .catch((err) => {
-         console.log(err)
+        //  console.log(err)
        })
   }
   // const getData = () => {

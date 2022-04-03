@@ -4,7 +4,7 @@ import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
 
 import SingleCourse from "./SingleCourse"
 
-const SwiperCourse = ({Filter,}) => {
+const SwiperCourse = ({Filter}) => {
   
   return (
     <>

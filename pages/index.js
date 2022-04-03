@@ -9,11 +9,13 @@ export default function Home() {
 
   return (
     <>
-     <SearchCourseProvider>
-      <Layout>
-        <Main />
-      </Layout>
-     </SearchCourseProvider>
+      <SearchCourseProvider>
+        <Layout>
+        
+            <Main />
+
+        </Layout>
+      </SearchCourseProvider>
     </>
-  );
+  )
 }

@@ -59,129 +59,131 @@ const ContactUs = () => {
                 <br className="hidden md:block" /> หาเรา
               </h1>
             </div>
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
-              <input
-                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="text"
-                placeholder="ชื่อ*"
-                value={contact.firstName}
-                name="firstName"
-                onChange={handleChange}
-              />
-              <input
-                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="text"
-                placeholder="นามสกุล*"
-                value={contact.lastName}
-                name="lastName"
-                onChange={handleChange}
-              />
-              <input
-                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="email"
-                placeholder="Email*"
-                value={contact.email}
-                name="email"
-                onChange={handleChange}
-              />
-              <input
-                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="number"
-                placeholder="เบอร์โทรศัพท์*"
-                value={contact.tel}
-                onChange={handleChange}
-                name="tel"
-              />
-            </div>
-            <div className="my-4">
-              <textarea
-                placeholder="ข้อความ*"
-                className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                value={contact.message}
-                onChange={handleChange}
-                name="message"></textarea>
-            </div>
-            <div className="my-2 w-1/2 lg:w-1/4">
-              {warning ? (
-                <>
-                  <div className="flex -mx-3 items-center justify-center text-center">
-                    <div className="w-full ">
-                      <p className="block w-full max-w-xs mx-auto  text-red-700 font-title text-fmd">
-                        {warnText}
-                      </p>
-                    </div>
-                  </div>
-                </>
-              ) : null}
-              <button
-                // onClick={handleSubmit}
-                className="cursor-pointer btn uppercase text-f2xl p-0 font-title bg-blue-900 text-gray-100 rounded-lg w-full 
-                      focus:outline-none focus:shadow-outline"
-                style={{cursor: "pointer", zIndex: 999}}
-                type="submit">
-                ยืนยัน
-              </button>
-              <Transition show={isOpen} as={Fragment}>
-                <Dialog
-                  as="div"
-                  className="fixed inset-0 z-10 overflow-y-auto"
-                  onClose={closeModal}>
-                  <div className="min-h-screen px-4 text-center">
-                    <Transition.Child
-                      as={Fragment}
-                      enter="ease-out duration-300"
-                      enterFrom="opacity-0"
-                      enterTo="opacity-100"
-                      leave="ease-in duration-200"
-                      leaveFrom="opacity-100"
-                      leaveTo="opacity-0">
-                      <Dialog.Overlay className="fixed inset-0 bg-black/[.2]" />
-                    </Transition.Child>
-
-                    {/* This element is to trick the browser into centering the modal contents. */}
-                    <span className="inline-block h-screen align-middle" aria-hidden="true">
-                      &#8203;
-                    </span>
-                    <Transition.Child
-                      as={Fragment}
-                      enter="ease-out duration-300"
-                      enterFrom="opacity-0 scale-95"
-                      enterTo="opacity-100 scale-100"
-                      leave="ease-in duration-200"
-                      leaveFrom="opacity-100 scale-100"
-                      leaveTo="opacity-0 scale-95">
-                      <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-                        <div className="flex justify-end items-center">
-                          <Dialog.Title as="h3" className="text-right leading-6 text-gray-900">
-                            <button className="font-black" onClick={closeModal}>
-                              X
-                            </button>
-                          </Dialog.Title>
-                        </div>
-                        <div className="my-4 items-center justify-center flex">
-                          <p className="text-sm text-gray-500">
-                            <Dialog.Title
-                              as="h3"
-                              className="text-f3xl font-title my-4  leading-6 text-gray-900">
-                              ลงทะเบียนสำเร็จ
-                            </Dialog.Title>
-                          </p>
-                        </div>
-
-                        <div className="mt-4  items-center justify-center flex">
-                          <button
-                            type="button"
-                            className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                            onClick={closeModal}>
-                            ตกลง
-                          </button>
-                        </div>
+            <form onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
+                <input
+                  className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                  type="text"
+                  placeholder="ชื่อ*"
+                  value={contact.firstName}
+                  name="firstName"
+                  onChange={handleChange}
+                />
+                <input
+                  className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                  type="text"
+                  placeholder="นามสกุล*"
+                  value={contact.lastName}
+                  name="lastName"
+                  onChange={handleChange}
+                />
+                <input
+                  className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                  type="email"
+                  placeholder="Email*"
+                  value={contact.email}
+                  name="email"
+                  onChange={handleChange}
+                />
+                <input
+                  className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                  type="text"
+                  placeholder="เบอร์โทรศัพท์*"
+                  value={contact.tel}
+                  onChange={handleChange}
+                  name="tel"
+                />
+              </div>
+              <div className="my-4">
+                <textarea
+                  placeholder="ข้อความ*"
+                  className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                  value={contact.message}
+                  onChange={handleChange}
+                  name="message"></textarea>
+              </div>
+              <div className="my-2 w-1/2 lg:w-1/4">
+                {warning ? (
+                  <>
+                    <div className="flex -mx-3 items-center justify-center text-center">
+                      <div className="w-full ">
+                        <p className="block w-full max-w-xs mx-auto  text-red-700 font-title text-fmd">
+                          {warnText}
+                        </p>
                       </div>
-                    </Transition.Child>
-                  </div>
-                </Dialog>
-              </Transition>
-            </div>
+                    </div>
+                  </>
+                ) : null}
+                <button
+                  // onClick={handleSubmit}
+                  className="cursor-pointer btn uppercase text-f2xl p-0 font-title bg-blue-900 text-gray-100 rounded-lg w-full 
+                      focus:outline-none focus:shadow-outline"
+                  style={{cursor: "pointer", zIndex: 999}}
+                  type="submit">
+                  ยืนยัน
+                </button>
+                <Transition show={isOpen} as={Fragment}>
+                  <Dialog
+                    as="div"
+                    className="fixed inset-0 z-10 overflow-y-auto"
+                    onClose={closeModal}>
+                    <div className="min-h-screen px-4 text-center">
+                      <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0">
+                        <Dialog.Overlay className="fixed inset-0 bg-black/[.2]" />
+                      </Transition.Child>
+
+                      {/* This element is to trick the browser into centering the modal contents. */}
+                      <span className="inline-block h-screen align-middle" aria-hidden="true">
+                        &#8203;
+                      </span>
+                      <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0 scale-95"
+                        enterTo="opacity-100 scale-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100 scale-100"
+                        leaveTo="opacity-0 scale-95">
+                        <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+                          <div className="flex justify-end items-center">
+                            <Dialog.Title as="h3" className="text-right leading-6 text-gray-900">
+                              <button className="font-black" onClick={closeModal}>
+                                X
+                              </button>
+                            </Dialog.Title>
+                          </div>
+                          <div className="my-4 items-center justify-center flex">
+                            <p className="text-sm text-gray-500">
+                              <Dialog.Title
+                                as="h3"
+                                className="text-f3xl font-title my-4  leading-6 text-gray-900">
+                                ลงทะเบียนสำเร็จ
+                              </Dialog.Title>
+                            </p>
+                          </div>
+
+                          <div className="mt-4  items-center justify-center flex">
+                            <button
+                              type="button"
+                              className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                              onClick={closeModal}>
+                              ตกลง
+                            </button>
+                          </div>
+                        </div>
+                      </Transition.Child>
+                    </div>
+                  </Dialog>
+                </Transition>
+              </div>
+            </form>
           </div>
 
           <div className="w-full lg:-mt-[40rem] lg:w-2/6 px-8 py-12 ml-auto bg-blue-900  rounded-2xl">

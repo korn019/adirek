@@ -59,9 +59,9 @@ const Instructor = () => {
             </div>
           ) : null
         })}
-      <div className="">
+      {/* <div className="">
         <BannerAds />
-      </div>
+      </div> */}
       </Layout>
     </SearchCourseProvider>
   )

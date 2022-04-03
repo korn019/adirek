@@ -15,22 +15,32 @@ const Main = () => {
       <SlideCourse />
       <div className="test-class">
         <AdirekIs />
-        <div className="py-12">
-          <BannerAds />
-        </div>
+      </div>
+      <div className="py-12">
+        <BannerAds />
+      </div>
+      <div className="">
         <Partner />
-        <div className="">
-          <BannerAds />
-        </div>
+      </div>
+      <div className="">
+        <BannerAds />
+      </div>
+      <div className="test-class">
         <Course />
+      </div>
+      <div className="test-class">
         <Activity />
+      </div>
+      <div className="">
         <Testimonial />
-        <div className="py-24">
-          <BannerAds />
-        </div>
+      </div>
+      <div className="py-24">
+        <BannerAds />
+      </div>
+      <div className="">
         <ClientArea />
       </div>
-
+      <div className="test-class"> </div>
       {/* <BlogCard /> */}
     </>
   )
