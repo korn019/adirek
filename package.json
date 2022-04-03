@@ -29,6 +29,7 @@
     "react-paginate": "^8.1.2",
     "react-share": "^4.4.0",
     "react-thailand-address-autocomplete": "^0.0.6",
+    "serverless-mysql": "^1.5.4",
     "swiper": "^6.8.4",
     "tailwindcss": "^3.0.23"
   },

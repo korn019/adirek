@@ -13,14 +13,14 @@ const Course = () => {
 
   const getData =  () => {
      axios
-       .get("https://8c0f-184-22-117-39.ngrok.io/instructor")
+       .get("http://localhost:3000/api/test")
        .then((res) => {
          console.log(res)
          setData(res.data)
          setIsLoading(true)
        })
        .catch((err) => {
-         //  console.log(err)
+         console.log(err)
        })
   }
   // const getData = () => {
