@@ -33,7 +33,7 @@ export default function handler(req, res) {
   let sql = "SELECT * FROM instructor" // คำสั่ง sql
   connection.query(sql, function (error, result, fields) {
   //  if (error) return res.status(500).json(error.message)
-    return res.json({result})
+    return res.json({results: result})
   })
 
   // let query = db.query(sql, (err, results) => {
