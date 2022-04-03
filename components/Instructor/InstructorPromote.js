@@ -36,19 +36,19 @@ const InstructorPromote = () => {
     //   setWarning(true)
     // }
     axios
-      .post("https://192.168.1.100:4000/instructors/contact", instructor)
+      .post("http://127.0.0.1:4000/instructors/contact", instructor)
       .then(function (response) {
-        console.log(response.data.message)
+        console.log(response)
         console.log("1")
         setWarnText(false)
         setIsOpen(true)
       })
       .catch(function (error) {
         console.log("2")
-        console.log(error.response.data.error)
-        let err = error.response.data.error
-        setWarning(true)
-        setWarnText(`***${err}***`)
+        console.log(error)
+        // let err = error.response.data.error
+        // setWarning(true)
+        // setWarnText(`***${err}***`)
       })
   }
   return (
