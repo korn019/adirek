@@ -36,7 +36,7 @@ const InstructorPromote = () => {
     //   setWarning(true)
     // }
     axios
-      .post("http://192.168.1.100:4000/instructors/contact", instructor)
+      .post("https://192.168.1.100:4000/instructors/contact", instructor)
       .then(function (response) {
         console.log(response.data.message)
         console.log("1")
