@@ -117,7 +117,8 @@ const ContactUs = () => {
                 onClick={handleSubmit}
                 className="cursor-pointer btn uppercase text-f2xl p-0 font-title bg-blue-900 text-gray-100 rounded-lg w-full 
                       focus:outline-none focus:shadow-outline"
-                style={{cursor: "pointer", zIndex: 999}}>
+                style={{cursor: "pointer", zIndex: 999}}
+                type="submit">
                 ยืนยัน
               </button>
               <Transition show={isOpen} as={Fragment}>
