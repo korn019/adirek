@@ -1,6 +1,8 @@
 const express = require("express") // เรียกใช้ Express
 const mysql = require("mysql") // เรียกใช้ mysql
+const app = express() // สร้าง Object เก็บไว้ในตัวแปร app เพื่อนำไปใช้งาน
 const cors = require("cors")
+app.use(cors())
 const db = mysql.createConnection({
   // config ค่าการเชื่อมต่อฐานข้อมูล
   host: "localhost",
@@ -10,24 +12,24 @@ const db = mysql.createConnection({
 })
 
 db.connect() // เชื่อมต่อฐานข้อมูล
-const app = express() // สร้าง Object เก็บไว้ในตัวแปร app เพื่อนำไปใช้งาน
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
-app.use(cors())
 
 // All data
 app.get("/instructor", (req, res) => {
   // Router เวลาเรียกใช้งาน
+    console.log(req)
   let sql = "SELECT * FROM instructor" // คำสั่ง sql
   let query = db.query(sql, (err, results) => {
     // สั่ง Query คำสั่ง sql
+    
     if (err) throw err // ดัก error
     let message = ""
     if (results === undefined || results.length === 0) {
       message = "ไม่พบข้อมูล"
       return res.send(results)
     } else {
-      console.log(results)
+      // console.log(results)
       message = "พบข้อมูล"
       return res.send(results)
     }
