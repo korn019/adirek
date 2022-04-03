@@ -38,14 +38,13 @@ const InstructorPromote = () => {
     axios
       .post("http://127.0.0.1:4000/instructors/contact", instructor)
       .then(function (response) {
-        console.log(response)
-        console.log("1")
+        // console.log(response)
+        // console.log("1")
         setWarnText(false)
         setIsOpen(true)
       })
       .catch(function (error) {
-        console.log("2")
-        console.log(error)
+        // console.log(error)
         let err = error.response.data.error
         setWarning(true)
         setWarnText(`***${err}***`)
@@ -274,7 +273,7 @@ const InstructorPromote = () => {
       </section>
 
       <section id="register">
-        <div class="min-w-screen min-h-screen bg-svg flex items-center justify-center px-5 py-5">
+        <div className="min-w-screen min-h-screen bg-svg flex items-center justify-center px-2 py-2">
           <div
             className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden"
             style={{maxWidth: 1000}}>
@@ -291,7 +290,7 @@ const InstructorPromote = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-full md:w-1/2 py-10 px-5 md:px-10">
+              <div className="w-full md:w-1/2 py-10 px-2 sm:px-4 md:px-10">
                 <div className="text-center mb-10">
                   <h1 className="font-title text-f4xl text-gray-900">ลงทะเบียน</h1>
                   <p>กรอกข้อมูลลงทะเบียนเพื่อให้เราติดต่อกลับ</p>
@@ -299,7 +298,7 @@ const InstructorPromote = () => {
                 <form onSubmit={handleSubmit}>
                   <div className="flex -mx-3">
                     <div className="w-1/2 px-3 mb-5">
-                      <label for="" className="text-xs font-semibold px-1">
+                      <label htmlFor="" className="text-xs font-semibold px-1">
                         ชื่อจริง
                       </label>
                       <div className="flex">
@@ -317,7 +316,7 @@ const InstructorPromote = () => {
                       </div>
                     </div>
                     <div className="w-1/2 px-3 mb-5">
-                      <label for="" className="text-xs font-semibold px-1">
+                      <label htmlFor="" className="text-xs font-semibold px-1">
                         นามสกุล
                       </label>
                       <div className="flex">
@@ -337,7 +336,7 @@ const InstructorPromote = () => {
                   </div>
                   <div className="flex -mx-3">
                     <div className="w-full px-3 mb-5">
-                      <label for="" className="text-xs font-semibold px-1">
+                      <label htmlFor="" className="text-xs font-semibold px-1">
                         Email
                       </label>
                       <div className="flex">
@@ -357,7 +356,7 @@ const InstructorPromote = () => {
                   </div>
                   <div className="flex -mx-3">
                     <div className="w-full px-3 mb-12">
-                      <label for="" className="text-xs font-semibold px-1">
+                      <label htmlFor="" className="text-xs font-semibold px-1">
                         เบอร์โทรศัพท์
                       </label>
                       <div className="flex">
@@ -443,10 +442,9 @@ const InstructorPromote = () => {
 
                                 <div className="mt-4  items-center justify-center flex">
                                   <button
-                                    style={{cursor: "pointer",zIndex:999}}
+                                    style={{cursor: "pointer", zIndex: 999}}
                                     className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                                    onClick={closeModal}
-                                    >
+                                    onClick={closeModal}>
                                     ตกลง
                                   </button>
                                 </div>

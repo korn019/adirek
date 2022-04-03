@@ -181,8 +181,8 @@ const Header = () => {
               </Transition>
             </div>
 
-            <div className="collapse navbar-collapse" id="themefie_main_menu">
-              <div className="single-input-wrap">
+            <div className="collapse navbar-collapse " id="themefie_main_menu">
+              <div className="single-input-wrap hidden md:block">
                 <input
                   type="text"
                   placeholder="ค้นหาหลักสูตร..."
