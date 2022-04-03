@@ -13,7 +13,7 @@ const Course = () => {
 
   const getData = async () => {
     axios
-      .get("http://localhost:4000/instructor")
+      .get("http://127.0.0.1:4000/instructor")
       .then((res) => {
         setData(res.data)
         setIsLoading(true)
