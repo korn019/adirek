@@ -115,7 +115,7 @@ const ContactUs = () => {
               ) : null}
               <button
                 onClick={handleSubmit}
-                className="btn uppercase text-f2xl p-0 font-title bg-blue-900 text-gray-100 rounded-lg w-full 
+                className="cursor-pointer btn uppercase text-f2xl p-0 font-title bg-blue-900 text-gray-100 rounded-lg w-full 
                       focus:outline-none focus:shadow-outline">
                 ยืนยัน
               </button>
