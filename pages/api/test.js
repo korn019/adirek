@@ -27,11 +27,10 @@ connection.connect(function (err) {
   console.log("MySQL Connection Successful.")
 })
 
-function getUsers(req, res) {
+export default function handler(req, res) {
   // Router เวลาเรียกใช้งาน
   console.log(res)
   let sql = "SELECT * FROM instructor" // คำสั่ง sql
-  console.log(connection)
   connection.query(sql, function (error, result, fields) {
   //  if (error) return res.status(500).json(error.message)
     return res.json({result})
@@ -53,4 +52,3 @@ function getUsers(req, res) {
   //   // ส่งค่ากลับไปให้ผู้ใช้
   // })
 }
-export default getUsers
