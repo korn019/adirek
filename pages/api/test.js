@@ -25,7 +25,7 @@ export default function handler(req, res) {
       } else {
         // console.log(results)
         message = "พบข้อมูล"
-        return res.send(results)
+        return res.status(200).json(results)
       }
       // ส่งค่ากลับไปให้ผู้ใช้
     })
