@@ -13,7 +13,7 @@ const Course = () => {
 
   const getData =  () => {
      axios
-       .get("http://localhost:3000/api/test")
+       .get("https://adirek.vercel.app/api/test")
        .then((res) => {
          console.log(res)
          setData(res.data)
