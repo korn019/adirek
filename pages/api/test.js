@@ -1,13 +1,11 @@
-import mysql from "serverless-mysql"
+const mysql = require("mysql")
 
-const connection = mysql({
+const connection = mysql.createConnection({
   // config ค่าการเชื่อมต่อฐานข้อมูล
-  config: {
     host: "localhost",
     user: "root",
     password: "",
     database: "adirek",
-  },
 })
 
 connection.connect(function (err) {
@@ -25,7 +23,6 @@ function getUsers(req, res) {
     if (error) throw error
     res.status(200).json(result)
   })
-
 
   // let query = db.query(sql, (err, results) => {
   //   // สั่ง Query คำสั่ง sql
