@@ -13,7 +13,7 @@ const Course = () => {
 
   const getData =  () => {
      axios
-       .get("https://adirek.vercel.app/api/test")
+       .get("https://c11b-184-22-117-39.ngrok.io/api/instructor")
        .then((res) => {
          console.log(res)
          setData(res.data)

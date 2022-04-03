@@ -104,7 +104,7 @@ const MainCategory = () => {
   // console.log(data)
     const getData = async () => {
       axios
-        .get("http://localhost:4000/instructor")
+        .get("https://c11b-184-22-117-39.ngrok.io/api/instructor")
         .then((res) => {
           setData(res.data)
           setIsLoading(true)
