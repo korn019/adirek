@@ -11,10 +11,11 @@ const Course = () => {
   const [dataJson, setDataJson] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  const getData = async () => {
-    axios
+  const getData =  () => {
+     axios
       .get("http://127.0.0.1:4000/instructor")
       .then((res) => {
+         console.error(res)
         setData(res.data)
         setIsLoading(true)
       })
