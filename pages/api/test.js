@@ -20,7 +20,7 @@ function getUsers(req, res) {
   console.log(req)
   let sql = "SELECT * FROM instructor" // คำสั่ง sql
   connection.query(sql, function (error, result, fields) {
-    if (error) throw error
+   if (error) return res.status(500).json(error.message)
     res.status(200).send(result)
   })
 
