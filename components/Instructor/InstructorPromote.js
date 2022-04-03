@@ -46,9 +46,9 @@ const InstructorPromote = () => {
       .catch(function (error) {
         console.log("2")
         console.log(error)
-        // let err = error.response.data.error
-        // setWarning(true)
-        // setWarnText(`***${err}***`)
+        let err = error.response.data.error
+        setWarning(true)
+        setWarnText(`***${err}***`)
       })
   }
   return (
