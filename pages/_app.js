@@ -14,6 +14,7 @@ function MyApp({Component, pageProps}) {
     <>
         <DefaultSeo {...SEO} />
       <Head>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
         {/* <title>Adirek - ให้ทุกวันคือการสร้างโอกาสใหม่</title>
         <meta name="description" content="Adirek - ให้ทุกวันคือการสร้างโอกาสใหม่" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
