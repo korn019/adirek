@@ -33,7 +33,7 @@ const ContactUs = () => {
     //   setWarning(true)
     // }
     axios
-      .post("http://127.0.0.1:4000/contactus", contact)
+      .post("https://c11b-184-22-117-39.ngrok.io/api/contactus", contact)
       .then(function (response) {
         console.log(response.data.message)
         console.log("1")
