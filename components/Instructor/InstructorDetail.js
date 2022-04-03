@@ -76,7 +76,8 @@ const InstructorDetail = ({e}) => {
         </div> */}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 mt-5 ">
-          <div className="lg:px-5">
+          {/* <div className="lg:px-5">
+           
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 md:space-x-3">
               <div className="col-span-1 md:col-span-1">
                 <h1 className="font-title text-f3xl text-[#cf9b3b]">คอร์สเรียน</h1>
@@ -151,7 +152,7 @@ const InstructorDetail = ({e}) => {
                 </>
               ) : null}
             </div>
-          </div>
+          </div> */}
 
           <div className="mt-6 md:mt-0 lg:px-5">
             {" "}
