@@ -21,7 +21,7 @@ function getUsers(req, res) {
   let sql = "SELECT * FROM instructor" // คำสั่ง sql
   connection.query(sql, function (error, result, fields) {
     if (error) throw error
-    res.status(200).json(result)
+    res.status(200).send(result)
   })
 
   // let query = db.query(sql, (err, results) => {
