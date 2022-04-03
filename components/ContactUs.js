@@ -33,7 +33,7 @@ const ContactUs = () => {
     //   setWarning(true)
     // }
     axios
-      .post("http://localhost:4000/contactus", contact)
+      .post("http://192.168.1.100:4000/contactus", contact)
       .then(function (response) {
         console.log(response.data.message)
         console.log("1")
