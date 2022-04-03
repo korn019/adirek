@@ -50,7 +50,7 @@ const Instructor = () => {
     <SearchCourseProvider>
       <Layout>
         <div className="instector-banner-area" style={{height: 400}}></div>
-        {/* {data.map((e, id) => {
+        {data.map((e, id) => {
           return Instructor == `id=${e.record}` ? (
             <div className="pd-bottom-115" key={e.record}>
               <div className="container">
@@ -58,7 +58,7 @@ const Instructor = () => {
               </div>
             </div>
           ) : null
-        })} */}
+        })}
       {/* <div className="">
         <BannerAds />
       </div> */}

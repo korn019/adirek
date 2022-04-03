@@ -7,7 +7,7 @@ const InstructorDetail = ({e}) => {
       <div
         className="row d-flex justify-content-center justify-content-md-between "
         style={{marginTop: -160}}>
-        <div className="col-12 col-md-4 col-lg-6 d-flex justify-content-center justify-content-lg-start align-items-md-center">
+        {/* <div className="col-12 col-md-4 col-lg-6 d-flex justify-content-center justify-content-lg-start align-items-md-center">
           <div className="blog-post-content single-blog-post">
             <div className="card bg-light text-dark shadow">
               <div className="card-body">
@@ -73,7 +73,7 @@ const InstructorDetail = ({e}) => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 mt-5 ">
           <div className="lg:px-5">
