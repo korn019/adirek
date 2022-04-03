@@ -99,7 +99,7 @@ const InstructorDetail = ({e}) => {
                   {parseFloat(e.ราคาคอร์สเรียน.replace(/,/g, ""))} บาท
                 </h5>
               <button
-                className="text-black font-bold uppercase text-sm px-2 py-1   rounded hover:border  ease-linear transition-all duration-150"
+                className="text-black font-bold uppercase text-sm px-2 py-1 text-left   rounded hover:border  ease-linear transition-all duration-150"
                 type="button"
                 onClick={() => setShowModal(true)}>
                 อ่านเพิ่มเติม
