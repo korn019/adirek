@@ -9,6 +9,7 @@ const db = mysql({
     database: "adirek",
   },
 })
+
 export default function handler(req, res) {
     // Router เวลาเรียกใช้งาน
     console.log(req)
