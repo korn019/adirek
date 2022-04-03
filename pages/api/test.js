@@ -3,9 +3,9 @@ import { sql_query } from "../../lib/db"
 const handler = async (req, res) => {
   try {
     const results = await sql_query(`SELECT * FROM instructor`) 
-    return res.json(results)
+    return res.json({results})
   } catch (error) {
-    res.status(500).json.send({message: error.message})
+    res.status(500).json({message: error.message})
   }
 }
 
