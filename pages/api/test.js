@@ -5,9 +5,10 @@ const handler = async (req, res) => {
     const results = await sql_query(`SELECT * FROM instructor`) 
     return res.json(results)
   } catch (error) {
-    res.status(500).json({message: error.message})
+    res.status(500).json.send({message: error.message})
   }
 }
+
 export default handler
 // const mysql = require("mysql")
 
