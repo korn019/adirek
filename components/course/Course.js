@@ -11,35 +11,35 @@ const Course = () => {
   const [dataJson, setDataJson] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  // const getData =  () => {
-  //    axios
-  //      .get("http://127.0.0.1:4000/instructor")
-  //      .then((res) => {
-  //        console.log(res)
-  //        setData(res.data)
-  //        setIsLoading(true)
-  //      })
-  //      .catch((err) => {
-  //       //  console.log(err)
-  //      })
-  // }
-  const getData = () => {
-    fetch("http://127.0.0.1:4000/instructor", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    }) 
-      .then(function (response) {
-        console.log(response)
-        return response.json()
-      })
-      .then(function (myJson) {
-        // console.log(myJson);
-        setData(myJson)
-        setIsLoading(true)
-      })
-    }
+  const getData =  () => {
+     axios
+       .get("https://8c0f-184-22-117-39.ngrok.io/instructor")
+       .then((res) => {
+         console.log(res)
+         setData(res.data)
+         setIsLoading(true)
+       })
+       .catch((err) => {
+         //  console.log(err)
+       })
+  }
+  // const getData = () => {
+  //   fetch("http://192.168.1.100:4000/instructor", {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json",
+  //     },
+  //   })
+  //     .then(function (response) {
+  //       console.log(response)
+  //       return response.json()
+  //     })
+  //     .then(function (myJson) {
+  //       // console.log(myJson);
+  //       setData(myJson)
+  //       setIsLoading(true)
+  //     })
+  //   }
 
   //  const ID = data.forEach(function (e, i) {
   //    e["id"] = i
