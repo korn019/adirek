@@ -285,7 +285,7 @@ function Header() {
   const [navHead, setNavHead] = useState(false)
   const changeBg = () => {
     if (typeof window !== "undefined") {
-      if (window.scrollY >= 80) {
+      if (window.scrollY > 60) {
         setNavHead(true)
       } else {
         setNavHead(false)
@@ -414,7 +414,7 @@ function Header() {
             </div>
           </div>
           {/* Moblie */}
-          <div className="mr-10 flex lg:hidden">
+          <div className=" flex lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
