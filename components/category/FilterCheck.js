@@ -139,7 +139,7 @@ const filterCheck = ({
             />
           </div>
         </div>
-          <div className="widget widget-select-inner">
+          <div className="widget widget-select-inner relative">
             <button
               onClick={resetButton}
               type="button"
