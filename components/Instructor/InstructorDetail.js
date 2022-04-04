@@ -165,7 +165,7 @@ const InstructorDetail = ({e}) => {
                             </Dialog.Title>
                           </div>
                           <div className="mt-2">
-                            <p className="text-sm text-gray-500">{e.รายละเอียดคอร์สเรียน}</p>
+                            <p className="text-sm md:text-lg text-gray-500">{e.รายละเอียดคอร์สเรียน}</p>
                           </div>
 
                           <div className="mt-4">
