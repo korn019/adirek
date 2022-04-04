@@ -36,7 +36,7 @@ const InstructorPromote = () => {
     //   setWarning(true)
     // }
     axios
-      .post("http://127.0.0.1:4000/instructors/contact", instructor)
+      .post("https://3f34-184-22-117-39.ngrok.io/instructors/contact", instructor)
       .then(function (response) {
         // console.log(response)
         // console.log("1")

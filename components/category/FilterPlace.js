@@ -84,7 +84,7 @@ function FilterPlace(props) {
         />
       </div> */}
       <div className="flex justify-start">
-        <form className="flex">
+        <form className="flex relative">
           <input
             className="rounded-l-lg p-1 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
             placeholder="กรอกที่อยู่ที่ต้องการค้นหา"

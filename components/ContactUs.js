@@ -33,7 +33,7 @@ const ContactUs = () => {
     //   setWarning(true)
     // }
     axios
-      .post("https://c11b-184-22-117-39.ngrok.io/api/contactus", contact)
+      .post("https://3f34-184-22-117-39.ngrok.io/api/contactus", contact)
       .then(function (response) {
         console.log(response.data.message)
         console.log("1")
