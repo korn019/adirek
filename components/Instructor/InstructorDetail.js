@@ -103,14 +103,7 @@ const InstructorDetail = ({e}) => {
                     </h5>
                   </div>
                 </div>
-                <div className=" md:col-span-1 ">
-                  <button
-                    className="text-black font-bold uppercase text-fbase px-2 py-1  text-left   ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={() => setShowModal(true)}>
-                    อ่านเพิ่มเติม
-                  </button>
-                </div>
+                
 
                 {showModal ? (
                   <>
