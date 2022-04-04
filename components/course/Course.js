@@ -13,7 +13,7 @@ const Course = () => {
 
   const getData =  () => {
      axios
-       .get("https://3f34-184-22-117-39.ngrok.io/api/instructor")
+       .get("https://8e7f-184-22-117-39.ngrok.io/api/instructor")
        .then((res) => {
          //  console.log(res)
          setData(res.data)
