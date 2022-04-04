@@ -106,7 +106,7 @@ const InstructorDetail = ({e}) => {
                 <div className="align-items-center justify-content-center ">
                   <div className="title text-black ">
                       <p
-                        className="text-black font-bold uppercase text-fbase px-2 py-1 hover:text-blue-500 cursor-pointer text-left   ease-linear transition-all duration-150"
+                        className="text-black font-bold uppercase text-flg px-2 py-1 hover:text-blue-500 cursor-pointer text-left   ease-linear transition-all duration-150"
                         onClick={() => setShowModal(true)}>
                         อ่านเพิ่มเติม
                       </p>
