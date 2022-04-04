@@ -76,8 +76,6 @@ const InstructorDetail = ({e}) => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 mt-5 ">
-         
-
           <div className="mt-6 md:mt-0 lg:px-5">
             {" "}
             <div className="space-y-1">
@@ -90,12 +88,18 @@ const InstructorDetail = ({e}) => {
                   </a>
                 </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:space-x-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:space-x-3 mt-2">
                 <div className="align-items-center justify-content-center  col-span-2   p-2">
                   <div className="ml-1 title text-black text-[32px]">
                     <p className="line-clamp-3 md:col-span-2  font-body !text-2xl subtext">
                       1.{e.รายละเอียดคอร์สเรียน}
                     </p>
+                    <button
+                      className="text-black font-bold uppercase text-fmd px-2 py-1  text-left   ease-linear transition-all duration-150"
+                      type="button"
+                      onClick={() => setShowModal(true)}>
+                      อ่านเพิ่มเติม
+                    </button>
                   </div>
                 </div>
                 <div className="align-items-center justify-content-center  col-span-1   p-2">
@@ -152,41 +156,6 @@ const InstructorDetail = ({e}) => {
                     <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
                   </>
                 ) : null}
-              </div>
-            </div>
-            <div className="grid grid-cols-2 items-center justify-between mt-5">
-              <div>
-                <h1 className="font-title text-f3xl text-[#cf9b3b]">Rating</h1>
-              </div>
-              <div className="text-right">
-                <span>
-                  <i className="fa fa-star text-[#f2994a] mr-1"></i>
-                </span>
-                <span>
-                  <i className="fa fa-star text-[#f2994a] mr-1"></i>
-                </span>
-                <span>
-                  <i className="fa fa-star text-[#f2994a] mr-1"></i>
-                </span>
-                <span>
-                  <i className="fa fa-star text-[#f2994a] mr-1"></i>
-                </span>
-                <span>
-                  <i className="fa fa-star text-[#f2994a] mr-1"></i>
-                </span>
-              </div>
-              <div>
-                <h1 className="font-title text-fxl">นักเรียนทั้งหมด</h1>
-              </div>
-
-              <div className="text-right">
-                <h1 className="font-title text-fxl">2000 คน</h1>
-              </div>
-              <div>
-                <h1 className="font-title text-fxl">ขายได้</h1>
-              </div>
-              <div className="text-right">
-                <h1 className="font-title text-fxl">200 ครั้ง</h1>
               </div>
             </div>
           </div>
