@@ -97,13 +97,13 @@ const InstructorDetail = ({e}) => {
                 <h5 className=" text-right font-body text-flg md:col-span-1">
                   {parseFloat(e.ราคาคอร์สเรียน.replace(/,/g, ""))} บาท
                 </h5>
+              </div>
                 <button
                   className="text-black font-bold uppercase text-sm px-2 py-1  text-left   ease-linear transition-all duration-150"
                   type="button"
                   onClick={() => setShowModal(true)}>
                   อ่านเพิ่มเติม
                 </button>
-              </div>
               {showModal ? (
                 <>
                   <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
