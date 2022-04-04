@@ -76,7 +76,6 @@ const InstructorDetail = ({e}) => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 mt-5 ">
-         
           <div className="lg:px-5">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 md:space-x-3">
               <div className=" md:col-span-1">
@@ -91,20 +90,20 @@ const InstructorDetail = ({e}) => {
             </div>
 
             <div className="mt-5 space-y-2">
-              {/* <div className="grid grid-cols-3 ">
-                <p className="line-clamp-3 col-span-2 font-body !text-2xl subtext">
+              <div className="grid grid-cols-1 md:grid-cols-3 ">
+                <p className="line-clamp-3 md:col-span-2  font-body !text-2xl subtext">
                   1.{e.รายละเอียดคอร์สเรียน}
                 </p>
-                <h5 className=" col-span-1 text-right font-body text-flg">
+                <h5 className=" text-right font-body text-flg md:col-span-1">
                   {parseFloat(e.ราคาคอร์สเรียน.replace(/,/g, ""))} บาท
                 </h5>
-              <button
-                className="text-black font-bold uppercase text-sm px-2 py-1 text-left   rounded hover:border  ease-linear transition-all duration-150"
-                type="button"
-                onClick={() => setShowModal(true)}>
-                อ่านเพิ่มเติม
-              </button>
-              </div> */}
+                <button
+                  className="text-black font-bold uppercase text-sm px-2 py-1  text-left   ease-linear transition-all duration-150"
+                  type="button"
+                  onClick={() => setShowModal(true)}>
+                  อ่านเพิ่มเติม
+                </button>
+              </div>
               {showModal ? (
                 <>
                   <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
@@ -160,12 +159,12 @@ const InstructorDetail = ({e}) => {
               <h1 className="font-title text-f3xl text-[#cf9b3b]">หมวดหมู่:</h1>
               <div className="align-items-center justify-content-center bg-[#eaf0f6] border-b-2 border-gray-200 rounded-lg p-2">
                 <div className="ml-1 title text-black text-[32px]">
-                  { e.ช่องทางการสอน == "" ? "ไม่พบข้อมูล" : e.ช่องทางการสอน}{" "}
+                  {e.ช่องทางการสอน == "" ? "ไม่พบข้อมูล" : e.ช่องทางการสอน}{" "}
                 </div>
               </div>
               <div className="align-items-center justify-content-center bg-[#eaf0f6] border-b-2 border-gray-200 rounded-lg p-2">
                 <div className="ml-1 title text-black text-[32px]">
-                  { e.Category == "" ? "ไม่พบข้อมูล" : e.Category}
+                  {e.Category == "" ? "ไม่พบข้อมูล" : e.Category}
                 </div>
               </div>
             </div>
@@ -208,15 +207,13 @@ const InstructorDetail = ({e}) => {
           <div className="lg:px-5 mt-6">
             {" "}
             <h1 className="title text-[#cf9b3b]">แนะนำผู้สอน</h1>
-            <p className=" subtext ">
-              {e.ประวัติการสอน == '' ? "ไม่พบข้อมูล" : e.ประวัติการสอน}
-            </p>
+            <p className=" subtext ">{e.ประวัติการสอน == "" ? "ไม่พบข้อมูล" : e.ประวัติการสอน}</p>
           </div>
           <div className="lg:px-5 mt-6">
             {" "}
             <h1 className="title text-[#cf9b3b]">ประวัติการศึกษา</h1>
             <p className=" subtext">
-              { e.ประวัติการศึกษา == "" ? "ไม่พบข้อมูล" : e.ประวัติการศึกษา}
+              {e.ประวัติการศึกษา == "" ? "ไม่พบข้อมูล" : e.ประวัติการศึกษา}
             </p>
           </div>
           <div className="lg:px-5 mt-6">
@@ -227,9 +224,7 @@ const InstructorDetail = ({e}) => {
               <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">{e.เบอร์โทร}</p>
               <p className="lead font-bold">Address:</p>
               <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">
-                { e.กรณีเรียนนอกสถานที่ == ""
-                  ? "ไม่พบข้อมูล"
-                  : e.กรณีเรียนนอกสถานที่}
+                {e.กรณีเรียนนอกสถานที่ == "" ? "ไม่พบข้อมูล" : e.กรณีเรียนนอกสถานที่}
               </p>
               <p className="lead font-bold">Email:</p>
               <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">
