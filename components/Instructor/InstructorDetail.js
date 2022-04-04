@@ -156,7 +156,7 @@ const InstructorDetail = ({e}) => {
                             <Dialog.Title
                               as="h3"
                               className="text-lg font-medium leading-6 text-gray-900">
-                              <h3 className="text-f3xl font-title">{e.Category}</h3>
+                              <h3 className="text-fxl font-title">{e.Category}</h3>
                             </Dialog.Title>
                             <Dialog.Title as="h3" className="text-right leading-6 text-gray-900">
                               <button className="font-black" onClick={closeModal}>
