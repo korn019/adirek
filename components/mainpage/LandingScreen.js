@@ -6,11 +6,13 @@ const LandingScreen = () => {
       <video className="video object-cover" autoPlay playsInline muted loop>
         <source src="../../assets/video/video1.mp4" type="video/mp4" />
       </video>
-      <div className="video-quote text-center">
+      <div className="video-quote text-center px-3 ">
         <p
+          className="
+        text-f3xl md:text-f4xl"
           style={{
             color: "white",
-            fontSize: "clamp(3rem, 6vw, 5rem)",
+            // fontSize: "clamp(3rem, 6vw, 5rem)",
             lineHeight: 0.9,
             fontWeight: 900,
             letterSpacing: "-0.025em",

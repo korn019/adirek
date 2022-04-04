@@ -15,11 +15,13 @@ const Footer = () => {
                   <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-3">
                     {course.map((e, id) => {
                       return (
-                          <div className="p-2 md:p-0" key={e.id}>
+                          <ul className="p-2 md:p-0" key={e.id}>
+                           <li>
                             <Link href={`/Course/${e.value}`} as={`/Course/${e.value}`}>
                               <a>{e.value}</a>
                             </Link>
-                          </div>
+                           </li>
+                          </ul>
                       )
                     })}
                   </div>
@@ -123,12 +125,12 @@ const Footer = () => {
                 <div className="footer-widget widget widget_link">
                   <h4 className="widget-title">ช่วยเหลือ</h4>
                   <ul className="pe-4">
-                    <li>
+                    {/* <li>
                       <a href="home.html">เอกสาร</a>
                     </li>
                     <li>
                       <a href="faq.html">คำถามที่พบบ่อย</a>
-                    </li>
+                    </li> */}
                     {/* <li>
                       <a href="dashboard.html">รายงาน</a>
                     </li> */}
