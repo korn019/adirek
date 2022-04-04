@@ -94,8 +94,10 @@ const InstructorDetail = ({e}) => {
                     <p className="line-clamp-3 md:col-span-2  font-body !text-2xl subtext">
                       1.{e.รายละเอียดคอร์สเรียน}
                     </p>
+                  </div>
+                  <div>
                     <button
-                      className="text-black font-bold uppercase text-fmd px-2 py-1  text-left   ease-linear transition-all duration-150"
+                      className="text-black font-bold uppercase text-fbase px-2 py-1  text-left   ease-linear transition-all duration-150"
                       type="button"
                       onClick={() => setShowModal(true)}>
                       อ่านเพิ่มเติม
