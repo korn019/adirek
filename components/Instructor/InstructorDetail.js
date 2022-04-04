@@ -103,7 +103,16 @@ const InstructorDetail = ({e}) => {
                     </h5>
                   </div>
                 </div>
-                
+                <div className="align-items-center justify-content-center ">
+                  <div className=" text-black text-[32px]">
+                      <button
+                        className="text-black font-bold  text-fbase  text-left  "
+                        type="button"
+                        onClick={() => setShowModal(true)}>
+                        อ่านเพิ่มเติม
+                      </button>
+                  </div>
+                </div>
 
                 {showModal ? (
                   <>
