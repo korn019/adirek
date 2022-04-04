@@ -88,28 +88,28 @@ const InstructorDetail = ({e}) => {
                   </a>
                 </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:space-x-3 mt-2">
-                <div className="align-items-center justify-content-center  col-span-2   p-2">
+              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 md:space-x-3 mt-4">
+                <div className="align-items-center justify-content-center  md:col-span-2   p-2">
                   <div className="ml-1 title text-black text-[32px]">
-                    <p className="line-clamp-3 md:col-span-2  font-body !text-2xl subtext">
+                    <p className="line-clamp-3  font-body !text-2xl subtext">
                       1.{e.รายละเอียดคอร์สเรียน}
                     </p>
                   </div>
-                  <div>
-                    <button
-                      className="text-black font-bold uppercase text-fbase px-2 py-1  text-left   ease-linear transition-all duration-150"
-                      type="button"
-                      onClick={() => setShowModal(true)}>
-                      อ่านเพิ่มเติม
-                    </button>
-                  </div>
                 </div>
-                <div className="align-items-center justify-content-center  col-span-1   p-2">
+                <div className="align-items-center justify-content-center  md:col-span-1   p-2">
                   <div className="ml-1 title text-black text-[32px]">
                     <h5 className=" text-right font-body text-flg md:col-span-1">
                       {parseFloat(e.ราคาคอร์สเรียน.replace(/,/g, ""))} บาท
                     </h5>
                   </div>
+                </div>
+                <div className=" md:col-span-1 ">
+                  <button
+                    className="text-black font-bold uppercase text-fbase px-2 py-1  text-left   ease-linear transition-all duration-150"
+                    type="button"
+                    onClick={() => setShowModal(true)}>
+                    อ่านเพิ่มเติม
+                  </button>
                 </div>
 
                 {showModal ? (
