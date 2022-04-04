@@ -227,42 +227,42 @@
 //         </nav>
 //       </header>
 
-      // <div className="category-responsive d-xl-none d-block">
-      //   <div className="container">
-      //     <div className="category-slider owl-carousel">
-      //       {course.map((item, index) => {
-      //         return (
-      //           <div className="item" key={item.id}>
-      //             <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
-      //               <a>{item.value}</a>
-      //             </Link>
-      //           </div>
-      //         )
-      //       })}
-      //     </div>
-      //   </div>
-      // </div>
+// <div className="category-responsive d-xl-none d-block">
+//   <div className="container">
+//     <div className="category-slider owl-carousel">
+//       {course.map((item, index) => {
+//         return (
+//           <div className="item" key={item.id}>
+//             <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
+//               <a>{item.value}</a>
+//             </Link>
+//           </div>
+//         )
+//       })}
+//     </div>
+//   </div>
+// </div>
 
-      // {/* <!-- style="margin-top: 72px" --> */}
-      // <div className="category-navbar navbar-area d-xl-block d-none">
-      //   <nav className="navbar navbar-expand-lg">
-      //     <div className="container nav-container">
-      //       <div className="collapse navbar-collapse">
-      //         <ul className="navbar-nav menu-open">
-      //           {course.map((item, index) => {
-      //             return (
-      //               <li key={item.id}>
-      //                 <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
-      //                   <a>{item.value}</a>
-      //                 </Link>
-      //               </li>
-      //             )
-      //           })}
-      //         </ul>
-      //       </div>
-      //     </div>
-      //   </nav>
-      // </div>
+// {/* <!-- style="margin-top: 72px" --> */}
+// <div className="category-navbar navbar-area d-xl-block d-none">
+//   <nav className="navbar navbar-expand-lg">
+//     <div className="container nav-container">
+//       <div className="collapse navbar-collapse">
+//         <ul className="navbar-nav menu-open">
+//           {course.map((item, index) => {
+//             return (
+//               <li key={item.id}>
+//                 <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
+//                   <a>{item.value}</a>
+//                 </Link>
+//               </li>
+//             )
+//           })}
+//         </ul>
+//       </div>
+//     </div>
+//   </nav>
+// </div>
 //     </>
 //   )
 // }
@@ -306,15 +306,20 @@ function Header() {
       setIsOpen(false)
     }
   }
-    useEffect(() => {
-    window.addEventListener("scroll", changeBg);
-    }, [])
+  useEffect(() => {
+    window.addEventListener("scroll", changeBg)
+  }, [])
   const [isOpenModal, setIsOpenModal] = useState(false)
 
   return (
     <nav className=" shadow-sm sticky  w-full z-[999] top-0 left-0      bg-white duration-500  ">
       <div className="relative w-full container-fluid md:container ">
-        <div className="relative  flex items-center h-24 w-full">
+        <div
+          className={
+            navHead
+              ? "relative  flex items-center h-24 duration-700 w-full"
+              : "relative  flex items-center h-28 duration-700 w-full"
+          }>
           <div className="flex item items-center justify-between w-full">
             <div className="flex flex-row justify-center items-center flex-shrink-0 space-x-2">
               <div className="logo">
@@ -453,7 +458,9 @@ function Header() {
 
         <div
           className={
-            navHead ? "category-responsive  mt-0  hidden" : "category-responsive mt-0 block"
+            navHead
+              ? "border-t border-[#e5f1fb]  mt-0  hidden duration-1000"
+              : "border-t border-[#e5f1fb] mt-0 block duration-1000"
           }>
           <div className="text-center p-1">
             <Swiper
