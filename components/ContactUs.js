@@ -1,5 +1,7 @@
 import {useState, Fragment} from "react"
 import {Dialog, Transition} from "@headlessui/react"
+import {css} from "@emotion/react"
+import SyncLoader from "react-spinners/SyncLoader"
 import axios from "axios"
 const ContactUs = () => {
   const [contact, setContact] = useState({
@@ -10,6 +12,8 @@ const ContactUs = () => {
     message: "",
   })
   const [isOpen, setIsOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  let [loading, setLoading] = useState(false)
   const [warning, setWarning] = useState(false)
   const [warnText, setWarnText] = useState()
   function closeModal() {
@@ -24,30 +28,31 @@ const ContactUs = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    // if (
-    //   instructor.firstName.length &&
-    //   instructor.lastName.length &&
-    //   instructor.email.length &&
-    //   instructor.tel.length == 0
-    // ) {
-    //   setWarning(true)
-    // }
+    setLoading(true)
+
     axios
       .post("https://3f34-184-22-117-39.ngrok.io/api/contactus", contact)
       .then(function (response) {
-        console.log(response.data.message)
-        console.log("1")
         setWarnText(false)
         setIsOpen(true)
+        if (response.status === 200) {
+          setLoading(false)
+        }
       })
       .catch(function (error) {
-        console.log("2")
-        console.log(error.response.data.error)
         let err = error.response.data.error
         setWarning(true)
         setWarnText(`***${err}***`)
+        if (error.response.status === 400) {
+          setLoading(false)
+        }
       })
   }
+  const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `
   return (
     <>
       <div className="flex justify-center items-center bg-white mt-12">
@@ -103,7 +108,7 @@ const ContactUs = () => {
                   name="message"></textarea>
               </div>
               <div className="my-2 w-1/2 lg:w-1/4">
-                {warning ? (
+                {warning && loading !== true ? (
                   <>
                     <div className="flex -mx-3 items-center justify-center text-center">
                       <div className="w-full ">
@@ -114,14 +119,20 @@ const ContactUs = () => {
                     </div>
                   </>
                 ) : null}
-                <button
-                  // onClick={handleSubmit}
-                  className="cursor-pointer btn uppercase text-f2xl p-0 font-title bg-blue-900 text-gray-100 rounded-lg w-full 
+
+                <div className="sweet-loading text-center">
+                  <SyncLoader color="blue" loading={loading} css={override} size={12} />
+                </div>
+
+                {loading ? null : (
+                  <button
+                    className="cursor-pointer btn uppercase text-f2xl p-0 font-title bg-blue-900 text-gray-100 rounded-lg w-full 
                       focus:outline-none focus:shadow-outline"
-                  style={{cursor: "pointer", zIndex: 999}}
-                  type="submit">
-                  ยืนยัน
-                </button>
+                    style={{cursor: "pointer", zIndex: 999}}
+                    type="submit">
+                    ยืนยัน
+                  </button>
+                )}
                 <Transition show={isOpen} as={Fragment}>
                   <Dialog
                     as="div"

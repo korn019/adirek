@@ -5,6 +5,9 @@ import BannerAds from "../BannerAds"
 import {useState, Fragment} from "react"
 import axios from "axios"
 import {Dialog, Transition} from "@headlessui/react"
+import {css} from "@emotion/react"
+import SyncLoader from "react-spinners/SyncLoader"
+
 const InstructorPromote = () => {
   const [instructor, setInstructor] = useState({
     firstName: "",
@@ -13,6 +16,8 @@ const InstructorPromote = () => {
     tel: "",
   })
   const [isOpen, setIsOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  let [loading, setLoading] = useState(false)
   const [warning, setWarning] = useState(false)
   const [warnText, setWarnText] = useState()
   const handleChange = (event) => {
@@ -27,29 +32,30 @@ const InstructorPromote = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    // if (
-    //   instructor.firstName.length &&
-    //   instructor.lastName.length &&
-    //   instructor.email.length &&
-    //   instructor.tel.length == 0
-    // ) {
-    //   setWarning(true)
-    // }
+    setLoading(true)
     axios
       .post("https://3f34-184-22-117-39.ngrok.io/api/instructors/contact", instructor)
       .then(function (response) {
-        console.log(response)
-        // console.log("1")
         setWarnText(false)
         setIsOpen(true)
+        if (response.status === 200) {
+          setLoading(false)
+        }
       })
       .catch(function (error) {
-        console.log(error)
         let err = error.response.data.error
         setWarning(true)
         setWarnText(`***${err}***`)
+        if (error.response.status === 400) {
+          setLoading(false)
+        }
       })
   }
+  const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `
   return (
     <>
       <section className="banner-area instructor-banner p-0 bg-[#11142d]">
@@ -373,7 +379,7 @@ const InstructorPromote = () => {
                       </div>
                     </div>
                   </div>
-                  {warning ? (
+                  {warning && loading !== true ? (
                     <>
                       <div className="flex -mx-3 items-center justify-center text-center">
                         <div className="w-full ">
@@ -386,11 +392,18 @@ const InstructorPromote = () => {
                   ) : null}
                   <div className="flex -mx-3">
                     <div className="w-full px-3 mb-5 relative">
+                      <div className="sweet-loading text-center">
+                        <SyncLoader color="blue" loading={loading} css={override} size={12} />
+                      </div>
+
+                      {loading ? null : (
                         <button
                           type="submit"
                           className=" block w-full max-w-xs mx-auto text-center bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-0 font-title text-f3xl">
                           ยืนยัน
                         </button>
+                      )}
+
                       <Transition show={isOpen} as={Fragment}>
                         <Dialog
                           as="div"
