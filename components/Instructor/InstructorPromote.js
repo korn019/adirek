@@ -36,15 +36,15 @@ const InstructorPromote = () => {
     //   setWarning(true)
     // }
     axios
-      .post("https://3f34-184-22-117-39.ngrok.io/instructors/contact", instructor)
+      .post("https://3f34-184-22-117-39.ngrok.io/api/instructors/contact", instructor)
       .then(function (response) {
-        // console.log(response)
+        console.log(response)
         // console.log("1")
         setWarnText(false)
         setIsOpen(true)
       })
       .catch(function (error) {
-        // console.log(error)
+        console.log(error)
         let err = error.response.data.error
         setWarning(true)
         setWarnText(`***${err}***`)
