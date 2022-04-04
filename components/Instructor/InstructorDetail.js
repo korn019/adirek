@@ -104,13 +104,12 @@ const InstructorDetail = ({e}) => {
                   </div>
                 </div>
                 <div className="align-items-center justify-content-center ">
-                  <div className=" text-black text-[32px]">
-                      <button
-                        className="text-black font-bold  text-fbase  text-left  "
-                        type="button"
+                  <div className="title text-black ">
+                      <p
+                        className="text-black font-bold uppercase text-fbase px-2 py-1 hover:text-blue-500 cursor-pointer text-left   ease-linear transition-all duration-150"
                         onClick={() => setShowModal(true)}>
                         อ่านเพิ่มเติม
-                      </button>
+                      </p>
                   </div>
                 </div>
 
