@@ -385,10 +385,12 @@ const InstructorPromote = () => {
                     </>
                   ) : null}
                   <div className="flex -mx-3">
-                    <div className="w-full px-3 mb-5">
-                      <div className="relative block w-full max-w-xs mx-auto text-center bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-0 font-title text-f3xl">
-                        <button type="submit" className=""> ยืนยัน</button>
-                      </div>
+                    <div className="w-full px-3 mb-5 relative">
+                        <button
+                          type="submit"
+                          className=" block w-full max-w-xs mx-auto text-center bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-0 font-title text-f3xl">
+                          ยืนยัน
+                        </button>
                       <Transition show={isOpen} as={Fragment}>
                         <Dialog
                           as="div"
