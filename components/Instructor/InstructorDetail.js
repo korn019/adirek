@@ -91,11 +91,11 @@ const InstructorDetail = ({e}) => {
             </div>
 
             <div className="mt-5 space-y-2">
-              <div className="grid grid-cols-3 ">
+              {/* <div className="grid grid-cols-3 ">
                 <p className="line-clamp-3 col-span-2 font-body !text-2xl subtext">
                   1.{e.รายละเอียดคอร์สเรียน}
                 </p>
-                <h5 className="line-clamp-3 col-span-1 text-right font-body text-flg">
+                <h5 className=" col-span-1 text-right font-body text-flg">
                   {parseFloat(e.ราคาคอร์สเรียน.replace(/,/g, ""))} บาท
                 </h5>
               <button
@@ -104,8 +104,53 @@ const InstructorDetail = ({e}) => {
                 onClick={() => setShowModal(true)}>
                 อ่านเพิ่มเติม
               </button>
-              </div>
-             
+              </div> */}
+              {showModal ? (
+                <>
+                  <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                    <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                      {/*content*/}
+                      <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                        {/*header*/}
+                        <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+                          <h3 className="text-3xl font-semibold">{e.Category}</h3>
+                          <button
+                            className="p-1 ml-auto bg-transparent border-0 text-black float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                            onClick={() => setShowModal(false)}>
+                            <span className="bg-transparent text-red-500  h-6 w-6 text-3xl block outline-none focus:outline-none">
+                              ×
+                            </span>
+                          </button>
+                        </div>
+                        {/*body*/}
+                        <div className="relative p-6 flex-auto">
+                          <p className="my-4 text-slate-500 text-lg leading-relaxed">
+                            {e.รายละเอียดคอร์สเรียน}
+                          </p>
+                        </div>
+                        {/*footer*/}
+                        <div className="bg-red-500 flex items-center justify-between p-6 border-t border-solid border-slate-200 rounded-b">
+                          <div
+                            className="text-black background-transparent  font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                            type="button">
+                            <h1 className="font-title text-f3xl text-white">
+                              {parseFloat(e.ราคาคอร์สเรียน.replace(/,/g, ""))} บาท
+                            </h1>
+                          </div>
+                          <a href={`tel:${e.เบอร์โทร}`}>
+                            <div
+                              className="bg-emerald-500 text-white active:bg-emerald-600 font-title text-3xl uppercase px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                              type="button">
+                              โทร
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+                </>
+              ) : null}
             </div>
           </div>
 
