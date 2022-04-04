@@ -77,11 +77,12 @@ const InstructorDetail = ({e}) => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 mt-5 ">
           <div className="lg:px-5">
+          
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 md:space-x-3">
-              <div className=" md:col-span-1">
+              <div className="col-span-1">
                 <h1 className="font-title text-f3xl text-[#cf9b3b]">คอร์สเรียน</h1>
               </div>
-              <div className="bg-slate-700 rounded-lg  px-2  md:col-span-1">
+              <div className="bg-slate-700 rounded-lg  px-2  col-span-1">
                 <a href={`tel:${e.เบอร์โทร}`} className="flex items-center justify-between ">
                   <h1 className="font-title text-f3xl text-white">โทรหาผู้สอน</h1>
                   <i className="fa fa-phone text-[#cf9b3b] text-3xl"></i>
