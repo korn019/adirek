@@ -331,7 +331,7 @@ function Header() {
               </div>
               <div className=" navbar-collapse hidden md:block">
                 <div className="">
-                  <div className="flex justify-center items-center space-x-5">
+                  <div className="flex justify-center items-center space-x-5 relative">
                     <input
                       type="text"
                       placeholder="ค้นหาหลักสูตร..."
@@ -414,7 +414,7 @@ function Header() {
             </div>
           </div>
           {/* Moblie */}
-          <div className=" flex lg:hidden">
+          <div className=" flex lg:hidden relative">
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
@@ -578,7 +578,7 @@ function Header() {
                 ติดต่อเรา
               </a>
               <div className="">
-                <div className="flex justify-start items-center space-x-5">
+                <div className="flex justify-start items-center space-x-5 relative">
                   <input
                     type="text"
                     placeholder="ค้นหาหลักสูตร..."
