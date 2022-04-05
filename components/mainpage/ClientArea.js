@@ -1,4 +1,3 @@
-import Image from "next/image"
 import {useEffect, useState} from "react"
 import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
 import {Swiper, SwiperSlide} from "swiper/react"
