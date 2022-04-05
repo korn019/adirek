@@ -359,7 +359,7 @@ function Header() {
             </div>
 
             <div className="hidden lg:block">
-              <div className=" flex items-baseline ">
+              <div className=" flex flex-wrap w-[22em] items-baseline ">
                 <Link
                   href="/Category"
                   activeClass="Home"
@@ -410,6 +410,7 @@ function Header() {
                     </h4>
                   </a>
                 </Link>
+            
               </div>
             </div>
           </div>
