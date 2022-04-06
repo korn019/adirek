@@ -32,9 +32,9 @@ const Instructor = () => {
   // const Filter = data.filter((x) => {
   //   return x.filterCategory === "Web Design"
   // })
-  const getData = async () => {
+  const getData =  () => {
     axios
-      .get("https://8e7f-184-22-117-39.ngrok.io/api/instructor")
+      .get("http://9794-184-22-117-39.ngrok.io/api/instructor")
       .then((res) => {
         setData(res.data)
         // setIsLoading(true)
@@ -49,14 +49,16 @@ const Instructor = () => {
   return (
     <SearchCourseProvider>
       <Layout>
-        <div className="instector-banner-area" style={{height: 400}}></div>
         {data.map((e, id) => {
           return Instructor == `id=${e.record}` ? (
+            <>
+            <div className="instector-banner-area" style={{height: 400}}></div>
             <div className="pd-bottom-115" key={e.record}>
               <div className="container">
                 <InstructorDetail e={e} />
               </div>
             </div>
+            </>
           ) : null
         })}
       {/* <div className="">

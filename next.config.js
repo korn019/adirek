@@ -1,6 +1,6 @@
 const webpack = require("webpack");
 module.exports = {
-  basePath: "",
+  // basePath: "",
   webpack: (config, {buildId, dev, isServer, defaultLoaders, webpack}) => {
     config.plugins.push(
       new webpack.ProvidePlugin({
@@ -11,7 +11,6 @@ module.exports = {
     )
     return config
   },
-  assetPrefix: ".",
   // async headers() {
   //   return [
   //     {

@@ -1,18 +1,28 @@
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
 import {Swiper, SwiperSlide} from "swiper/react"
 import SingleSlideCourse from "./SingleSlideCourse"
 import {CourseCheck} from "../course/Courselabel"
-
+import axios from "axios"
 const SlideCourse = () => {
-  const SlideCourseData = [
-    {id: 1, course: "Design", img: "assets/img/intro/001.png", available: 236},
-    {id: 2, course: "วิชาการ", img: "assets/img/intro/002.png", available: 236},
-    {id: 3, course: "แต่งหน้า", img: "assets/img/intro/003.png", available: 236},
-    {id: 4, course: "ทำอาหารและขนม", img: "assets/img/intro/004.png", available: 236},
-    {id: 5, course: "Design", img: "assets/img/intro/005.png", available: 236},
-  ]
   const [data, setData] = useState(CourseCheck)
+  const [available, setAvailable] = useState([])
+
+  const getData = () => {
+    axios
+      .get("https://9794-184-22-117-39.ngrok.io/api/instructor")
+      .then((res) => {
+        setAvailable(res.data)
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }
+  useEffect(() => {
+    getData()
+  }, [])
+
+  let availableCourse = available.map((item) => item.filterCategory)
   return (
     <>
       <div className="container">
@@ -65,7 +75,10 @@ const SlideCourse = () => {
                   <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1 px-5">
                     {data.map((SlideCourseData) => (
                       <SwiperSlide key={SlideCourseData.id}>
-                        <SingleSlideCourse item={SlideCourseData} />
+                        <SingleSlideCourse
+                          item={SlideCourseData}
+                          availableCourse={availableCourse}
+                        />
                       </SwiperSlide>
                     ))}
                   </div>

@@ -23,7 +23,7 @@ router.post("/", (req, res) => {
       if (!err) {
         res.send({error: false, message: "เพิ่มข้อมูลเรียบร้อย"})
       } else {
-        console.log(results)
+        // console.log(results)
       }
     })
   } else if (

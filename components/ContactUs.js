@@ -31,7 +31,7 @@ const ContactUs = () => {
     setLoading(true)
 
     axios
-      .post("https://8e7f-184-22-117-39.ngrok.io/api/contactus", contact)
+      .post("https://9794-184-22-117-39.ngrok.io/api/contactus", contact)
       .then(function (response) {
         setWarnText(false)
         setIsOpen(true)

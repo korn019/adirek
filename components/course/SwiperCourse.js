@@ -5,7 +5,7 @@ import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
 import SingleCourse from "./SingleCourse"
 
 const SwiperCourse = ({Filter}) => {
-  
+  let filterImg = Filter.filter((x) => { return x.filterCategory })
   return (
     <>
       <Swiper
@@ -58,7 +58,7 @@ const SwiperCourse = ({Filter}) => {
           {Filter.map((d) => (
             <SwiperSlide key={d.record}>
               {/* {  console.log(d.record)} */}
-              <SingleCourse course={d} index={d.record} />
+              <SingleCourse course={d} index={d.record} filterImg={filterImg} />
             </SwiperSlide>
           ))}
         </div>
