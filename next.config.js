@@ -11,7 +11,7 @@ module.exports = {
     )
     return config
   },
-  assetPrefix: ".",
+  assetPrefix: "",
   // async headers() {
   //   return [
   //     {
