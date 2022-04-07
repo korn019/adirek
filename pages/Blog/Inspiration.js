@@ -4,17 +4,11 @@ import {useState, useEffect} from "react"
 import {SearchCourseProvider} from "../Category"
 import BannerAds from "../../components/BannerAds"
 import {
-  EmailIcon,
   FacebookIcon,
-  FacebookMessengerIcon,
   LineIcon,
   LineShareButton,
-  LinkedinIcon,
-  LivejournalIcon,
   TwitterIcon,
-  WhatsappIcon,
   FacebookShareButton,
-  FacebookShareCount,
   TwitterShareButton,
 } from "react-share"
 const BlogContent = () => {
@@ -70,7 +64,7 @@ const BlogContent = () => {
                   </div>
                 </div>
                 <div className="article-image">
-                  <img src="/assets/img/blog/inspiration.jpg" alt="image" className="w-100" />
+                  <img src="/assets/img/blog/inspiration.jpeg" alt="image" className="w-100" />
                 </div>
                 <div className="article-content ">
                   <h2 className="font-title text-f3xl">การสร้างแรงบันดาลใจในที่ทำงาน</h2>

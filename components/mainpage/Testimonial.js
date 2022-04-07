@@ -37,10 +37,10 @@ const Testimonial = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between">
           <div className="text-center">
             <h3 className="text-f3xl sm:text-f4xl leading-normal font-title tracking-tight ">
-              <span className="title-word title-word-1"> ผู้เรียน </span>
+              <span className="title-word title-word-3"> ผู้เรียน </span>
               <span className="title-word title-word-2">
                 <i
-                  className="fa fa-heart  title-word title-word-2
+                  className="fa fa-heart  title-word title-word-1
                 "></i>
               </span>
               <span className="title-word title-word-3"> อดิเรก</span>

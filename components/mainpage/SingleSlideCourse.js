@@ -4,7 +4,7 @@ const SingleSlideCourse = ({item, availableCourse}) => {
   let filter = availableCourse.filter((num) => item.value.includes(num))
   return (
     <>
-      <div className="item">
+      <div className="item z-50">
         <div className="single-intro-wrap">
           <div className="thumb">
             <img src={item.img} alt="img" />

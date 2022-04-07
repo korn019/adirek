@@ -119,7 +119,7 @@ const SingleCourse = ({course, index, filterImg}) => {
             <div className="user-details truncate">
               <img
                 className="w-[1.5rem] h-[1.5rem]"
-                src={course.รูปถ่าย == "" ? "/assets/img/logo-mock.jpg" : `/${course.รูปถ่าย}`}
+                src={course.รูปถ่าย == "" ? "/assets/img/user.png" : `/${course.รูปถ่าย}`}
                 alt="img"
               />{" "}
               <p className="truncate">

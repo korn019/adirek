@@ -1,10 +1,10 @@
 const Partner = () => {
   return (
     <>
-      <section className="bg-red-400 ">
-        <div className="h-32"></div>
-        <div className="relative bg-gray-50 text-black-500 pt-8 pb-6">
-          <div
+      <section className="  bg-gray-50">
+        {/* <div className="h-32"></div> */}
+        <div className="relative  text-black-500 pt-8 pb-6">
+          {/* <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
             style={{height: 80}}>
             <svg
@@ -19,26 +19,26 @@ const Partner = () => {
                 className="text-gray-50 fill-current"
                 points="2560 0 2560 100 0 100"></polygon>
             </svg>
-          </div>
+          </div> */}
 
           <section className="pt-6 pb-4 md:pb-12 ">
             <div className="mx-auto px-4">
               <div className="flex flex-wrap justify-center text-center mb-12">
                 <div className="w-full lg:w-6/12 px-4">
-                  <h4 className="text-f3xl md:text-7xl text-black-500 font-title ">
+                  <h4 className="text-f3xl md:text-7xl text-black-500 text-black font-title ">
                     ข้อดีของการเป็น Partner กับเรา
                   </h4>
                 </div>
               </div>
               <div className="flex flex-wrap justify-center text-center ">
                 <div className="w-full md:w-1/2 lg:w-1/3 lg:mb-0 mb-12 px-4">
-                  <div className="px-6">
+                  <div className="px-6 ">
                     {" "}
                     <div className="single-intro-wrap-2  items-center max-w-full mx-auto">
                       <div className="justify-center items-center flex">
                         <img src="assets/img/intro/01.png" alt="img" />
                       </div>
-                      <div className="wrap-details">
+                      <div className="wrap-details ">
                         <h4 className="fs-4 text-black">
                           <a href="#">ข้อดีของการเป็น Partner กับเรา</a>
                         </h4>
@@ -88,7 +88,7 @@ const Partner = () => {
               </div>
             </div>
           </section>
-          <hr className="my-6 border-gray-400" />
+          <hr className="my-6 border-white" />
           <div className="flex flex-wrap items-center md:justify-between justify-center">
             <div className="w-full md:w-4/12 px-4 mx-auto text-center">
               <div className="text-sm text-gray-600 font-semibold py-1">

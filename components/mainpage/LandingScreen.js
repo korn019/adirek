@@ -3,9 +3,11 @@ import Link from "next/link"
 const LandingScreen = () => {
   return (
     <div className="row-hero">
-      <video className="video object-cover" autoPlay playsInline muted loop>
-        <source src="../../assets/video/video1.mp4" type="video/mp4" />
+       <div class="overlay"></div>
+      <video className="video object-cover " autoPlay playsInline muted loop>
+        <source src="../../assets/video/landing.mp4"  type="video/mp4" />
       </video>
+     
       <div className="video-quote text-center px-3 ">
         <p
           className="

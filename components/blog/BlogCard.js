@@ -72,7 +72,7 @@ const BlogCard = (
               <Link href="">
                 <a onClick={CountView}>
                   <img
-                    className=" w-full object-cover object-center "
+                    className=" w-full  h-[217px]  object-cover object-center "
                     src={article.img}
                     alt="blog"
                   />
