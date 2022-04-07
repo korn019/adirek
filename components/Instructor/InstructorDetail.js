@@ -11,6 +11,11 @@ const InstructorDetail = ({e}) => {
   function openModal() {
     setIsOpen(true)
   }
+  let amountCourse = ''
+  for (let i = 0; i < e.รายละเอียดคอร์สเรียน.length; i++) {
+    amountCourse = `${[i]} `
+  }
+  console.log(amountCourse)
     
   return (
     <>
@@ -109,7 +114,7 @@ const InstructorDetail = ({e}) => {
                 <div className="align-items-center justify-content-center  md:col-span-1   p-2">
                   <div className="ml-1 title text-black text-[32px]">
                     <h5 className=" text-right font-body text-flg md:col-span-1">
-                      {parseFloat(e.ราคาคอร์สเรียน.replace(/,/g, ""))} บาท
+                      {parseFloat(e.ราคาคอร์สเรียน.replace(/,/g, ","))} บาท
                     </h5>
                   </div>
                 </div>
@@ -228,14 +233,14 @@ const InstructorDetail = ({e}) => {
                 </span>
               </div>
               <div>
-                <h1 className="font-title text-fxl">นักเรียนทั้งหมด</h1>
+                <h1 className="font-title text-fxl">คอร์สทั้งหมด</h1>
               </div>
 
               <div className="text-right">
-                <h1 className="font-title text-fxl">2000 คน</h1>
+                <h1 className="font-title text-fxl">{amountCourse}</h1>
               </div>
               <div>
-                <h1 className="font-title text-fxl">ขายได้</h1>
+                <h1 className="font-title text-fxl">ผู้เข้าชม</h1>
               </div>
               <div className="text-right">
                 <h1 className="font-title text-fxl">200 ครั้ง</h1>
@@ -259,7 +264,7 @@ const InstructorDetail = ({e}) => {
             <h1 className="title text-[#cf9b3b]">ติดต่อผู้สอน</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
               <p className="lead font-bold">phone:</p>
-              <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">{e.เบอร์โทร}</p>
+              <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">{e.เบอร์โทร == "" ? "ไม่พบข้อมูล" : e.เบอร์โทร}</p>
               <p className="lead font-bold">Address:</p>
               <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">
                 {e.กรณีเรียนนอกสถานที่ == "" ? "ไม่พบข้อมูล" : e.กรณีเรียนนอกสถานที่}

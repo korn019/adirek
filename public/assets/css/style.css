@@ -6707,15 +6707,6 @@ button:hover:after {
   }
 }
 
-.test-class {
-  background-image: url("/assets/Particles.svg");
-  background-attachment: fixed;
-  background-size: cover;
-  z-index: -9999;
-  /* animation: moving-bg 2s ease-in alternate; */
-  transform:translatez(0);
-  -webkit-transform:translatez(0);
-}
 
 @media screen and (max-width: 500px) {
   .test-class {
