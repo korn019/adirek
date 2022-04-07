@@ -7,22 +7,22 @@ const AdirekIs = () => {
     <>
       <section className="text-gray-700 body-font -mt-36 ">
         <div className="container mx-auto flex px-6 py-24 md:flex-row flex-col items-center">
-          <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center z-50">
+          <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-left z-50">
             <h1 className="title-font text-f5xl sm:text-f4xl  mb-4 font-title  text-gray-900">
               <span className="title-word title-word-1">อ</span>
               <span className="title-word title-word-2">ดิ</span>
               <span className="title-word title-word-3">เ</span>
               <span className="title-word title-word-4">ร</span>
-              <span className="title-word title-word-3">ก</span>
+              <span className="title-word title-word-5">ก</span>
             </h1>
-            <p className="mb-8 leading-relaxed  text-fbase">
+            <p className="mb-8 leading-relaxed  text-fbase indent-4">
               เกิดขึ้นจากความเชื่อที่ว่า "ชีวิตคือการค้นหาและเรียนรู้สิ่งใหม่ๆ
               ที่ไม่มีวันสิ้นสุด"เราจึงก่อตั้ง <strong className="text-xl"> อดิเรก </strong>
               ขึ้นในฐานะแพลตฟอร์มการเรียนรู้รูปแบบใหม่ที่ทำหน้าที่ป็นพื้นที่อิสระเพื่อเชื่อมระหว่างผู้เรียนและผู้สอนเข้าไว้ด้วยกันที่
               <strong className="text-xl"> อดิเรก </strong>
             </p>
             <div className="flex justify-center">
-              <p className="mb-8 leading-relaxed  text-fbase">
+              <p className="mb-8 leading-relaxed  text-fbase  indent-4">
                 เรารวบรวมกลุ่มผู้สอนไว้มากที่สุดในประเทศไทย
                 เลือกได้ตามหมวดหมู่และความสนใจของคุณเน้นสอนตามความต้องการของผู้เรียน
                 ด้วยระบบที่เปิดโอกาสให้ผู้เรียนสามารถเลือกผู้สอนได้ด้วยตนเองมีระบบที่ประกันการสอนเพื่อสร้างความไว้วางใจให้กับผู้เรียน
@@ -150,7 +150,7 @@ const AdirekIs = () => {
                       </span>
                     </div>
                     <div>
-                      <p className="leading-relaxed">ทุกการเรียนรู้ เริ่มต้นที่ อดิเรก</p>
+                      <p className="leading-relaxed text-lg">ทุกการเรียนรู้ เริ่มต้นที่ อดิเรก</p>
                     </div>
                   </div>
                 </li>
@@ -162,7 +162,7 @@ const AdirekIs = () => {
                       </span>
                     </div>
                     <div>
-                      <p className="leading-relaxed">
+                      <p className="leading-relaxed text-lg">
                         อดิเรก จุดเริ่มต้นของสังคมแห่งการเรียนรู้ไม่มีที่สิ้นสุด
                       </p>
                     </div>
@@ -176,7 +176,7 @@ const AdirekIs = () => {
                       </span>
                     </div>
                     <div>
-                      <p className="leading-relaxed">
+                      <p className="leading-relaxed text-lg">
                         อดิเรก เราเปิดประตสู่ทุกการเรียนรู้ ให้ทุกวันคือการสร้างโอกาสใหม่สำหรับคณ
                       </p>
                     </div>
@@ -190,7 +190,7 @@ const AdirekIs = () => {
                       </span>
                     </div>
                     <div>
-                      <p className="leading-relaxed">
+                      <p className="leading-relaxed text-lg">
                         อดิเรก
                         ประตูสู่การเรียนรู้ทุกเรื่องที่คุณสนใจและช่องท่างที่จะเปลี่ยนงานอดิเรกของคุณให้เป็นรายได้
                       </p>

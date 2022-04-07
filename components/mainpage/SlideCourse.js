@@ -25,7 +25,7 @@ const SlideCourse = () => {
   let availableCourse = available.map((item) => item.filterCategory)
   return (
     <>
-      <div className="container">
+      <div className="container ">
         <div className="intro-area-2">
           <div className="row justify-content-center">
             <div className="col-lg-12">

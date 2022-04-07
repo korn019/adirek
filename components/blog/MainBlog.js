@@ -24,7 +24,7 @@ const MainBlog = ({search, setSearch}) => {
       title: "Perfectionist สาเหตุหนึ่งของซึมเศร้า",
       subtitle:
         "เมื่อพูดถึงการที่ใครสักคนหนึ่งรักในความสมบูรณ์แบบ แน่นอนว่าสิ่งที่ผู้ฟังจินตนาการถึงมักเป็นผลงานที่ยอดเยี่ยมไร้ที่ติใช่ไหมคะ",
-      img: "/assets/img/blog/perfectionist.jpg",
+      img: "/assets/img/blog/perfectionist.jpeg",
       view: perfectionistView,
       comment: 3,
       date: "22 มีนาคม 2022",
@@ -47,7 +47,7 @@ const MainBlog = ({search, setSearch}) => {
       subtitle:
         "เราไม่อาจปฏิเสธได้ว่าในองค์กรหนึ่งนั้นต้องอาศัยความร่วมมือกันจากทีมงานอย่างมีประสิทธิภาพไม่ใช่เพียงตัวเราท่านั้น ที่ต้องการแรงบันดาลใจเพื่อที่จะดึงความสามารถที่มีอยู่ออกมาได้อย่างเต็มที่คนรอบข้างตัวเราเองก็ต้องการสิ่งนั้น เช่นเดียวกัน",
 
-      img: "/assets/img/blog/inspiration.jpg",
+      img: "/assets/img/blog/inspiration.jpeg",
       view: inspirationView,
       comment: 3,
       date: "22 มีนาคม 2022",

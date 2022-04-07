@@ -3,12 +3,23 @@ import Layout from "../../components/Layout"
 import {useState, useEffect} from "react"
 import {SearchCourseProvider} from "../Category"
 import BannerAds from "../../components/BannerAds"
+import {
+  FacebookIcon,
+  LineIcon,
+  LineShareButton,
+  TwitterIcon,
+  FacebookShareButton,
+  TwitterShareButton,
+} from "react-share"
 const BlogContent = () => {
+  const [url, setUrl] = useState("")
+  const shareUrl = `${url}`
   const [view, setView] = useState()
   useEffect(() => {
     if (typeof window !== "undefined") {
       const Acceptance = localStorage.getItem("@AcceptanceCountView")
       setView(Acceptance)
+      setUrl(window.location.href)
     }
   }, [])
   return (
@@ -35,10 +46,16 @@ const BlogContent = () => {
                         <i className="fas fa-eye"></i> <span id="Pefection"></span> {view} view
                       </li>
                       <li>
-                        <i className="fas fa-share-square  text-[#808080d9] text-[19px]"> </i>
-                        <i className="fab fa-facebook text-[#4267B2] text-[20px] ml-2"></i>
-                        <i className="fab fa-twitter text-[#1DA1F2] text-[20px] ml-2"></i>
-                        <i className="fab fa-line text-[#06c765] text-[20px] ml-2"></i>
+                        {/* <i className="fas fa-share-square  text-[#808080d9] text-[19px]"> </i> */}
+                        <FacebookShareButton url={shareUrl}  className="Demo__some-network__share-button">
+                          <FacebookIcon size={20} round className="ml-2" />
+                        </FacebookShareButton>
+                        <TwitterShareButton url={shareUrl}  className="">
+                          <TwitterIcon size={20} round className="ml-2" />
+                        </TwitterShareButton>
+                        <LineShareButton url={shareUrl}  className="">
+                          <LineIcon size={20} round className="ml-2" />
+                        </LineShareButton>
                       </li>
                     </ul>
                     <h2 className="text-center font-title text-f3xl">
