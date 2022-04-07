@@ -104,14 +104,14 @@ const MainCategory = () => {
   // console.log(data)
   const getData = async () => {
     axios
-      .get("https://8e7f-184-22-117-39.ngrok.io/api/instructor")
+      .get("https://9794-184-22-117-39.ngrok.io/api/instructor")
       .then((res) => {
-        setData(res.data);
-        setIsLoading(true);
+        setData(res.data)
+        setIsLoading(true)
       })
       .catch((err) => {
-        console.error(err);
-      });
+        console.error(err)
+      })
   };
   useEffect(() => {
     getData();

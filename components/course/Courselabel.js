@@ -6,80 +6,105 @@ export const CourseCheck = [
   {
     id: 1,
     value: "Design",
-    img: "assets/img/intro/001.png",
+    img: "assets/img/icon/course/1.jpg",
+    imgBanner: "assets/img/icon/course/P1.jpg",
     available: 236,
   },
 
   {
     id: 2,
     value: "วิชาการ",
-    img: "assets/img/intro/002.png",
+    img: "assets/img/icon/course/2.jpg",
+    imgBanner: "assets/img/icon/course/P2.jpg",
+
     available: 236,
   },
   {
     id: 3,
     value: "งานฝีมือ",
-    img: "assets/img/intro/003.png",
+    img: "assets/img/icon/course/3.jpg",
+    imgBanner: "assets/img/icon/course/P3.jpg",
+
     available: 236,
   },
   {
     id: 4,
     value: "ถ่ายรูปและแต่งรูป",
-    img: "assets/img/intro/004.png",
+    img: "assets/img/icon/course/4.jpg",
+    imgBanner: "assets/img/icon/course/P4.jpg",
+
     available: 236,
   },
   {
     id: 5,
     value: "แต่งหน้า",
-    img: "assets/img/intro/005.png",
+    img: "assets/img/icon/course/5.jpg",
+    imgBanner: "assets/img/icon/course/P5.jpg",
+
     available: 236,
   },
   {
     id: 6,
     value: "บุคลิกภาพ",
-    img: "assets/img/intro/001.png",
+    img: "assets/img/icon/course/6.jpg",
+    imgBanner: "assets/img/icon/course/P6.jpg",
+
     available: 236,
   },
   {
     id: 7,
     value: "ร้องเพลงและการแสดง",
-    img: "assets/img/intro/002.png",
+    img: "assets/img/icon/course/7.jpg",
+    imgBanner: "assets/img/icon/course/P7.jpg",
+
     available: 236,
   },
   {
     id: 8,
     value: "กีฬา",
-    img: "assets/img/intro/003.png",
+    img: "assets/img/icon/course/8.jpg",
+    imgBanner: "assets/img/icon/course/P8.jpg",
+
     available: 236,
   },
   {
     id: 9,
     value: "ดนตรี",
-    img: "assets/img/intro/004.png",
+    img: "assets/img/icon/course/9.jpg",
+    imgBanner: "assets/img/icon/course/P9.jpg",
+
     available: 236,
   },
   {
     id: 10,
     value: "ทำอาหารและขนม",
-    img: "assets/img/intro/005.png",
+    img: "assets/img/icon/course/10.jpg",
+    imgBanner: "assets/img/icon/course/P10.jpg",
+
     available: 236,
   },
   {
     id: 11,
     value: "ดูดวง",
-    img: "assets/img/intro/006.png",
+    img: "assets/img/icon/course/11.jpg",
+    imgBanner: "assets/img/icon/course/P11.jpg",
+
     available: 236,
   },
   {
     id: 12,
     value: "Cryptocurrency",
-    img: "assets/img/intro/007.png",
+    img: "assets/img/icon/course/12.jpg",
+    imgBanner: "assets/img/icon/course/P12.jpg",
+
     available: 236,
   },
   {
     id: 13,
     value: "NFT",
-    img: "assets/img/intro/008.png",
+    img: "assets/img/icon/course/13.jpg",
+    imgBanner: "assets/img/icon/course/P13.jpg",
+
     available: 236,
   },
   // {
@@ -122,7 +147,7 @@ export const CourseCheck = [
   //   id: '23',
   //   value: "คณิตศาสตร์",
   // },
-  // 
+  //
   // {
   //   id: '24',
   //   value: "สอนภาษา (ทุกภาษา)",

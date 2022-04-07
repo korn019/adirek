@@ -29,7 +29,7 @@ app.get("/instructor", (req, res) => {
       message = "ไม่พบข้อมูล"
       return res.send(results)
     } else {
-      // console.log(results)
+      console.log(results)
       message = "พบข้อมูล"
       return res.send(results)
     }

@@ -1,6 +1,7 @@
 
 import Link from "next/link"
-const SingleSlideCourse = ({item}) => {
+const SingleSlideCourse = ({item, availableCourse}) => {
+  let filter = availableCourse.filter((num) => item.value.includes(num))
   return (
     <>
       <div className="item">
@@ -14,7 +15,7 @@ const SingleSlideCourse = ({item}) => {
                 <a>{item.value}</a>
               </Link>
             </h6>
-            <p>มี {item.available} หลักสูตรให้เลือก</p>
+            <p>มี {filter.length} หลักสูตรให้เลือก</p>
           </div>
         </div>
       </div>

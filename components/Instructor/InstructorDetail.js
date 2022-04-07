@@ -11,6 +11,7 @@ const InstructorDetail = ({e}) => {
   function openModal() {
     setIsOpen(true)
   }
+    
   return (
     <>
       <div

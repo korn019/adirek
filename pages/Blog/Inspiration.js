@@ -20,7 +20,6 @@ import {
 const BlogContent = () => {
   const [url, setUrl] = useState("")
   const shareUrl = `${url}`
-  console.log(typeof shareUrl)
 
   const [view, setView] = useState()
   useEffect(() => {
