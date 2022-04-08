@@ -26,7 +26,7 @@ const InstructorDetail = ({e}) => {
           <div className="blog-post-content single-blog-post">
             <div className="card bg-light text-dark shadow">
               <div className="card-body">
-                <div className="">
+                <div className=""> 
                   <img
                     src={e.รูปถ่าย == "" ? "/assets/img/user.png" : `/${e.รูปถ่าย}`}
                     alt="img"
