@@ -193,6 +193,7 @@ const Footer = () => {
           <i className="fas fa-angle-double-up"></i>
         </span>
       </div>
+      
       <script src="../../assets/js/jquery.3.6.min.js"></script>
       <script src="../../assets/js/bootstrap.min.js"></script>
       <script src="../../assets/js/imageloded.min.js"></script>
@@ -216,6 +217,7 @@ const Footer = () => {
       <script
         type="text/javascript"
         src="../../assets/jquery.Thailand.js/dist/jquery.Thailand.min.js"></script>
+        
     </>
   )
 };
