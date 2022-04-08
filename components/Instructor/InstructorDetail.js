@@ -15,7 +15,7 @@ const InstructorDetail = ({e}) => {
   for (let i = 0; i < e.รายละเอียดคอร์สเรียน.length; i++) {
     amountCourse = `${[i]} `
   }
-  console.log(amountCourse)
+  console.log(amountCourse) 
     
   return (
     <> 
