@@ -18,7 +18,7 @@ const InstructorDetail = ({e}) => {
   console.log(amountCourse)
     
   return (
-    <>
+    <> 
       <div
         className="row d-flex justify-content-center justify-content-md-between "
         style={{marginTop: -160}}>
