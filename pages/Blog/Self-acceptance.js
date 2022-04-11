@@ -37,7 +37,7 @@ const BlogContent = () => {
             <div className="row ">
               <div className="blog-details-desc">
                 <div className="blog-details-area">
-                  <div className="author-area blog-post-content">
+                  <div className="author-area blog-post-content relative">
                     <ul>
                       <li className="admin">By Admin</li>
                       <li>22 มีนาคม 2022</li>

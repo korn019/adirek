@@ -38,7 +38,7 @@ const BlogContent = () => {
             <div className="row ">
               <div className="blog-details-desc">
                 <div className="blog-details-area">
-                  <div className="author-area blog-post-content">
+                  <div className="author-area blog-post-content relative">
                     <ul>
                       <li className="admin">By Admin</li>
                       <li>22 มีนาคม 2022</li>
@@ -47,13 +47,15 @@ const BlogContent = () => {
                       </li>
                       <li>
                         {/* <i className="fas fa-share-square  text-[#808080d9] text-[19px]"> </i> */}
-                        <FacebookShareButton url={shareUrl}  className="Demo__some-network__share-button">
+                        <FacebookShareButton
+                          url={shareUrl}
+                          className="Demo__some-network__share-button">
                           <FacebookIcon size={20} round className="ml-2" />
                         </FacebookShareButton>
-                        <TwitterShareButton url={shareUrl}  className="">
+                        <TwitterShareButton url={shareUrl} className="">
                           <TwitterIcon size={20} round className="ml-2" />
                         </TwitterShareButton>
-                        <LineShareButton url={shareUrl}  className="">
+                        <LineShareButton url={shareUrl} className="">
                           <LineIcon size={20} round className="ml-2" />
                         </LineShareButton>
                       </li>
