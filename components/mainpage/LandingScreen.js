@@ -5,7 +5,7 @@ const LandingScreen = () => {
     <div className="row-hero">
        <div class="overlay"></div>
       <video className="video object-cover " autoPlay playsInline muted loop>
-        <source src="../../assets/video/landing.mp4#t86"  type="video/mp4" />
+        <source src="../../assets/video/landing.mp4#t=86"  type="video/mp4" />
       </video>
      
       <div className="video-quote text-center px-3 ">

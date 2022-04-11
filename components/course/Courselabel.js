@@ -8,6 +8,7 @@ export const CourseCheck = [
     value: "Design",
     img: "assets/img/icon/course/1.jpg",
     imgBanner: "assets/img/icon/course/P1.jpg",
+    imgBannerDetails: "assets/img/icon/course/PP1.jpg",
     available: 236,
   },
 
@@ -16,6 +17,7 @@ export const CourseCheck = [
     value: "วิชาการ",
     img: "assets/img/icon/course/2.jpg",
     imgBanner: "assets/img/icon/course/P2.jpg",
+    imgBannerDetails: "assets/img/icon/course/PP2.jpg",
 
     available: 236,
   },
@@ -24,6 +26,7 @@ export const CourseCheck = [
     value: "งานฝีมือ",
     img: "assets/img/icon/course/3.jpg",
     imgBanner: "assets/img/icon/course/P3.jpg",
+    imgBannerDetails: "assets/img/icon/course/PP3.jpg",
 
     available: 236,
   },
@@ -32,6 +35,7 @@ export const CourseCheck = [
     value: "ถ่ายรูปและแต่งรูป",
     img: "assets/img/icon/course/4.jpg",
     imgBanner: "assets/img/icon/course/P4.jpg",
+    imgBannerDetails: "assets/img/icon/course/PP4.jpg",
 
     available: 236,
   },
@@ -40,6 +44,7 @@ export const CourseCheck = [
     value: "แต่งหน้า",
     img: "assets/img/icon/course/5.jpg",
     imgBanner: "assets/img/icon/course/P5.jpg",
+    imgBannerDetails: "assets/img/icon/course/PP5.jpg",
 
     available: 236,
   },
@@ -48,6 +53,7 @@ export const CourseCheck = [
     value: "บุคลิกภาพ",
     img: "assets/img/icon/course/6.jpg",
     imgBanner: "assets/img/icon/course/P6.jpg",
+    imgBannerDetails: "assets/img/icon/course/PP6.jpg",
 
     available: 236,
   },
@@ -56,6 +62,7 @@ export const CourseCheck = [
     value: "ร้องเพลงและการแสดง",
     img: "assets/img/icon/course/7.jpg",
     imgBanner: "assets/img/icon/course/P7.jpg",
+    imgBannerDetails: "assets/img/icon/course/PP7.jpg",
 
     available: 236,
   },
@@ -64,6 +71,7 @@ export const CourseCheck = [
     value: "กีฬา",
     img: "assets/img/icon/course/8.jpg",
     imgBanner: "assets/img/icon/course/P8.jpg",
+    imgBannerDetails: "assets/img/icon/course/PP8.jpg",
 
     available: 236,
   },
@@ -72,6 +80,7 @@ export const CourseCheck = [
     value: "ดนตรี",
     img: "assets/img/icon/course/9.jpg",
     imgBanner: "assets/img/icon/course/P9.jpg",
+    imgBannerDetails: "assets/img/icon/course/PP9.jpg",
 
     available: 236,
   },
@@ -80,6 +89,7 @@ export const CourseCheck = [
     value: "ทำอาหารและขนม",
     img: "assets/img/icon/course/10.jpg",
     imgBanner: "assets/img/icon/course/P10.jpg",
+    imgBannerDetails: "assets/img/icon/course/PP10.jpg",
 
     available: 236,
   },
@@ -88,6 +98,7 @@ export const CourseCheck = [
     value: "ดูดวง",
     img: "assets/img/icon/course/11.jpg",
     imgBanner: "assets/img/icon/course/P11.jpg",
+    imgBannerDetails: "assets/img/icon/course/PP11.jpg",
 
     available: 236,
   },
@@ -96,6 +107,7 @@ export const CourseCheck = [
     value: "Cryptocurrency",
     img: "assets/img/icon/course/12.jpg",
     imgBanner: "assets/img/icon/course/P12.jpg",
+    imgBannerDetails: "assets/img/icon/course/PP12.jpg",
 
     available: 236,
   },
@@ -104,6 +116,7 @@ export const CourseCheck = [
     value: "NFT",
     img: "assets/img/icon/course/13.jpg",
     imgBanner: "assets/img/icon/course/P13.jpg",
+    imgBannerDetails: "assets/img/icon/course/PP13.jpg",
 
     available: 236,
   },
