@@ -34,7 +34,7 @@ const Instructor = () => {
   // })
   const getData = () => {
     axios
-      .get("http://7e0b-184-22-117-39.ngrok.io/api/instructor")
+      .get("http://9823-184-22-117-182.ngrok.io/api/instructor")
       .then((res) => {
         setData(res.data);
         // setIsLoading(true)

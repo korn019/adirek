@@ -34,7 +34,7 @@ const InstructorPromote = () => {
     e.preventDefault()
     setLoading(true)
     axios
-      .post("https://7e0b-184-22-117-39.ngrok.io/api/instructors/contact", instructor)
+      .post("https://9823-184-22-117-182.ngrok.io/api/instructors/contact", instructor)
       .then(function (response) {
         setWarnText(false)
         setIsOpen(true)

@@ -10,7 +10,7 @@ const SlideCourse = () => {
 
   const getData = () => {
     axios
-      .get("https://7e0b-184-22-117-39.ngrok.io/api/instructor")
+      .get("https://9823-184-22-117-182.ngrok.io/api/instructor")
       .then((res) => {
         setAvailable(res.data)
       })
