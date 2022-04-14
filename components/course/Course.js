@@ -13,9 +13,9 @@ const Course = () => {
 
   const getData =  () => {
      axios
-       .get("http://www.api-adirek.online/api/instructor/")
+       .get("https://www.api-adirek.online/api/instructor")
        .then((res) => {
-         //  console.log(res)
+         console.log(res)
          setData(res.data)
          setIsLoading(true)
        })
@@ -23,6 +23,7 @@ const Course = () => {
          //  console.log(err)
        })
   }
+  
   // const getData = () => {
   //   fetch("http://192.168.1.100:4000/instructor", {
   //     headers: {

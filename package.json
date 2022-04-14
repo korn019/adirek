@@ -39,5 +39,5 @@
     "node": "14",
     "npm": "8.3.1"
   },
-  "proxy": "http://www.api-adirek.online/"
+  "proxy": "https://www.api-adirek.online"
 }

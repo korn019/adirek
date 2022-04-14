@@ -9,7 +9,7 @@ const SlideCourse = () => {
   const [available, setAvailable] = useState([])
   const getData = () => {
     axios
-      .get("www.api-adirek.online/api/instructor")
+      .get("https://www.api-adirek.online/api/instructor")
       .then((res) => {
         console.log(res)
         setAvailable(res.data)

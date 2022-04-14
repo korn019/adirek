@@ -104,7 +104,7 @@ const MainCategory = () => {
   // console.log(data)
   const getData = async () => {
     axios
-      .get("www.api-adirek.online/api/instructor")
+      .get("https://www.api-adirek.online/api/instructor")
       .then((res) => {
         setData(res.data)
         setIsLoading(true)
@@ -113,8 +113,20 @@ const MainCategory = () => {
         console.error(err)
       })
   };
+  const [nametest, setNametest] = useState("");
+  const Test = () => {
+    axios
+      .get("https://www.api-adirek.online/api/instructor")
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
   useEffect(() => {
     getData();
+    Test()
     setData(dataJson.map((item, id) => Object.assign(item, { id })));
   }, [dataJson]);
   return (
