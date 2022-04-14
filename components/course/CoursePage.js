@@ -32,7 +32,7 @@ const CoursePage = ({e}) => {
   // })
   const getData = async () => {
     axios
-      .get("https://9823-184-22-117-182.ngrok.io/api/instructor")
+      .get("http://www.api-adirek.online/api/instructor")
       .then((res) => {
         setData(res.data)
         setIsLoading(true)
