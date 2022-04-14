@@ -104,7 +104,7 @@ const MainCategory = () => {
   // console.log(data)
   const getData = async () => {
     axios
-      .get("http://www.api-adirek.online/api/instructor")
+      .get("www.api-adirek.online/api/instructor")
       .then((res) => {
         setData(res.data)
         setIsLoading(true)

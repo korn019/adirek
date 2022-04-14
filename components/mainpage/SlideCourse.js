@@ -10,7 +10,7 @@ const SlideCourse = () => {
 
   const getData = () => {
     axios
-      .get("http://www.api-adirek.online/api/instructor")
+      .get("www.api-adirek.online/api/instructor")
       .then((res) => {
         setAvailable(res.data)
       })
