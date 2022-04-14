@@ -13,7 +13,7 @@ const Course = () => {
 
   const getData =  () => {
      axios
-       .get("www.api-adirek.online/api/instructor")
+       .get("http://www.api-adirek.online/api/instructor/")
        .then((res) => {
          //  console.log(res)
          setData(res.data)

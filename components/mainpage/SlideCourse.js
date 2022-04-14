@@ -7,11 +7,11 @@ import axios from "axios"
 const SlideCourse = () => {
   const [data, setData] = useState(CourseCheck)
   const [available, setAvailable] = useState([])
-
   const getData = () => {
     axios
       .get("www.api-adirek.online/api/instructor")
       .then((res) => {
+        console.log(res)
         setAvailable(res.data)
       })
       .catch((err) => {
