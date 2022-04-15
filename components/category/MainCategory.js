@@ -114,13 +114,15 @@ const MainCategory = () => {
       })
   };
   const [nametest, setNametest] = useState("");
+  
   const Test = () => {
     axios
-      .get("https://www.api-adirek.online/api/instructor")
+      .get("https://api-adirek.online/api/instructor")
       .then((res) => {
         console.log(res.data)
       })
       .catch((err) => {
+        console.log('2')
         console.log(err)
       })
   }

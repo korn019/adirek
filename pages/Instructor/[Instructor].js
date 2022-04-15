@@ -36,14 +36,14 @@ const Instructor = () => {
   // })
   const getData = () => {
     axios
-      .get("http://api-adirek.online/api/instructor")
+      .get("https://www.api-adirek.online/api/instructor")
       .then((res) => {
-        setData(res.data);
+        setData(res.data)
         // setIsLoading(true)
       })
       .catch((err) => {
-        console.error(err);
-      });
+        console.error(err)
+      })
   };
   useEffect(() => {
     getData();
