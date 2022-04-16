@@ -1,5 +1,4 @@
 import Head from "next/head"
-import "../styles/globals.css"
 import "swiper/swiper-bundle.min.css"
 import "swiper/swiper.min.css"
 // import "owl.carousel/dist/assets/owl.carousel.css"
@@ -9,15 +8,19 @@ import {SEO} from "../next-seo.config"
 import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
 
 
-// import "/static/css/bootstrap.min.css"
-// import "/static/css/fontawesome.min.css"
-// import "/static/css/animate.min.css"
-// import "/static/css/magnific.min.css"
-// import "/static/css/nice-select.min.css"
-// import "/static/css/owl.min.css"
-// import "/static/css/slick-slide.min.css"
-// //  import "/static/sass/style.scss"
-// import "/static/css/responsive.css"
+import "../styles/globals.css"
+// import "../styles/bootstrap.min.css"
+import "../styles/fontawesome.min.css"
+import "../styles/animate.min.css"
+import "../styles/magnific.min.css"
+import "../styles/nice-select.min.css"
+import "../styles/owl.min.css"
+import "../styles/slick-slide.min.css"
+import "../styles/style.css"
+// import "../styles/sass/style.scss"
+import "../styles/responsive.css"
+
+
 // import "/static/css/style.css"
 
 SwiperCore.use([Autoplay, Navigation, Pagination])
@@ -27,7 +30,7 @@ function MyApp({Component, pageProps}) {
     <>
         <DefaultSeo {...SEO} />
       <Head>
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
+        {/* <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> */}
         {/* <title>Adirek - ให้ทุกวันคือการสร้างโอกาสใหม่</title>
          <meta name="description" content="Adirek - ให้ทุกวันคือการสร้างโอกาสใหม่" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
