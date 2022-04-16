@@ -210,7 +210,7 @@ select:focus {
   padding-right: 0;
 }
 
-.no-gutter > [^="col-"] {
+/* .no-gutter > [^="col-"] {
   padding-left: 0;
   padding-right: 0;
 }
@@ -218,7 +218,7 @@ select:focus {
 .no-gutter[^="col-"] {
   padding-left: 0;
   padding-right: 0;
-}
+} */
 
 .h-100vh {
   height: 100vh;
@@ -447,11 +447,11 @@ object {
   clear: both;
 }
 
-.wp-caption img[*="wp-image-"] {
+/* .wp-caption img[*="wp-image-"] {
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
+} */
 
 .wp-caption .wp-caption-text {
   margin: 0.8075em 0;
@@ -535,7 +535,7 @@ ul {
   padding: 0.5rem !important;
 }
 
-.custom-gutters-14 > .col,
+/* .custom-gutters-14 > .col,
 .custom-gutters-14 > [*="col-"] {
   padding-right: 7px;
   padding-left: 7px;
@@ -545,7 +545,7 @@ ul {
 .custom-gutters-20 > [*="col-"] {
   padding-right: 10px;
   padding-left: 10px;
-}
+} */
 
 @media all and (min-width: 1600px) {
   .container,

@@ -194,29 +194,29 @@ const Footer = () => {
         </span>
       </div>
       
-      <script src="../../assets/js/jquery.3.6.min.js"></script>
-      <script src="../../assets/js/bootstrap.min.js"></script>
-      <script src="../../assets/js/imageloded.min.js"></script>
-      <script src="../../assets/js/counterup.js"></script>
-      <script src="../../assets/js/waypoint.js"></script>
-      <script src="../../assets/js/magnific.min.js"></script>
-      <script src="../../assets/js/isotope.pkgd.min.js"></script>
-      <script src="../../assets/js/nice-select.min.js"></script>
-      <script src="../../assets/js/fontawesome.min.js"></script>
-      <script src="../../assets/js/ripple.js"></script>
-      <script src="../../assets/js/owl.min.js"></script>
-      <script src="../../assets/js/slick-slider.min.js"></script>
-      <script src="../../assets/js/wow.min.js"></script>
-      <script src="../../assets/js/main.js"></script>
+      <script src="../../static/js/jquery.3.6.min.js"></script>
+      <script src="../../static/js/bootstrap.min.js"></script>
+      <script src="../../static/js/imageloded.min.js"></script>
+      <script src="../../static/js/counterup.js"></script>
+      <script src="../../static/js/waypoint.js"></script>
+      <script src="../../static/js/magnific.min.js"></script>
+      <script src="../../static/js/isotope.pkgd.min.js"></script>
+      <script src="../../static/js/nice-select.min.js"></script>
+      <script src="../../static/js/fontawesome.min.js"></script>
+      <script src="../../static/js/ripple.js"></script>
+      <script src="../../static/js/owl.min.js"></script>
+      <script src="../../static/js/slick-slider.min.js"></script>
+      <script src="../../static/js/wow.min.js"></script>
+      <script src="../../static/js/main.js"></script>
       <script
         type="text/javascript"
-        src="../../assets/jquery.Thailand.js/dependencies/JQL.min.js"></script>
+        src="../../static/jquery.Thailand.js/dependencies/JQL.min.js"></script>
       <script
         type="text/javascript"
-        src="../../assets/jquery.Thailand.js/dependencies/typeahead.bundle.js"></script>
+        src="../../static/jquery.Thailand.js/dependencies/typeahead.bundle.js"></script>
       <script
         type="text/javascript"
-        src="../../assets/jquery.Thailand.js/dist/jquery.Thailand.min.js"></script>
+        src="../../static/jquery.Thailand.js/dist/jquery.Thailand.min.js"></script>
         
     </>
   )
