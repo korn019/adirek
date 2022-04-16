@@ -13,10 +13,10 @@ export default function Document() {
 <link rel="stylesheet" href="../static/css/nice-select.min.css" />
 <link rel="stylesheet" href="../static/css/owl.min.css" />
 <link rel="stylesheet" href="../static/css/slick-slide.min.css" />
-<link rel="stylesheet" href="../public/static/css/style.css" />
+<link rel="stylesheet" href="../static/css/style.css" />
 {/* <link rel="stylesheet" href="/static/sass/style.scss" /> */}
 <link rel="stylesheet" href="../static/css/responsive.css" />
-<link rel="stylesheet" href="../static/jquery.Thailand.js/dist/jquery.Thailand.min.css" /> 
+<link rel="stylesheet" href="../static/jquery.Thailand.js/dist/jquery.Thailand.min.css" />  
      </Head>
       <body className="sc5">
         <Main />

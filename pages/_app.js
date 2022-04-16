@@ -9,16 +9,16 @@ import {SEO} from "../next-seo.config"
 import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
 
 
-// import "../public/static/css/bootstrap.min.css"
-// import "../public/static/css/fontawesome.min.css"
-// import "../public/static/css/animate.min.css"
-// import "../public/static/css/magnific.min.css"
-// import "../public/static/css/nice-select.min.css"
-// import "../public/static/css/owl.min.css"
-// import "../public/static/css/slick-slide.min.css"
-// //  import "../public/static/sass/style.scss"
-// import "../public/static/css/responsive.css"
-// import "../public/static/css/style.css"
+// import "/static/css/bootstrap.min.css"
+// import "/static/css/fontawesome.min.css"
+// import "/static/css/animate.min.css"
+// import "/static/css/magnific.min.css"
+// import "/static/css/nice-select.min.css"
+// import "/static/css/owl.min.css"
+// import "/static/css/slick-slide.min.css"
+// //  import "/static/sass/style.scss"
+// import "/static/css/responsive.css"
+// import "/static/css/style.css"
 
 SwiperCore.use([Autoplay, Navigation, Pagination])
 
