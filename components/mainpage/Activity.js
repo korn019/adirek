@@ -13,7 +13,7 @@ const Activity = () => {
               <div className="activity-img align-items-center justify-content-center d-flex w-full h-full">
                 <div className="content-overlay"></div>
                 <img
-                  src="assets/img/activity/activity-1.jpg"
+                  src="static/img/activity/activity-1.jpg"
                   className=" w-full h-full"
                   alt="img"
                 />
@@ -26,7 +26,7 @@ const Activity = () => {
             <div className="col-md-6 col-lg-4">
               <div className="activity-img align-items-center justify-content-center d-flex  w-full h-full">
                 <div className="content-overlay"></div>
-                <img src="assets/img/activity/activity-2.jpg" className="w-full h-full" alt="img" />
+                <img src="static/img/activity/activity-2.jpg" className="w-full h-full" alt="img" />
                 <div className="content-details fadeIn-bottom">
                   <h3 className="content-title">หัวข้อ</h3>
                   <p className="content-text">description</p>
@@ -36,7 +36,7 @@ const Activity = () => {
             <div className="col col-12 col-md-6 col-lg-4">
               <div className="activity-img align-items-center justify-content-center d-flex w-full h-full">
                 <div className="content-overlay"></div>
-                <img src="assets/img/activity/activity-3.jpg" className="w-full h-full" alt="img" />
+                <img src="static/img/activity/activity-3.jpg" className="w-full h-full" alt="img" />
                 <div className="content-details fadeIn-bottom">
                   <h3 className="content-title">หัวข้อ</h3>
                   <p className="content-text">description</p>
@@ -46,7 +46,7 @@ const Activity = () => {
             <div className="col col-md-6 col-lg-4">
               <div className="activity-img align-items-center justify-content-center d-flex w-full h-full">
                 <div className="content-overlay"></div>
-                <img src="assets/img/activity/activity-4.jpg" className="w-full h-full" alt="img" />
+                <img src="static/img/activity/activity-4.jpg" className="w-full h-full" alt="img" />
                 <div className="content-details fadeIn-bottom">
                   <h3 className="content-title">หัวข้อ</h3>
                   <p className="content-text">description</p>
@@ -56,7 +56,7 @@ const Activity = () => {
             <div className="col-md-6 col-lg-4">
               <div className="activity-img align-items-center justify-content-center d-flex w-full h-full">
                 <div className="content-overlay"></div>
-                <img src="assets/img/activity/activity-5.jpg" className="w-full h-full" alt="img" />
+                <img src="static/img/activity/activity-5.jpg" className="w-full h-full" alt="img" />
                 <div className="content-details fadeIn-bottom">
                   <h3 className="content-title">หัวข้อ</h3>
                   <p className="content-text">description</p>

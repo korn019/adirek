@@ -63,7 +63,7 @@ const InstructorPromote = () => {
           <div className="row justify-content-center">
             <div className="col-md-5 col-8">
               <div className="thumb  justify-center items-center flex">
-                <img src="/assets/img/instructor.png" alt="img" />
+                <img src="/static/img/instructor.png" alt="img" />
               </div>
             </div>
             <div className="col-md-7 col-sm-10 align-self-center">
@@ -95,7 +95,7 @@ const InstructorPromote = () => {
               <img
                 className="text w-[400px] h-[400px] object-cover"
                 alt="Adirek"
-                src="assets/img/Logo-Adirek.png"
+                src="static/img/Logo-Adirek.png"
               />
               <div className="bubble--container">
                 <div className="bubble bubble--large"></div>
@@ -512,7 +512,7 @@ const InstructorPromote = () => {
               <div className="col-lg-4 col-sm-6">
                 <div className="single-intro-wrap-2 ">
                   <div className="thumb  justify-center items-center flex">
-                    <img src="/assets/img/intro/01.png" alt="img" />
+                    <img src="/static/img/intro/01.png" alt="img" />
                   </div>
                   <div className="wrap-details">
                     <h4>
@@ -528,7 +528,7 @@ const InstructorPromote = () => {
               <div className="col-lg-4 col-sm-6">
                 <div className="single-intro-wrap-2">
                   <div className="thumb  justify-center items-center flex">
-                    <img src="/assets/img/intro/02.png" alt="img" />
+                    <img src="/static/img/intro/02.png" alt="img" />
                   </div>
                   <div className="wrap-details">
                     <h4>
@@ -544,7 +544,7 @@ const InstructorPromote = () => {
               <div className="col-lg-4 col-sm-6">
                 <div className="single-intro-wrap-2">
                   <div className="thumb  justify-center items-center flex">
-                    <img src="/assets/img/intro/03.png" alt="img" />
+                    <img src="/static/img/intro/03.png" alt="img" />
                   </div>
                   <div className="wrap-details">
                     <h4>
@@ -713,7 +713,7 @@ const InstructorPromote = () => {
                     </div>
                     <div className="col-lg-6 align-self-center">
                       <div className="thumb  justify-center items-center flex">
-                        <img src="/assets/img/about/1.png" alt="img" />
+                        <img src="/static/img/about/1.png" alt="img" />
                       </div>
                     </div>
                   </div>
@@ -746,7 +746,7 @@ const InstructorPromote = () => {
                     </div>
                     <div className="col-lg-6">
                       <div className="thumb  justify-center items-center flex">
-                        <img src="/assets/img/about/1.png" alt="img" />
+                        <img src="/static/img/about/1.png" alt="img" />
                       </div>
                     </div>
                   </div>
@@ -779,7 +779,7 @@ const InstructorPromote = () => {
                     </div>
                     <div className="col-lg-6">
                       <div className="thumb  justify-center items-center flex">
-                        <img src="/assets/img/about/1.png" alt="img" />
+                        <img src="/static/img/about/1.png" alt="img" />
                       </div>
                     </div>
                   </div>
@@ -853,7 +853,7 @@ const InstructorPromote = () => {
                   <div className="item">
                     <div className="single-testimonial-wrap">
                       <div className="thumb  justify-center items-center flex">
-                        <img src="/assets/img/quote.png" alt="img" />
+                        <img src="/static/img/quote.png" alt="img" />
                       </div>
                       <div className="wrap-details">
                         <h5>
@@ -876,31 +876,7 @@ const InstructorPromote = () => {
                   <div className="item">
                     <div className="single-testimonial-wrap">
                       <div className="thumb  justify-center items-center flex">
-                        <img src="/assets/img/quote.png" alt="img" />
-                      </div>
-                      <div className="wrap-details">
-                        <h5>
-                          <a href="#">Super fast WordPress themes</a>
-                        </h5>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit placerat
-                          sit feugiat ornare tortor arcu, euismod pellentesque porta. Lacus, semper
-                          congue consequat, potenti suspendisse luctus cras vel.
-                        </p>
-                        <span>- Jessica Jessy</span>
-                        <a className="play-btn" href="#">
-                          <i className="fa fa-play"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  {" "}
-                  <div className="item">
-                    <div className="single-testimonial-wrap">
-                      <div className="thumb  justify-center items-center flex">
-                        <img src="/assets/img/quote.png" alt="img" />
+                        <img src="/static/img/quote.png" alt="img" />
                       </div>
                       <div className="wrap-details">
                         <h5>
@@ -924,7 +900,31 @@ const InstructorPromote = () => {
                   <div className="item">
                     <div className="single-testimonial-wrap">
                       <div className="thumb  justify-center items-center flex">
-                        <img src="/assets/img/quote.png" alt="img" />
+                        <img src="/static/img/quote.png" alt="img" />
+                      </div>
+                      <div className="wrap-details">
+                        <h5>
+                          <a href="#">Super fast WordPress themes</a>
+                        </h5>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit placerat
+                          sit feugiat ornare tortor arcu, euismod pellentesque porta. Lacus, semper
+                          congue consequat, potenti suspendisse luctus cras vel.
+                        </p>
+                        <span>- Jessica Jessy</span>
+                        <a className="play-btn" href="#">
+                          <i className="fa fa-play"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  {" "}
+                  <div className="item">
+                    <div className="single-testimonial-wrap">
+                      <div className="thumb  justify-center items-center flex">
+                        <img src="/static/img/quote.png" alt="img" />
                       </div>
                       <div className="wrap-details">
                         <h5>

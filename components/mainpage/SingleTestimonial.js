@@ -8,7 +8,7 @@ const SingleTestimonial = ({people}) => {
           <a href="#">
             <img
               className=" rounded-full mx-auto h-20 w-20  top-0 -mt-8  border-4 border-white"
-              src="assets/img/user.png"
+              src="static/img/user.png"
             />
           </a>
           <div className="mt-4">

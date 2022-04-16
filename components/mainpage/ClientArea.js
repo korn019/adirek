@@ -11,27 +11,27 @@ function ClientArea() {
   const ImageSrc = [
     {
       id: 1,
-      src: "/assets/img/client/1.png",
+      src: "/static/img/client/1.png",
     },
     {
       id: 2,
-      src: "/assets/img/client/2.png",
+      src: "/static/img/client/2.png",
     },
     {
       id: 3,
-      src: "/assets/img/client/3.png",
+      src: "/static/img/client/3.png",
     },
     {
       id: 4,
-      src: "/assets/img/client/3.png",
+      src: "/static/img/client/3.png",
     },
     {
       id: 5,
-      src: "/assets/img/client/3.png",
+      src: "/static/img/client/3.png",
     },
     {
       id: 6,
-      src: "/assets/img/client/3.png",
+      src: "/static/img/client/3.png",
     },
   ]
   return (
@@ -88,7 +88,7 @@ function ClientArea() {
                       <SwiperSlide key={index}>
                         <div className="item text-center flex items-center justify-center">
                           <img
-                            src={"assets/img/client/" + clientImg + ".png"}
+                            src={"static/img/client/" + clientImg + ".png"}
                             alt="img"
                             className="w-[191px] h-[103px]"
                           />

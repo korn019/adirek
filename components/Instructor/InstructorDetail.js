@@ -28,7 +28,7 @@ const InstructorDetail = ({e}) => {
               <div className="card-body">
                 <div className=""> 
                   <img
-                    src={e.รูปถ่าย == "" ? "/assets/img/user.png" : `/${e.รูปถ่าย}`}
+                    src={e.รูปถ่าย == "" ? "/static/img/user.png" : `/${e.รูปถ่าย}`}
                     alt="img"
                     className="object-scale-down w-[370px] h-[240px]"
                   />

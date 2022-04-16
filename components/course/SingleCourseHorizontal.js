@@ -8,7 +8,7 @@ const SingleCourseHorizontal = ({course, index}) => {
             className="object-cover"
             src={
               typeof course.รูปถ่าย == "undefined"
-                ? "/assets/img/logo-mock.jpg"
+                ? "/static/img/logo-mock.jpg"
                 : `/${course.รูปถ่าย}`
             }
             alt="img"
@@ -26,7 +26,7 @@ const SingleCourseHorizontal = ({course, index}) => {
                 className="w-[1.5rem] h-[1.5rem]"
                 src={
                   typeof course.รูปถ่าย == "undefined"
-                    ? "/assets/img/logo-mock.jpg"
+                    ? "/static/img/logo-mock.jpg"
                     : `/${course.รูปถ่าย}`
                 }
                 alt="img"

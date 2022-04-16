@@ -16,79 +16,79 @@ const SingleCourse = ({course, index, filterImg}) => {
     if (course.filterCategory == "Design" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
-          <img className="object-fill " src="/assets/img/icon/course/P1.jpg" alt="img" />
+          <img className="object-fill " src="/static/img/icon/course/P1.jpg" alt="img" />
         </Link>
       )
     } else if (course.filterCategory == "วิชาการ" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
-          <img className="object-fill " src="/assets/img/icon/course/P2.jpg" alt="img" />
+          <img className="object-fill " src="/static/img/icon/course/P2.jpg" alt="img" />
         </Link>
       )
     } else if (course.filterCategory == "งานฝีมือ" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
-          <img className="object-fill " src="/assets/img/icon/course/P3.jpg" alt="img" />
+          <img className="object-fill " src="/static/img/icon/course/P3.jpg" alt="img" />
         </Link>
       )
     } else if (course.filterCategory == "ถ่ายรูปและแต่งรูป" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
-          <img className="object-fill " src="/assets/img/icon/course/P4.jpg" alt="img" />
+          <img className="object-fill " src="/static/img/icon/course/P4.jpg" alt="img" />
         </Link>
       )
     } else if (course.filterCategory == "แต่งหน้า" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
-          <img className="object-fill " src="/assets/img/icon/course/P5.jpg" alt="img" />
+          <img className="object-fill " src="/static/img/icon/course/P5.jpg" alt="img" />
         </Link>
       )
     } else if (course.filterCategory == "บุคลิกภาพ" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
-          <img className="object-fill " src="/assets/img/icon/course/P6.jpg" alt="img" />
+          <img className="object-fill " src="/static/img/icon/course/P6.jpg" alt="img" />
         </Link>
       )
     } else if (course.filterCategory == "ร้องเพลงและการแสดง" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
-          <img className="object-fill " src="/assets/img/icon/course/P7.jpg" alt="img" />
+          <img className="object-fill " src="/static/img/icon/course/P7.jpg" alt="img" />
         </Link>
       )
     } else if (course.filterCategory == "กีฬา" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
-          <img className="object-fill " src="/assets/img/icon/course/P8.jpg" alt="img" />
+          <img className="object-fill " src="/static/img/icon/course/P8.jpg" alt="img" />
         </Link>
       )
     } else if (course.filterCategory == "ดนตรี" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
-          <img className="object-fill " src="/assets/img/icon/course/P9.jpg" alt="img" />
+          <img className="object-fill " src="/static/img/icon/course/P9.jpg" alt="img" />
         </Link>
       )
     } else if (course.filterCategory == "ทำอาหารและขนม" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
-          <img className="object-fill " src="/assets/img/icon/course/P10.jpg" alt="img" />
+          <img className="object-fill " src="/static/img/icon/course/P10.jpg" alt="img" />
         </Link>
       )
     } else if (course.filterCategory == "ดูดวง" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
-          <img className="object-fill " src="/assets/img/icon/course/P11.jpg" alt="img" />
+          <img className="object-fill " src="/static/img/icon/course/P11.jpg" alt="img" />
         </Link>
       )
     } else if (course.filterCategory == "Cryptocurrency" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
-          <img className="object-fill " src="/assets/img/icon/course/P12.jpg" alt="img" />
+          <img className="object-fill " src="/static/img/icon/course/P12.jpg" alt="img" />
         </Link>
       )
     } else if (course.filterCategory == "NFT" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
-          <img className="object-fill " src="/assets/img/icon/course/P13.jpg" alt="img" />
+          <img className="object-fill " src="/static/img/icon/course/P13.jpg" alt="img" />
         </Link>
       )
     } else {
@@ -119,7 +119,7 @@ const SingleCourse = ({course, index, filterImg}) => {
             <div className="user-details truncate">
               <img
                 className="w-[1.5rem] h-[1.5rem]"
-                src={course.รูปถ่าย == "" ? "/assets/img/user.png" : `/${course.รูปถ่าย}`}
+                src={course.รูปถ่าย == "" ? "/static/img/user.png" : `/${course.รูปถ่าย}`}
                 alt="img"
               />{" "}
               <p className="truncate">

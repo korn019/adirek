@@ -68,7 +68,7 @@ const Perfectionist = () => {
                   </div>
                 </div>
                 <div className="article-image">
-                  <img src="/assets/img/blog/perfectionist.jpeg" alt="image" className="w-100" />
+                  <img src="/static/img/blog/perfectionist.jpeg" alt="image" className="w-100" />
                 </div>
                 <div className="article-content ">
                   <h2 className="font-title text-f3xl">Perfectionist สาเหตุหนึ่งของซึมเศร้า</h2>

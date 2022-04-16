@@ -36,7 +36,7 @@ const Partner = () => {
                     {" "}
                     <div className="single-intro-wrap-2  items-center max-w-full mx-auto">
                       <div className="justify-center items-center flex">
-                        <img src="assets/img/intro/01.png" alt="img" />
+                        <img src="static/img/intro/01.png" alt="img" />
                       </div>
                       <div className="wrap-details ">
                         <h4 className="fs-4 text-black">
@@ -54,7 +54,7 @@ const Partner = () => {
                     {" "}
                     <div className="single-intro-wrap-2  items-center max-w-full mx-auto">
                       <div className="justify-center items-center flex">
-                        <img src="assets/img/intro/02.png" className="" alt="img" />
+                        <img src="static/img/intro/02.png" className="" alt="img" />
                       </div>
                       <div className="wrap-details">
                         <h4 className="fs-4 text-black">
@@ -72,7 +72,7 @@ const Partner = () => {
                     {" "}
                     <div className="single-intro-wrap-2  items-center max-w-full mx-auto">
                       <div className="justify-center items-center flex">
-                        <img src="assets/img/intro/03.png" className="" alt="img" />
+                        <img src="static/img/intro/03.png" className="" alt="img" />
                       </div>
                       <div className="wrap-details">
                         <h4 className="fs-4 text-black">

@@ -10,7 +10,7 @@ export const SEO = {
       "เรารวบรวมกลุ่มผู้สอนไว้มากที่สุดในประเทศไทย เลือกได้ตามหมวดหมู่และความสนใจของคุณเน้นสอนตามความต้องการของผู้เรียน",
     images: [
       {
-        url: "/assets/img/ogLogo.png",
+        url: "/static/img/ogLogo.png",
         alt: "Adirek",
         type: "image/png",
       },

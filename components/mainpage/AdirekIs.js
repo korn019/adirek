@@ -39,7 +39,7 @@ const AdirekIs = () => {
               <img
                 className="text w-[400px] h-[400px] object-cover"
                 alt="Adirek"
-                src="assets/img/Logo-Adirek.png"
+                src="static/img/Logo-Adirek.png"
               />
               <div className="bubble--container">
                 <div className="bubble bubble--large"></div>

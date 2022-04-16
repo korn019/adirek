@@ -98,7 +98,7 @@
 //             <div className="logo">
 //               <Link href="/">
 //                 <a className="main-logo">
-//                   <img src="/assets/img/logo.png" alt="img" />
+//                   <img src="/static/img/logo.png" alt="img" />
 //                 </a>
 //               </Link>
 //             </div>
@@ -325,7 +325,7 @@ function Header() {
               <div className="logo">
                 <Link href="/">
                   <a className="main-logo">
-                    <img src="/assets/img/logo.png" alt="img" />
+                    <img src="/static/img/logo.png" alt="img" />
                   </a>
                 </Link>
               </div>

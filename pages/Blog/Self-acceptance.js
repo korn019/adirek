@@ -64,7 +64,7 @@ const BlogContent = () => {
                   </div>
                 </div>
                 <div className="article-image">
-                  <img src="/assets/img/blog/self-acceptance.jpg" alt="image" className="w-100" />
+                  <img src="/static/img/blog/self-acceptance.jpg" alt="image" className="w-100" />
                 </div>
                 <div className="article-content ">
                   <h2 className="font-title text-f3xl">การยอมรับตนเอง self-acceptance</h2>

@@ -66,7 +66,7 @@ const BlogContent = () => {
                   </div>
                 </div>
                 <div className="article-image">
-                  <img src="/assets/img/blog/inspiration.jpeg" alt="image" className="w-100" />
+                  <img src="/static/img/blog/inspiration.jpeg" alt="image" className="w-100" />
                 </div>
                 <div className="article-content ">
                   <h2 className="font-title text-f3xl">การสร้างแรงบันดาลใจในที่ทำงาน</h2>
