@@ -64,11 +64,11 @@ const SlideCourse = () => {
                       spaceBetween: 20,
                     },
                     1440: {
-                      slidesPerView: 5,
+                      slidesPerView: 4,
                       spaceBetween: 10,
                     },
                     1920: {
-                      slidesPerView: 5,
+                      slidesPerView: 4,
                       spaceBetween: 10,
                     },
                   }}>
