@@ -5,7 +5,7 @@ export default function Document() {
   return (
     <Html>
       <Head>
-      <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+      {/* <link rel="stylesheet" href="/static/css/bootstrap.min.css" /> */}
       </Head>
       {/* <base href="http://159.223.70.115/ " />
         <link rel="stylesheet" href="static/css/fontawesome.min.css" />
