@@ -34,6 +34,7 @@
     "react-paginate": "^8.1.2",
     "react-share": "^4.4.0",
     "react-spinners": "^0.11.0",
+    "react-stars": "^2.2.5",
     "react-thailand-address-autocomplete": "^0.0.6",
     "sass": "^1.50.0",
     "serverless-mysql": "^1.5.4",

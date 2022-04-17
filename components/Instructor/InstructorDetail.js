@@ -1,5 +1,6 @@
 import {useState, Fragment} from "react"
 import {Dialog, Transition} from "@headlessui/react"
+import ReactStars from "react-stars"
 const InstructorDetail = ({e}) => {
   const [showModal, setShowModal] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
@@ -15,10 +16,14 @@ const InstructorDetail = ({e}) => {
   for (let i = 0; i < e.รายละเอียดคอร์สเรียน.length; i++) {
     amountCourse = `${[i]} `
   }
-  console.log(amountCourse) 
-    
+  // console.log(amountCourse) 
+     const [start, setStart] = useState()
+     const ratingChanged = (newRating) => {
+       console.log(newRating)
+       setStart(newRating)
+     }
   return (
-    <> 
+    <>
       <div
         className="row d-flex justify-content-center justify-content-md-between "
         style={{marginTop: -160}}>
@@ -26,7 +31,7 @@ const InstructorDetail = ({e}) => {
           <div className="blog-post-content single-blog-post">
             <div className="card bg-light text-dark shadow">
               <div className="card-body">
-                <div className=""> 
+                <div className="">
                   <img
                     src={e.รูปถ่าย == "" ? "/static/img/user.png" : `/${e.รูปถ่าย}`}
                     alt="img"
@@ -171,7 +176,9 @@ const InstructorDetail = ({e}) => {
                             </Dialog.Title>
                           </div>
                           <div className="mt-2">
-                            <p className="text-sm md:text-lg text-gray-500">{e.รายละเอียดคอร์สเรียน}</p>
+                            <p className="text-sm md:text-lg text-gray-500">
+                              {e.รายละเอียดคอร์สเรียน}
+                            </p>
                           </div>
 
                           <div className="mt-4">
@@ -215,8 +222,19 @@ const InstructorDetail = ({e}) => {
               <div>
                 <h1 className="font-title text-f3xl text-[#cf9b3b]">Rating</h1>
               </div>
-              <div className="text-right">
-                <span>
+              <div className="text-right flex items-center justify-end">
+                <span className="mx-2">
+                {start}
+                </span>
+                <ReactStars
+                  count={5}
+                  half={true}
+                  value={start}
+                  onChange={ratingChanged}
+                  size={22}
+                  color2={"rgb(253 186 116)"}
+                />
+                {/* <span>
                   <i className="fa fa-star text-[#f2994a] mr-1"></i>
                 </span>
                 <span>
@@ -230,12 +248,11 @@ const InstructorDetail = ({e}) => {
                 </span>
                 <span>
                   <i className="fa fa-star text-[#f2994a] mr-1"></i>
-                </span>
+                </span> */}
               </div>
               <div>
                 <h1 className="font-title text-fxl">คอร์สทั้งหมด</h1>
               </div>
-
               <div className="text-right">
                 <h1 className="font-title text-fxl">{amountCourse}</h1>
               </div>
@@ -264,7 +281,9 @@ const InstructorDetail = ({e}) => {
             <h1 className="title text-[#cf9b3b]">ติดต่อผู้สอน</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
               <p className="lead font-bold">phone:</p>
-              <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">{e.เบอร์โทร == "" ? "ไม่พบข้อมูล" : e.เบอร์โทร}</p>
+              <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">
+                {e.เบอร์โทร == "" ? "ไม่พบข้อมูล" : e.เบอร์โทร}
+              </p>
               <p className="lead font-bold">Address:</p>
               <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">
                 {e.กรณีเรียนนอกสถานที่ == "" ? "ไม่พบข้อมูล" : e.กรณีเรียนนอกสถานที่}

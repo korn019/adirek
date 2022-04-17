@@ -285,7 +285,7 @@ function Header() {
   const [navHead, setNavHead] = useState(false)
   const changeBg = () => {
     if (typeof window !== "undefined") {
-      if (window.scrollY > 60) {
+      if (window.scrollY >= 60) {
         setNavHead(true)
       } else {
         setNavHead(false)
@@ -368,7 +368,7 @@ function Header() {
                   offset={50}
                   duration={500}>
                   <a>
-                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8] text-black hover:text-white  p-2 rounded-md text-md font-medium">
+                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium">
                       หลักสูตรคอร์สเรียนทั้งหมด
                     </h4>
                   </a>
@@ -376,7 +376,7 @@ function Header() {
 
                 <Link href="/Blog" smooth={true} offset={50} duration={500}>
                   <a>
-                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8] text-black hover:text-white  p-2 rounded-md text-md font-medium">
+                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium">
                       {" "}
                       บทความและข่าวสาร
                     </h4>
@@ -391,7 +391,7 @@ function Header() {
                   offset={50}
                   duration={500}>
                   <a>
-                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8] text-black hover:text-white  p-2 rounded-md text-md font-medium">
+                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium">
                       {" "}
                       มาร่วมสอนกับเรา
                     </h4>
@@ -405,7 +405,7 @@ function Header() {
                   offset={50}
                   duration={500}>
                   <a>
-                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8] text-black hover:text-white  p-2 rounded-md text-md font-medium">
+                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium">
                       ติดต่อเรา
                     </h4>
                   </a>

@@ -59,7 +59,7 @@ const Instructor = () => {
                 return item.value.includes(e.filterCategory) ? (
                   <>
                     <img
-                      className="object-fill h-[400px] w-full"
+                      className="object-cover h-[400px] w-full"
                       src={`/${item.imgBannerDetails}`}
                       alt="img"
                     />
