@@ -143,7 +143,8 @@ const filterCheck = ({
             <button
               onClick={resetButton}
               type="button"
-              className="text-2xl text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg  px-2 py-1 text-center mr-2 mb-2">
+              // className="font-Prompt text-2xl text-white bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-black rounded-lg  px-2 py-1 text-center mr-2 mb-2">
+              className="font-Prompt text-2xl text-gray-700 border-2 border-blue-400  focus:ring-1 focus:outline-none focus:ring-red-200 dark:focus:ring-red-700 font-black rounded-lg  px-2 py-1 text-center mr-2 mb-2">
               Reset
             </button>
           </div>

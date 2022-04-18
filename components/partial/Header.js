@@ -368,7 +368,7 @@ function Header() {
                   offset={50}
                   duration={500}>
                   <a>
-                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium">
+                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium !font-Prompt">
                       หลักสูตรคอร์สเรียนทั้งหมด
                     </h4>
                   </a>
@@ -376,7 +376,7 @@ function Header() {
 
                 <Link href="/Blog" smooth={true} offset={50} duration={500}>
                   <a>
-                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium">
+                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium !font-Prompt">
                       {" "}
                       บทความและข่าวสาร
                     </h4>
@@ -391,7 +391,7 @@ function Header() {
                   offset={50}
                   duration={500}>
                   <a>
-                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium">
+                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium !font-Prompt">
                       {" "}
                       มาร่วมสอนกับเรา
                     </h4>
@@ -405,12 +405,11 @@ function Header() {
                   offset={50}
                   duration={500}>
                   <a>
-                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium">
+                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium !font-Prompt">
                       ติดต่อเรา
                     </h4>
                   </a>
                 </Link>
-            
               </div>
             </div>
           </div>
@@ -479,11 +478,11 @@ function Header() {
               slidesPerView={8}
               breakpoints={{
                 320: {
-                  slidesPerView: 3,
+                  slidesPerView: 2,
                   spaceBetween: 0,
                 },
                 580: {
-                  slidesPerView: 3,
+                  slidesPerView: 2,
                   spaceBetween: 0,
                 },
                 640: {
@@ -506,9 +505,11 @@ function Header() {
               {course.map((item, index) => {
                 return (
                   <SwiperSlide>
-                    <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
-                      <a>{item.value}</a>
-                    </Link>
+                    <div className="p-2 animate-pulse  duration-700">
+                      <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
+                        <a>{item.value}</a>
+                      </Link>
+                    </div>
                   </SwiperSlide>
                 )
               })}
@@ -557,7 +558,7 @@ function Header() {
             <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <a
                 href="/Category"
-                className="hover:bg-gray-700 hover:text-white text-black block px-3 py-2 rounded-md text-base font-medium">
+                className="hover:bg-gray-700 hover:text-white text-black block px-3 py-2 rounded-md text-base font-medium !font-Prompt">
                 หลักสูตรคอร์สเรียนทั้งหมด
               </a>
 

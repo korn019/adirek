@@ -84,13 +84,13 @@ const BlogCard = (
             <h2 className="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">
               {article.date}
             </h2>
-            <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+            <h1 className="title-font text-lg  group-hover:text-base font-black text-gray-900 mb-3">
               <Link href="">
                 <a onClick={CountView}>{article.title}</a>
               </Link>
             </h1>
             <p className="leading-relaxed mb-3 truncate">{article.subtitle}</p>
-            <div className="flex items-center flex-wrap ">
+            <div className="flex items-center flex-wrap " onClick={CountView}>
               <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">By Admin</a>
               <span className="text-gray-600 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-300">
                 <svg

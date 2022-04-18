@@ -80,7 +80,7 @@ const CoursePage = ({e}) => {
 
       {isLoading ? (
         <>
-          <div className="mt-5   grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-5  md:space-x-2 lg:space-x-2">
+          <div className="mt-5   grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4  md:space-x-2 lg:space-x-2">
             {currentItems &&
               currentItems.map((item, index) => {
                 return (

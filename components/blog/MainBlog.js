@@ -59,8 +59,8 @@ const MainBlog = ({search, setSearch}) => {
         <div className="container px-9">
           <div className="row">
             <div className="col-md-8">
-              <div className="section-title">
-                <h2>บทความ/ข่าวสาร</h2>
+              <div className="">
+                <h2 className="!font-Prompt font-black text:fxl md:text-f2xl mb-5">บทความ/ข่าวสาร</h2>
               </div>
             </div>
           </div>

@@ -5,21 +5,24 @@ const AdirekIs = () => {
 
   return (
     <>
-      <section className="text-gray-700 body-font -mt-20 ">
-        <div className="container mx-auto flex px-6 py-24 md:flex-row flex-col items-center">
+      <section className="text-gray-700 body-font -mt-20 sm:-mt-52 ">
+        <div className="container-fluid mx-auto flex md:px-6 lg:px-24 py-24 md:flex-row flex-col items-center">
           <div className="lg:flex-grow md:w-1/2 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-left  z-50">
-            <h1 className="title-font text-f4xl sm:text-f4xl  mb-4 font-title  text-gray-900">
-              <span className="title-word title-word-1">อ</span>
-              <span className="title-word title-word-2">ดิ</span>
-              <span className="title-word title-word-3">เ</span>
-              <span className="title-word title-word-4">ร</span>
-              <span className="title-word title-word-5">ก</span>
+            <h1
+              className="title-font text-f4xl sm:text-f4xl  mb-4 font-title  text-gray-900"
+              style={{textShadow: "2px_2px_3px_rgba(0, 0, 0, 1)"}}>
+              <span className="title-word title-word-1 drop-shadow-md ">อ</span>
+              <span className="title-word title-word-2 drop-shadow-md ">ดิ</span>
+              <span className="title-word title-word-3 drop-shadow-md ">เ</span>
+              <span className="title-word title-word-4 drop-shadow-md ">ร</span>
+              <span className="title-word title-word-5 drop-shadow-md ">ก</span>
             </h1>
-            <p className="mb-8 text-subtext lg:text-[1.5rem] font-medium  indent-4">
+            <p className="mb-8 text-subtext  lg:text-[1.5rem] !font-k2d font-light   indent-4">
               เกิดขึ้นจากความเชื่อที่ว่า "ชีวิตคือการค้นหาและเรียนรู้สิ่งใหม่ๆ
-              ที่ไม่มีวันสิ้นสุด"เราจึงก่อตั้ง <strong className="text-xl"> อดิเรก </strong>
+              ที่ไม่มีวันสิ้นสุด"เราจึงก่อตั้ง{" "}
+              <strong className="text-3xl font-Prompt font-black"> อดิเรก </strong>
               ขึ้นในฐานะแพลตฟอร์มการเรียนรู้รูปแบบใหม่ที่ทำหน้าที่ป็นพื้นที่อิสระเพื่อเชื่อมระหว่างผู้เรียนและผู้สอนเข้าไว้ด้วยกันที่
-              <strong className="text-xl"> อดิเรก </strong>
+              <strong className="text-3xl font-Prompt font-black"> อดิเรก </strong>
             </p>
             <div className="flex justify-center">
               <p className="mb-8 text-subtext lg:text-[1.5rem]  font-medium indent-4">
@@ -29,8 +32,10 @@ const AdirekIs = () => {
               </p>
             </div>
             <div className="flex justify-center">
-              <button className="btn font-body text-3xl">
-                <Link href="/Contact">ติดต่อเรา</Link>{" "}
+              <button className="btn font-body text-3xl shadow-2xl">
+                <Link href="/Contact">
+                  <span className="drop-shadow-md font-Prompt">ติดต่อเรา</span>
+                </Link>{" "}
               </button>
             </div>
           </div>
@@ -116,8 +121,8 @@ const AdirekIs = () => {
       </section> */}
 
       <section className="relative  bg-blueGray-50 ">
-        <div className="items-center  flex-wrap grid grid-cols-1 lg:grid-cols-2">
-          <div className="w-full xl:w-9/12 ml-auto mr-auto px-4">
+        <div className="items-center  flex-wrap grid grid-cols-1  lg:grid-cols-2">
+          <div className="w-full xl:w-9/12 ">
             <iframe
               src="https://www.youtube.com/embed/I9TCLKlMzpc"
               frameBorder="0"
@@ -126,7 +131,7 @@ const AdirekIs = () => {
           </div>
           <div className="w-full  ml-auto mr-auto px-4">
             <div className="md:pr-12">
-              <h3 className="mb-6  mt-8 text-3xl font-title text-f2xl md:text-fxl lg:text-f3xl title-word-3 title-word-2 animate-[color-animation_3s_linear_infinite]">
+              <h3 className="drop-shadow-xl mb-6  mt-8 text-3xl font-title text-f2xl md:text-fxl lg:text-f3xl title-word-3 title-word-2 animate-[color-animation_3s_linear_infinite]">
                 ติดอาวุธทางความรู้ไปกับอดิเรก
               </h3>
               <p className="mt-4 indent-5 text-lg leading-relaxed text-grey-500  text-subtext lg:text-[1.2rem] font-medium">
@@ -147,7 +152,9 @@ const AdirekIs = () => {
                       </span>
                     </div>
                     <div>
-                      <p className="text-subtext    lg:text-[1.25rem] font-medium">ทุกการเรียนรู้ เริ่มต้นที่ อดิเรก</p>
+                      <p className="text-subtext    lg:text-[1.25rem] font-medium">
+                        ทุกการเรียนรู้ เริ่มต้นที่ อดิเรก
+                      </p>
                     </div>
                   </div>
                 </li>

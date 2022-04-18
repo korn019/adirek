@@ -20,11 +20,11 @@ const BreadcrumbPage = ({title, bread1, bread2, breadActive, href1, href2, hrefA
           </div>
         </div>
         <div className="">
-          <h1 className="title-font sm:text-f4xl  mb-4 font-title  text-gray-900">
+          <h1 className=" sm:text-fmd  mb-4 font-Prompt font-black  text-gray-900">
             {Search ? (
-              <span className="title-word  text-f2xl">{title}</span>
+              <span className="text-fxl md:text-fxl  drop-shadow-md">{title}</span>
             ) : (
-              <span className="title-word  text-f4xl">{title}</span>
+              <span className="text-fxl md:text-f3xl  drop-shadow-md">{title}</span>
             )}
           </h1>
         </div>

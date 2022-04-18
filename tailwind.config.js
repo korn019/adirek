@@ -14,8 +14,9 @@ module.exports = {
         text: ["DBGinSiamX", "Georgia"],
         textBold: ["DBGinSiamXBd", "Georgia"],
         Poppins: ["Poppins"],
-        Prompt: ["Prompt-Black"],
+        Prompt: ["Prompt"],
         Kodchasan: ["Kodchasan-Regular"],
+        k2d: ["K2D"],
       },
       fontSize: {
         fsm: `clamp(0.83rem, 0.54vw + 0.62rem, 1rem)`,

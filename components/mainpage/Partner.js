@@ -22,10 +22,10 @@ const Partner = () => {
           </div> */}
 
           <section className="pt-6 pb-4 md:pb-12 ">
-            <div className="mx-auto px-4">
+            <div className="mx-auto px-4 ">
               <div className="flex flex-wrap justify-center text-center mb-12">
                 <div className="w-full lg:w-6/12 px-4">
-                  <h4 className="text-f3xl md:text-6xl text-black-500 text-black font-Prompt ">
+                  <h4 className="text-f3xl md:text-5xl text-black-500 text-black font-Prompt font-black">
                     ข้อดีของการเป็น Partner กับเรา
                   </h4>
                 </div>
@@ -39,10 +39,10 @@ const Partner = () => {
                         <img src="static/img/intro/01.png" alt="img" />
                       </div>
                       <div className="wrap-details ">
-                        <h4 className="fs-4 text-black">
+                        <h4 className="fs-4 text-black font-Prompt">
                           <a href="#">ข้อดีของการเป็น Partner กับเรา</a>
                         </h4>
-                        <p className="text-black text-content">
+                        <p className="text-black text-content text-center">
                           การันตีได้ผลจริงพร้อมช่วยสร้างความมั่นใจและความก้าวหน้าให้กับคุณได้ง่าย
                         </p>
                       </div>
@@ -60,7 +60,7 @@ const Partner = () => {
                         <h4 className="fs-4 text-black">
                           <a href="#">การสร้างโอกาส</a>
                         </h4>
-                        <p className="text-black">
+                        <p className="text-black text-center">
                           ทุกเรื่องที่คุณสนใจ และช่องทางที่จะเปลี่ยนงานอดิเรกของคุณให้เป็นรายได้
                         </p>
                       </div>
@@ -78,7 +78,7 @@ const Partner = () => {
                         <h4 className="fs-4 text-black">
                           <a href="#">การเป็นที่รู้จักเข้าถึงกลุ่มเป้าหมายและผลลัพธ์</a>
                         </h4>
-                        <p className="text-black">
+                        <p className="text-black text-center">
                           จุดเริ่มต้นของสังคมแห่งการเรียนรู้ไม่มีที่สิ้นสุด
                         </p>
                       </div>
@@ -92,14 +92,12 @@ const Partner = () => {
           <div className="flex flex-wrap items-center md:justify-between justify-center">
             <div className="w-full md:w-4/12 px-4 mx-auto text-center">
               <div className="text-sm text-gray-600 font-semibold py-1">
-                <a
-                  href="#"
-                  className="text-gray-600 hover:text-gray-900 font-title text-flg">
-                  <span className="title-word title-word-1">อ</span>
-                  <span className="title-word title-word-2">ดิ</span>
-                  <span className="title-word title-word-3">เ</span>
-                  <span className="title-word title-word-4">ร</span>
-                  <span className="title-word title-word-3">ก</span>
+                <a href="#" className="text-gray-600 hover:text-gray-900 font-title text-flg">
+                  <span className="title-word title-word-1  drop-shadow-md">อ</span>
+                  <span className="title-word title-word-2  drop-shadow-md">ดิ</span>
+                  <span className="title-word title-word-3  drop-shadow-md">เ</span>
+                  <span className="title-word title-word-4  drop-shadow-md">ร</span>
+                  <span className="title-word title-word-3  drop-shadow-md">ก</span>
                 </a>
               </div>
             </div>
