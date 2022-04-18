@@ -5904,7 +5904,7 @@ a.showMore-cat.showLess::after {
 } */
 
 .row-hero {
-  height: 50rem;
+  height: 35rem;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -6731,4 +6731,18 @@ button:hover:after {
   z-index: 0;
   background: black;
   opacity: .4;
+}
+.text-effect-1 {
+  background: #accfcb;
+  background-image: -moz-linear-gradient(-45deg, #df8453 0%, #accfcb 54%, #dbad4a 100%);
+  background-image: -webkit-linear-gradient(-45deg, #accfcb 0%,#df8453 54%,#dbad4a 100%);
+  background-image: linear-gradient(45deg,#ffff 0%,#fff 50%,#ffff 100%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}        
+    .mad-text-big {
+  font-size: 1.25rem;
+  line-height: 2rem;
 }

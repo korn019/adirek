@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=K2D&family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 @font-face {
   font-family: DB-Adman-X-Bd;
   src: url("../public/static/fonts/DB-Adman-X-Bd.ttf");
@@ -35,10 +35,31 @@
   src: url("../public/static/fonts/DBGinSiamXLi.ttf");
 }
 @font-face {
-  font-family: DBGinSiamXBd;
-  src: url("../public/static/fonts/DBGinSiamXBd.ttf");
+  font-family: Mitr-Medium;
+  src: url("../public/static/fonts/Mitr-Medium.ttf");
 }
+@font-face {
+  font-family: Prompt-Black;
+  src: url("../public/static/fonts/Prompt-Black.ttf");
+}
+@font-face {
+  font-family: Prompt-Regular;
+  src: url("../public/static/fonts/Prompt-Regular.ttf");
+}
+@font-face {
+  font-family: Kodchasan-Regular;
 
+  src: url("../public/static/fonts/Kodchasan-Regular.ttf");
+}
+@layer components {
+  .mad-text-big {
+    font-size: 1.05rem;
+    line-height: 2rem;
+  }
+}
 .subtext {
   @apply  indent-5 text-lg leading-loose text-[#000000bf] ;
+}
+.text-subtext {
+  @apply leading-relaxed tracking-wide mad-text-big font-Kodchasan text-black 
 }

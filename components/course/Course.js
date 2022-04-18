@@ -15,7 +15,7 @@ const Course = () => {
      axios
        .get("https://www.api-adirek.online/api/instructor")
        .then((res) => {
-         console.log(res)
+        //  console.log(res)
          setData(res.data)
          setIsLoading(true)
        })

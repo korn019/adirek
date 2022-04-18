@@ -8,17 +8,14 @@ const LandingScreen = () => {
         <source src="/static/video/landing.mp4#t=86"  type="video/mp4" />
       </video>
      
-      <div className="video-quote text-center px-3 ">
+      <div className="video-quote text-center lg:px-4 ">
         <p
-          className="
-        text-f3xl md:text-f4xl"
+          className="text-effect-1
+        text-f3xl md:text-f3xl lg:text-[4.5rem]"
           style={{
-            color: "white",
-            // fontSize: "clamp(3rem, 6vw, 5rem)",
-            lineHeight: 0.9,
-            fontWeight: 900,
-            letterSpacing: "-0.025em",
-            marginTop: "1em",
+            // fontSize: "clamp(3rem, 2vw,4rem)",
+            fontFamily:'Prompt-Black'
+
           }}>
           เปิดประตู "สู่การเรียนรู้" ให้ทุกวันคือการสร้างโอกาสใหม่
         </p>

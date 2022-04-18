@@ -33,7 +33,7 @@ const Testimonial = () => {
 
   return (
     <>
-      <div className=" py-12  bg-testimonal">
+      <div className=" py-12  bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between">
           <div className="text-center">
             <h3 className="text-f3xl sm:text-f4xl leading-normal font-title tracking-tight ">

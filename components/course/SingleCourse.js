@@ -5,7 +5,7 @@ const SingleCourse = ({course, index, filterImg}) => {
   const [data, setData] = useState(CourseCheck)
 
   let imgBanner = data.map((item) => item.value)
-  console.log(course.filterCategory)
+  // console.log(course.filterCategory)
   let filter = data.filter((num) => {
     if (num.value.includes(course.filterCategory)) {
       return num.imgBanner

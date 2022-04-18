@@ -11,7 +11,7 @@ const SlideCourse = () => {
     axios
       .get("https://www.api-adirek.online/api/instructor")
       .then((res) => {
-        console.log(res)
+        // console.log(res)
         setAvailable(res.data)
       })
       .catch((err) => {

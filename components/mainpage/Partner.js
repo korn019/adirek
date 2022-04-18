@@ -25,7 +25,7 @@ const Partner = () => {
             <div className="mx-auto px-4">
               <div className="flex flex-wrap justify-center text-center mb-12">
                 <div className="w-full lg:w-6/12 px-4">
-                  <h4 className="text-f3xl md:text-7xl text-black-500 text-black font-title ">
+                  <h4 className="text-f3xl md:text-6xl text-black-500 text-black font-Prompt ">
                     ข้อดีของการเป็น Partner กับเรา
                   </h4>
                 </div>
@@ -42,7 +42,7 @@ const Partner = () => {
                         <h4 className="fs-4 text-black">
                           <a href="#">ข้อดีของการเป็น Partner กับเรา</a>
                         </h4>
-                        <p className="text-black">
+                        <p className="text-black text-content">
                           การันตีได้ผลจริงพร้อมช่วยสร้างความมั่นใจและความก้าวหน้าให้กับคุณได้ง่าย
                         </p>
                       </div>
