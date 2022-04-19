@@ -13,19 +13,48 @@ const SingleCourse = ({course, index, filterImg}) => {
   })
 
   const IMG = () => {
-    if (course.filterCategory == "Design" && course.รูปถ่าย == "") {
+    if (
+      course.filterCategory == "Design" ||
+      course.filterCategory == "UI UX" ||
+      course.filterCategory == "Web Design" ||
+      course.filterCategory == "Graphic Design & Illustration" ||
+      course.filterCategory == "Design Tools" ||
+      course.filterCategory == "Game Design" ||
+      course.filterCategory == "3D & Animation" ||
+      course.filterCategory == "Fashion Design" ||
+      course.filterCategory == "Architectural Design" ||
+      course.filterCategory == "Interior Design" ||
+      course.filterCategory == "Other Design" ||
+      course.filterCategory == "Design" &&
+      course.รูปถ่าย == ""
+    ) {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
           <img className="object-fill " src="/static/img/icon/course/P1.jpg" alt="img" />
         </Link>
       )
-    } else if (course.filterCategory == "วิชาการ" && course.รูปถ่าย == "") {
+    } else if (
+      course.filterCategory == "คณิตศาสตร์" ||
+      course.filterCategory == "วิทยาศาสตร์" ||
+      course.filterCategory == "ภาษา" ||
+      (course.filterCategory == "วิชาการ" && course.รูปถ่าย == "")
+    ) {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
           <img className="object-fill " src="/static/img/icon/course/P2.jpg" alt="img" />
         </Link>
       )
-    } else if (course.filterCategory == "งานฝีมือ" && course.รูปถ่าย == "") {
+    } else if (
+      course.filterCategory == "ทำอาหารและขนม" ||
+      course.filterCategory == "ร้องเพลงและการแสดง" ||
+      course.filterCategory == "งานฝีมือ" ||
+      course.filterCategory == "กีฬา" ||
+      course.filterCategory == "ดนตรี" ||
+      course.filterCategory == "จัดดอกไม้และจัดสวนถาด" ||
+      course.filterCategory == "วาดรูป" ||
+      course.filterCategory == "ดูดวง" &&
+      course.รูปถ่าย == ""
+    ) {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
           <img className="object-fill " src="/static/img/icon/course/P3.jpg" alt="img" />
@@ -119,7 +148,7 @@ const SingleCourse = ({course, index, filterImg}) => {
             <div className="user-details truncate">
               <img
                 className="w-[1.5rem] h-[1.5rem]"
-                src={course.รูปถ่าย == "" ? "/static/img/user.png" : `/${course.รูปถ่าย}`}
+                src={course.รูปถ่าย == "" ? "/static/img/user.png" : `${course.รูปถ่าย}`}
                 alt="img"
               />{" "}
               <p className="truncate">
