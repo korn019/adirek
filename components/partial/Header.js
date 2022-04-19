@@ -285,9 +285,9 @@ function Header() {
   const [navHead, setNavHead] = useState(false)
   const changeBg = () => {
     if (typeof window !== "undefined") {
-      if (window.scrollY >= 60) {
+      if (window.scrollY > 80) {
         setNavHead(true)
-      } else {
+      } else if (window.scrollY < 30) {
         setNavHead(false)
       }
     }

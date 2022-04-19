@@ -4,7 +4,6 @@ import ReactStars from "react-stars"
 const InstructorDetail = ({e}) => {
   const [showModal, setShowModal] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
-
   function closeModal() {
     setIsOpen(false)
   }
@@ -16,10 +15,8 @@ const InstructorDetail = ({e}) => {
   for (let i = 0; i < e.รายละเอียดคอร์สเรียน.length; i++) {
     amountCourse = `${[i]} `
   }
-  // console.log(amountCourse) 
      const [start, setStart] = useState()
      const ratingChanged = (newRating) => {
-       console.log(newRating)
        setStart(newRating)
      }
   return (
@@ -33,7 +30,7 @@ const InstructorDetail = ({e}) => {
               <div className="card-body">
                 <div className="">
                   <img
-                    src={e.รูปถ่าย == "" ? "/static/img/user.png" : `/${e.รูปถ่าย}`}
+                    src={e.รูปถ่าย == "" ? "/static/img/logo-Adirek.png" : `/${e.รูปถ่าย}`}
                     alt="img"
                     className="object-scale-down w-[370px] h-[240px]"
                   />
@@ -66,12 +63,12 @@ const InstructorDetail = ({e}) => {
                 <p className="sub-title-teacher text-[#f8f8f8] text-[16px]">
                   {" "}
                   <i className="fa fa-check-circle text-[aquamarine]" aria-hidden="true"></i>
-                  Verified
+               &nbsp;  Verified
                 </p>
                 <p className="sub-title-teacher  text-[#f8f8f8] text-[16px]">
                   {" "}
                   <i className="fa fa-check-circle text-[aquamarine]" aria-hidden="true"></i>
-                  {e.ฉีดวัคซีนป้องกัน}
+                &nbsp; {e.ฉีดวัคซีนป้องกัน}
                 </p>
                 <ul className="social-area d-inline-block">
                   <li>
@@ -100,11 +97,11 @@ const InstructorDetail = ({e}) => {
             {" "}
             <div className="space-y-1">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:space-x-3">
-                <h1 className="font-title text-f3xl text-[#cf9b3b]">คอร์สเรียน</h1>
+                <h1 className="!font-Prompt font-black drop-shadow-2xl text-f2xl text-[#F6A21C]">คอร์สเรียน</h1>
                 <div className="bg-slate-700 rounded-lg  px-2 lg:col-span-2">
                   <a href={`tel:${e.เบอร์โทร}`} className="flex items-center justify-between ">
                     <h1 className="font-title text-f3xl text-white">โทรหาผู้สอน</h1>
-                    <i className="fa fa-phone text-[#cf9b3b] text-3xl"></i>
+                    <i className="fa fa-phone text-[#F6A21C] text-3xl"></i>
                   </a>
                 </div>
               </div>
@@ -206,7 +203,7 @@ const InstructorDetail = ({e}) => {
           <div className="mt-6 md:mt-0 lg:px-5">
             {" "}
             <div className="space-y-1">
-              <h1 className="font-title text-f3xl text-[#cf9b3b]">หมวดหมู่:</h1>
+              <h1 className="font-Prompt font-black text-f3xl text-[#F6A21C]">หมวดหมู่:</h1>
               <div className="align-items-center justify-content-center bg-[#eaf0f6] border-b-2 border-gray-200 rounded-lg p-2">
                 <div className="ml-1 title text-black text-[32px]">
                   {e.ช่องทางการสอน == "" ? "ไม่พบข้อมูล" : e.ช่องทางการสอน}{" "}
@@ -220,7 +217,7 @@ const InstructorDetail = ({e}) => {
             </div>
             <div className="grid grid-cols-2 items-center justify-between mt-5">
               <div>
-                <h1 className="font-title text-f3xl text-[#cf9b3b]">Rating</h1>
+                <h1 className="title font-Prompt font-black text-f2xl text-[#F6A21C]">Rating</h1>
               </div>
               <div className="text-right flex items-center justify-end">
                 <span className="mx-2">
@@ -266,23 +263,23 @@ const InstructorDetail = ({e}) => {
           </div>
           <div className="lg:px-5 mt-6">
             {" "}
-            <h1 className="title text-[#cf9b3b]">แนะนำผู้สอน</h1>
+            <h1 className="title font-Prompt font-black text-f2xl  text-[#F6A21C]">แนะนำผู้สอน</h1>
             <p className=" subtext ">{e.ประวัติการสอน == "" ? "ไม่พบข้อมูล" : e.ประวัติการสอน}</p>
           </div>
           <div className="lg:px-5 mt-6">
             {" "}
-            <h1 className="title text-[#cf9b3b]">ประวัติการศึกษา</h1>
+            <h1 className="title  font-Prompt font-black text-f2xl text-[#F6A21C]">ประวัติการศึกษา</h1>
             <p className=" subtext">
               {e.ประวัติการศึกษา == "" ? "ไม่พบข้อมูล" : e.ประวัติการศึกษา}
             </p>
           </div>
           <div className="lg:px-5 mt-6">
             {" "}
-            <h1 className="title text-[#cf9b3b]">ติดต่อผู้สอน</h1>
+            <h1 className="title font-Prompt font-black text-f2xl text-[#F6A21C]">ติดต่อผู้สอน</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-              <p className="lead font-bold">phone:</p>
+              <p className="lead font-bold">Phone:</p>
               <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">
-                {e.เบอร์โทร == "" ? "ไม่พบข้อมูล" : e.เบอร์โทร}
+              <a href={`tel:${e.เบอร์โทร}`}> {e.เบอร์โทร == "" ? "ไม่พบข้อมูล" : e.เบอร์โทร}</a> 
               </p>
               <p className="lead font-bold">Address:</p>
               <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">
@@ -290,13 +287,17 @@ const InstructorDetail = ({e}) => {
               </p>
               <p className="lead font-bold">Email:</p>
               <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">
-                adirek@hotmail.com
+              {e.ที่อยู่อีเมล == '' ? "ไม่พบข้อมูล" : e.ที่อยู่อีเมล}
+              </p>
+              <p className="lead font-bold">Line:</p>
+              <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">
+              {e.line == null ? "ไม่พบข้อมูล" : e.line}
               </p>
             </div>
           </div>
           <div className="lg:px-5 mt-6">
             {" "}
-            <h1 className="title text-[#cf9b3b]">Review</h1>
+            <h1 className="title font-Prompt font-black text-f2xl text-[#F6A21C]">Review</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
               <ol className="list-decimal" style={{color: "#808191"}}>
                 <li className="subtext">สอนเข้าใจง่าย</li>
@@ -322,7 +323,7 @@ const InstructorDetail = ({e}) => {
           <div className="col-12  col-md-12 col-lg-12 mt-2 mt-md-0">
             <div className=" align-items-center ">
               <div className="">
-                <h1 className="ml-1 title text-[#cf9b3b] text-[42px]">หมวดหมู่: </h1>
+                <h1 className="ml-1 title text-[#F6A21C] text-[42px]">หมวดหมู่: </h1>
                 <div
                   className="align-items-center justify-content-center "
                   style={{padding: 5, background: "#eaf0f6", borderRadius: 10, margin: 2}}>
@@ -396,7 +397,7 @@ const InstructorDetail = ({e}) => {
       <div className="row mt-5">
         <div className="col-md-6">
           <div className="col-11">
-            <h1 className="title text-[#cf9b3b]">แนะนำผู้สอน</h1>
+            <h1 className="title text-[#F6A21C]">แนะนำผู้สอน</h1>
             <p className="lead ">
               {typeof e.ประวัติการสอน == "undefined" ? "ไม่พบข้อมูล" : e.ประวัติการสอน}
             </p>
@@ -404,7 +405,7 @@ const InstructorDetail = ({e}) => {
         </div>
         <div className="col-md-6 mt-5 mt-md-0">
           <div className="col-12">
-            <h1 className="title text-[#cf9b3b]">การศึกษา</h1>
+            <h1 className="title text-[#F6A21C]">การศึกษา</h1>
             <ul style={{color: "#808191"}}>
               <li>
                 <p className=" lead">

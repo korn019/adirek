@@ -4,7 +4,7 @@ const BreadcrumbPage = ({title, bread1, bread2, breadActive, href1, href2, hrefA
   return (
     <div className="border-b border-[#e5f1fb]">
       <div className="container ">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-8 xl:grid-cols-12  h-full justify-center items-center  py-10 lg:py-12 ">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1  h-full justify-center items-center  py-10 lg:py-12 ">
           <div className="md:col-span-3 lg:col-span-4 xl:col-span-5 2xl:col-span-4">
             <Breadcrumb
               breadActive={breadActive}

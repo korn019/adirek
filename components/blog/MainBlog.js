@@ -60,7 +60,7 @@ const MainBlog = ({search, setSearch}) => {
           <div className="row">
             <div className="col-md-8">
               <div className="">
-                <h2 className="!font-Prompt font-black text:fxl md:text-f2xl mb-5">บทความ/ข่าวสาร</h2>
+                <h2 className="!font-Prompt font-black text:fxl md:text-f2xl mb-5">บทความ</h2>
               </div>
             </div>
           </div>

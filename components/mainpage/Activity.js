@@ -5,8 +5,8 @@ const Activity = () => {
         <div className="container">
           <div className="row justify-content-center gx-0">
             <div className="col-lg-12">
-              <div className="section-title">
-                <h2>กิจกรรมของเรา</h2>
+              <div className="section-title  drop-shadow-xl">
+                <h2 className="!font-Prompt font-black ">กิจกรรมของเรา</h2>
               </div>
             </div>
             <div className="col-md-6 col-lg-4">
@@ -68,7 +68,7 @@ const Activity = () => {
                 <div className="content-overlay"></div>
                 <div
                   className="container d-flex justify-content-center align-items-center"
-                  style={{backgroundColor: "#bcbcbc", width: "100%", height: "100%"}}>
+                  style={{backgroundColor: "#bcbcbc", width: "100%", height: "300px"}}>
                   <div className="">
                     <h2>Banner Ads</h2>
                   </div>

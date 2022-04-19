@@ -18,7 +18,7 @@ const LandingScreen = () => {
           }}>
           เปิดประตู{" "}
           <strong
-            className="!text-[#FF5959] drop-shadow-2xl  text-shade"
+            className="!text-[#FF5959] drop-shadow-2xl  text-shade2"
             style={{textShadow: "2px_2px_3px_rgba(0, 0, 0, 1)"}}>
             " สู่การเรียนรู้ "{" "}
           </strong>{" "}

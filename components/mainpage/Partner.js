@@ -26,7 +26,7 @@ const Partner = () => {
               <div className="flex flex-wrap justify-center text-center mb-12">
                 <div className="w-full lg:w-6/12 px-4">
                   <h4 className="text-f3xl md:text-5xl text-black-500 text-black font-Prompt font-black">
-                    ข้อดีของการเป็น Partner กับเรา
+                    ข้อดีของการเป็น Partner กับเรา ****เปลี่ยน****
                   </h4>
                 </div>
               </div>

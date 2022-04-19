@@ -17,6 +17,7 @@ module.exports = {
         Prompt: ["Prompt"],
         Kodchasan: ["Kodchasan-Regular"],
         k2d: ["K2D"],
+        Mitr: ['Mitr']
       },
       fontSize: {
         fsm: `clamp(0.83rem, 0.54vw + 0.62rem, 1rem)`,

@@ -48,7 +48,7 @@ function ClientArea() {
                   }}
                   modules={[Navigation]}
                   autoplay={{
-                    delay: 5000,
+                    delay: 800,
                   }}
                   loop={true}
                   slidesPerView={4}

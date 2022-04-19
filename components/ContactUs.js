@@ -240,7 +240,7 @@ const ContactUs = () => {
                   target="_blank"
                   rel="noreferrer"
                   className="rounded-full bg-white h-8 w-8 inline-block mx-1 text-center pt-1">
-                  <i className="fab fa-linkedin-in text-blue-900" />
+                  <i className="fab fa-youtube-in text-blue-900" />
                 </a>
               </div>
             </div>

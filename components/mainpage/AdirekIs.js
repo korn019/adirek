@@ -9,15 +9,15 @@ const AdirekIs = () => {
         <div className="container mx-auto flex md:px-6 py-24 md:flex-row flex-col items-center">
           <div className="lg:flex-grow md:w-1/2 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-left  z-50">
             <h1
-              className="title-font text-f4xl sm:text-f4xl  mb-4 font-title  text-gray-900 text-shade shade-text"
-              style={{textShadow: "2px_2px_3px_rgba(0, 0, 0, 1)"}}>
-              <span className="title-word title-word-1 drop-shadow-md ">อ</span>
-              <span className="title-word title-word-2 drop-shadow-md ">ดิ</span>
-              <span className="title-word title-word-3 drop-shadow-md ">เ</span>
-              <span className="title-word title-word-4 drop-shadow-md ">ร</span>
-              <span className="title-word title-word-5 drop-shadow-md ">ก</span>
+              className="title-font text-f4xl sm:text-f4xl  mb-4 font-title "
+              >
+              <span className="title-word title-word-1  drop-shadow-2xl ">อ</span>
+              <span className="title-word title-word-2  drop-shadow-2xl ">ดิ</span>
+              <span className="title-word title-word-3  drop-shadow-2xl ">เ</span>
+              <span className="title-word title-word-4  drop-shadow-2xl ">ร</span>
+              <span className="title-word title-word-5  drop-shadow-2xl ">ก</span>
             </h1>
-            <p className="mb-8 text-subtext  lg:text-[1.5rem] !font-k2d font-light   indent-4">
+            <p className="mb-8  indent-5 text-lg leading-relaxed text-grey-500  text-subtext lg:text-[1.35rem]  !font-k2d font-light">
               เกิดขึ้นจากความเชื่อที่ว่า "ชีวิตคือการค้นหาและเรียนรู้สิ่งใหม่ๆ
               ที่ไม่มีวันสิ้นสุด"เราจึงก่อตั้ง{" "}
               <strong className="text-3xl font-Prompt font-black text-[#FF5959]"> อดิเรก </strong>
@@ -25,7 +25,7 @@ const AdirekIs = () => {
               <strong className="text-3xl font-Prompt font-black text-[#FF5959]"> อดิเรก </strong>
             </p>
             <div className="flex justify-center">
-              <p className="mb-8 text-subtext lg:text-[1.5rem]  !font-k2d font-light indent-4">
+              <p className="mb-8 mt-4 indent-5 text-lg leading-relaxed text-grey-500  text-subtext lg:text-[1.35rem]  !font-k2d font-light">
                 เรารวบรวมกลุ่มผู้สอนไว้มากที่สุดในประเทศไทย
                 เลือกได้ตามหมวดหมู่และความสนใจของคุณเน้นสอนตามความต้องการของผู้เรียน
                 ด้วยระบบที่เปิดโอกาสให้ผู้เรียนสามารถเลือกผู้สอนได้ด้วยตนเองมีระบบที่ประกันการสอนเพื่อสร้างความไว้วางใจให้กับผู้เรียน
@@ -60,12 +60,14 @@ const AdirekIs = () => {
 
       <section className="relative  bg-blueGray-50 ">
         <div className="items-center  flex-wrap grid grid-cols-1  lg:grid-cols-2">
-          <div className="w-full  md:w-11/12">
+          <div className="w-full  md:w-11/12 px-2">
             <iframe
               src="https://www.youtube.com/embed/I9TCLKlMzpc"
               frameBorder="0"
               allowFullScreen
-              className="animate-none xl:animate-[youtubeSlide_4s_infinite_alternate] aspect-video  w-full h-96  rounded-lg "></iframe>
+              // className="animate-none xl:animate-[youtubeSlide_4s_infinite_alternate] aspect-video  w-full h-96  rounded-lg "
+              className="aspect-video  w-full h-full  rounded-lg "
+              ></iframe>
           </div>
           <div className="w-full  ml-auto mr-auto px-4">
             <div className="md:pr-12">
@@ -81,14 +83,9 @@ const AdirekIs = () => {
                 ทุกทักษะที่คุณตามหา พร้อมสื่อสารกันโดยตรง ไม่ผ่านคนกลาง สามารถกำหนดวัน เวลา สถานที่
                 รวมทั้งสามารถเลือกรูปแบบผู้สอนที่ผู้เรียนต้องการได้อย่างอิสระ
               </p>
-              <ul className="list-none mt-6 ">
+              <ul className="list-disc mt-6 ">
                 <li className="py-2">
                   <div className="flex items-center">
-                    <div>
-                      <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
-                        {/* <i className="fas fa-fingerprint"></i> */}
-                      </span>
-                    </div>
                     <div>
                       <p className="text-subtext    lg:text-[1.25rem]  !font-k2d font-light">
                         ทุกการเรียนรู้ เริ่มต้นที่ อดิเรก
@@ -99,11 +96,6 @@ const AdirekIs = () => {
                 <li className="py-2">
                   <div className="flex items-center">
                     <div>
-                      <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
-                        {/* <i className="fab fa-html5"></i> */}
-                      </span>
-                    </div>
-                    <div>
                       <p className="text-subtext   lg:text-[1.25rem]  !font-k2d font-light">
                         อดิเรก จุดเริ่มต้นของสังคมแห่งการเรียนรู้ไม่มีที่สิ้นสุด
                       </p>
@@ -113,11 +105,6 @@ const AdirekIs = () => {
                 <li className="py-2">
                   <div className="flex items-center">
                     <div>
-                      <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
-                        {/* <i className="far fa-paper-plane"></i> */}
-                      </span>
-                    </div>
-                    <div>
                       <p className="text-subtext   lg:text-[1.25rem]  !font-k2d font-light">
                         อดิเรก เราเปิดประตสู่ทุกการเรียนรู้ ให้ทุกวันคือการสร้างโอกาสใหม่สำหรับคณ
                       </p>
@@ -126,11 +113,6 @@ const AdirekIs = () => {
                 </li>
                 <li className="py-2">
                   <div className="flex items-center">
-                    <div>
-                      <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
-                        {/* <i className="far fa-paper-plane"></i> */}
-                      </span>
-                    </div>
                     <div>
                       <p className="text-subtext  lg:text-[1.25rem]  !font-k2d font-light">
                         อดิเรกประตูสู่การเรียนรู้ทุกเรื่องที่คุณสนใจและช่องท่างที่จะเปลี่ยนงานอดิเรกของคุณให้เป็นรายได้

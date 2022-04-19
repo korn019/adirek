@@ -2,7 +2,7 @@ const BannerAds = () => {
   return (
     <>
       <div className="container">
-        <div className="bg-slate-400 md:col-span-3 lg:col-span-8 xl:col-span-7 2xl:col-span-8 h-52 flex items-center justify-center w-full mt-12 md:mt-6">
+        <div className="bg-slate-400 md:col-span-3 lg:col-span-8 xl:col-span-7 2xl:col-span-8 h-52 flex items-center justify-center w-full">
           <p className="font-title text-f3xl">Banner Ads</p>
         </div>
       </div>
