@@ -60,8 +60,8 @@ const Course = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <div className="section-title">
-                <h2>คอร์สขายดี</h2>
+              <div className="section-title drop-shadow-xl">
+                <h2 className="!font-Prompt font-black ">คอร์สขายดี</h2>
               </div>
             </div>
 

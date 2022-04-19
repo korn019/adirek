@@ -10,47 +10,47 @@ const SingleSlideCourse = ({item, availableCourse}) => {
   // console.log(availableCourse)
   return (
     <>
-      <div className="item z-50 ">
+      <div className="item z-50 group">
         <div
-          className={`single-intro-wrap ${
+          className={`single-intro-wrap group-hover:scale-[1.02] group-hover:duration-200  ${
             item.value === "Design"
-              ? "!bg-red-300"
+              ? "!bg-[#0D4C92]  group-hover:!bg-slate-50 group-hover:border-2 group-hover:border-blue-500 group-hover:duration-400"
               : item.value === "วิชาการ"
-              ? "!bg-blue-500"
+              ? "!bg-[#1F2A54] group-hover:!bg-slate-50 group-hover:border-2 group-hover:border-blue-500 group-hover:duration-400 "
               : item.value === "งานฝีมือ"
-              ? "!bg-blue-100"
+              ? "!bg-[#22356C]  group-hover:!bg-slate-50 group-hover:border-2 group-hover:border-blue-500 group-hover:duration-400"
               : item.value === "ถ่ายรูปและแต่งรูป"
-              ? "!bg-blue-200"
+              ? "!bg-[#B9CF32] group-hover:!bg-slate-50 group-hover:border-2 group-hover:border-blue-500 group-hover:duration-400 "
               : item.value === "แต่งหน้า"
-              ? "!bg-blue-300"
+              ? "!bg-[#96C23D] group-hover:!bg-slate-50 group-hover:border-2 group-hover:border-blue-500 group-hover:duration-400 "
               : item.value === "บุคลิกภาพ"
-              ? "!bg-blue-400"
+              ? "!bg-[#96C23D] group-hover:!bg-slate-50 group-hover:border-2 group-hover:border-blue-500 group-hover:duration-400 "
               : item.value === "ร้องเพลงและการแสดง"
-              ? "!bg-blue-500"
+              ? "!bg-[#F9BA14] group-hover:!bg-slate-50 group-hover:border-2 group-hover:border-blue-500 group-hover:duration-400 "
               : item.value === "กีฬา"
-              ? "!bg-blue-600"
+              ? "!bg-[#F6A21D]  group-hover:!bg-slate-50 group-hover:border-2 group-hover:border-blue-500 group-hover:duration-400"
               : item.value === "ดนตรี"
-              ? "!bg-blue-700"
+              ? "!bg-[#EE6724] group-hover:!bg-slate-50 group-hover:border-2 group-hover:border-blue-500 group-hover:duration-400 "
               : item.value === "ทำอาหารและขนม"
-              ? "!bg-blue-800"
+              ? "!bg-[#E8258C] group-hover:!bg-slate-50 group-hover:border-2 group-hover:border-blue-500 group-hover:duration-400 "
               : item.value === "ดูดวง"
-              ? "!bg-red-100"
+              ? "!bg-[#D1157B] group-hover:!bg-slate-50 group-hover:border-2 group-hover:border-blue-500 group-hover:duration-400 "
               : item.value === "Cryptocurrency"
-              ? "!bg-red-200"
+              ? "!bg-[#821A4A] group-hover:!bg-slate-50 group-hover:border-2 group-hover:border-blue-500 group-hover:duration-400 "
               : item.value === "NFT"
-              ? "!bg-red-300"
+              ? "!bg-[#2097D4] group-hover:!bg-slate-50 group-hover:border-2 group-hover:border-blue-500 group-hover:duration-400 "
               : null
           }`}>
           <div className="thumb">
-            <img src={item.img} alt="img" />
+            <img src={item.img} alt="img" className="group-hover:scale-125 group-hover:duration-1000"/>
           </div>
           <div className="wrap-details bg">
             <h6 className="text-center">
               <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
-                <a style={{fontFamily: "Prompt-Black", fontSize: 24}}>{item.value}</a>
+                <a style={{ fontSize: 22}} className='font-Prompt font-bold text-slate-50 group-hover:text-blue-900  leading-relaxed tracking-wide shade-text2 '>{item.value}</a>
               </Link>
             </h6>
-            <p>มี {filter.length} หลักสูตรให้เลือก</p>
+            <p className="shade-text2  text-slate-50 group-hover:text-blue-900 text-f3xl"> มี <strong className="shade-text2 text-xl group-hover:text-red-600">&nbsp;{filter.length}&nbsp;</strong> หลักสูตรให้เลือก</p>
           </div>
         </div>
       </div>
