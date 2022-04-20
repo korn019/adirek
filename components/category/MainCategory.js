@@ -3,7 +3,7 @@ import ReactPaginate from "react-paginate"
 import SingleCourse from "../course/SingleCourse"
 import FilterCheck from "./FilterCheck"
 import PaginatedItems from "./PaginatedItems"
-import {CourseCheck} from "./Check"
+import {CourseCheck2} from "./Check"
 import {PriceData} from "./Price"
 import {useRouter} from "next/router"
 import {SearchCourseContext} from "../../pages/Category"
@@ -161,7 +161,7 @@ const MainCategory = () => {
           <FilterCheck
             data={data}
             mainCategory={mainCategory}
-            CourseCheck={CourseCheck}
+            CourseCheck={CourseCheck2}
             PriceData={PriceData}
             isCheckAll={isCheckAll}
             setIsCheckAll={setIsCheckAll}
@@ -196,7 +196,7 @@ const MainCategory = () => {
                   return (
                     <PaginatedItems
                       isLoading={isLoading}
-                      itemsPerPage={12}
+                      itemsPerPage={18}
                       data={data}
                       isCheck={isCheck}
                       isCheckAll={isCheckAll}

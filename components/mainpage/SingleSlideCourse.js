@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useState } from "react";
-import { CourseCheck } from "../category/Check";
+import { CourseCheck2 } from "../category/Check";
 const SingleSlideCourse = ({ item, availableCourse }) => {
-  const [course, setCourse] = useState(CourseCheck);
+  const [course, setCourse] = useState(CourseCheck2);
 
   let filter = availableCourse.filter((num) => item.value.includes(num));
 
@@ -51,7 +51,7 @@ const SingleSlideCourse = ({ item, availableCourse }) => {
               ? "!bg-[#0D4C92]  group-hover:!bg-slate-50 group-hover:border-2 group-hover:border-blue-500 group-hover:duration-400"
               : item.value === "วิชาการ"
               ? "!bg-[#1F2A54] group-hover:!bg-slate-50 group-hover:border-2 group-hover:border-blue-500 group-hover:duration-400 "
-              : item.value === "งานฝีมือ"
+              : item.value === "Life Style"
               ? "!bg-[#22356C]  group-hover:!bg-slate-50 group-hover:border-2 group-hover:border-blue-500 group-hover:duration-400"
               : item.value === "ถ่ายรูปและแต่งรูป"
               ? "!bg-[#B9CF32] group-hover:!bg-slate-50 group-hover:border-2 group-hover:border-blue-500 group-hover:duration-400 "

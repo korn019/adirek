@@ -15,7 +15,7 @@ const SwiperCourse = ({Filter}) => {
         }}
         modules={[Navigation, Autoplay, Pagination]}
         autoplay={{
-          delay: 2500,
+          delay: 3500,
           disableOnInteraction: false,
         }}
         pagination={{

@@ -2,6 +2,7 @@ import Layout from "../../components/Layout"
 import {useRouter} from "next/router"
 import {useState, useEffect} from "react"
 import {CourseCheck} from "../../components/course/Courselabel"
+import {CourseCheck2} from "../../components/category/Check"
 import CoursePage from "../../components/course/CoursePage"
 import { SearchCourseProvider } from "../Category"
 import BannerAds from "../../components/BannerAds"
@@ -11,6 +12,7 @@ const Instructor = () => {
   const router = useRouter()
   const {Course} = router.query
   const [data, setData] = useState(CourseCheck)
+  const [courseLabel, setCourseLabel] = useState(CourseCheck)
   const [dataJson, setDataJson] = useState([])
 
   // const getData = () => {

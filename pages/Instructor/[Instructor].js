@@ -4,13 +4,13 @@ import { useState, useEffect } from "react";
 import InstructorDetail from "../../components/Instructor/InstructorDetail";
 import { SearchCourseProvider } from "../Category";
 import BannerAds from "../../components/BannerAds";
-import { CourseCheck } from "../../components/category/Check";
+import { CourseCheck2 } from "../../components/category/Check";
 import axios from "axios";
 const Instructor = () => {
   const router = useRouter();
   const { Instructor } = router.query;
   const [data, setData] = useState([]);
-  const [check, setCheck] = useState(CourseCheck);
+  const [check, setCheck] = useState(CourseCheck2);
 
   // const getData = () => {
   //   fetch("../../assets/json/user.json", {

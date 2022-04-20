@@ -22,7 +22,7 @@ const CourseCategory = () => {
   const [checkItem, setCheckItem] = useState([])
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * 25) % items.length
+    const newOffset = (event.selected * 20) % items.length
     setItemOffset(newOffset)
   }
 
@@ -62,9 +62,9 @@ const CourseCategory = () => {
   }
   useEffect(() => {
     getData()
-    const endOffset = itemOffset + 25
+    const endOffset = itemOffset + 20
     setCurrentItems(items.slice(itemOffset, endOffset))
-    setPageCount(Math.ceil(items.length / 25))
+    setPageCount(Math.ceil(items.length / 20))
   }, [data, itemOffset])
 
   const SearchCateCourse = data.filter((v) => {
@@ -106,7 +106,7 @@ const CourseCategory = () => {
         {isLoading ? (
           SearchCateCourse.length > 0 ? (
             <>
-              <div className="mt-5 container  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-5  md:space-x-2 lg:space-x-2">
+              <div className="mt-5 container  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4  md:space-x-2 lg:space-x-2">
                 {currentItems &&
                   currentItems.map((item, index) => {
                     return (

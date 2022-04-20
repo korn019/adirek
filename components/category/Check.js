@@ -132,7 +132,7 @@
 //   // },
 // ]
 
-export const CourseCheck = [
+export const CourseCheck2 = [
   //   {
   //     id: "1",
   //     value: "ทั้งหมด",

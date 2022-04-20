@@ -23,7 +23,7 @@ export const CourseCheck = [
   },
   {
     id: 3,
-    value: "งานฝีมือ",
+    value: "Life Style",
     img: "static/img/icon/course/3.png",
     imgBanner: "static/img/icon/course/P3.jpg",
     imgBannerDetails: "static/img/icon/course/PP3.jpg",
