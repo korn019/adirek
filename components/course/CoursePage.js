@@ -1,14 +1,14 @@
-import {useState, useEffect} from "react"
-import ReactPaginate from "react-paginate"
-import BannerAds from "../BannerAds"
-import BreadcrumbPage from "../BreadcrumbPage"
-import SingleCourse from "./SingleCourse"
-import SwiperCourse from "./SwiperCourse"
-import axios from "axios"
-const CoursePage = ({e}) => {
-  const [data, setData] = useState([])
-  const [dataJson, setDataJson] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+import { useState, useEffect } from "react";
+import ReactPaginate from "react-paginate";
+import BannerAds from "../BannerAds";
+import BreadcrumbPage from "../BreadcrumbPage";
+import SingleCourse from "./SingleCourse";
+import SwiperCourse from "./SwiperCourse";
+import axios from "axios";
+const CoursePage = ({ e }) => {
+  const [data, setData] = useState([]);
+  const [dataJson, setDataJson] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   // const getData = () => {
   //   fetch("../../assets/json/user.json", {
@@ -34,39 +34,59 @@ const CoursePage = ({e}) => {
     axios
       .get("https://www.api-adirek.online/api/instructor")
       .then((res) => {
-        setData(res.data)
-        setIsLoading(true)
+        setData(res.data);
+        setIsLoading(true);
       })
       .catch((err) => {
-        console.error(err)
-      })
-  }
+        console.error(err);
+      });
+  };
 
   const Filter = data.filter((x) => {
-    return x.filterCategory == e.value
-  })
+    console.log(e.value);
+    if (e.value == 'Design' &&
+      x.filterCategory == "UI UX" ||
+      x.filterCategory == "Web Design" ||
+      x.filterCategory == "Graphic Design & Illustration" ||
+      x.filterCategory == "Design Tools" ||
+      x.filterCategory == "Game Design" ||
+      x.filterCategory == "3D & Animation" ||
+      x.filterCategory == "Fashion Design" ||
+      x.filterCategory == "Architectural Design" ||
+      x.filterCategory == "Interior Design" ||
+      x.filterCategory == "Other Design"
+    ) {
+      return x.filterCategory == e.value;
+    } else if(e.value == 'วิชาการ' &&  x.filterCategory == 'คณิตศาสตร์' ||  x.filterCategory == 'วิทยาศาสตร์' || x.filterCategory == 'ภาษา'  ){
+      return x.filterCategory
+    }else if(e.value != 'Design' && e.value !== 'วิชาการ'){
+      return x.filterCategory == e.value;
+    }
+  });
 
-  const [currentItems, setCurrentItems] = useState(null)
-  const [pageCount, setPageCount] = useState(0)
-  const [itemOffset, setItemOffset] = useState(0)
-  const [checkItem, setCheckItem] = useState([])
+  const [currentItems, setCurrentItems] = useState(null);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffset, setItemOffset] = useState(0);
+  const [checkItem, setCheckItem] = useState([]);
 
   const items = Filter.map((course) => {
-    return <SingleCourse course={course} key={course.record} index={course.record} />
-  })
+    return (
+      <SingleCourse course={course} key={course.record} index={course.record} />
+    );
+  });
 
   useEffect(() => {
-    getData()
-    const endOffset = itemOffset + 25
-    setCurrentItems(items.slice(itemOffset, endOffset))
-    setPageCount(Math.ceil(items.length / 25))
+    getData();
+    const endOffset = itemOffset + 24;
+    setCurrentItems(items.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(items.length / 24));
     // setData(dataJson.map((item, id) => Object.assign(item, {id})))
-  }, [data, itemOffset])
+  }, [data, itemOffset]);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * 25) % items.length
-    setItemOffset(newOffset)
-  }
+    const newOffset = (event.selected * 24) % items.length;
+    setItemOffset(newOffset);
+  };
 
   return (
     <>
@@ -87,7 +107,7 @@ const CoursePage = ({e}) => {
                   <div key={index}>
                     <h3>{item}</h3>
                   </div>
-                )
+                );
               })}
           </div>
           <div className="flex justify-center items-center grid-cols-1 lg:grid-cols-3 w-full">
@@ -120,7 +140,7 @@ const CoursePage = ({e}) => {
         <h1 className="font-title text-f3xl">กำลังโหลดข้อมูล....</h1>
       )}
     </>
-  )
-}
+  );
+};
 
-export default CoursePage
+export default CoursePage;

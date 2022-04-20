@@ -10,7 +10,7 @@ const LandingScreen = () => {
 
       <div className="video-quote text-center px-[0.5rem] lg:px-4 ">
         <p
-          className="text-white text-center  drop-shadow-xl shade-text
+          className="text-white text-center  drop-shadow-xl 
         text-f2xl md:text-f3xl lg:text-[3.5rem] drop-shadow-[2px_2px_3px_rgba(0, 0, 0, 0.3)]"
           style={{
             // fontSize: "clamp(3rem, 2vw,4rem)",
