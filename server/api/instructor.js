@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
        if (results === undefined || results.length === 0) {
          message = "ไม่พบข้อมูล"
          return res.send(results)
-       } else {
+       } else { 
          message = "พบข้อมูล"
          return res.send(results)
        }

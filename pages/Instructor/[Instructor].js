@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import InstructorDetail from "../../components/Instructor/InstructorDetail";
 import { SearchCourseProvider } from "../Category";
 import BannerAds from "../../components/BannerAds";
-import { CourseCheck } from "../../components/course/Courselabel";
+import { CourseCheck } from "../../components/category/Check";
 import axios from "axios";
 const Instructor = () => {
   const router = useRouter();

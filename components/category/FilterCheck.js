@@ -70,7 +70,7 @@ const filterCheck = ({
   let filter3 = list.filter((item) => item.filterValue == "Life Style").map((value) => value)
   let filter4 = list.filter((item) => item.filterValue == "บุคลิกภาพ").map((value) => value)
   let filter5 = list.filter((item) => item.filterValue == "การลงทุน").map((value) => value)
-
+console.log(filter5)
   return (
     <>
       <div className="col-lg-3">

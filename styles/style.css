@@ -4133,7 +4133,7 @@ ul {
   align-items: center;
 }
 .single-course-wrap .wrap-details .user-area .user-details img {
-  width: auto;
+  /* width: auto; */
   -webkit-box-flex: 0;
   -ms-flex: none;
   flex: none;
