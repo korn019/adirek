@@ -36,7 +36,6 @@ const CoursePage = ({ e, FilterData }) => {
   });
 
   const Filter = data.filter((x) => {
-    console.log(e.category);
     if (e.value == e.category) {
       return x.MainCategory == e.category;
     } else {

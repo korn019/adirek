@@ -21,7 +21,6 @@ export const SearchCourseProvider = ({children}) => {
 export default function Category() {
   const router = useRouter()
   const query = router.query
-  console.log(query)
   const [searchSection, setSearchSection] = useState("")
   return (
     <SearchCourseProvider>

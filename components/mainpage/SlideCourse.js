@@ -1,29 +1,29 @@
-import {useState, useEffect} from "react"
-import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
-import {Swiper, SwiperSlide} from "swiper/react"
-import SingleSlideCourse from "./SingleSlideCourse"
-import {CourseCheck} from "../course/Courselabel"
-import axios from "axios"
+import { useState, useEffect } from "react";
+import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SingleSlideCourse from "./SingleSlideCourse";
+import { CourseCheck } from "../course/Courselabel";
+import axios from "axios";
 const SlideCourse = () => {
-  const [data, setData] = useState(CourseCheck)
-  const [available, setAvailable] = useState([])
+  const [data, setData] = useState(CourseCheck);
+  const [available, setAvailable] = useState([]);
   const getData = () => {
     axios
       .get("https://www.api-adirek.online/api/instructor")
       .then((res) => {
         // console.log(res)
-        setAvailable(res.data)
+        setAvailable(res.data);
       })
       .catch((err) => {
-        console.error(err)
-      })
-  }
+        console.error(err);
+      });
+  };
   useEffect(() => {
-    getData()
-  }, [])
+    getData();
+  }, []);
 
-  let availableCourse = available.map((item) =>  item.filterCategory)
-  let availableCourseCategory = available.map((item) =>  item.MainCategory)
+  let availableCourse = available.map((item) => item.filterCategory);
+  let availableCourseCategory = available.map((item) => item.MainCategory);
   return (
     <>
       <div className="container ">
@@ -72,7 +72,8 @@ const SlideCourse = () => {
                       slidesPerView: 4,
                       spaceBetween: 10,
                     },
-                  }}>
+                  }}
+                >
                   <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1 px-5">
                     {data.map((SlideCourseData) => (
                       <SwiperSlide key={SlideCourseData.id}>
@@ -91,7 +92,7 @@ const SlideCourse = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default SlideCourse
+export default SlideCourse;
