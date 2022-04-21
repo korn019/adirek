@@ -1,7 +1,7 @@
 const Partner = () => {
   return (
     <>
-      <section className="  bg-gray-50">
+      <section className="bg-gradient-to-r from-[#d2e7bb]  to-[#e5f1d7]">
         {/* <div className="h-32"></div> */}
         <div className="relative  text-black-500 pt-8 pb-6">
           {/* <div
@@ -25,7 +25,7 @@ const Partner = () => {
             <div className="mx-auto px-4 ">
               <div className="flex flex-wrap justify-center text-center mb-12">
                 <div className="w-full lg:w-6/12 px-4">
-                  <h2 className="title-text ">
+                  <h2 className="title-text text-[#2d3941]">
                   ทำไม <strong>อดิเรก</strong> จึงเป็นที่ต้องการ
                   </h2>
                 </div>
@@ -39,10 +39,10 @@ const Partner = () => {
                         <img src="static/img/intro/01.png" alt="img" />
                       </div>
                       <div className="wrap-details my-4">
-                        <p className=" !text-2xl text-black !font-Mitr !font-semibold">
+                        <p className=" !text-2xl text-[#2d3941] !font-Mitr !font-semibold ">
                           <a href="#">ข้อดีของการเป็น Partner กับเรา</a>
                         </p>
-                        <p className="text-black text-content text-center">
+                        <p className="text-[##646464]  text-content text-center">
                           การันตีได้ผลจริงพร้อมช่วยสร้างความมั่นใจและความก้าวหน้าให้กับคุณได้ง่าย
                         </p>
                       </div>
@@ -57,10 +57,10 @@ const Partner = () => {
                         <img src="static/img/intro/02.png" className="" alt="img" />
                       </div>
                       <div className="wrap-details my-4">
-                        <p className=" !text-2xl text-black !font-Mitr !font-semibold">
+                        <p className=" !text-2xl text-[#2d3941] !font-Mitr !font-semibold">
                           <a href="#">การสร้างโอกาส</a>
                         </p>
-                        <p className="text-black text-center">
+                        <p className="text-[##646464] text-center">
                           ทุกเรื่องที่คุณสนใจ และช่องทางที่จะเปลี่ยนงานอดิเรกของคุณให้เป็นรายได้
                         </p>
                       </div>
@@ -75,10 +75,10 @@ const Partner = () => {
                         <img src="static/img/intro/03.png" className="" alt="img" />
                       </div>
                       <div className="wrap-details my-4">
-                        <p className=" !text-2xl text-black !font-Mitr !font-semibold">
+                        <p className=" !text-2xl text-[#2d3941] !font-Mitr !font-semibold">
                           <a href="#">การเป็นที่รู้จักเข้าถึงกลุ่มเป้าหมายและผลลัพธ์</a>
                         </p>
-                        <p className="text-black text-center">
+                        <p className="text-[##646464] text-center">
                           จุดเริ่มต้นของสังคมแห่งการเรียนรู้ไม่มีที่สิ้นสุด
                         </p>
                       </div>

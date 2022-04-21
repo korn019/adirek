@@ -73,7 +73,7 @@ const AdirekIs = () => {
         </div>
       </section>
 
-      <section className="relative  bg-blueGray-50 py-24">
+      <section className="relative  py-24" >
         <div className="items-center  flex-wrap grid grid-cols-1  lg:grid-cols-2  ">
           <div className="w-full px-4">
             <iframe

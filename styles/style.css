@@ -6780,3 +6780,10 @@ button:hover:after {
   6px 5px 1px #ccc, 5px 6px 1px #eee,
   7px 6px 1px #ccc;
 }
+.bg-green-gradient {
+    background: #d2e7bb;
+    background: linear-gradient(15deg,#d2e7bb 50%,#e5f1d7 50%);
+}
+.bg-blue-gradient {
+  background: linear-gradient(15deg,#2b56d8 1.02%,#10329d 93.25%);
+}

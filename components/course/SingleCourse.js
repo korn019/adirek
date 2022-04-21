@@ -140,7 +140,7 @@ const SingleCourse = ({course, index, filterImg}) => {
     } else {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
-          <img className="object-cover " src={`${course.รูปถ่าย}`} alt="img" />
+          <img className="object-cover" src={`${course.รูปถ่าย}`} alt="img" />
         </Link>
       )
     }
