@@ -76,7 +76,7 @@ console.log(filter5)
       <div className="col-lg-3">
         <div className="dmne-sidebar grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-1">
           <div className="widget widget-select-inner dropdown-filter">
-            <h4 className=" font-Prompt font-black text-f2xl my-4">หลักสูตร</h4>
+            <h4 className=" font-Prompt font-black text-f2xl my-4">คอร์ส</h4>
             <div className="single-form-check form-check">
               <Checkbox
                 type="checkbox"
@@ -220,11 +220,11 @@ console.log(filter5)
             {/* </label> */}
           </div>
           <div className="widget widget-select-inner">
-            <h4 className="font-Prompt font-black text-f2xl my-4">ราคา</h4>
+            <h4 className="font-Prompt font-black text-f2xl">ราคา</h4>
             {PriceCourse}
           </div>
           <div className="widget widget-select-inner">
-            <h4 className="font-Prompt font-black text-f2xl my-4">สถานที่</h4>
+            <h4 className="font-Prompt font-black text-f2xl ">สถานที่</h4>
             <FilterPlace
               setError={setError}
               error={error}

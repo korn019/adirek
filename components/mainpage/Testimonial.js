@@ -36,7 +36,7 @@ const Testimonial = () => {
       <div className=" py-12  bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between">
           <div className="text-center">
-            <h3 className="text-f3xl sm:text-f4xl leading-normal tracking-tight !font-Prompt font-black drop-shadow-2xl">
+            <h3 className="text-f3xl sm:text-f4xl leading-normal tracking-tight title-text drop-shadow-2xl">
               <span className="title-word title-word-3"> ผู้เรียน </span>
               <span className="title-word title-word-2">
                 <i

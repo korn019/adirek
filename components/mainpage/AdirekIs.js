@@ -1,31 +1,45 @@
-import {useState, useEffect} from "react"
-import Link from "next/link"
+import { useState, useEffect } from "react";
+import Link from "next/link";
 const AdirekIs = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <section className="text-gray-700 body-font -mt-20 sm:-mt-36 ">
+      <section className="text-gray-700 body-font -mt-20 sm:-mt-36 bg-[#FFFFFF]">
         <div className="container mx-auto flex md:px-6 py-24 md:flex-row flex-col items-center">
           <div className="lg:flex-grow md:w-1/2 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-left  z-50">
-            <h1
-              className="title-font text-f4xl sm:text-f4xl  mb-4 font-title "
-              >
-              <span className="title-word title-word-1  drop-shadow-2xl ">อ</span>
-              <span className="title-word title-word-2  drop-shadow-2xl ">ดิ</span>
-              <span className="title-word title-word-3  drop-shadow-2xl ">เ</span>
-              <span className="title-word title-word-4  drop-shadow-2xl ">ร</span>
-              <span className="title-word title-word-5  drop-shadow-2xl ">ก</span>
+            <h1 className="title-font text-f4xl sm:text-f4xl  mb-4 font-title ">
+              <span className="title-word title-word-1  drop-shadow-2xl ">
+                อ
+              </span>
+              <span className="title-word title-word-2  drop-shadow-2xl ">
+                ดิ
+              </span>
+              <span className="title-word title-word-3  drop-shadow-2xl ">
+                เ
+              </span>
+              <span className="title-word title-word-4  drop-shadow-2xl ">
+                ร
+              </span>
+              <span className="title-word title-word-5  drop-shadow-2xl ">
+                ก
+              </span>
             </h1>
-            <p className="mb-8  indent-5 text-lg leading-relaxed text-grey-500  text-subtext lg:text-[1.35rem]  !font-k2d font-light">
+            <p className="mb-8  indent-5 text-lg leading-relaxed text-grey-500  text-subtext lg:text-[1.2rem]  !font-k2d font-light">
               เกิดขึ้นจากความเชื่อที่ว่า "ชีวิตคือการค้นหาและเรียนรู้สิ่งใหม่ๆ
               ที่ไม่มีวันสิ้นสุด"เราจึงก่อตั้ง{" "}
-              <strong className="text-3xl font-Prompt font-black text-[#FF5959]"> อดิเรก </strong>
+              <strong className="text-3xl font-Prompt font-black text-[#FF5959]">
+                {" "}
+                อดิเรก{" "}
+              </strong>
               ขึ้นในฐานะแพลตฟอร์มการเรียนรู้รูปแบบใหม่ที่ทำหน้าที่ป็นพื้นที่อิสระเพื่อเชื่อมระหว่างผู้เรียนและผู้สอนเข้าไว้ด้วยกันที่
-              <strong className="text-3xl font-Prompt font-black text-[#FF5959]"> อดิเรก </strong>
+              <strong className="text-3xl font-Prompt font-black text-[#FF5959]">
+                {" "}
+                อดิเรก{" "}
+              </strong>
             </p>
             <div className="flex justify-center">
-              <p className="mb-8 mt-4 indent-5 text-lg leading-relaxed text-grey-500  text-subtext lg:text-[1.35rem]  !font-k2d font-light">
+              <p className="mb-8 indent-5 text-lg leading-relaxed text-grey-500  text-subtext lg:text-[1.2rem]  !font-k2d font-light">
                 เรารวบรวมกลุ่มผู้สอนไว้มากที่สุดในประเทศไทย
                 เลือกได้ตามหมวดหมู่และความสนใจของคุณเน้นสอนตามความต้องการของผู้เรียน
                 ด้วยระบบที่เปิดโอกาสให้ผู้เรียนสามารถเลือกผู้สอนได้ด้วยตนเองมีระบบที่ประกันการสอนเพื่อสร้างความไว้วางใจให้กับผู้เรียน
@@ -34,7 +48,9 @@ const AdirekIs = () => {
             <div className="flex justify-center">
               <button className="btn font-body text-3xl shadow-2xl">
                 <Link href="/Contact">
-                  <span className="drop-shadow-md font-Prompt  ">ติดต่อเรา</span>
+                  <span className="drop-shadow-md font-Prompt  ">
+                    ติดต่อเรา
+                  </span>
                 </Link>{" "}
               </button>
             </div>
@@ -57,19 +73,18 @@ const AdirekIs = () => {
         </div>
       </section>
 
-
-      <section className="relative  bg-blueGray-50 ">
-        <div className="items-center  flex-wrap grid grid-cols-1  lg:grid-cols-2">
-          <div className="w-full  md:w-11/12 px-2">
+      <section className="relative  bg-blueGray-50 py-24">
+        <div className="items-center  flex-wrap grid grid-cols-1  lg:grid-cols-2  ">
+          <div className="w-full px-4">
             <iframe
               src="https://www.youtube.com/embed/I9TCLKlMzpc"
               frameBorder="0"
               allowFullScreen
               // className="animate-none xl:animate-[youtubeSlide_4s_infinite_alternate] aspect-video  w-full h-96  rounded-lg "
               className="aspect-video  w-full h-full  rounded-lg "
-              ></iframe>
+            ></iframe>
           </div>
-          <div className="w-full  ml-auto mr-auto px-4">
+          <div className="w-full  ml-auto mr-auto px-8">
             <div className="md:pr-12">
               <h3 className="drop-shadow-xl mb-6  mt-8 text-3xl font-title text-f2xl md:text-fxl lg:text-f3xl title-word-3 title-word-2 animate-[color-animation_3s_linear_infinite]">
                 ติดอาวุธทางความรู้ไปกับอดิเรก
@@ -80,7 +95,8 @@ const AdirekIs = () => {
               <p className=" indent-5  mt-4 text-lg leading-relaxed !text-grey-500  text-subtext lg:text-[1.2rem]  !font-k2d font-light">
                 เปิดโอกาสให้คุณได้พบเจอกับผู้สอนที่ดีที่สุดและตรงใจที่สุด
                 สามารถเลือกสไตล์การสอนให้เหมาะกับสไตล์การเรียนของคุณทุกเรื่องที่คุณสนใจ
-                ทุกทักษะที่คุณตามหา พร้อมสื่อสารกันโดยตรง ไม่ผ่านคนกลาง สามารถกำหนดวัน เวลา สถานที่
+                ทุกทักษะที่คุณตามหา พร้อมสื่อสารกันโดยตรง ไม่ผ่านคนกลาง
+                สามารถกำหนดวัน เวลา สถานที่
                 รวมทั้งสามารถเลือกรูปแบบผู้สอนที่ผู้เรียนต้องการได้อย่างอิสระ
               </p>
               <ul className="list-disc mt-6 ">
@@ -106,7 +122,8 @@ const AdirekIs = () => {
                   <div className="flex items-center">
                     <div>
                       <p className="text-subtext   lg:text-[1.25rem]  !font-k2d font-light">
-                        อดิเรก เราเปิดประตสู่ทุกการเรียนรู้ ให้ทุกวันคือการสร้างโอกาสใหม่สำหรับคณ
+                        อดิเรก เราเปิดประตสู่ทุกการเรียนรู้
+                        ให้ทุกวันคือการสร้างโอกาสใหม่สำหรับคณ
                       </p>
                     </div>
                   </div>
@@ -124,35 +141,9 @@ const AdirekIs = () => {
             </div>
           </div>
         </div>
-        <footer className="relative  pt-8 pb-6 mt-8">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-wrap items-center md:justify-between justify-center">
-              <div className="w-full md:w-6/12 px-4 mx-auto text-center">
-                {/* <div className="text-sm text-blueGray-500 font-semibold py-1">
-                  Made with{" "}
-                  <a
-                    href="https://www.creative-tim.com/product/notus-js"
-                    className="text-blueGray-500 hover:text-gray-800"
-                    target="_blank">
-                    Notus JS
-                  </a>{" "}
-                  by{" "}
-                  <a
-                    href="https://www.creative-tim.com"
-                    className="text-blueGray-500 hover:text-blueGray-800"
-                    target="_blank">
-                    {" "}
-                    Creative Tim
-                  </a>
-                  .
-                </div> */}
-              </div>
-            </div>
-          </div>
-        </footer>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default AdirekIs
+export default AdirekIs;

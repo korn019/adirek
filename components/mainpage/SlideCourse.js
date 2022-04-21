@@ -22,7 +22,8 @@ const SlideCourse = () => {
     getData()
   }, [])
 
-  let availableCourse = available.map((item) => item.filterCategory)
+  let availableCourse = available.map((item) =>  item.filterCategory)
+  let availableCourseCategory = available.map((item) =>  item.MainCategory)
   return (
     <>
       <div className="container ">
@@ -78,6 +79,7 @@ const SlideCourse = () => {
                         <SingleSlideCourse
                           item={SlideCourseData}
                           availableCourse={availableCourse}
+                          availableCourseCategory={availableCourseCategory}
                         />
                       </SwiperSlide>
                     ))}

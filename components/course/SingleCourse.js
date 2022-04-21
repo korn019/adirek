@@ -145,9 +145,13 @@ const SingleCourse = ({course, index, filterImg}) => {
       )
     }
   }
+  function formatNumber (num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "1,")
+}
+
   return (
     <div className="item h-[400px]">
-      <div className="single-course-wrap  hover:border-2 hover:border-[#006fff]">
+      <div className="single-course-wrap  ">
         <div className="thumb w-full h-[190px] cursor-pointer">
           <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
             <IMG />
@@ -190,102 +194,10 @@ const SingleCourse = ({course, index, filterImg}) => {
                 <p className="truncate ...">
                   <Link
                     href={`/Course/${
-                      course.filterCategory == "UI UX"
-                        ? "UI UX"
-                        : course.filterCategory == "Web Design"
-                        ? "Web Design"
-                        : course.filterCategory == "Graphic Design & Illustration"
-                        ? "Graphic Design & Illustration"
-                        : course.filterCategory == "Design Tools"
-                        ? "Design"
-                        : course.filterCategory == "Game Design"
-                        ? "Design"
-                        : course.filterCategory == "3D & Animation"
-                        ? "Design"
-                        : course.filterCategory == "Fashion Design"
-                        ? "Design"
-                        : course.filterCategory == "Architectural Design"
-                        ? "Design"
-                        : course.filterCategory == "Interior Design"
-                        ? "Design"
-                        : course.filterCategory == "Other Design"
-                        ? "Design"
-                        : course.filterCategory == "คณิตศาสตร์"
-                        ? "วิชาการ"
-                        : course.filterCategory == "วิทยาศาสตร์"
-                        ? "วิชาการ"
-                        : course.filterCategory == "ภาษา"
-                        ? "วิชาการ"
-                        : course.filterCategory == "ทำอาหารและขนม"
-                        ? "งานฝีมือ"
-                        : course.filterCategory == "ถ่ายรูปและแต่งรูป"
-                        ? "งานฝีมือ"
-                        : course.filterCategory == "ร้องเพลงและการแสดง"
-                        ? "งานฝีมือ"
-                        : course.filterCategory == "งานฝีมือ"
-                        ? "งานฝีมือ"
-                        : course.filterCategory == "กีฬา"
-                        ? "งานฝีมือ"
-                        : course.filterCategory == "ดนตรี"
-                        ? "งานฝีมือ"
-                        : course.filterCategory == "จัดดอกไม้และจัดสวนถาด"
-                        ? "งานฝีมือ"
-                        : course.filterCategory == "วาดรูป"
-                        ? "งานฝีมือ"
-                        : course.filterCategory == "ดูดวง"
-                        ? "งานฝีมือ"
-                        : course.filterCategory == "แต่งหน้า"
-                        ? "งานฝีมือ"
-                        : course.filterCategory
+                      course.filterCategory
                     }`}
                     as={`/Course/${
-                      course.filterCategory == "UI UX"
-                        ? "UI UX"
-                        : course.filterCategory == "Web Design"
-                        ? "Web Design"
-                        : course.filterCategory == "Graphic Design & Illustration"
-                        ? "Graphic Design & Illustration"
-                        : course.filterCategory == "Design Tools"
-                        ? "Design"
-                        : course.filterCategory == "Game Design"
-                        ? "Design"
-                        : course.filterCategory == "3D & Animation"
-                        ? "Design"
-                        : course.filterCategory == "Fashion Design"
-                        ? "Design"
-                        : course.filterCategory == "Architectural Design"
-                        ? "Design"
-                        : course.filterCategory == "Interior Design"
-                        ? "Design"
-                        : course.filterCategory == "Other Design"
-                        ? "Design"
-                        : course.filterCategory == "คณิตศาสตร์"
-                        ? "วิชาการ"
-                        : course.filterCategory == "วิทยาศาสตร์"
-                        ? "วิชาการ"
-                        : course.filterCategory == "ภาษา"
-                        ? "วิชาการ"
-                        : course.filterCategory == "ทำอาหารและขนม"
-                        ? "Life Style"
-                        : course.filterCategory == "ถ่ายรูปและแต่งรูป"
-                        ? "Life Style"
-                        : course.filterCategory == "ร้องเพลงและการแสดง"
-                        ? "Life Style"
-                        : course.filterCategory == "งานฝีมือ"
-                        ? "Life Style"
-                        : course.filterCategory == "กีฬา"
-                        ? "Life Style"
-                        : course.filterCategory == "ดนตรี"
-                        ? "Life Style"
-                        : course.filterCategory == "จัดดอกไม้และจัดสวนถาด"
-                        ? "Life Style"
-                        : course.filterCategory == "วาดรูป"
-                        ? "Life Style"
-                        : course.filterCategory == "ดูดวง"
-                        ? "Life Style"
-                        : course.filterCategory == "แต่งหน้า"
-                        ? "Life Style"
-                        : course.filterCategory
+                      course.filterCategory 
                     }`}>
                     <a>{course.Category}</a>
                   </Link>
@@ -298,7 +210,7 @@ const SingleCourse = ({course, index, filterImg}) => {
               </div>
               <div className="col-6 text-end">
                 <div className="price">
-                  <p className="truncate ... price"> {course.ราคาคอร์สเรียน} บาท</p>
+                  <p className="truncate ... price"> {formatNumber(course.ราคาคอร์สเรียน)} บาท</p>
                 </div>
               </div>
             </div>

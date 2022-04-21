@@ -55,12 +55,12 @@ const ContactUs = () => {
   `
   return (
     <>
-      <div className="flex justify-center items-center bg-white mt-12">
+      <div className="flex justify-center items-center bg-white my-20 ">
         <div className="container mx-auto my-4 px-4 lg:px-20">
           <div className="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
             <div className="flex">
-              <h1 className="font-title uppercase text-f4xl">
-                ส่งขอความ
+              <h1 className="font-title uppercase !text-f3xl md:!text-f4xl  title-text ">
+                ส่งข้อความ
                 <br className="hidden md:block" /> หาเรา
               </h1>
             </div>
@@ -107,7 +107,7 @@ const ContactUs = () => {
                   onChange={handleChange}
                   name="message"></textarea>
               </div>
-              <div className="my-2 w-1/2 lg:w-1/4">
+              <div className="my-2 w-1/2 lg:w-1/3">
                 {warning && loading !== true ? (
                   <>
                     <div className="flex -mx-3 items-center justify-center text-center">
@@ -199,20 +199,20 @@ const ContactUs = () => {
 
           <div className="w-full lg:-mt-[40rem] lg:w-2/6 px-8 py-12 ml-auto bg-blue-900  rounded-2xl">
             <div className="flex flex-col text-white">
-              <h1 className="font-title uppercase text-f3xl my-4 !text-white">Contact US</h1>
-              <p className="text-gray-400">
+              <h1 className="font-title uppercase !text-f3xl  my-4 !text-white c">Contact US</h1>
+              {/* <p className="text-gray-400">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt arcu
                 diam, eu feugiat felis fermentum id. Curabitur vitae nibh viverra, auctor turpis
                 sed, scelerisque ex.
-              </p>
+              </p> */}
 
-              <div className="flex my-4 w-2/3 lg:w-1/2">
+              <div className="flex my-4 w-full">
                 <div className="flex flex-col">
                   <i className="fas fa-map-marker-alt pt-2 pr-2" />
                 </div>
                 <div className="flex flex-col">
-                  <h2 className="text-2xl !text-white">สำนักงานใหญ่</h2>
-                  <p className="text-gray-400">555/205 Nirvana Park</p>
+                  <h2 className="!text-2xl !text-white title-text ">สำนักงานใหญ่</h2>
+                  <p className="text-gray-400">เลขที่ 349 ชั้นที่ 20 ถนนวิภาวดีรังสิต แขวงจอมพล เขตจตุจักร กรุงเทพมหานคร</p>
                 </div>
               </div>
 
@@ -221,7 +221,7 @@ const ContactUs = () => {
                   <i className="fas fa-phone-alt pt-2 pr-2" />
                 </div>
                 <div className="flex flex-col">
-                  <h2 className="text-2xl !text-white">โทรหาเรา</h2>
+                  <h2 className="!text-2xl !text-white title-text ">โทรหาเรา</h2>
                   <p className="text-gray-400">Tel: xxx-xxx-xxx</p>
                   <p className="text-gray-400">Fax: xxx-xxx-xxx</p>
                 </div>

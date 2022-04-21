@@ -19,6 +19,10 @@ const InstructorDetail = ({e}) => {
      const ratingChanged = (newRating) => {
        setStart(newRating)
      }
+
+     function formatNumber (num) {
+      return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "1,")
+  }
   return (
     <>
       <div
@@ -116,7 +120,7 @@ const InstructorDetail = ({e}) => {
                 <div className="align-items-center justify-content-center  md:col-span-1   p-2">
                   <div className="ml-1 title text-black text-[32px]">
                     <h5 className=" text-right font-body text-flg md:col-span-1">
-                      {parseFloat(e.ราคาคอร์สเรียน.replace(/,/g, ","))} บาท
+                      {formatNumber(e.ราคาคอร์สเรียน)} บาท
                     </h5>
                   </div>
                 </div>

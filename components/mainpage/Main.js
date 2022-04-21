@@ -12,10 +12,10 @@ const Main = () => {
   return (
     <>
       <LandingScreen />
-      <div className="test-class bg-gray-100">
+      <div className="test-class ">
       <SlideCourse />
       </div>
-      <div className="test-class bg-gray-100">
+      <div className="test-class bg-gray-100 ">
         <AdirekIs />
       </div>
       <div className="py-12">

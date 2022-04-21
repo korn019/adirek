@@ -1,89 +1,89 @@
-import {useState, useEffect, useContext} from "react"
-import ReactPaginate from "react-paginate"
-import SingleCourse from "../course/SingleCourse"
-import FilterCheck from "./FilterCheck"
-import PaginatedItems from "./PaginatedItems"
-import {CourseCheck2} from "./Check"
-import {PriceData} from "./Price"
-import {useRouter} from "next/router"
-import {SearchCourseContext} from "../../pages/Category"
-import SearchCourse from "../blog/SearchCourse"
-import axios from "axios"
+import { useState, useEffect, useContext } from "react";
+import ReactPaginate from "react-paginate";
+import SingleCourse from "../course/SingleCourse";
+import FilterCheck from "./FilterCheck";
+import PaginatedItems from "./PaginatedItems";
+import { CourseCheck2 } from "./Check";
+import { PriceData } from "./Price";
+import { useRouter } from "next/router";
+import { SearchCourseContext } from "../../pages/Category";
+import SearchCourse from "../blog/SearchCourse";
+import axios from "axios";
 const MainCategory = () => {
   //  console.log(`searchCourse: ${setSearchCourse}`)
   //Filter Course & Price
-  const {searchCourse, setSearchCourse} = useContext(SearchCourseContext)
+  const { searchCourse, setSearchCourse } = useContext(SearchCourseContext);
 
-  const [data, setData] = useState([])
-  const [dataJson, setDataJson] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
-  const [isCheckAll, setIsCheckAll] = useState(false)
-  const [isCheck, setIsCheck] = useState([])
-  const [isCheckAllPrice, setIsCheckAllPrice] = useState(false)
-  const [isCheckPrice, setIsCheckPrice] = useState([])
-  const [list, setList] = useState([])
+  const [data, setData] = useState([]);
+  const [dataJson, setDataJson] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isCheckAll, setIsCheckAll] = useState(false);
+  const [isCheck, setIsCheck] = useState([]);
+  const [isCheckAllPrice, setIsCheckAllPrice] = useState(false);
+  const [isCheckPrice, setIsCheckPrice] = useState([]);
+  const [list, setList] = useState([]);
 
-  const [reset, setReset] = useState(false)
+  const [reset, setReset] = useState(false);
 
   // Filter Address
-  const [subdistrict, setSubDistrict] = useState("")
-  const [district, setDistrict] = useState("")
-  const [province, setProvince] = useState("")
-  const [fullAddress, setFullAddress] = useState({})
-  const [error, setError] = useState({})
+  const [subdistrict, setSubDistrict] = useState("");
+  const [district, setDistrict] = useState("");
+  const [province, setProvince] = useState("");
+  const [fullAddress, setFullAddress] = useState({});
+  const [error, setError] = useState({});
 
   function onSelect(fulladdress) {
-    const {subdistrict, district, province} = fulladdress
-    setSubDistrict(subdistrict)
-    setDistrict(district)
-    setProvince(province)
+    const { subdistrict, district, province } = fulladdress;
+    setSubDistrict(subdistrict);
+    setDistrict(district);
+    setProvince(province);
     // setZipcode(zipcode)
-    setFullAddress([subdistrict, district, province])
-    setError("")
+    setFullAddress([subdistrict, district, province]);
+    setError("");
   }
 
-  const [price, setPrice] = useState([])
-  const [checkPrice, setCheckPrice] = useState([])
+  const [price, setPrice] = useState([]);
+  const [checkPrice, setCheckPrice] = useState([]);
 
   const handleSelectAll = (e) => {
-    setIsCheckAll(!isCheckAll)
-    setIsCheck(list.map((li) => li.value))
+    setIsCheckAll(!isCheckAll);
+    setIsCheck(list.map((li) => li.value));
     if (isCheckAll) {
-      setIsCheck([])
+      setIsCheck([]);
     }
-  }
+  };
 
   const handleClick = (e) => {
-    const {checked, name} = e.target
-    setIsCheck([...isCheck, name])
+    const { checked, name } = e.target;
+    setIsCheck([...isCheck, name]);
     // setIsCheckPrice([...isCheckPrice, name])
     if (!checked) {
-      setIsCheck(isCheck.filter((item) => item !== name))
+      setIsCheck(isCheck.filter((item) => item !== name));
 
       //  setIsCheckPrice(isCheckPrice.filter((item) => item !== name))
     }
-  }
+  };
 
   const handleClickPrice = (e) => {
-    const {checked, name} = e.target
-    setIsCheckPrice([name])
+    const { checked, name } = e.target;
+    setIsCheckPrice([name]);
     // console.log(e.target.name)
     if (!checked) {
-      setIsCheckPrice(isCheckPrice.filter((item) => item !== name))
+      setIsCheckPrice(isCheckPrice.filter((item) => item !== name));
     }
-  }
+  };
 
   const resetButton = () => {
-    setIsCheckAll(false)
-    setIsCheck([])
-    setIsCheckAllPrice(false)
-    setIsCheckPrice([])
-    setSubDistrict("")
-    setDistrict("")
-    setProvince("")
-    setFullAddress({})
-    setError("")
-  }
+    setIsCheckAll(false);
+    setIsCheck([]);
+    setIsCheckAllPrice(false);
+    setIsCheckPrice([]);
+    setSubDistrict("");
+    setDistrict("");
+    setProvince("");
+    setFullAddress({});
+    setError("");
+  };
 
   // const getData = () => {
   //   fetch("../../assets/json/user.json", {
@@ -106,13 +106,13 @@ const MainCategory = () => {
     axios
       .get("https://www.api-adirek.online/api/instructor")
       .then((res) => {
-        setData(res.data)
-        setIsLoading(true)
+        setData(res.data);
+        setIsLoading(true);
       })
       .catch((err) => {
-        console.error(err)
-      })
-  }
+        console.error(err);
+      });
+  };
   // const Test = () => {
   //   axios
   //     .get("https://api-adirek.online/api/instructor")
@@ -124,13 +124,13 @@ const MainCategory = () => {
   //       console.log(err)
   //     })
   // }
-  const [mainCategory, setMainCategory] = useState([])
+  const [mainCategory, setMainCategory] = useState([]);
   useEffect(() => {
-    setMainCategory(MainCategoryData.map((item) => item.value))
-    getData()
+    setMainCategory(MainCategoryData.map((item) => item.value));
+    getData();
     // Test()
-    setData(dataJson.map((item, id) => Object.assign(item, {id})))
-  }, [dataJson])
+    setData(dataJson.map((item, id) => Object.assign(item, { id })));
+  }, [dataJson]);
   const MainCategoryData = [
     {
       id: "1",
@@ -152,7 +152,7 @@ const MainCategory = () => {
       id: "5",
       value: "การลงทุน",
     },
-  ]
+  ];
 
   return (
     <section className="trending-courses-area pd-top-135 pd-bottom-130">
@@ -213,9 +213,13 @@ const MainCategory = () => {
                       fullAddress={fullAddress}
                       setFullAddress={setFullAddress}
                     />
-                  )
+                  );
                 } else if (isCheckAll == false) {
-                  return <h1 className="font-title text-f3xl">กำลังโหลดข้อมูล....</h1>
+                  return (
+                    <h1 className="font-title text-f3xl">
+                      กำลังโหลดข้อมูล....
+                    </h1>
+                  );
                 }
               })()}
             </div>
@@ -223,7 +227,7 @@ const MainCategory = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default MainCategory
+export default MainCategory;

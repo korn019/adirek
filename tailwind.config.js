@@ -27,7 +27,7 @@ module.exports = {
         fxl: "clamp(1.73rem, 0.92vw + 1.5rem, 2.07rem)",
         f2xl: "clamp(2.07rem, 1.11vw + 1.8rem, 2.49rem)",
         f3xl: "clamp(2.49rem, 1.33vw + 2.16rem, 2.99rem)",
-        f4xl: "clamp(3.5rem, 4vw + 1rem, 12rem)",
+        f4xl: "clamp(3.5rem, 3vw , 11rem)",
         f5xl: "3rem",
         f6xl: "4rem",
         f7xl: "5rem",

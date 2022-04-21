@@ -5,8 +5,8 @@ const Activity = () => {
         <div className="container">
           <div className="row justify-content-center gx-0">
             <div className="col-lg-12">
-              <div className="section-title  drop-shadow-xl">
-                <h2 className="!font-Prompt font-black ">กิจกรรมของเรา</h2>
+              <div className="title-border">
+                <h2 className="title-text">กิจกรรมของเรา</h2>
               </div>
             </div>
             <div className="col-md-6 col-lg-4">

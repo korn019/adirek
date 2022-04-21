@@ -27,8 +27,8 @@ export default function Category() {
     <SearchCourseProvider>
       <Layout>
         <BreadcrumbPage
-          title="หลักสูตรทั้งหมด"
-          breadActive="หลักสูตรทั้งหมด"
+          title="คอร์สทั้งหมด"
+          breadActive="คอร์สทั้งหมด"
           hrefActive="/Category"
         />
         {/* <SearchSection setSearchSection={setSearchSection} searchSection={searchSection} /> */}

@@ -1,29 +1,31 @@
-import {useState, useEffect} from "react"
-import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
-import {Swiper, SwiperSlide} from "swiper/react"
-import SingleCourse from "./SingleCourse"
-import SwiperCourse from "./SwiperCourse"
-import Skeleton from "react-loading-skeleton"
-import "react-loading-skeleton/dist/skeleton.css"
-import axios from "axios"
-const Course = () => {
-  const [data, setData] = useState([])
-  const [dataJson, setDataJson] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+import { useState, useEffect } from "react";
+import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SingleCourse from "./SingleCourse";
+import SwiperCourse from "./SwiperCourse";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import axios from "axios";
+import Link from "next/link";
 
-  const getData =  () => {
-     axios
-       .get("https://www.api-adirek.online/api/instructor")
-       .then((res) => {
+const Course = () => {
+  const [data, setData] = useState([]);
+  const [dataJson, setDataJson] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const getData = () => {
+    axios
+      .get("https://www.api-adirek.online/api/instructor")
+      .then((res) => {
         //  console.log(res)
-         setData(res.data)
-         setIsLoading(true)
-       })
-       .catch((err) => {
-         //  console.log(err)
-       })
-  }
-  
+        setData(res.data);
+        setIsLoading(true);
+      })
+      .catch((err) => {
+        //  console.log(err)
+      });
+  };
+
   // const getData = () => {
   //   fetch("http://192.168.1.100:4000/instructor", {
   //     headers: {
@@ -47,21 +49,26 @@ const Course = () => {
   //  })
 
   const Filter = data.map((x) => {
-    return x
-  })
+    return x;
+  });
 
   useEffect(() => {
-    getData()
+    getData();
     // setData(dataJson.map((item, id) => Object.assign(item, {id})))
-  }, [])
+  }, []);
   return (
     <>
       <section className="trending-courses-area pd-top-100 pd-bottom-100">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <div className="section-title drop-shadow-xl">
-                <h2 className="!font-Prompt font-black ">คอร์สขายดี</h2>
+              <div className="title-border flex justify-between">
+                <h2 className="title-text">คอร์สขายดี</h2>
+                <Link href="/Category">
+                  <a className="self-center group">
+                    <h2 className="font-Mitr group-hover:bg-red-500 group-hover:duration-500  group-hover:rounded-lg  group-hover:text-white p-2">ดูทั้งหมด <i className="fas fa-chevron-right"></i></h2>
+                  </a>
+                </Link>
               </div>
             </div>
 
@@ -85,7 +92,7 @@ const Course = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Course
+export default Course;
