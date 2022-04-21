@@ -12,28 +12,6 @@ const Instructor = () => {
   const [data, setData] = useState([]);
   const [check, setCheck] = useState(CourseCheck2);
 
-  // const getData = () => {
-  //   fetch("../../assets/json/user.json", {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Accept: "application/json",
-  //     },
-  //   })
-  //     .then(function (response) {
-  //       return response.json()
-  //     })
-  //     .then(function (myJson) {
-  //       setData(myJson)
-  //     })
-  // }
-  // // สร้าง Id ใน JSON
-  // const Id = data.forEach(function (e, i) {
-  //   e["id"] = i
-  // })
-
-  // const Filter = data.filter((x) => {
-  //   return x.filterCategory === "Web Design"
-  // })
   const getData = () => {
     axios
       .get("https://www.api-adirek.online/api/instructor")
