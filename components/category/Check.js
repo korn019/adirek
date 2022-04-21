@@ -376,7 +376,7 @@ export const CourseCheck2 = [
     id: "27",
     value: "แต่งหน้า",
     filterValue: "Life Style",
-    imgBanner: "static/img/icon/course/Pถ.jpg",
-    imgBannerDetails: "static/img/icon/course/PPถ.jpg",
+    imgBanner: "static/img/icon/course/P5.jpg",
+    imgBannerDetails: "static/img/icon/course/PP5.jpg",
   }
 ]

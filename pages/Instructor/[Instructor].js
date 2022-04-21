@@ -56,6 +56,7 @@ const Instructor = () => {
           return Instructor == `id=${e.record}` ? (
             <>
               {check.map((item) => {
+            console.log(item.value.includes(e.filterCategory))
                 return item.value.includes(e.filterCategory) ? (
                   <>
                     <img
