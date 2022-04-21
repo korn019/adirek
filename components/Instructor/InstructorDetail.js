@@ -34,7 +34,7 @@ const InstructorDetail = ({e}) => {
               <div className="card-body">
                 <div className="">
                   <img
-                    src={e.รูปถ่าย == "" ? "static/img/logo-Adirek.png" : `${e.รูปถ่าย}`}
+                    src={e.รูปถ่าย == "" ? "/static/img/Logo-Adirek.png" : `${e.รูปถ่าย}`}
                     alt="img"
                     className="object-scale-down w-[370px] h-[240px]"
                   />
