@@ -10,8 +10,6 @@ const SingleSlideCourse = ({
 
   let filter = availableCourse.filter((num) => item.value.includes(num));
 
-
-
   let CourseLength = availableCourseCategory.filter((num) => {
     if (item.value.includes("Design")) {
       return num.includes("Design");
@@ -21,8 +19,6 @@ const SingleSlideCourse = ({
       return num.includes("Life Style");
     }
   });
-
-
 
   return (
     <>
@@ -59,11 +55,15 @@ const SingleSlideCourse = ({
           }`}
         >
           <div className="thumb">
-            <img
-              src={item.img}
-              alt="img"
-              className="group-hover:scale-125 group-hover:duration-1000"
-            />
+            <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
+              <a>
+                <img
+                  src={item.img}
+                  alt={item.value}
+                  className="group-hover:scale-125 group-hover:duration-1000"
+                />
+              </a>
+            </Link>
           </div>
           <div className="wrap-details bg">
             <h6 className="text-center">
@@ -82,9 +82,12 @@ const SingleSlideCourse = ({
               ทั้งหมด{" "}
               <strong className="text-xl group-hover:text-red-600">
                 &nbsp;
-                {item.value == "Design" ? CourseLength.length
-                  : item.value == "วิชาการ" ? CourseLength.length
-                  : item.value == "Life Style" ? CourseLength.length
+                {item.value == "Design"
+                  ? CourseLength.length
+                  : item.value == "วิชาการ"
+                  ? CourseLength.length
+                  : item.value == "Life Style"
+                  ? CourseLength.length
                   : filter.length}
                 &nbsp;
               </strong>{" "}

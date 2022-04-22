@@ -2,19 +2,19 @@ export const SEO = {
   title: "อดิเรก ให้ทุกวันคือการสร้างโอกาสใหม่",
   description:
     "เรารวบรวมกลุ่มผู้สอนไว้มากที่สุดในประเทศไทย เลือกได้ตามหมวดหมู่และความสนใจของคุณเน้นสอนตามความต้องการของผู้เรียน",
-  canonical: "https://adirek.vercel.app/",
+  canonical: "https://adirekth.com",
   openGraph: {
-    url: "https://adirek.vercel.app/",
+    url: "https://adirekth.com",
     title: "อดิเรก ให้ทุกวันคือการสร้างโอกาสใหม่",
     description:
       "เรารวบรวมกลุ่มผู้สอนไว้มากที่สุดในประเทศไทย เลือกได้ตามหมวดหมู่และความสนใจของคุณเน้นสอนตามความต้องการของผู้เรียน",
     images: [
       {
-        url: "/static/img/ogLogo.png",
+        url: "/static/img/thumbnail.png",
         alt: "Adirek",
         type: "image/png",
       },
     ],
-    site_name: "SiteName",
+    site_name: "อดิเรก",
   },
 }
