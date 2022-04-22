@@ -22,8 +22,8 @@ const SingleSlideCourse = ({
 
   return (
     <>
-      <div className="item z-50 group">
-        <div
+      <div className="item z-50 group drop-shadow-xl">
+        {/* <div
           className={`single-intro-wrap group-hover:scale-[1.02] group-hover:duration-200  ${
             item.value === "Design"
               ? "!bg-[#EECF6D]  group-hover:!bg-slate-50  group-hover:duration-400"
@@ -53,6 +53,13 @@ const SingleSlideCourse = ({
               ? "!bg-[#2097D4] group-hover:!bg-slate-50  group-hover:duration-400 "
               : null
           }`}
+        > */}
+        <div
+          className={`single-intro-wrap group-hover:scale-[1.02] group-hover:duration-200  ${
+            item.id % 2 == 1
+              ? "!bg-[#104B92]  group-hover:!bg-slate-50  group-hover:duration-400"
+              : "!bg-[#67143A] group-hover:!bg-slate-50  group-hover:duration-400"
+          }`}
         >
           <div className="thumb">
             <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
@@ -65,22 +72,22 @@ const SingleSlideCourse = ({
               </a>
             </Link>
           </div>
-          <div className="wrap-details bg">
+          <div className="wrap-details ">
             <h6 className="text-center">
               <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
                 <a
                   style={{ fontSize: 22 }}
-                  className="font-Prompt font-bold text-slate-50 group-hover:text-blue-900  leading-relaxed tracking-wide  drop-shadow-2xl"
+                  className={`font-Prompt font-semibold text-slate-50  group-hover:text-black   leading-relaxed tracking-wide  `}
                 >
                   {item.value}
                 </a>
               </Link>
             </h6>
 
-            <p className=" text-slate-50 group-hover:text-blue-900 !text-lg font-Mitr font-light drop-shadow-2xl">
+            <p className=" text-slate-50  !text-lg font-Mitr font-light drop-shadow-2xl group-hover:text-black">
               {" "}
               ทั้งหมด{" "}
-              <strong className="text-xl group-hover:text-red-600">
+              <strong className="text-xl   font-normal ">
                 &nbsp;
                 {item.value == "Design"
                   ? CourseLength.length

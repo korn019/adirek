@@ -8,22 +8,8 @@ const AdirekIs = () => {
       <section className="text-gray-700 body-font -mt-20 sm:-mt-36 bg-[#FFFFFF]">
         <div className="container mx-auto flex md:px-6 py-24 md:flex-row flex-col items-center">
           <div className="lg:flex-grow md:w-1/2 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-left  z-50">
-            <h1 className="title-font text-f4xl sm:text-f4xl  mb-4 font-title ">
-              <span className="title-word title-word-1  drop-shadow-2xl ">
-                อ
-              </span>
-              <span className="title-word title-word-2  drop-shadow-2xl ">
-                ดิ
-              </span>
-              <span className="title-word title-word-3  drop-shadow-2xl ">
-                เ
-              </span>
-              <span className="title-word title-word-4  drop-shadow-2xl ">
-                ร
-              </span>
-              <span className="title-word title-word-5  drop-shadow-2xl ">
-                ก
-              </span>
+            <h1 className=" text-[6rem] mb-2 font-title ">
+                อดิเรก
             </h1>
             <p className="mb-8  indent-5 text-lg leading-relaxed text-grey-500  text-subtext lg:text-[1.2rem]  !font-k2d font-light">
               เกิดขึ้นจากความเชื่อที่ว่า "ชีวิตคือการค้นหาและเรียนรู้สิ่งใหม่ๆ
@@ -73,9 +59,9 @@ const AdirekIs = () => {
         </div>
       </section>
 
-      <section className="relative  py-24" >
+      <section className="relative  py-24 bg-gray-100" >
         <div className="items-center  flex-wrap grid grid-cols-1  lg:grid-cols-2  ">
-          <div className="w-full px-4">
+          <div className="w-full p-6 md:p-12">
             <iframe
               src="https://www.youtube.com/embed/I9TCLKlMzpc"
               frameBorder="0"
@@ -86,24 +72,24 @@ const AdirekIs = () => {
           </div>
           <div className="w-full  ml-auto mr-auto px-8">
             <div className="md:pr-12">
-              <h3 className="drop-shadow-xl mb-6  mt-8 text-3xl font-title text-f2xl md:text-fxl lg:text-f3xl title-word-3 title-word-2 animate-[color-animation_3s_linear_infinite]">
+              <h3 className="drop-shadow-xl mb-6  mt-8 text-3xl font-title text-f2xl md:text-fxl lg:text-f3xl title-word-3 title-word-2 ">
                 ติดอาวุธทางความรู้ไปกับอดิเรก
               </h3>
-              <p className="mt-4 indent-5 text-lg leading-relaxed text-grey-500  text-subtext lg:text-[1.2rem]  !font-k2d font-light">
+              <p className="mt-4 indent-5 text-lg leading-relaxed text-grey-500  text-subtext lg:text-[1.2rem]  !font-k2d font-light ">
                 หากคุณคือคนหนึ่งที่ต้องการเรียนรู้สิ่งใหม่ๆหรือเพิ่มทักษะที่น่าสนใจเราคือชุมชนที่รวบรวมผู้สอนที่มีความรู้ความสามารถและประสบการณ์ในสาขาต่างๆที่พร้อมจะถ่ายทอดองค์ความรู้และประสบการณ์ให้กับคุณ
               </p>
-              <p className=" indent-5  mt-4 text-lg leading-relaxed !text-grey-500  text-subtext lg:text-[1.2rem]  !font-k2d font-light">
+              <p className=" indent-5  mt-4 text-lg leading-relaxed !text-grey-500  text-subtext lg:text-[1.2rem]  !font-k2d font-light ">
                 เปิดโอกาสให้คุณได้พบเจอกับผู้สอนที่ดีที่สุดและตรงใจที่สุด
                 สามารถเลือกสไตล์การสอนให้เหมาะกับสไตล์การเรียนของคุณทุกเรื่องที่คุณสนใจ
                 ทุกทักษะที่คุณตามหา พร้อมสื่อสารกันโดยตรง ไม่ผ่านคนกลาง
                 สามารถกำหนดวัน เวลา สถานที่
                 รวมทั้งสามารถเลือกรูปแบบผู้สอนที่ผู้เรียนต้องการได้อย่างอิสระ
               </p>
-              <ul className="list-disc mt-6 ">
+              <ul className="list-disc mt-6  ">
                 <li className="py-2">
                   <div className="flex items-center">
                     <div>
-                      <p className="text-subtext    lg:text-[1.25rem]  !font-k2d font-light">
+                      <p className="text-subtext    lg:text-[1.25rem]  !font-k2d font-light ">
                         ทุกการเรียนรู้ เริ่มต้นที่ อดิเรก
                       </p>
                     </div>
@@ -112,7 +98,7 @@ const AdirekIs = () => {
                 <li className="py-2">
                   <div className="flex items-center">
                     <div>
-                      <p className="text-subtext   lg:text-[1.25rem]  !font-k2d font-light">
+                      <p className="text-subtext   lg:text-[1.25rem]  !font-k2d font-light ">
                         อดิเรก จุดเริ่มต้นของสังคมแห่งการเรียนรู้ไม่มีที่สิ้นสุด
                       </p>
                     </div>
@@ -121,7 +107,7 @@ const AdirekIs = () => {
                 <li className="py-2">
                   <div className="flex items-center">
                     <div>
-                      <p className="text-subtext   lg:text-[1.25rem]  !font-k2d font-light">
+                      <p className="text-subtext   lg:text-[1.25rem]  !font-k2d font-light ">
                         อดิเรก เราเปิดประตสู่ทุกการเรียนรู้
                         ให้ทุกวันคือการสร้างโอกาสใหม่สำหรับคณ
                       </p>
@@ -131,7 +117,7 @@ const AdirekIs = () => {
                 <li className="py-2">
                   <div className="flex items-center">
                     <div>
-                      <p className="text-subtext  lg:text-[1.25rem]  !font-k2d font-light">
+                      <p className="text-subtext  lg:text-[1.25rem]  !font-k2d font-light ">
                         อดิเรกประตูสู่การเรียนรู้ทุกเรื่องที่คุณสนใจและช่องท่างที่จะเปลี่ยนงานอดิเรกของคุณให้เป็นรายได้
                       </p>
                     </div>

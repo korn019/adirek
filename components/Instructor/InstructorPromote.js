@@ -66,18 +66,18 @@ const InstructorPromote = () => {
                 <img src="/static/img/instructor.png" alt="img" />
               </div>
             </div>
-            <div className="col-md-7 col-sm-10 align-self-center">
-              <div className="banner-inner text-md-start text-center">
+            <div className="col-md-7 col-sm-10 align-self-center ">
+              <div className="banner-inner text-md-start text-center relative">
                 <h1 className="text-white text-f4xl font-Prompt drop-shadow-2xl font-bold">
                   สมัครเลย !
                 </h1>
                 <div className=" me-0">
-                  <p className="text-white !text-fmd drop-shadow-2xl !font-Mitr ">
+                  <p className="text-white !text-fmd drop-shadow-2xl !font-Mitr">
                     ช่องทางรายได้ใหม่ๆ ไม่มีหักเปอร์เซ็นต์ หรือคอมมิชชั่นใดๆ
                     ฟรีทุกอย่าง!
                   </p>
                 </div>
-                <Link href="#register" className="group">
+                <Link href="#register" className="group ">
                   <button
                     className="bg-orange-500 group-hover:bg-black  px-10 py-2 rounded-xl text-slate-200 text-shade2   !font-Prompt font-black  text-fxl"
                     style={{

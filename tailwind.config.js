@@ -36,6 +36,9 @@ module.exports = {
         youtubeSlide: "youtubeSlide 4s infinite alternate",
         "color-animation": "color-animation 5s linear infinite",
       },
+      colors: {
+        bg: '#104B92',
+      },
     },
   },
   plugins: [require("@tailwindcss/line-clamp")],

@@ -5934,14 +5934,14 @@ a.showMore-cat.showLess::after {
   font-family: HeaventRoundedBd;
 }
 
-@media (min-width: 400px) {
+@media (max-width: 400px) {
   .row-hero {
     height: 35rem;
   }
   .video-quote {
     /* padding: 3px; */
     position: absolute;
-    top: 25%;
+    top: 15%;
     bottom: 50%;
     margin: auto;
     z-index: 1;
@@ -6339,7 +6339,7 @@ display: none;
 .btn {
   --background-1: #df8453;
   --background-2: #3d8dae;
-  --background-3: #e4a9a8;
+  --background-3: #EB7E23;
   margin: 0.5em;
   color: white;
   border: none;
@@ -6352,7 +6352,8 @@ display: none;
   overflow: hidden;
   align-items: center;
   justify-content: center;
-  animation: buttonanimation 4s linear infinite;
+  background-color: var(--background-3);
+  /* animation: buttonanimation 4s linear infinite; */
 }
 
 @keyframes buttonanimation {
@@ -6730,7 +6731,7 @@ button:hover:after {
   left: 0px;
   z-index: 0;
   background: black;
-  opacity: .5;
+  opacity: .3;
 }
 .text-effect-1 {
   background: #accfcb;

@@ -318,8 +318,8 @@ function Header() {
         <div
           className={
             navHead
-              ? "relative  flex items-center h-24 duration-700 w-full"
-              : "relative  flex items-center h-28 duration-700 w-full"
+              ? "relative  flex items-center h-32 duration-700 w-full"
+              : "relative  flex items-center h-36 duration-700 w-full"
           }>
           <div className="flex item items-center justify-between w-full">
             <div className="flex flex-row justify-center items-center flex-shrink-0 space-x-2">

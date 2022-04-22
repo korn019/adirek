@@ -69,5 +69,5 @@
   @apply  drop-shadow-xl  mb-11 border-b border-[#e3e3e3]
 }
 .title-text {
-  @apply !font-Prompt font-medium  text-f4xl
+  @apply !font-Prompt font-normal  text-f4xl
 }

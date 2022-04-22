@@ -1,7 +1,7 @@
 const Partner = () => {
   return (
     <>
-      <section className="bg-gradient-to-r from-[#d2e7bb]  to-[#e5f1d7]">
+      <section className="bg-gray-100">
         {/* <div className="h-32"></div> */}
         <div className="relative  text-black-500 pt-8 pb-6">
           {/* <div
@@ -25,8 +25,8 @@ const Partner = () => {
             <div className="mx-auto px-4 ">
               <div className="flex flex-wrap justify-center text-center mb-12">
                 <div className="w-full lg:w-6/12 px-4">
-                  <h2 className="title-text text-[#2d3941]">
-                  ทำไม <strong>อดิเรก</strong> จึงเป็นที่ต้องการ
+                  <h2 className="title-text !text-[2rem] md:!text-f4xl">
+                  ทำไมต้องการเรียนกับ <strong>อดิเรก</strong>
                   </h2>
                 </div>
               </div>
@@ -36,13 +36,13 @@ const Partner = () => {
                     {" "}
                     <div className="single-intro-wrap-2  items-center max-w-full mx-auto">
                       <div className="justify-center items-center flex">
-                        <img src="static/img/intro/01.png" alt="img" />
+                        <img src="static/img/intro/01.png" alt="img" className="w-[140px] h-[140px]" />
                       </div>
                       <div className="wrap-details my-4">
-                        <p className=" !text-2xl text-[#2d3941] !font-Mitr !font-semibold ">
-                          <a href="#">ข้อดีของการเป็น Partner กับเรา</a>
+                        <p className=" !text-2xl  !font-Mitr !font-normal ">
+                          <a href="#">เรียนได้ทุกที่ ทุกเวลา</a>
                         </p>
-                        <p className="text-[##646464]  text-content text-center">
+                        <p className=" text-content text-center">
                           การันตีได้ผลจริงพร้อมช่วยสร้างความมั่นใจและความก้าวหน้าให้กับคุณได้ง่าย
                         </p>
                       </div>
@@ -54,13 +54,13 @@ const Partner = () => {
                     {" "}
                     <div className="single-intro-wrap-2  items-center max-w-full mx-auto">
                       <div className="justify-center items-center flex">
-                        <img src="static/img/intro/02.png" className="" alt="img" />
+                        <img src="static/img/intro/02.png"  className="w-[140px] h-[140px]"  alt="img" />
                       </div>
                       <div className="wrap-details my-4">
-                        <p className=" !text-2xl text-[#2d3941] !font-Mitr !font-semibold">
+                        <p className=" !text-2xl  !font-Mitr !font-normal">
                           <a href="#">การสร้างโอกาส</a>
                         </p>
-                        <p className="text-[##646464] text-center">
+                        <p className=" text-center">
                           ทุกเรื่องที่คุณสนใจ และช่องทางที่จะเปลี่ยนงานอดิเรกของคุณให้เป็นรายได้
                         </p>
                       </div>
@@ -72,13 +72,13 @@ const Partner = () => {
                     {" "}
                     <div className="single-intro-wrap-2  items-center max-w-full mx-auto">
                       <div className="justify-center items-center flex">
-                        <img src="static/img/intro/03.png" className="" alt="img" />
+                        <img src="static/img/intro/03.png"  className="w-[140px] h-[140px]"  alt="img" />
                       </div>
                       <div className="wrap-details my-4">
-                        <p className=" !text-2xl text-[#2d3941] !font-Mitr !font-semibold">
+                        <p className=" !text-2xl  !font-Mitr !font-normal">
                           <a href="#">การเป็นที่รู้จักเข้าถึงกลุ่มเป้าหมายและผลลัพธ์</a>
                         </p>
-                        <p className="text-[##646464] text-center">
+                        <p className=" text-center">
                           จุดเริ่มต้นของสังคมแห่งการเรียนรู้ไม่มีที่สิ้นสุด
                         </p>
                       </div>
@@ -88,8 +88,8 @@ const Partner = () => {
               </div>
             </div>
           </section>
-          <hr className="my-6 border-white" />
-          <div className="flex flex-wrap items-center md:justify-between justify-center">
+          {/* <hr className="my-6 border-white" /> */}
+          {/* <div className="flex flex-wrap items-center md:justify-between justify-center">
             <div className="w-full md:w-4/12 px-4 mx-auto text-center">
               <div className="text-sm text-gray-600 font-semibold py-1">
                 <a href="#" className="text-gray-600 hover:text-gray-900 font-title text-flg">
@@ -101,7 +101,7 @@ const Partner = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
     </>

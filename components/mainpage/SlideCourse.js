@@ -37,10 +37,8 @@ const SlideCourse = () => {
                     nextEl: ".swiper-next",
                     prevEl: ".swiper-prev",
                   }}
-                  modules={[Navigation, Autoplay, Pagination]}
-                  autoplay={{
-                    delay: 4000,
-                  }}
+                  modules={[Navigation,  Pagination]}
+               
                   loop={true}
                   slidesPerView={4}
                   breakpoints={{
