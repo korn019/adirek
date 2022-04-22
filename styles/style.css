@@ -6788,8 +6788,8 @@ button:hover:after {
 .bg-blue-gradient {
   background: linear-gradient(15deg,#2b56d8 1.02%,#10329d 93.25%);
 }
-#__next {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+@media screen and (max-width: 320px) {
+  #__next {
+    display: flex
+  }
 }
