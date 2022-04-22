@@ -559,25 +559,25 @@ function Header() {
             <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <a
                 href="/Category"
-                className="hover:bg-gray-700 hover:text-white text-black block px-3 py-2 rounded-md text-base font-medium !font-Prompt">
+                className="hover:bg-gray-700 hover:!text-white  text-black block px-3 py-2 rounded-md text-base font-medium !font-Prompt">
                 หลักสูตรคอร์สเรียนทั้งหมด
               </a>
 
               <a
                 href="/Blog"
-                className="hover:bg-gray-700 hover:text-white text-black block px-3 py-2 rounded-md text-base font-medium">
+                className="hover:bg-gray-700 hover:!text-white  text-black block px-3 py-2 rounded-md text-base font-medium !font-Prompt">
                 บทความและข่าวสาร
               </a>
 
               <a
                 href="/Instructor"
-                className="hover:bg-gray-700 hover:text-white text-black block px-3 py-2 rounded-md text-base font-medium">
+                className="hover:bg-gray-700 hover:!text-white  text-black block px-3 py-2 rounded-md text-base font-medium !font-Prompt">
                 มาร่วมสอนกับเรา
               </a>
 
               <a
                 href="/Contact"
-                className="hover:bg-gray-700 hover:text-white text-black block px-3 py-2 rounded-md text-base font-medium">
+                className="hover:bg-gray-700 hover:!text-white  text-black block px-3 py-2 rounded-md text-base font-medium !font-Prompt">
                 ติดต่อเรา
               </a>
               <div className="">

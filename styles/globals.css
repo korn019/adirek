@@ -49,10 +49,16 @@
   src: url("../public/static/fonts/Prompt-Regular.ttf");
 }
 @font-face {
+  font-family: DBHelvethaicaX;
+  src: url("../public/static/fonts/DBHelvethaicaX.ttf");
+}
+
+@font-face {
   font-family: Kodchasan-Regular;
 
   src: url("../public/static/fonts/Kodchasan-Regular.ttf");
 }
+
 @layer components {
   .mad-text-big {
     font-size: 1.05rem;
@@ -69,5 +75,11 @@
   @apply  drop-shadow-xl  mb-11 border-b border-[#e3e3e3]
 }
 .title-text {
-  @apply !font-Prompt font-normal  text-f4xl
+  @apply font-Prompt font-normal  text-f4xl
+}
+.text-Athiti {
+  @apply font-Athiti not-italic font-normal text-[#0b132a] text-2xl leading-9  tracking-wide
+}
+.subtext-Athiti {
+  @apply font-Athiti not-italic font-normal text-[#525864] text-lg leading-9  tracking-wide
 }

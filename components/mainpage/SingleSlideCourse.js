@@ -59,8 +59,7 @@ const SingleSlideCourse = ({
             item.id % 2 == 1
               ? "!bg-[#EB7E23]  group-hover:!bg-slate-50  group-hover:duration-400"
               : "!bg-[#9ADCFF] group-hover:!bg-slate-50  group-hover:duration-400"
-          }`}
-        >
+          }`}>
           <div className="thumb">
             <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
               <a>
@@ -76,15 +75,14 @@ const SingleSlideCourse = ({
             <h6 className="text-center">
               <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
                 <a
-                  style={{ fontSize: 22 }}
-                  className={`font-Prompt font-semibold text-slate-50  group-hover:text-black   leading-relaxed tracking-wide  `}
-                >
+                  style={{fontSize: 22}}
+                  className={`text-Athiti !font-semibold !text-slate-50  group-hover:!text-black   leading-relaxed tracking-wide  `}>
                   {item.value}
                 </a>
               </Link>
             </h6>
 
-            <p className=" text-slate-50  !text-lg font-Mitr font-light drop-shadow-2xl group-hover:text-black">
+            <p className=" text-Athiti !text-slate-50  !text-lg font-Mitr font-light drop-shadow-2xl group-hover:!text-black">
               {" "}
               ทั้งหมด{" "}
               <strong className="text-xl   font-normal ">
@@ -104,7 +102,7 @@ const SingleSlideCourse = ({
         </div>
       </div>
     </>
-  );
+  )
 };
 
 export default SingleSlideCourse;

@@ -54,25 +54,25 @@ const InstructorDetail = ({e}) => {
             }}>
             <div className="col-12 col-md-12 col-lg-7 text-center text-md-center text-lg-center">
               <div>
-                <h3 className="title" style={{color: "white", fontSize: 42}}>
+                <h3 className="font-DB" style={{color: "white", fontSize: 42}}>
                   {e.ชื่อจริง}
                 </h3>
-                <h3 className="title" style={{color: "white", fontSize: 42}}>
+                <h3 className="font-DB " style={{color: "white", fontSize: 42}}>
                   {e.นามสกุล}
                 </h3>
               </div>
             </div>
             <div className="col-12 col-md-12 col-lg-5  border-md-left">
               <div className="text-center  text-md-center mt-3 space-y-1">
-                <p className="sub-title-teacher text-[#f8f8f8] text-[16px]">
+                <p className="sub-title-teacher font-DB  text-[#f8f8f8] text-[24px] leading-relaxed">
                   {" "}
                   <i className="fa fa-check-circle text-[aquamarine]" aria-hidden="true"></i>
-               &nbsp;  Verified
+                  &nbsp; Verified
                 </p>
-                <p className="sub-title-teacher  text-[#f8f8f8] text-[16px]">
+                <p className="sub-title-teacher  font-DB  text-[#f8f8f8] text-[24px] leading-relaxed">
                   {" "}
                   <i className="fa fa-check-circle text-[aquamarine]" aria-hidden="true"></i>
-                &nbsp; {e.ฉีดวัคซีนป้องกัน}
+                  &nbsp; {e.ฉีดวัคซีนป้องกัน}
                 </p>
                 <ul className="social-area d-inline-block">
                   <li>
@@ -101,10 +101,12 @@ const InstructorDetail = ({e}) => {
             {" "}
             <div className="space-y-1">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:space-x-3">
-                <h1 className="!font-Prompt font-black drop-shadow-2xl text-f2xl text-[#F6A21C]">คอร์สเรียน</h1>
+                <h1 className="!font-Prompt font-bold drop-shadow-2xl text-f2xl text-[#F6A21C]">
+                  คอร์สเรียน
+                </h1>
                 <div className="bg-slate-700 rounded-lg  px-2 lg:col-span-2">
                   <a href={`tel:${e.เบอร์โทร}`} className="flex items-center justify-between ">
-                    <h1 className="font-title text-f3xl text-white">โทรหาผู้สอน</h1>
+                    <h1 className="font-DB font-black text-f3xl text-white">โทรหาผู้สอน</h1>
                     <i className="fa fa-phone text-[#F6A21C] text-3xl"></i>
                   </a>
                 </div>
@@ -207,7 +209,7 @@ const InstructorDetail = ({e}) => {
           <div className="mt-6 md:mt-0 lg:px-5">
             {" "}
             <div className="space-y-1">
-              <h1 className="font-Prompt font-black text-f3xl text-[#F6A21C]">หมวดหมู่:</h1>
+              <h1 className="font-Prompt font-bold text-f3xl text-[#F6A21C]">หมวดหมู่:</h1>
               <div className="align-items-center justify-content-center bg-[#eaf0f6] border-b-2 border-gray-200 rounded-lg p-2">
                 <div className="ml-1 title text-black text-[32px]">
                   {e.ช่องทางการสอน == "" ? "ไม่พบข้อมูล" : e.ช่องทางการสอน}{" "}
@@ -221,12 +223,10 @@ const InstructorDetail = ({e}) => {
             </div>
             <div className="grid grid-cols-2 items-center justify-between mt-5">
               <div>
-                <h1 className="title font-Prompt font-black text-f2xl text-[#F6A21C]">Rating</h1>
+                <h1 className="title font-Prompt font-bold text-f2xl text-[#F6A21C]">Rating</h1>
               </div>
               <div className="text-right flex items-center justify-end">
-                <span className="mx-2">
-                {start}
-                </span>
+                <span className="mx-2">{start}</span>
                 <ReactStars
                   count={5}
                   half={true}
@@ -267,41 +267,44 @@ const InstructorDetail = ({e}) => {
           </div>
           <div className="lg:px-5 mt-6">
             {" "}
-            <h1 className="title font-Prompt font-black text-f2xl  text-[#F6A21C]">แนะนำผู้สอน</h1>
+            <h1 className="title font-Prompt font-bold text-f2xl  text-[#F6A21C]">แนะนำผู้สอน</h1>
             <p className=" subtext ">{e.ประวัติการสอน == "" ? "ไม่พบข้อมูล" : e.ประวัติการสอน}</p>
           </div>
           <div className="lg:px-5 mt-6">
             {" "}
-            <h1 className="title  font-Prompt font-black text-f2xl text-[#F6A21C]">ประวัติการศึกษา</h1>
+            <h1 className="title  font-Prompt font-bold text-f2xl text-[#F6A21C]">
+              ประวัติการศึกษา
+            </h1>
             <p className=" subtext">
               {e.ประวัติการศึกษา == "" ? "ไม่พบข้อมูล" : e.ประวัติการศึกษา}
             </p>
           </div>
           <div className="lg:px-5 mt-6">
             {" "}
-            <h1 className="title font-Prompt font-black text-f2xl text-[#F6A21C]">ติดต่อผู้สอน</h1>
+            <h1 className="title font-Prompt font-bold text-f2xl text-[#F6A21C]">ติดต่อผู้สอน</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
               <p className="lead font-bold">Phone:</p>
               <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">
-              <a href={`tel:${e.เบอร์โทร}`}> {e.เบอร์โทร == "" ? "ไม่พบข้อมูล" : e.เบอร์โทร}</a> 
+                <a href={`tel:${e.เบอร์โทร}`}> {e.เบอร์โทร == "" ? "ไม่พบข้อมูล" : e.เบอร์โทร}</a>
+              </p>
+
+              <p className="lead font-bold">Email:</p>
+              <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">
+                {e.ที่อยู่อีเมล == "" ? "ไม่พบข้อมูล" : e.ที่อยู่อีเมล}
+              </p>
+              <p className="lead font-bold">Line:</p>
+              <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">
+                {e.line == null ? "ไม่พบข้อมูล" : e.line}
               </p>
               <p className="lead font-bold">Address:</p>
               <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">
                 {e.กรณีเรียนนอกสถานที่ == "" ? "ไม่พบข้อมูล" : e.กรณีเรียนนอกสถานที่}
               </p>
-              <p className="lead font-bold">Email:</p>
-              <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">
-              {e.ที่อยู่อีเมล == '' ? "ไม่พบข้อมูล" : e.ที่อยู่อีเมล}
-              </p>
-              <p className="lead font-bold">Line:</p>
-              <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">
-              {e.line == null ? "ไม่พบข้อมูล" : e.line}
-              </p>
             </div>
           </div>
           <div className="lg:px-5 mt-6">
             {" "}
-            <h1 className="title font-Prompt font-black text-f2xl text-[#F6A21C]">Review</h1>
+            <h1 className="title font-Prompt font-bold text-f2xl text-[#F6A21C]">Review</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
               <ol className="list-decimal" style={{color: "#808191"}}>
                 <li className="subtext">สอนเข้าใจง่าย</li>

@@ -1,9 +1,9 @@
 const Partner = () => {
   return (
     <>
-      <section className="bg-gray-100">
+      <section className="bg-background">
         {/* <div className="h-32"></div> */}
-        <div className="relative  text-black-500 pt-8 pb-6">
+        <div className="relative container text-black-500 pt-8 pb-6">
           {/* <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
             style={{height: 80}}>
@@ -24,65 +24,82 @@ const Partner = () => {
           <section className="pt-6 pb-4 md:pb-12 ">
             <div className="mx-auto px-4 ">
               <div className="flex flex-wrap justify-center text-center mb-12">
-                <div className="w-full lg:w-6/12 px-4">
-                  <h2 className="title-text !text-[2rem] md:!text-f4xl">
-                   <span className="text-[#FF5959]"><strong>อดิเรก </strong> </span> is Knowlegde Capital
+                <div className="w-full">
+                  <h2 className="text-Athiti !font-semibold !text-titleBlue !text-[2.2rem]  md:!text-[5rem]">
+                    <span className="text-[#FF5959]">
+                      <strong className="font-Prompt font-bold text-title"> อดิเรก </strong>
+                    </span>{" "}
+                    is Knowlegde Capital
                   </h2>
                 </div>
               </div>
               <div className="flex flex-wrap justify-center text-center ">
-                <div className="w-full md:w-1/2 lg:w-1/3 lg:mb-0 mb-12 px-4">
-                  <div className="px-6 ">
-                    {" "}
-                    <div className="single-intro-wrap-2  items-center max-w-full mx-auto">
-                      <div className="justify-center items-center flex">
-                        <img src="static/img/intro/01.png" alt="img" className="w-[140px] h-[140px]" />
-                      </div>
-                      <div className="wrap-details my-4">
-                        <p className=" !text-2xl  !font-Mitr !font-normal ">
-                          <a href="#">อิสระในการเรียนรู้</a>
-                        </p>
-                        <p className=" text-content text-center">
-                        {/* เรียนได้ทุกที่ ทุกเวลา */}
-                        เข้าถึงการเรียนการเรียนรู้ได้ทุกที่ทุกเวลาอย่างง่ายดาย
-                          {/* การันตีได้ผลจริงพร้อมช่วยสร้างความมั่นใจและความก้าวหน้าให้กับคุณได้ง่าย */}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="w-full md:w-1/2 lg:w-1/3 lg:mb-0 mb-12 px-4">
-                  <div className="px-6">
-                    {" "}
-                    <div className="single-intro-wrap-2  items-center max-w-full mx-auto">
-                      <div className="justify-center items-center flex">
-                        <img src="static/img/intro/02.png"  className="w-[140px] h-[140px]"  alt="img" />
-                      </div>
-                      <div className="wrap-details my-4">
-                        <p className=" !text-2xl  !font-Mitr !font-normal">
-                          <a href="#">การสร้างโอกาส</a>
-                        </p>
-                        <p className=" text-content  text-center">
-                          ทุกเรื่องที่คุณสนใจ และช่องทางที่จะเปลี่ยนงานอดิเรกของคุณให้เป็นรายได้
-                        </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                  <div className="w-full  lg:mb-0 mb-12 ">
+                    <div className=" ">
+                      {" "}
+                      <div className="single-intro-wrap-2  items-center max-w-full mx-auto">
+                        <div className="justify-center items-center flex">
+                          <img
+                            src="static/img/intro/01.png"
+                            alt="img"
+                            className="w-[140px] h-[140px]"
+                          />
+                        </div>
+                        <div className="wrap-details my-4">
+                          <p className="text-Athiti !font-semibold !text-textRed">
+                            <a href="#">อิสระในการเรียนรู้</a>
+                          </p>
+                          <p className=" text-content text-center subtext-Athiti">
+                            {/* เรียนได้ทุกที่ ทุกเวลา */}
+                            เข้าถึงการเรียนการเรียนรู้ได้ทุกที่ทุกเวลาอย่างง่ายดาย
+                            {/* การันตีได้ผลจริงพร้อมช่วยสร้างความมั่นใจและความก้าวหน้าให้กับคุณได้ง่าย */}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="w-full md:w-1/2 lg:w-1/3 lg:mb-0 mb-12 px-4">
-                  <div className="px-6">
-                    {" "}
-                    <div className="single-intro-wrap-2  items-center max-w-full mx-auto">
-                      <div className="justify-center items-center flex">
-                        <img src="static/img/intro/03.png"  className="w-[140px] h-[140px]"  alt="img" />
+                  <div className="w-full  lg:mb-0 mb-12 ">
+                    <div className="">
+                      {" "}
+                      <div className="single-intro-wrap-2  items-center max-w-full mx-auto">
+                        <div className="justify-center items-center flex">
+                          <img
+                            src="static/img/intro/02.png"
+                            className="w-[140px] h-[140px]"
+                            alt="img"
+                          />
+                        </div>
+                        <div className="wrap-details my-4">
+                          <p className="text-Athiti !font-semibold !text-textRed">
+                            <a href="#">การสร้างโอกาส</a>
+                          </p>
+                          <p className=" text-content  text-center subtext-Athiti">
+                            ทุกเรื่องที่คุณสนใจ และช่องทางที่จะเปลี่ยนงานอดิเรกของคุณให้เป็นรายได้
+                          </p>
+                        </div>
                       </div>
-                      <div className="wrap-details my-4">
-                        <p className=" !text-2xl  !font-Mitr !font-normal">
-                          <a href="#">เข้าถึง Community เพื่อการเรียนรู้</a>
-                        </p>
-                        <p className=" text-content  text-center">
-                          จุดเริ่มต้นของสังคมแห่งการเรียนรู้ไม่มีที่สิ้นสุด
-                        </p>
+                    </div>
+                  </div>
+                  <div className="w-full  lg:mb-0 mb-12 ">
+                    <div className="">
+                      {" "}
+                      <div className="single-intro-wrap-2  items-center max-w-full mx-auto">
+                        <div className="justify-center items-center flex">
+                          <img
+                            src="static/img/intro/03.png"
+                            className="w-[140px] h-[140px]"
+                            alt="img"
+                          />
+                        </div>
+                        <div className="wrap-details my-4">
+                          <p className="!text-[23px] text-Athiti !font-semibold !text-textRed">
+                            <a href="#">เข้าถึง Community เพื่อการเรียนรู้</a>
+                          </p>
+                          <p className=" text-content  text-center subtext-Athiti">
+                            จุดเริ่มต้นของสังคมแห่งการเรียนรู้ไม่มีที่สิ้นสุด
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>

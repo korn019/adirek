@@ -7,6 +7,12 @@ module.exports = {
         primary: "#f37a28",
         secondary: "#4ba85a",
         other: "#be2026",
+        background: "rgba(212,229,235,.3)",
+        bg: "#104B92",
+        text: "#EB7E23",
+        title: "#FF5959",
+        titleBlue: "#0c4159",
+        textRed: "#87142b",
       },
       fontFamily: {
         title: ["DBHeaventRoundedBd"],
@@ -17,7 +23,9 @@ module.exports = {
         Prompt: ["Prompt"],
         Kodchasan: ["Kodchasan-Regular"],
         k2d: ["K2D"],
-        Mitr: ['Mitr']
+        Mitr: ["Mitr"],
+        DB: ["DBHelvethaicaX"],
+        Athiti: ["Athiti"],
       },
       fontSize: {
         fsm: `clamp(0.83rem, 0.54vw + 0.62rem, 1rem)`,
@@ -31,13 +39,15 @@ module.exports = {
         f5xl: "3rem",
         f6xl: "4rem",
         f7xl: "5rem",
+        f27px: "27px",
       },
       animation: {
         youtubeSlide: "youtubeSlide 4s infinite alternate",
         "color-animation": "color-animation 5s linear infinite",
       },
-      colors: {
-        bg: '#104B92',
+      lineHeight: {
+        "extra-loose": "2.5",
+        'border-from-title': "4rem",
       },
     },
   },

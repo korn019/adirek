@@ -34,16 +34,15 @@ const Testimonial = () => {
   return (
     <>
       <div className=" py-12  bg-gray-100">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between">
+        <div className="container">
           <div className="text-center">
-            <h3 className="title-text !text-[2.1rem] md:!text-f4xl leading-normal tracking-tight drop-shadow-2xl">
+            <h3 className="!text-[46px] text-center md:text-left md:!text-[54px]  !font-Athiti  !font-semibold !text-[#0c4159]">
               <span className="">
                 {" "}
                 ผู้เรียน{" "}
                 <i
                   className="fa fa-heart  title-word title-word-1
-                "
-                ></i>{" "}
+                "></i>{" "}
                 อดิเรก
               </span>
             </h3>
@@ -54,11 +53,8 @@ const Testimonial = () => {
                 nextEl: ".swiper-next",
                 prevEl: ".swiper-prev",
               }}
-              pagination={{
-                dynamicBullets: true,
-              }}
               autoplay={{
-                delay: 11500,
+                delay: 9000,
                 disableOnInteraction: false,
               }}
               modules={[Navigation, Autoplay]}
@@ -68,34 +64,26 @@ const Testimonial = () => {
               breakpoints={{
                 320: {
                   slidesPerView: 1,
-                  spaceBetween: 90,
                 },
                 580: {
                   slidesPerView: 1,
-                  spaceBetween: 20,
                 },
                 640: {
-                  slidesPerView: 2,
-                  spaceBetween: 20,
+                  slidesPerView: 1,
                 },
                 1024: {
-                  slidesPerView: 2,
-                  spaceBetween: 20,
+                  slidesPerView: 1,
                 },
                 1200: {
-                  slidesPerView: 2,
-                  spaceBetween: 20,
+                  slidesPerView: 1,
                 },
                 1440: {
-                  slidesPerView: 2,
-                  spaceBetween: 45,
+                  slidesPerView: 1,
                 },
                 1920: {
-                  slidesPerView: 2,
-                  spaceBetween: 45,
+                  slidesPerView: 1,
                 },
-              }}
-            >
+              }}>
               {" "}
               {data.map((d, id) => (
                 <SwiperSlide key={id}>
@@ -105,19 +93,19 @@ const Testimonial = () => {
             </Swiper>
             <div className="swiper-prev cursor-pointer z-50">
               <div className="duration-500 w-[35px] bg-white/[.8] hover:bg-orange-400  shadow-xl flex justify-center items-center rounded-3xl  absolute z-50 top-[11rem] left-0 md:-left-5">
-                <p style={{ fontSize: 22 }}> &#x276E; </p>
+                <p style={{fontSize: 22}}> &#x276E; </p>
               </div>
             </div>
             <div className="swiper-next cursor-pointer z-50">
               <div className="duration-500 bg-white/[.8] w-[35px] hover:bg-orange-400 shadow-md flex justify-center items-center rounded-3xl  absolute z-50 top-[11rem] right-0 md:-right-5">
-                <p style={{ fontSize: 22 }}> &#x276F; </p>
+                <p style={{fontSize: 22}}> &#x276F; </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </>
-  );
+  )
 };
 
 export default Testimonial;

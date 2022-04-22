@@ -160,7 +160,7 @@ const SingleCourse = ({course, index, filterImg}) => {
         <div className="wrap-details">
           <h6 className="truncate ...">
             <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
-              <a href="#" className="font-title text-flg">
+              <a href="#" className="font-DB font-medium text-flg">
                 {course.รายละเอียดคอร์สเรียน}
               </a>
             </Link>
@@ -191,7 +191,7 @@ const SingleCourse = ({course, index, filterImg}) => {
           <div className="price-wrap">
             <div className="row align-items-center">
               <div className="col-6">
-                <p className="truncate ...">
+                <p className="text-xl md:text-[22px] truncate ...">
                   <Link
                     href={`/Course/${
                       course.filterCategory

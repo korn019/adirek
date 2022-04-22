@@ -5,23 +5,23 @@ const Footer = () => {
   const [course, setCourse] = useState(CourseCheck)
   return (
     <>
-      <footer className="footer-area">
+      <footer className="footer-area bg-[#0c4159]">
         <div className="footer-inner">
           <div className="container">
             <div className="row">
               <div className="col-lg-8 col-md-4 col-sm-6">
-                <div className="footer-widget widget widget_link">
-                  <h4 className="widget-title">หลักสูตร</h4>
-                  <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-3">
+                <div className="footer-widget widget widget_link widget_link ">
+                  <h4 className="!font-semibold text-Athiti mb-4 text-white">หลักสูตร</h4>
+                  <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-3 ">
                     {course.map((e, id) => {
                       return (
-                          <ul className="p-2 md:p-0" key={e.id}>
-                           <li>
+                        <ul className="p-2 md:p-0" key={e.id}>
+                          <li>
                             <Link href={`/Course/${e.value}`} as={`/Course/${e.value}`}>
-                              <a>{e.value}</a>
+                              <a className="!font-Athiti font-medium ">{e.value}</a>
                             </Link>
-                           </li>
-                          </ul>
+                          </li>
+                        </ul>
                       )
                     })}
                   </div>
@@ -106,8 +106,8 @@ const Footer = () => {
               </div>
               <div className="col-lg-2 col-md-4 col-sm-6">
                 <div className="footer-widget widget widget_link">
-                  <h4 className="widget-title">การเชื่อมโยง</h4>
-                  <ul className="pe-4">
+                  <h4 className="!font-semibold text-Athiti mb-4 text-white">การเชื่อมโยง</h4>
+                  <ul className="pe-4 !font-Athiti font-medium text-white">
                     <li>
                       <a href="/Blog">ข่าวสาร และ บทความ</a>
                     </li>
@@ -123,8 +123,8 @@ const Footer = () => {
               </div>
               <div className="col-lg-2 col-md-4 col-sm-6">
                 <div className="footer-widget widget widget_link">
-                  <h4 className="widget-title">ช่วยเหลือ</h4>
-                  <ul className="pe-4">
+                  <h4 className="!font-semibold text-Athiti mb-4 text-white">ช่วยเหลือ</h4>
+                  <ul className="pe-4 !font-Athiti font-medium !text-base !text-white">
                     {/* <li>
                       <a href="home.html">เอกสาร</a>
                     </li>
@@ -153,15 +153,17 @@ const Footer = () => {
                     <img src="/static/img/logo.png" alt="img" />
                   </div>
                   <div className="copyright-area">
-                    <p>© 2022 - อดิเรก. All Rights Reserved</p>
+                    <p className=" !font-Athiti font-medium !text-xl text-white">
+                      © 2022 - อดิเรก. All Rights Reserved
+                    </p>
                   </div>
                 </div>
               </div>
               <div className="col-xl-5 align-self-center text-xl-end">
-                <ul className="social-area d-inline-block">
-                  <li>
+                <ul className="social-area d-inline-block ">
+                  <li >
                     <a className=" " href="#">
-                      <i className="fab fa-facebook-f"></i>
+                      <i className="fab fa-facebook-f "></i>
                     </a>
                   </li>
                   <li>
@@ -193,7 +195,7 @@ const Footer = () => {
           <i className="fas fa-angle-double-up"></i>
         </span>
       </div>
-      
+
       <script src="../../static/js/jquery.3.6.min.js"></script>
       <script src="../../static/js/bootstrap.min.js"></script>
       <script src="../../static/js/imageloded.min.js"></script>
@@ -217,7 +219,6 @@ const Footer = () => {
       <script
         type="text/javascript"
         src="../../static/jquery.Thailand.js/dist/jquery.Thailand.min.js"></script>
-        
     </>
   )
 };

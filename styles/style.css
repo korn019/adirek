@@ -1285,7 +1285,8 @@ ul {
   font-size: 16px;
   background: transparent;
   border-radius: 3px;
-  color: #808191;
+  /* color: #808191; */
+  color: #fff;
   height: 38px;
   text-align: center;
   display: -webkit-inline-box;
@@ -5076,7 +5077,8 @@ a.showMore-cat.showLess::after {
   margin-bottom: 8px;
 }
 .widget_link ul li a {
-  color: #7c7d94;
+  color: #fff;
+  /* color: #7c7d94; */
   font-family: var(--heading-font);
   display: block;
   font-size: 16px;
@@ -5092,7 +5094,8 @@ a.showMore-cat.showLess::after {
   top: 7px;
 }
 .widget_link ul li a:hover {
-  color: var(--heading-color);
+  color: #ffc630;
+  /* color: var(--heading-color); */
 }
 .widget_link ul li a:hover i,
 .widget_link ul li a:hover svg {

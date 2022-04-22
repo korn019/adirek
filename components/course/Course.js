@@ -1,30 +1,31 @@
-import { useState, useEffect } from "react";
-import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SingleCourse from "./SingleCourse";
-import SwiperCourse from "./SwiperCourse";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
-import axios from "axios";
-import Link from "next/link";
-
+import {useState, useEffect} from "react"
+import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
+import {Swiper, SwiperSlide} from "swiper/react"
+import SingleCourse from "./SingleCourse"
+import SwiperCourse from "./SwiperCourse"
+import Skeleton from "react-loading-skeleton"
+import "react-loading-skeleton/dist/skeleton.css"
+import axios from "axios"
+import Link from "next/link"
+import {css} from "@emotion/react"
+import ClipLoader from "react-spinners/ClipLoader"
 const Course = () => {
-  const [data, setData] = useState([]);
-  const [dataJson, setDataJson] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
+  const [data, setData] = useState([])
+  const [dataJson, setDataJson] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  let [loading, setLoading] = useState(true)
   const getData = () => {
     axios
       .get("https://www.api-adirek.online/api/instructor")
       .then((res) => {
         //  console.log(res)
-        setData(res.data);
-        setIsLoading(true);
+        setData(res.data)
+        setLoading(false)
       })
       .catch((err) => {
         //  console.log(err)
-      });
-  };
+      })
+  }
 
   // const getData = () => {
   //   fetch("http://192.168.1.100:4000/instructor", {
@@ -49,41 +50,41 @@ const Course = () => {
   //  })
 
   const Filter = data.map((x) => {
-    return x;
-  });
+    return x
+  })
 
   useEffect(() => {
-    getData();
+    getData()
     // setData(dataJson.map((item, id) => Object.assign(item, {id})))
-  }, []);
+  }, [])
   return (
     <>
-      <section className="trending-courses-area pd-top-100 pd-bottom-100">
+      <section className="trending-courses-area pd-top-100 pd-bottom-100 bg-background">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <div className="title-border flex justify-between">
-                <h2 className="title-text title-text !text-[2.1rem] md:!text-f4xl leading-normal tracking-tight drop-shadow-2xl">คอร์สขายดี</h2>
+              <div className="title-border flex justify-between items-center ">
+                <h2 className=" !font-DB  !text-[2.6rem] !font-semibold md:!text-f4xl text-Athiti !text-titleBlue !leading-border-from-title">
+                  คอร์สขายดี
+                </h2>
                 <Link href="/Category">
-                  <a className="self-center group">
-                    <h2 className="title-text !text-[2.1rem] md:!text-f4xl leading-normal tracking-tight drop-shadow-2xl font-Mitr group-hover:bg-red-500 group-hover:duration-500  group-hover:rounded-lg  group-hover:text-white p-2">ดูทั้งหมด <i className="fas fa-chevron-right"></i></h2>
+                  <a className=" group flex items-center justify-center">
+                    <h2 className="!font-medium text-Athiti !text-[.9rem] md:!text-xl  !leading-0 font-DB group-hover:bg-red-500 group-hover:duration-500  group-hover:rounded-lg  group-hover:text-white p-2">
+                      ดูทั้งหมด <i className="fas fa-chevron-right"></i>
+                    </h2>
                   </a>
                 </Link>
               </div>
             </div>
 
-            {isLoading ? (
+            {!loading ? (
               <div className="relative px-4 md:px-6">
                 <SwiperCourse Filter={Filter} isLoading={isLoading} />
               </div>
             ) : (
               <div className="relative px-4 md:px-6">
-                <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1 px-5">
-                  <Skeleton count={6} />
-                  <Skeleton count={6} />
-                  <Skeleton count={6} />
-                  <Skeleton count={6} />
-                  <Skeleton count={6} />
+                <div className="sweet-loading text-center">
+                  <ClipLoader color="blue" loading={loading} size={82} />
                 </div>
               </div>
               // <h1 className="font-title text-f3xl">กำลังโหลดข้อมูล....</h1>
@@ -92,7 +93,7 @@ const Course = () => {
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default Course;
+export default Course

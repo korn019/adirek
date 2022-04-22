@@ -6,7 +6,9 @@ const Activity = () => {
           <div className="row justify-content-center gx-0">
             <div className="col-lg-12">
               <div className="title-border">
-                <h2 className="title-text">กิจกรรมของเรา</h2>
+                <h2 className="!font-DB  !text-[2.6rem] !font-semibold md:!text-f4xl text-Athiti !text-titleBlue !leading-border-from-title">
+                  กิจกรรมของเรา
+                </h2>
               </div>
             </div>
             <div className="col-md-6 col-lg-4">
