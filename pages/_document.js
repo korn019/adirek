@@ -19,7 +19,7 @@ export default function Document() {
         <link rel="stylesheet" href="static/css/responsive.css" />
         <link rel="stylesheet" href="static/jquery.Thailand.js/dist/jquery.Thailand.min.css" />  */}
    
-      <body className="sc5">
+      <body>
         <Main />
         <NextScript />
       </body>
