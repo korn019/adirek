@@ -72,9 +72,9 @@ const AdirekIs = () => {
           </div>
           <div className="w-full  ml-auto mr-auto px-8">
             <div className="md:pr-12">
-              <h3 className="drop-shadow-xl mb-6  mt-8 text-3xl font-title text-f2xl md:text-fxl lg:text-f3xl title-word-3 title-word-2 ">
+              <h2 className="text-[5rem] font-title">
                 ติดอาวุธทางความรู้ไปกับอดิเรก
-              </h3>
+              </h2>
               <p className="mt-4 indent-5 text-lg leading-relaxed text-grey-500  text-subtext lg:text-[1.2rem]  !font-k2d font-light ">
                 หากคุณคือคนหนึ่งที่ต้องการเรียนรู้สิ่งใหม่ๆหรือเพิ่มทักษะที่น่าสนใจเราคือชุมชนที่รวบรวมผู้สอนที่มีความรู้ความสามารถและประสบการณ์ในสาขาต่างๆที่พร้อมจะถ่ายทอดองค์ความรู้และประสบการณ์ให้กับคุณ
               </p>
@@ -90,7 +90,10 @@ const AdirekIs = () => {
                   <div className="flex items-center">
                     <div>
                       <p className="text-subtext    lg:text-[1.25rem]  !font-k2d font-light ">
-                        ทุกการเรียนรู้ เริ่มต้นที่ อดิเรก
+                        ทุกการเรียนรู้ เริ่มต้นที่    <strong className="text-3xl font-Prompt font-black text-[#FF5959]">
+                {" "}
+                อดิเรก{" "}
+              </strong>
                       </p>
                     </div>
                   </div>
@@ -99,7 +102,10 @@ const AdirekIs = () => {
                   <div className="flex items-center">
                     <div>
                       <p className="text-subtext   lg:text-[1.25rem]  !font-k2d font-light ">
-                        อดิเรก จุดเริ่มต้นของสังคมแห่งการเรียนรู้ไม่มีที่สิ้นสุด
+                           <strong className="text-3xl font-Prompt font-black text-[#FF5959]">
+                {" "}
+                อดิเรก{" "}
+              </strong> จุดเริ่มต้นของสังคมแห่งการเรียนรู้ไม่มีที่สิ้นสุด
                       </p>
                     </div>
                   </div>
@@ -108,7 +114,10 @@ const AdirekIs = () => {
                   <div className="flex items-center">
                     <div>
                       <p className="text-subtext   lg:text-[1.25rem]  !font-k2d font-light ">
-                        อดิเรก เราเปิดประตสู่ทุกการเรียนรู้
+                           <strong className="text-3xl font-Prompt font-black text-[#FF5959]">
+                {" "}
+                อดิเรก{" "}
+              </strong> เราเปิดประตสู่ทุกการเรียนรู้
                         ให้ทุกวันคือการสร้างโอกาสใหม่สำหรับคณ
                       </p>
                     </div>
@@ -118,7 +127,10 @@ const AdirekIs = () => {
                   <div className="flex items-center">
                     <div>
                       <p className="text-subtext  lg:text-[1.25rem]  !font-k2d font-light ">
-                        อดิเรกประตูสู่การเรียนรู้ทุกเรื่องที่คุณสนใจและช่องท่างที่จะเปลี่ยนงานอดิเรกของคุณให้เป็นรายได้
+                           <strong className="text-3xl font-Prompt font-black text-[#FF5959]">
+                {" "}
+                อดิเรก{" "}
+              </strong>ประตูสู่การเรียนรู้ทุกเรื่องที่คุณสนใจและช่องท่างที่จะเปลี่ยนงานอดิเรกของคุณให้เป็นรายได้
                       </p>
                     </div>
                   </div>

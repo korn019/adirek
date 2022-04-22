@@ -4,9 +4,8 @@ import {Html, Head, Main, NextScript} from "next/document"
 export default function Document() {
   return (
     <Html>
-      <Head>
+      <Head/>
       {/* <link rel="stylesheet" href="/static/css/bootstrap.min.css" /> */}
-      </Head>
       {/* <base href="http://159.223.70.115/ " />
         <link rel="stylesheet" href="static/css/fontawesome.min.css" />
 

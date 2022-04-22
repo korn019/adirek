@@ -26,7 +26,7 @@ const Partner = () => {
               <div className="flex flex-wrap justify-center text-center mb-12">
                 <div className="w-full lg:w-6/12 px-4">
                   <h2 className="title-text !text-[2rem] md:!text-f4xl">
-                  ทำไมต้องการเรียนกับ <strong>อดิเรก</strong>
+                   <span className="text-[#FF5959]"><strong>อดิเรก </strong> </span> is Knowlegde Capital
                   </h2>
                 </div>
               </div>
@@ -40,10 +40,12 @@ const Partner = () => {
                       </div>
                       <div className="wrap-details my-4">
                         <p className=" !text-2xl  !font-Mitr !font-normal ">
-                          <a href="#">เรียนได้ทุกที่ ทุกเวลา</a>
+                          <a href="#">อิสระในการเรียนรู้</a>
                         </p>
                         <p className=" text-content text-center">
-                          การันตีได้ผลจริงพร้อมช่วยสร้างความมั่นใจและความก้าวหน้าให้กับคุณได้ง่าย
+                        {/* เรียนได้ทุกที่ ทุกเวลา */}
+                        เข้าถึงการเรียนการเรียนรู้ได้ทุกที่ทุกเวลาอย่างง่ายดาย
+                          {/* การันตีได้ผลจริงพร้อมช่วยสร้างความมั่นใจและความก้าวหน้าให้กับคุณได้ง่าย */}
                         </p>
                       </div>
                     </div>
@@ -60,7 +62,7 @@ const Partner = () => {
                         <p className=" !text-2xl  !font-Mitr !font-normal">
                           <a href="#">การสร้างโอกาส</a>
                         </p>
-                        <p className=" text-center">
+                        <p className=" text-content  text-center">
                           ทุกเรื่องที่คุณสนใจ และช่องทางที่จะเปลี่ยนงานอดิเรกของคุณให้เป็นรายได้
                         </p>
                       </div>
@@ -76,9 +78,9 @@ const Partner = () => {
                       </div>
                       <div className="wrap-details my-4">
                         <p className=" !text-2xl  !font-Mitr !font-normal">
-                          <a href="#">การเป็นที่รู้จักเข้าถึงกลุ่มเป้าหมายและผลลัพธ์</a>
+                          <a href="#">เข้าถึง Community เพื่อการเรียนรู้</a>
                         </p>
-                        <p className=" text-center">
+                        <p className=" text-content  text-center">
                           จุดเริ่มต้นของสังคมแห่งการเรียนรู้ไม่มีที่สิ้นสุด
                         </p>
                       </div>

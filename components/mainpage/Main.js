@@ -11,7 +11,7 @@ import BannerAds from "../BannerAds"
 const Main = () => {
   return (
     <>
-      <LandingScreen />
+      {/* <LandingScreen /> */}
       <div className="test-class ">
       <SlideCourse />
       </div>
@@ -42,7 +42,6 @@ const Main = () => {
       <div className="">
         <ClientArea />
       </div>
-      <div className="test-class"> </div>
       {/* <BlogCard /> */}
     </>
   )

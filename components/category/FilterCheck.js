@@ -90,7 +90,7 @@ const filterCheck = ({
             {mainCategory.map((item) => {
               return (
                 <>
-                  <h4 className="font-Prompt font-black text-f2xl my-4">{item}</h4>
+                  <h4 className="font-Prompt font-semibold text-f2xl my-4">{item}</h4>
                   {(() => {
                     if (item == "Design") {
                       return filter.map((check) => {

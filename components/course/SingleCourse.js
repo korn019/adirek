@@ -168,8 +168,8 @@ const SingleCourse = ({course, index, filterImg}) => {
           <div className="user-area w-full">
             <div className="user-details truncate">
               <img
-                className="w-[1.5rem] h-[1.5rem]"
-                src={course.รูปถ่าย == "" ? "/static/img/user-review.png" : `${course.รูปถ่าย}`}
+                className="w-[3rem] h-[2.5rem]"
+                src={course.รูปถ่าย == "" ? "/static/img/Logo-Adirek.png" : `${course.รูปถ่าย}`}
                 alt="img"
               />
               <p className="truncate">

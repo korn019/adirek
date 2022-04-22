@@ -57,8 +57,8 @@ const SingleSlideCourse = ({
         <div
           className={`single-intro-wrap group-hover:scale-[1.02] group-hover:duration-200  ${
             item.id % 2 == 1
-              ? "!bg-[#104B92]  group-hover:!bg-slate-50  group-hover:duration-400"
-              : "!bg-[#67143A] group-hover:!bg-slate-50  group-hover:duration-400"
+              ? "!bg-[#EB7E23]  group-hover:!bg-slate-50  group-hover:duration-400"
+              : "!bg-[#9ADCFF] group-hover:!bg-slate-50  group-hover:duration-400"
           }`}
         >
           <div className="thumb">
