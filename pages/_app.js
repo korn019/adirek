@@ -28,8 +28,8 @@ SwiperCore.use([Autoplay, Navigation, Pagination])
 function MyApp({Component, pageProps}) {
   return (
     <>
-      <Head>
       <DefaultSeo {...SEO} />
+      <Head>
         {/* <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> */}
         {/* <title>Adirek - ให้ทุกวันคือการสร้างโอกาสใหม่</title>
          <meta name="description" content="Adirek - ให้ทุกวันคือการสร้างโอกาสใหม่" />
@@ -40,8 +40,8 @@ function MyApp({Component, pageProps}) {
           rel="stylesheet"/>  
         {/* <link rel="icon" href="/public/static/img/fevicon.png" /> */}
         {/* <link rel="preload" href="/assets/fonts/DB-Adman-X-Bd.ttf" as="font" crossOrigin="" /> */}
-      <Component {...pageProps} />
       </Head>
+      <Component {...pageProps} />
     </>
   )
 }
