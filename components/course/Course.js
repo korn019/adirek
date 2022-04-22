@@ -63,10 +63,10 @@ const Course = () => {
           <div className="row">
             <div className="col-lg-12">
               <div className="title-border flex justify-between">
-                <h2 className="title-text">คอร์สขายดี</h2>
+                <h2 className="title-text title-text !text-[2.1rem] md:!text-f4xl leading-normal tracking-tight drop-shadow-2xl">คอร์สขายดี</h2>
                 <Link href="/Category">
                   <a className="self-center group">
-                    <h2 className="font-Mitr group-hover:bg-red-500 group-hover:duration-500  group-hover:rounded-lg  group-hover:text-white p-2">ดูทั้งหมด <i className="fas fa-chevron-right"></i></h2>
+                    <h2 className="title-text !text-[2.1rem] md:!text-f4xl leading-normal tracking-tight drop-shadow-2xl font-Mitr group-hover:bg-red-500 group-hover:duration-500  group-hover:rounded-lg  group-hover:text-white p-2">ดูทั้งหมด <i className="fas fa-chevron-right"></i></h2>
                   </a>
                 </Link>
               </div>
