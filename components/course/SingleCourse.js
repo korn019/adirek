@@ -149,7 +149,6 @@ const SingleCourse = ({course, index, filterImg}) => {
   function formatNumber (num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
 }
-
   return (
     <div className="item h-[400px]">
       <div className="single-course-wrap  ">

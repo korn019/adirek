@@ -5,7 +5,7 @@ import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
 import SingleCourse from "./SingleCourse"
 
 const SwiperCourse = ({Filter}) => {
-  let filterImg = Filter.filter((x) => { return x.filterCategory })
+  let filterImg = Filter.filter((x) => { return x.filter_category_course })
   return (
     <>
       <Swiper
@@ -56,8 +56,8 @@ const SwiperCourse = ({Filter}) => {
         }}>
         <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1 px-5">
           {Filter.map((d) => (
-            <SwiperSlide key={d.record}>
-              <SingleCourse course={d} index={d.record} filterImg={filterImg} />
+            <SwiperSlide key={d.instructor_id}>
+              <SingleCourse course={d} index={d.instructor_id} filterImg={filterImg} />
             </SwiperSlide>
           ))}
         </div>
