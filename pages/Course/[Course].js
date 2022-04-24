@@ -19,7 +19,7 @@ const Instructor = () => {
   
   const getData = async () => {
     axios
-      .get("https://www.api-adirek.online/api/instructor")
+      .get("https://www.api-adirek.online/api/test")
       .then((res) => {
         setDataJson(res.data)
       })
@@ -32,7 +32,7 @@ const Instructor = () => {
   }, [])
   
   const FilterData = dataJson.map((x) => {
-    return x.filterCategory
+    return x.filter_category_course
   })
 
   return (

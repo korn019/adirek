@@ -11,6 +11,7 @@ const SingleSlideCourse = ({
   let filter = availableCourse.filter((num) => item.value.includes(num));
 
   let CourseLength = availableCourseCategory.filter((num) => {
+    console.log(num)
     if (item.value.includes("Design")) {
       return num.includes("Design");
     } else if (item.value.includes("วิชาการ")) {

@@ -12,7 +12,7 @@ const CoursePage = ({ e, FilterData }) => {
 
   const getData = async () => {
     axios
-      .get("https://www.api-adirek.online/api/instructor")
+      .get("https://www.api-adirek.online/api/test")
       .then((res) => {
         setData(res.data);
         setIsLoading(true);
@@ -21,8 +21,8 @@ const CoursePage = ({ e, FilterData }) => {
         console.error(err);
       });
   };
-  let availableCourse = data.map((item) => item.filterCategory);
-  let availableCourseCategory = data.map((item) => item.MainCategory);
+  let availableCourse = data.map((item) => item.filter_category_course)
+  let availableCourseCategory = data.map((item) => item.main_category)
   let filterLength = availableCourse.filter((num) => e.value.includes(num));
 
   let CourseLength = availableCourseCategory.filter((num) => {
@@ -34,12 +34,11 @@ const CoursePage = ({ e, FilterData }) => {
       return num.includes("Life Style");
     }
   });
-
   const Filter = data.filter((x) => {
     if (e.value == e.category) {
-      return x.MainCategory == e.category;
+      return x.main_category == e.category
     } else {
-      return x.filterCategory == e.value;
+      return x.filter_category_course == e.value
     }
   });
 
@@ -50,7 +49,7 @@ const CoursePage = ({ e, FilterData }) => {
 
   const items = Filter.map((course) => {
     return (
-      <SingleCourse course={course} key={course.record} index={course.record} />
+      <SingleCourse course={course} key={course.instructor_id} index={course.instructor_id} />
     );
   });
 

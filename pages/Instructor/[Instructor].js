@@ -10,13 +10,26 @@ const Instructor = () => {
   const router = useRouter();
   const { Instructor } = router.query;
   const [data, setData] = useState([]);
+  const [data2, setData2] = useState([]);
   const [check, setCheck] = useState(CourseCheck2);
 
   const getData = () => {
     axios
+      .get("https://www.api-adirek.online/api/test")
+      .then((res) => {
+        console.log(res.data)
+        setData(res.data)
+        // setIsLoading(true)
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  };
+  const getData2 = () => {
+    axios
       .get("https://www.api-adirek.online/api/instructor")
       .then((res) => {
-        setData(res.data)
+        setData2(res.data)
         // setIsLoading(true)
       })
       .catch((err) => {
@@ -25,16 +38,17 @@ const Instructor = () => {
   };
   useEffect(() => {
     getData();
+    getData2()
   }, []);
-
+  let instructor = data2.map((item) => item)
   return (
     <SearchCourseProvider>
       <Layout>
         {data.map((e, id) => {
-          return Instructor == `id=${e.record}` ? (
+          return Instructor == `id=${id}` ? (
             <>
               {check.map((item) => {
-                return item.value.includes(e.filterCategory) ? (
+                return item.value.includes(e.filter_category_course) ? (
                   <>
                     <img
                       className="object-cover h-[400px] w-full"
@@ -42,22 +56,27 @@ const Instructor = () => {
                       alt="img"
                     />
                   </>
-                ) : null;
+                ) : null
               })}
-              <div className="pd-bottom-115" key={e.record}>
+              <div className="pd-bottom-115" key={e.instructor_id}>
                 <div className="container">
-                  <InstructorDetail e={e} />
+                  <InstructorDetail
+                    data={data}
+                    e={e}
+                    instructor={instructor}
+                    Instructor={Instructor}
+                  />
                 </div>
               </div>
             </>
-          ) : null;
+          ) : null
         })}
         {/* <div className="">
         <BannerAds />
       </div> */}
       </Layout>
     </SearchCourseProvider>
-  );
+  )
 };
 
 export default Instructor;

@@ -11,20 +11,21 @@ const SingleCourse = ({course, index, filterImg}) => {
       return num.imgBanner
     }
   })
+  console.log(course)
 
   const IMG = () => {
     if (
-      (course.filterCategory == "UI UX" && course.รูปถ่าย == "") ||
-      (course.filterCategory == "Web Design" && course.รูปถ่าย == "") ||
-      (course.filterCategory == "Graphic Design & Illustration" && course.รูปถ่าย == "") ||
-      (course.filterCategory == "Design Tools" && course.รูปถ่าย == "") ||
-      (course.filterCategory == "Game Design" && course.รูปถ่าย == "") ||
-      (course.filterCategory == "3D & Animation" && course.รูปถ่าย == "") ||
-      (course.filterCategory == "Fashion Design" && course.รูปถ่าย == "") ||
-      (course.filterCategory == "Architectural Design" && course.รูปถ่าย == "") ||
-      (course.filterCategory == "Interior Design" && course.รูปถ่าย == "") ||
-      (course.filterCategory == "Other Design" && course.รูปถ่าย == "") ||
-      (course.filterCategory == "Design" && course.รูปถ่าย == "")
+      (course.filter_category_course == "UI UX" && course.รูปถ่าย == "") ||
+      (course.filter_category_course == "Web Design" && course.รูปถ่าย == "") ||
+      (course.filter_category_course == "Graphic Design & Illustration" && course.รูปถ่าย == "") ||
+      (course.filter_category_course == "Design Tools" && course.รูปถ่าย == "") ||
+      (course.filter_category_course == "Game Design" && course.รูปถ่าย == "") ||
+      (course.filter_category_course == "3D & Animation" && course.รูปถ่าย == "") ||
+      (course.filter_category_course == "Fashion Design" && course.รูปถ่าย == "") ||
+      (course.filter_category_course == "Architectural Design" && course.รูปถ่าย == "") ||
+      (course.filter_category_course == "Interior Design" && course.รูปถ่าย == "") ||
+      (course.filter_category_course == "Other Design" && course.รูปถ่าย == "") ||
+      (course.filter_category_course == "Design" && course.รูปถ่าย == "")
     ) {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
@@ -32,106 +33,106 @@ const SingleCourse = ({course, index, filterImg}) => {
         </Link>
       )
     } else if (
-      (course.filterCategory == "คณิตศาสตร์" && course.รูปถ่าย == "") ||
-      (course.filterCategory == "วิทยาศาสตร์" && course.รูปถ่าย == "") ||
-      (course.filterCategory == "ภาษา" && course.รูปถ่าย == "")
+      (course.filter_category_course == "คณิตศาสตร์" && course.รูปถ่าย == "") ||
+      (course.filter_category_course == "วิทยาศาสตร์" && course.รูปถ่าย == "") ||
+      (course.filter_category_course == "ภาษา" && course.รูปถ่าย == "")
     ) {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
           <img className="object-fill h-full " src="/static/img/icon/course/P2.jpg" alt="img" />
         </Link>
       )
-    } else if (course.filterCategory == "ทำอาหารและขนม" && course.รูปถ่าย == "") {
+    } else if (course.filter_category_course == "ทำอาหารและขนม" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
           <img className="object-fill h-full " src="/static/img/icon/course/P10.jpg" alt="img" />
         </Link>
       )
-    } else if (course.filterCategory == "ร้องเพลงและการแสดง" && course.รูปถ่าย == "") {
+    } else if (course.filter_category_course == "ร้องเพลงและการแสดง" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
           <img className="object-fill h-full " src="/static/img/icon/course/P7.jpg" alt="img" />
         </Link>
       )
-    } else if (course.filterCategory == "งานฝีมือ" && course.รูปถ่าย == "") {
+    } else if (course.filter_category_course == "งานฝีมือ" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
           <img className="object-fill h-full " src="/static/img/icon/course/P3.jpg" alt="img" />
         </Link>
       )
-    } else if (course.filterCategory == "ถ่ายรูปและแต่งรูป" && course.รูปถ่าย == "") {
+    } else if (course.filter_category_course == "ถ่ายรูปและแต่งรูป" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
           <img className="object-fill h-full " src="/static/img/icon/course/P4.jpg" alt="img" />
         </Link>
       )
-    } else if (course.filterCategory == "แต่งหน้า" && course.รูปถ่าย == "") {
+    } else if (course.filter_category_course == "แต่งหน้า" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
           <img className="object-fill h-full " src="/static/img/icon/course/P5.jpg" alt="img" />
         </Link>
       )
-    } else if (course.filterCategory == "บุคลิกภาพ" && course.รูปถ่าย == "") {
+    } else if (course.filter_category_course == "บุคลิกภาพ" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
           <img className="object-fill h-full " src="/static/img/icon/course/P6.jpg" alt="img" />
         </Link>
       )
-    } else if (course.filterCategory == "การพูด" && course.รูปถ่าย == "") {
+    } else if (course.filter_category_course == "การพูด" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
           <img className="object-fill h-full " src="/static/img/icon/course/P6.jpg" alt="img" />
         </Link>
       )
-    } else if (course.filterCategory == "ร้องเพลงและการแสดง" && course.รูปถ่าย == "") {
+    } else if (course.filter_category_course == "ร้องเพลงและการแสดง" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
           <img className="object-fill h-full " src="/static/img/icon/course/P7.jpg" alt="img" />
         </Link>
       )
-    } else if (course.filterCategory == "กีฬา" && course.รูปถ่าย == "") {
+    } else if (course.filter_category_course == "กีฬา" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
           <img className="object-fill h-full " src="/static/img/icon/course/P8.jpg" alt="img" />
         </Link>
       )
-    } else if (course.filterCategory == "จัดดอกไม้และจัดสวนถาด" && course.รูปถ่าย == "") {
+    } else if (course.filter_category_course == "จัดดอกไม้และจัดสวนถาด" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
           <img className="object-fill h-full " src="/static/img/icon/course/P14.jpg" alt="img" />
         </Link>
       )
-    } else if (course.filterCategory == "วาดรูป" && course.รูปถ่าย == "") {
+    } else if (course.filter_category_course == "วาดรูป" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
           <img className="object-fill h-full " src="/static/img/icon/course/P15.jpg" alt="img" />
         </Link>
       )
-    } else if (course.filterCategory == "ดนตรี" && course.รูปถ่าย == "") {
+    } else if (course.filter_category_course == "ดนตรี" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
           <img className="object-fill h-full " src="/static/img/icon/course/P9.jpg" alt="img" />
         </Link>
       )
-    } else if (course.filterCategory == "ทำอาหารและขนม" && course.รูปถ่าย == "") {
+    } else if (course.filter_category_course == "ทำอาหารและขนม" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
           <img className="object-fill h-full " src="/static/img/icon/course/P10.jpg" alt="img" />
         </Link>
       )
-    } else if (course.filterCategory == "ดูดวง" && course.รูปถ่าย == "") {
+    } else if (course.filter_category_course == "ดูดวง" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
           <img className="object-fill h-full " src="/static/img/icon/course/P11.jpg" alt="img" />
         </Link>
       )
-    } else if (course.filterCategory == "Cryptocurrency" && course.รูปถ่าย == "") {
+    } else if (course.filter_category_course == "Cryptocurrency" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
           <img className="object-fill h-full " src="/static/img/icon/course/P12.jpg" alt="img" />
         </Link>
       )
-    } else if (course.filterCategory == "NFT" && course.รูปถ่าย == "") {
+    } else if (course.filter_category_course == "NFT" && course.รูปถ่าย == "") {
       return (
         <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
           <img className="object-fill h-full " src="/static/img/icon/course/P13.jpg" alt="img" />
@@ -146,7 +147,7 @@ const SingleCourse = ({course, index, filterImg}) => {
     }
   }
   function formatNumber (num) {
-    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "1,")
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
 }
 
   return (
@@ -161,7 +162,7 @@ const SingleCourse = ({course, index, filterImg}) => {
           <h6 className="truncate ...">
             <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
               <a href="#" className="font-DB font-medium text-flg">
-                {course.รายละเอียดคอร์สเรียน}
+                {course.detail}
               </a>
             </Link>
           </h6>
@@ -175,7 +176,7 @@ const SingleCourse = ({course, index, filterImg}) => {
               <p className="truncate">
                 <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
                   <a>
-                    {course.ชื่อจริง} {course.นามสกุล}
+                    {course.firstName} {course.lastName}
                   </a>
                 </Link>
               </p>
@@ -193,13 +194,9 @@ const SingleCourse = ({course, index, filterImg}) => {
               <div className="col-6">
                 <p className="text-xl md:text-[22px] truncate ...">
                   <Link
-                    href={`/Course/${
-                      course.filterCategory
-                    }`}
-                    as={`/Course/${
-                      course.filterCategory 
-                    }`}>
-                    <a>{course.Category}</a>
+                    href={`/Course/${course.filter_category_course}`}
+                    as={`/Course/${course.filter_category_course}`}>
+                    <a>{course.filter_category_course}</a>
                   </Link>
                   {/* <Link
                     href={`/Course/${course.filterCategory}`}
@@ -210,7 +207,7 @@ const SingleCourse = ({course, index, filterImg}) => {
               </div>
               <div className="col-6 text-end">
                 <div className="price">
-                  <p className="truncate ... price"> {formatNumber(course.ราคาคอร์สเรียน)} บาท</p>
+                  <p className="truncate ... price"> {formatNumber(course.price_course)} บาท</p>
                 </div>
               </div>
             </div>

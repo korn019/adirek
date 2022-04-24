@@ -1,8 +1,11 @@
 import {useState, Fragment} from "react"
 import {Dialog, Transition} from "@headlessui/react"
 import ReactStars from "react-stars"
-const InstructorDetail = ({e}) => {
+const InstructorDetail = ({e, data, Instructor, instructor}) => {
   const [showModal, setShowModal] = useState(false)
+  const [detail, setDetail] = useState([])
+  const [price, setPrice] = useState([])
+  const [category, setCategory] = useState([])
   const [isOpen, setIsOpen] = useState(false)
   function closeModal() {
     setIsOpen(false)
@@ -11,18 +14,30 @@ const InstructorDetail = ({e}) => {
   function openModal() {
     setIsOpen(true)
   }
-  let amountCourse = ''
-  for (let i = 0; i < e.รายละเอียดคอร์สเรียน.length; i++) {
-    amountCourse = `${[i]} `
-  }
-     const [start, setStart] = useState()
-     const ratingChanged = (newRating) => {
-       setStart(newRating)
-     }
+  let getCourseAmount = data.filter(
+    (item) => item.firstName === e.firstName && item.lastName === e.lastName
+  )
+  // let amountCourse = ""
+  // for (let i = 0; i < getCourseAmount.length; i++) {
+  //   amountCourse = `${[i]} `
+  // }
 
-     function formatNumber (num) {
-      return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "1,")
+  const [start, setStart] = useState()
+  const ratingChanged = (newRating) => {
+    setStart(newRating)
   }
+  console.log(instructor)
+  function formatNumber(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+  }
+  let filterCourse = data.filter((item) => {
+    return item.instructor_id === e.instructor_id
+  })
+
+  let filterDetailsCourse = data.filter((item) => {
+    return item.instructor_id === e.instructor_id
+  })
+
   return (
     <>
       <div
@@ -55,10 +70,10 @@ const InstructorDetail = ({e}) => {
             <div className="col-12 col-md-12 col-lg-7 text-center text-md-center text-lg-center">
               <div>
                 <h3 className="font-DB" style={{color: "white", fontSize: 42}}>
-                  {e.ชื่อจริง}
+                  {e.firstName}
                 </h3>
                 <h3 className="font-DB " style={{color: "white", fontSize: 42}}>
-                  {e.นามสกุล}
+                  {e.lastName}
                 </h3>
               </div>
             </div>
@@ -112,30 +127,58 @@ const InstructorDetail = ({e}) => {
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 md:space-x-3 mt-4">
-                <div className="align-items-center justify-content-center  md:col-span-2   p-2">
-                  <div className="ml-1 title text-black text-[32px]">
-                    <p className="line-clamp-3  font-body !text-2xl subtext">
-                      1.{e.รายละเอียดคอร์สเรียน}
-                    </p>
+                <div className="align-items-center justify-content-center  md:col-span-3   px-3">
+                  <div className="title text-black text-[32px]">
+                    <ul className="list-decimal divide-y">
+                      {filterCourse.map((item) => {
+                        console.log(item)
+                        return (
+                          <>
+                            <li key={item.instructor_id} >
+                              <p className="line-clamp-3  font-body  subtext-Athiti !font-semibold !text-xl">
+                                {item.title_course}
+                              </p>
+                              <div className="align-items-center justify-content-center ">
+                                <div className="title text-black flex justify-between items-center">
+                                  <p
+                                    className="subtext-Athiti  uppercase !text-base py-1  hover:text-blue-500 cursor-pointer text-left   ease-linear transition-all duration-150"
+                                    onClick={() => {
+                                      setIsOpen(true),
+                                        setDetail(item.detail),
+                                        setPrice(item.price_course),
+                                        setCategory(item.filter_category_course)
+                                    }}>
+                                    {/* {console.log(formatNumber(item.price_course))} */}
+                                    อ่านเพิ่มเติม
+                                  </p>
+                                  <h5 className=" text-right font-body text-flg ">
+                                    {formatNumber(item.price_course)} บาท
+                                  </h5>
+                                </div>
+                              </div>
+                            </li>
+                          </>
+                        )
+                      })}
+                    </ul>
+                    {/* {e.title_course} */}
                   </div>
                 </div>
-                <div className="align-items-center justify-content-center  md:col-span-1   p-2">
-                  <div className="ml-1 title text-black text-[32px]">
-                    <h5 className=" text-right font-body text-flg md:col-span-1">
-                      {formatNumber(e.ราคาคอร์สเรียน)} บาท
-                    </h5>
-                  </div>
-                </div>
-                <div className="align-items-center justify-content-center ">
-                  <div className="title text-black ">
-                    <p
-                      className="text-black font-bold uppercase text-flg px-2 py-1 hover:text-blue-500 cursor-pointer text-left   ease-linear transition-all duration-150"
-                      onClick={() => setIsOpen(true)}>
-                      อ่านเพิ่มเติม
-                    </p>
-                  </div>
-                </div>
-
+                {/* <ul className="list-decimal">
+                  {filterCourse.map((item) => {
+                    return (
+                      <>
+                        <div className="align-items-center justify-content-center  md:col-span-1   p-2">
+                          <div className="ml-1 title text-black text-[32px]">
+                            <h5 className=" text-right font-body text-flg md:col-span-1">
+                              {formatNumber(item.price_course)} บาท
+                            </h5>
+                          </div>
+                        </div>
+                      </>
+                    )
+                  })}
+                </ul> */}{" "}
                 <Transition show={isOpen} as={Fragment}>
                   <Dialog
                     as="div"
@@ -170,7 +213,7 @@ const InstructorDetail = ({e}) => {
                             <Dialog.Title
                               as="h3"
                               className="text-lg font-medium leading-6 text-gray-900">
-                              <h3 className="text-fxl font-title">{e.Category}</h3>
+                              <h3 className="text-fxl font-title">{category}</h3>
                             </Dialog.Title>
                             <Dialog.Title as="h3" className="text-right leading-6 text-gray-900">
                               <button className="font-black" onClick={closeModal}>
@@ -179,14 +222,12 @@ const InstructorDetail = ({e}) => {
                             </Dialog.Title>
                           </div>
                           <div className="mt-2">
-                            <p className="text-sm md:text-lg text-gray-500">
-                              {e.รายละเอียดคอร์สเรียน}
-                            </p>
+                            <p className="text-sm md:text-lg text-gray-500">{detail}</p>
                           </div>
 
                           <div className="mt-4">
                             <div className="flex justify-between items-center">
-                              <p> {parseFloat(e.ราคาคอร์สเรียน.replace(/,/g, ""))} บาท</p>
+                              <p>{formatNumber(price)} บาท</p>
                               <a href={`tel:${e.เบอร์โทร}`}>
                                 <button
                                   type="button"
@@ -217,7 +258,7 @@ const InstructorDetail = ({e}) => {
               </div>
               <div className="align-items-center justify-content-center bg-[#eaf0f6] border-b-2 border-gray-200 rounded-lg p-2">
                 <div className="ml-1 title text-black text-[32px]">
-                  {e.Category == "" ? "ไม่พบข้อมูล" : e.Category}
+                  {e.filter_category_course == "" ? "ไม่พบข้อมูล" : e.filter_category_course}
                 </div>
               </div>
             </div>
@@ -255,7 +296,7 @@ const InstructorDetail = ({e}) => {
                 <h1 className="font-title text-fxl">คอร์สทั้งหมด</h1>
               </div>
               <div className="text-right">
-                <h1 className="font-title text-fxl">{amountCourse}</h1>
+                <h1 className="font-title text-fxl">{getCourseAmount.length}</h1>
               </div>
               <div>
                 <h1 className="font-title text-fxl">ผู้เข้าชม</h1>

@@ -9,7 +9,7 @@ const SlideCourse = () => {
   const [available, setAvailable] = useState([]);
   const getData = () => {
     axios
-      .get("https://www.api-adirek.online/api/instructor")
+      .get("https://www.api-adirek.online/api/test")
       .then((res) => {
         // console.log(res)
         setAvailable(res.data);
@@ -22,8 +22,8 @@ const SlideCourse = () => {
     getData();
   }, []);
 
-  let availableCourse = available.map((item) => item.filterCategory);
-  let availableCourseCategory = available.map((item) => item.MainCategory);
+  let availableCourse = available.map((item) => item.filter_category_course)
+  let availableCourseCategory = available.map((item) => item.main_category)
   return (
     <>
       <div className="container ">

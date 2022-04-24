@@ -85,7 +85,7 @@ const CourseCategory = () => {
   }
 
   const items = SearchCateCourse.map((course) => {
-    return <SingleCourse course={course} key={course.record} index={course.record} />
+    return <SingleCourse course={course} key={course.instructor_id} index={course.instructor_id} />
   })
 
   return (

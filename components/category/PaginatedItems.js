@@ -101,6 +101,7 @@ const PaginatedItems = ({
     // }else if (v.กรณีเรียนนอกสถานที่ !== undefined && v.กรณีเรียนนอกสถานที่.includes(province)) {
     //   return v
     // }
+    console.log(v)
     if (
       arrCourse.length === 0 &&
       arrAmount.length === 0 &&
@@ -120,10 +121,10 @@ const PaginatedItems = ({
           return v
         } else if (searchCourse.length > 0) {
           return (
-            v.Category.toLowerCase().includes(searchCourse.toLowerCase()) ||
-            v.ชื่อจริง.toLowerCase().includes(searchCourse.toLowerCase()) ||
-            v.รายละเอียดคอร์สเรียน.toLowerCase().includes(searchCourse.toLowerCase()) ||
-            v.ราคาคอร์สเรียน.toLowerCase().includes(searchCourse.toLowerCase())
+            v.filter_category_course.toLowerCase().includes(searchCourse.toLowerCase()) ||
+            v.firstName.toLowerCase().includes(searchCourse.toLowerCase()) ||
+            v.detail.toLowerCase().includes(searchCourse.toLowerCase()) ||
+            v.price_course.toLowerCase().includes(searchCourse.toLowerCase())
           )
         }
       } else {
@@ -131,7 +132,7 @@ const PaginatedItems = ({
       }
     } else if (arrCourse.length > 0 && arrAmount.length === 0 && province.length === 0) {
       // แสดงค่าตาม Course ที่กรอก
-      return arrCourse.includes(v.filterCategory)
+      return arrCourse.includes(v.filter_category_course)
     } else if (
       priceVal[1] &&
       arrAmount.length == 1 &&
@@ -140,8 +141,8 @@ const PaginatedItems = ({
     ) {
       // แสดงค่าตามราคาที่กรอก
       return (
-        parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
-        parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) <= parseFloat(priceVal[1])
+        parseFloat(v.price_course.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
+        parseFloat(v.price_course.replace(/,/g, "")) <= parseFloat(priceVal[1])
       )
     } else if (arrCourse.length === 0 && arrAmount.length === 0 && province.length > 0) {
       // แสดงค่าตามจังหวัดที่กรอก
@@ -157,15 +158,17 @@ const PaginatedItems = ({
       // แสดงค่าตามราคาที่กรอกและจังหวัดที่กรอก
       if (v.กรณีเรียนนอกสถานที่ !== undefined) {
         return (
-          parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
-          parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) <= parseFloat(priceVal[1]) &&
+          parseFloat(v.price_course.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
+          parseFloat(v.price_course.replace(/,/g, "")) <= parseFloat(priceVal[1]) &&
           v.กรณีเรียนนอกสถานที่.includes(province)
         )
       }
     } else if (arrCourse.length > 0 && province.length > 0 && arrAmount.length == 0) {
       // แสดงค่าตาม Course ที่กรอกและจังหวัดที่กรอก
       if (v.กรณีเรียนนอกสถานที่ !== undefined) {
-        return arrCourse.includes(v.filterCategory) && v.กรณีเรียนนอกสถานที่.includes(province)
+        return (
+          arrCourse.includes(v.filter_category_course) && v.กรณีเรียนนอกสถานที่.includes(province)
+        )
       }
     } else if (
       priceVal[1] &&
@@ -176,36 +179,36 @@ const PaginatedItems = ({
       // แสดงค่าตาม Course ที่กรอกและราคาที่กรอกและจังหวัดที่กรอก
       if (v.กรณีเรียนนอกสถานที่ !== undefined) {
         return (
-          arrCourse.includes(v.filterCategory) &&
+          arrCourse.includes(v.filter_category_course) &&
           v.กรณีเรียนนอกสถานที่.includes(province) &&
-          parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
-          parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) <= parseFloat(priceVal[1])
+          parseFloat(v.price_course.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
+          parseFloat(v.price_course.replace(/,/g, "")) <= parseFloat(priceVal[1])
         )
       }
     } else if (priceVal[1] && arrAmount.length == 1 && arrCourse.length > 0) {
       return (
-        arrCourse.indexOf(v.filterCategory) != -1 &&
+        arrCourse.indexOf(v.filter_category_course) != -1 &&
         parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
         parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) <= parseFloat(priceVal[1])
       )
     } else if (priceVal[1] && arrAmount.length == 1) {
       return (
-        parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
-        parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) <= parseFloat(priceVal[1])
+        parseFloat(v.price_course.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
+        parseFloat(v.price_course.replace(/,/g, "")) <= parseFloat(priceVal[1])
       )
     } else if (priceVal[1] && arrAmount.length > 1) {
       return (
-        arrCourse.indexOf(v.filterCategory) != -1 &&
-        parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
-        parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) <= parseFloat(priceVal[1])
+        arrCourse.indexOf(v.filter_category_course) != -1 &&
+        parseFloat(v.price_course.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
+        parseFloat(v.price_course.replace(/,/g, "")) <= parseFloat(priceVal[1])
       )
     } else if (!priceVal[1]) {
-      return checkFilter.indexOf(v.filterCategory) != -1
+      return checkFilter.indexOf(v.filter_category_course) != -1
     }
   })
 
   const items = myArrayFiltered.map((course) => {
-    return <SingleCourse course={course} key={course.record} index={course.record} />
+    return <SingleCourse course={course} key={course.instructor_id} index={course.instructor_id} />
   })
 
   const handlePageClick = (event) => {
