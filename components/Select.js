@@ -58,9 +58,9 @@ const Select = ({
               {label}
             </Listbox.Label>
           )*/}
-          <div className="relative mt-1">
+          <div className="relative ">
             <span className="inline-block w-full rounded-md shadow-sm">
-              <Listbox.Button className="cursor-default relative w-full rounded-md border border-gray-300 bg-white pl-3 pr-10 py-2 text-left  transition ease-in-out duration-150">
+              <Listbox.Button className="cursor-default relative w-full rounded-md border border-gray-300  pl-3 pr-10 py-2 text-left  transition ease-in-out duration-150">
                 <span className="block truncate">{selectedOption.filter_category_course}</span>
                 <span className="absolute inset-y-0 right-0 flex items-center pr-2 ml-3 pointer-events-none">
                   <Selector />

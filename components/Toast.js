@@ -9,7 +9,6 @@ const Toast = ({ t,bgColor }) => {
         <Transition
           appear
           show={t.visible}
-          reverseOrder={false}
           position="top-left"
           className={`transform p-10 rounded shadow-md ${bgColor} text-white text-Athiti !font-semibold  absolute top-28 right-0` }
           enter="transition-all duration-150"

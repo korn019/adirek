@@ -40,11 +40,12 @@ const Instructor = () => {
     getData();
     getData2()
   }, []);
-
+let getInstructorId = data.map((item) => item.filter_category_course )
   return (
     <SearchCourseProvider>
       <Layout>
         {data.map((e, id) => {
+          console.log(e)
           return Instructor == `id=${id}` ? (
             <>
               {check.map((item) => {
@@ -72,6 +73,35 @@ const Instructor = () => {
             </>
           ) : null
         })}
+        {/* {data.map((e, id) => {
+          console.log(e)
+          return Instructor == `id=${e.instructor_id}` ? (
+            <>
+              {check.map((item) => {
+                return item.value.includes(e.filter_category_course) ? (
+                  <>
+                    <img
+                      className="object-cover h-[400px] w-full"
+                      src={`/${item.imgBannerDetails}`}
+                      alt="img"
+                      key={e.instructor_id}
+                    />
+                  </>
+                ) : null
+              })}
+              <div className="pd-bottom-115">
+                <div className="container">
+                  <InstructorDetail
+                    data={data}
+                    e={e}
+                    Instructor={Instructor}
+                    id={e.instructor_id}
+                  />
+                </div>
+              </div>
+            </>
+          ) : null
+        })} */}
         {/* <div className="">
         <BannerAds />
       </div> */}
