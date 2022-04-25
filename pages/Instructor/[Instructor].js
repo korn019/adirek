@@ -15,9 +15,9 @@ const Instructor = () => {
 
   const getData = () => {
     axios
-      .get("https://www.api-adirek.online/api/test")
+      .get("http://www.localhost:3000/api/test")
       .then((res) => {
-        console.log(res.data)
+        // console.log(res.data)
         setData(res.data)
         // setIsLoading(true)
       })
@@ -40,7 +40,7 @@ const Instructor = () => {
     getData();
     getData2()
   }, []);
-  let instructor = data2.map((item) => item)
+
   return (
     <SearchCourseProvider>
       <Layout>
@@ -54,17 +54,18 @@ const Instructor = () => {
                       className="object-cover h-[400px] w-full"
                       src={`/${item.imgBannerDetails}`}
                       alt="img"
+                      key={e.instructor_id}
                     />
                   </>
                 ) : null
               })}
-              <div className="pd-bottom-115" key={e.instructor_id}>
+              <div className="pd-bottom-115">
                 <div className="container">
                   <InstructorDetail
                     data={data}
                     e={e}
-                    instructor={instructor}
                     Instructor={Instructor}
+                    id={id}
                   />
                 </div>
               </div>

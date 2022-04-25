@@ -1,6 +1,5 @@
 import {useState} from "react"
 import BannerAds from "../components/BannerAds"
-import MainBlog from "../components/blog/MainBlog"
 import SearchCourse from "../components/blog/SearchCourse"
 import AddInstructor from "../components/AddInstructor"
 import Breadcrumb from "../components/Breadcrumb"

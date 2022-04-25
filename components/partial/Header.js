@@ -374,16 +374,6 @@ function Header() {
                     </h4>
                   </a>
                 </Link>
-
-                <Link href="/Blog" smooth={true} offset={50} duration={500}>
-                  <a>
-                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium !font-Prompt">
-                      {" "}
-                      บทความและข่าวสาร
-                    </h4>
-                  </a>
-                </Link>
-
                 <Link
                   href="/Instructor"
                   activeClass="Home"
@@ -398,6 +388,16 @@ function Header() {
                     </h4>
                   </a>
                 </Link>
+                <Link href="/Blog" smooth={true} offset={50} duration={500}>
+                  <a>
+                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium !font-Prompt">
+                      {" "}
+                      บทความและข่าวสาร
+                    </h4>
+                  </a>
+                </Link>
+
+               
                 <Link
                   href="/Contact"
                   activeClass="Home"
@@ -408,6 +408,19 @@ function Header() {
                   <a>
                     <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium !font-Prompt">
                       ติดต่อเรา
+                    </h4>
+                  </a>
+                </Link>
+                <Link
+                  href="/Add"
+                  activeClass="Home"
+                  to="about"
+                  smooth={true}
+                  offset={50}
+                  duration={500}>
+                  <a>
+                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium !font-Prompt">
+                      เพิ่มครู
                     </h4>
                   </a>
                 </Link>

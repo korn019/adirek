@@ -223,30 +223,7 @@ const Add = () => {
                 onChange={handleChange}
                 name="อีเมลผู้กรอกฟอร์ม"
               />
-              <input
-                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="text"
-                placeholder="title_course*"
-                value={contact.title_course}
-                onChange={handleChange}
-                name="title_course"
-              />
-              <input
-                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="text"
-                placeholder="detail*"
-                value={contact.detail}
-                onChange={handleChange}
-                name="detail"
-              />
-              <input
-                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="text"
-                placeholder="price_course*"
-                value={contact.price_course}
-                onChange={handleChange}
-                name="price_course"
-              />
+             
              
             </div>
             <div className="my-4">

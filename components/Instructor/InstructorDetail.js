@@ -1,55 +1,202 @@
-import {useState, Fragment} from "react"
-import {Dialog, Transition} from "@headlessui/react"
-import ReactStars from "react-stars"
-const InstructorDetail = ({e, data, Instructor, instructor}) => {
-  const [showModal, setShowModal] = useState(false)
-  const [detail, setDetail] = useState([])
-  const [price, setPrice] = useState([])
-  const [category, setCategory] = useState([])
-  const [isOpen, setIsOpen] = useState(false)
+import { useState, Fragment, useEffect } from "react";
+import { Dialog, Listbox, Transition } from "@headlessui/react";
+import ReactStars from "react-stars";
+import axios from "axios";
+import Select from "../Select";
+import Toast from "../Toast";
+import { Toaster, toast, resolveValue } from "react-hot-toast";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const InstructorDetail = ({ e, data, Instructor, instructor, id }) => {
+  const [showModal, setShowModal] = useState(false);
+  const [detail, setDetail] = useState([]);
+  const [price, setPrice] = useState([]);
+  const [category, setCategory] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenAddCourse, setIsOpenAddCourse] = useState(false);
+  let [loading, setLoading] = useState(false);
+  const [warning, setWarning] = useState(false);
+  const [warnText, setWarnText] = useState();
+  const [titleId, setTitleId] = useState("");
+  const [priceId, setPriceId] = useState("");
+  const [detailId, setDetailId] = useState("");
+  const [bgColor, setBgColor] = useState("");
+  // let filterInstructorId = instructor.filter((item) => item.instructor_id == id)
+  // let getId = filterInstructorId.map((item) => item.instructor_id)
+
+  const [value, setValue] = useState("");
+  const [getCategory, setGetCategory] = useState([]);
+
+  const handleChangeSelect = (e) => {
+    setValue(e.target.value);
+  };
+
+  // console.log(selectedOption.filter_category_course)
+  const temp = getCategory.map((ext) => ext.filter_id);
+  const [currentExtension, setCurrentExtension] = useState(temp);
+
+  const categoryName = () => {
+    axios
+      .get("http://localhost:3000/api/filterCategory")
+      .then((res) => {
+        setGetCategory(res.data);
+      })
+      .catch((err) => {
+        // console.log(err);
+      });
+  };
+
+  const [course, setCourse] = useState({
+    title_course: "",
+    detail: "",
+    price_course: "",
+  });
+
+  const handleChange = (event) => {
+    setCourse({ ...course, [event.target.name]: event.target.value });
+  };
+  var instructorId = Instructor.match(/\d/g);
+  let InstructorId = instructorId.join("");
+  console.log( course.detail.length)
+
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    if(course.title_course.length !== 0  && course.detail.length !== 0 && course.price_course.length !== 0){
+    axios
+      .post("http://localhost:3000/api/course_title", course)
+      .then(function (response) {
+        setTitleId(response.data);
+        setTitleId(response.data.title_id);
+        // setWarnText(false)
+        // setIsOpen(true)
+        // if (response.status === 200) {
+        //   setLoading(false)
+        // }
+      })
+      .catch(function (err) {
+        console.log(err.message);
+      });
+    axios
+      .post("http://localhost:3000/api/course_price", course)
+      .then(function (response) {
+        setPriceId(response.data.price_id);
+        console.log(response.data);
+        // setWarnText(false)
+        // setIsOpen(true)
+        // if (response.status === 200) {
+        //   setLoading(false)
+        // }
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+    axios
+      .post("http://localhost:3000/api/course_details", course)
+      .then(function (response) {
+        setDetailId(response.data.detail_id);
+        console.log(response.data);
+        // setWarnText(false)
+        // setIsOpen(true)
+        // if (response.status === 200) {
+        //   setLoading(false)
+        // }
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+    }
+
+    if (titleId !== 0  && priceId  !== 0 && detailId  !== 0) {
+      const config = {
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+        },
+      };
+      const data = {
+        instructor_list_id: InstructorId,
+        course_list_id: value,
+        title_list_id: titleId,
+        price_list_id: priceId,
+        details_list_id: detailId,
+      };
+      axios
+        .put(`http://localhost:3000/api/course_list/${id}`, data, config)
+        .then(function (response) {
+          console.log(response.data);
+          toast("เพิ่มคอร์สเรียบร้อยแล้ว");
+          setBgColor("bg-success");
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.log(error.message);
+          toast("เพิ่มคอร์สไม่สำเร็จ ลองใหม่อีกครั้ง");
+          setLoading(false);
+          setBgColor("bg-danger");
+          console.log("2 ไม่สำเร็จ");
+          // setModalVisible(true);
+          // setWarning("เกิดข้อผิดพลาด โปรดลองใหม่อีกครั้ง");
+        });
+    }
+  };
+  useEffect(() => {
+    categoryName();
+  }, []);
+
+  // console.log(priceId)
+  // console.log(detailId)
+  // console.log(`http://localhost:3000/api/course_list/${id}`)
+  // console.log(e.instructor_list_id)
+
   function closeModal() {
-    setIsOpen(false)
+    setIsOpen(false);
+    setIsOpenAddCourse(false);
   }
 
   function openModal() {
-    setIsOpen(true)
+    setIsOpen(true);
   }
   let getCourseAmount = data.filter(
     (item) => item.firstName === e.firstName && item.lastName === e.lastName
-  )
+  );
   // let amountCourse = ""
   // for (let i = 0; i < getCourseAmount.length; i++) {
   //   amountCourse = `${[i]} `
   // }
 
-  const [start, setStart] = useState()
+  const [start, setStart] = useState();
   const ratingChanged = (newRating) => {
-    setStart(newRating)
-  }
-  console.log(instructor)
+    setStart(newRating);
+  };
   function formatNumber(num) {
-    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
   }
   let filterCourse = data.filter((item) => {
-    return item.instructor_id === e.instructor_id
-  })
+    return item.instructor_id === e.instructor_id;
+  });
 
   let filterDetailsCourse = data.filter((item) => {
-    return item.instructor_id === e.instructor_id
-  })
-
+    return item.instructor_id === e.instructor_id;
+  });
   return (
     <>
+      <Toast />
       <div
         className="row d-flex justify-content-center justify-content-md-between "
-        style={{marginTop: -160}}>
+        style={{ marginTop: -160 }}
+      >
         <div className="col-12 col-md-4 col-lg-6 d-flex justify-content-center justify-content-lg-start align-items-md-center">
           <div className="blog-post-content single-blog-post">
             <div className="card bg-light text-dark shadow">
               <div className="card-body">
                 <div className="">
                   <img
-                    src={e.รูปถ่าย == "" ? "/static/img/Logo-Adirek.png" : `${e.รูปถ่าย}`}
+                    src={
+                      e.รูปถ่าย == ""
+                        ? "/static/img/Logo-Adirek.png"
+                        : `${e.รูปถ่าย}`
+                    }
                     alt="img"
                     className="object-scale-down w-[370px] h-[240px]"
                   />
@@ -66,13 +213,20 @@ const InstructorDetail = ({e, data, Instructor, instructor}) => {
               overflow: "hidden",
               padding: "1.4rem",
               borderRadius: 10,
-            }}>
+            }}
+          >
             <div className="col-12 col-md-12 col-lg-7 text-center text-md-center text-lg-center">
               <div>
-                <h3 className="font-DB" style={{color: "white", fontSize: 42}}>
+                <h3
+                  className="font-DB"
+                  style={{ color: "white", fontSize: 42 }}
+                >
                   {e.firstName}
                 </h3>
-                <h3 className="font-DB " style={{color: "white", fontSize: 42}}>
+                <h3
+                  className="font-DB "
+                  style={{ color: "white", fontSize: 42 }}
+                >
                   {e.lastName}
                 </h3>
               </div>
@@ -81,12 +235,18 @@ const InstructorDetail = ({e, data, Instructor, instructor}) => {
               <div className="text-center  text-md-center mt-3 space-y-1">
                 <p className="sub-title-teacher font-DB  text-[#f8f8f8] text-[24px] leading-relaxed">
                   {" "}
-                  <i className="fa fa-check-circle text-[aquamarine]" aria-hidden="true"></i>
+                  <i
+                    className="fa fa-check-circle text-[aquamarine]"
+                    aria-hidden="true"
+                  ></i>
                   &nbsp; Verified
                 </p>
                 <p className="sub-title-teacher  font-DB  text-[#f8f8f8] text-[24px] leading-relaxed">
                   {" "}
-                  <i className="fa fa-check-circle text-[aquamarine]" aria-hidden="true"></i>
+                  <i
+                    className="fa fa-check-circle text-[aquamarine]"
+                    aria-hidden="true"
+                  ></i>
                   &nbsp; {e.ฉีดวัคซีนป้องกัน}
                 </p>
                 <ul className="social-area d-inline-block">
@@ -120,8 +280,13 @@ const InstructorDetail = ({e, data, Instructor, instructor}) => {
                   คอร์สเรียน
                 </h1>
                 <div className="bg-slate-700 rounded-lg  px-2 lg:col-span-2">
-                  <a href={`tel:${e.เบอร์โทร}`} className="flex items-center justify-between ">
-                    <h1 className="font-DB font-black text-f3xl text-white">โทรหาผู้สอน</h1>
+                  <a
+                    href={`tel:${e.เบอร์โทร}`}
+                    className="flex items-center justify-between "
+                  >
+                    <h1 className="font-DB font-black text-f3xl text-white">
+                      โทรหาผู้สอน
+                    </h1>
                     <i className="fa fa-phone text-[#F6A21C] text-3xl"></i>
                   </a>
                 </div>
@@ -131,10 +296,9 @@ const InstructorDetail = ({e, data, Instructor, instructor}) => {
                   <div className="title text-black text-[32px]">
                     <ul className="list-decimal divide-y">
                       {filterCourse.map((item) => {
-                        console.log(item)
                         return (
                           <>
-                            <li key={item.instructor_id} >
+                            <li key={item.instructor_id}>
                               <p className="line-clamp-3  font-body  subtext-Athiti !font-semibold !text-xl">
                                 {item.title_course}
                               </p>
@@ -146,8 +310,11 @@ const InstructorDetail = ({e, data, Instructor, instructor}) => {
                                       setIsOpen(true),
                                         setDetail(item.detail),
                                         setPrice(item.price_course),
-                                        setCategory(item.filter_category_course)
-                                    }}>
+                                        setCategory(
+                                          item.filter_category_course
+                                        );
+                                    }}
+                                  >
                                     {/* {console.log(formatNumber(item.price_course))} */}
                                     อ่านเพิ่มเติม
                                   </p>
@@ -158,32 +325,26 @@ const InstructorDetail = ({e, data, Instructor, instructor}) => {
                               </div>
                             </li>
                           </>
-                        )
+                        );
                       })}
                     </ul>
+                    <div className="text-right relative">
+                      <button
+                        className="bg-red-300 py-0 px-2 rounded-sm"
+                        onClick={() => setIsOpenAddCourse(true)}
+                      >
+                        <p className="ttext-Athiti ">เพิ่มคอร์ส</p>
+                      </button>
+                    </div>
                     {/* {e.title_course} */}
                   </div>
                 </div>
-                {/* <ul className="list-decimal">
-                  {filterCourse.map((item) => {
-                    return (
-                      <>
-                        <div className="align-items-center justify-content-center  md:col-span-1   p-2">
-                          <div className="ml-1 title text-black text-[32px]">
-                            <h5 className=" text-right font-body text-flg md:col-span-1">
-                              {formatNumber(item.price_course)} บาท
-                            </h5>
-                          </div>
-                        </div>
-                      </>
-                    )
-                  })}
-                </ul> */}{" "}
-                <Transition show={isOpen} as={Fragment}>
+                <Transition show={isOpenAddCourse} as={Fragment}>
                   <Dialog
                     as="div"
                     className="fixed inset-0 z-10 overflow-y-auto"
-                    onClose={closeModal}>
+                    onClose={closeModal}
+                  >
                     <div className="min-h-screen px-4 text-center">
                       <Transition.Child
                         as={Fragment}
@@ -192,12 +353,16 @@ const InstructorDetail = ({e, data, Instructor, instructor}) => {
                         enterTo="opacity-100"
                         leave="ease-in duration-200"
                         leaveFrom="opacity-100"
-                        leaveTo="opacity-0">
+                        leaveTo="opacity-0"
+                      >
                         <Dialog.Overlay className="fixed inset-0 bg-black/[.2]" />
                       </Transition.Child>
 
                       {/* This element is to trick the browser into centering the modal contents. */}
-                      <span className="inline-block h-screen align-middle" aria-hidden="true">
+                      <span
+                        className="inline-block h-screen align-middle"
+                        aria-hidden="true"
+                      >
                         &#8203;
                       </span>
                       <Transition.Child
@@ -207,22 +372,221 @@ const InstructorDetail = ({e, data, Instructor, instructor}) => {
                         enterTo="opacity-100 scale-100"
                         leave="ease-in duration-200"
                         leaveFrom="opacity-100 scale-100"
-                        leaveTo="opacity-0 scale-95">
+                        leaveTo="opacity-0 scale-95"
+                      >
                         <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
                           <div className="flex justify-between items-center">
                             <Dialog.Title
                               as="h3"
-                              className="text-lg font-medium leading-6 text-gray-900">
-                              <h3 className="text-fxl font-title">{category}</h3>
+                              className="text-lg font-medium leading-6 text-gray-900"
+                            >
+                              <h3 className="text-fxl font-title">
+                                {category}
+                              </h3>
                             </Dialog.Title>
-                            <Dialog.Title as="h3" className="text-right leading-6 text-gray-900">
-                              <button className="font-black" onClick={closeModal}>
+                            <Dialog.Title
+                              as="h3"
+                              className="text-right leading-6 text-gray-900"
+                            >
+                              <button
+                                className="font-black"
+                                onClick={closeModal}
+                              >
+                                X
+                              </button>
+                            </Dialog.Title>
+                          </div>
+                          <form
+                            className="mx-auto my-4"
+                            onSubmit={handleSubmit}
+                          >
+                            <label
+                              htmlFor="exampleFormControlTextarea1"
+                              className="subtext-Athiti !font-semibold"
+                            >
+                              หมวดหมู่
+                            </label>
+                            <div className="flex items-center justify-center p-2">
+                              <div className="w-full">
+                                {/* <select
+                                  value={value}
+                                  onChange={handleChangeSelect}
+                                >
+                                  {getCategory.map((e, i) => {
+                                    return (
+                                      <option value={e.filter_id}>
+                                        {e.filter_category_course}
+                                      </option>
+                                    );
+                                  })}
+                                </select> */}
+                                <Select
+                                  //className="flex-1"
+                                  options={getCategory}
+                                  selectedOption={currentExtension}
+                                  handelChange={(event) => {
+                                    console.log("parent", event);
+                                    setCurrentExtension(event);
+                                    setValue(event.filter_id);
+                                  }}
+                                />
+                              </div>
+                            </div>
+                            <div className="form-group my-2">
+                              <label
+                                htmlFor="exampleFormControlTextarea1"
+                                className="subtext-Athiti !font-semibold"
+                              >
+                                ชื่อคอร์ส
+                              </label>
+                              <input
+                                className="form-control w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                                id="exampleFormControlTextarea1"
+                                type="text"
+                                placeholder="ชื่อครอ์สเรียน"
+                                value={course.title_course}
+                                onChange={handleChange}
+                                name="title_course"
+                                required
+                              />
+                            </div>
+                            <div className="form-group my-2">
+                              <label
+                                htmlFor="exampleFormControlTextarea1"
+                                className="subtext-Athiti !font-semibold"
+                              >
+                                รายละเอียด
+                              </label>
+                              <textarea
+                                className="form-control w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                                id="exampleFormControlTextarea1"
+                                type="textarea"
+                                placeholder="รายละเอียดคอร์ส"
+                                value={course.detail}
+                                onChange={handleChange}
+                                name="detail"
+                                required
+                              />
+                            </div>
+                            <div className="form-group my-2">
+                              <label
+                                htmlFor="exampleFormControlTextarea1"
+                                className="subtext-Athiti !font-semibold"
+                              >
+                                ราคา
+                              </label>
+                              <input
+                                className="form-control w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                                id="exampleFormControlTextarea1"
+                                type="number"
+                                required
+                                step="any"
+                                placeholder="ราคา"
+                                value={course.price_course}
+                                onChange={handleChange}
+                                name="price_course"
+                              />
+                            </div>
+
+                            <div className="sweet-loading text-center">
+                              <ClipLoader
+                                color="blue"
+                                loading={loading}
+                                size={82}
+                              />
+                            </div>
+
+                            {loading ? null : (
+                              <button
+                                type="submit"
+                                className="py-2 bg-black text-Athiti !font-semibold  text-white w-100 mt-2 rounded-md hover:duration-500 hover:!bg-white hover:!text-black hover:border-2 hover:border-black"
+                              >
+                                เพิ่ม
+                              </button>
+                            )}
+                          </form>
+
+                          {/* <div className="mt-4">
+                            <div className="flex justify-between items-center">
+                              <p>{formatNumber(price)} บาท</p>
+                              <a href={`tel:${e.เบอร์โทร}`}>
+                                <button
+                                  type="button"
+                                  className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                                  onClick={closeModal}
+                                >
+                                  โทรเลย!
+                                </button>
+                              </a>
+                            </div>
+                          </div> */}
+                        </div>
+                      </Transition.Child>
+                    </div>
+                  </Dialog>
+                </Transition>
+
+                <Transition show={isOpen} as={Fragment}>
+                  <Dialog
+                    as="div"
+                    className="fixed inset-0 z-10 overflow-y-auto"
+                    onClose={closeModal}
+                  >
+                    <div className="min-h-screen px-4 text-center">
+                      <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                      >
+                        <Dialog.Overlay className="fixed inset-0 bg-black/[.2]" />
+                      </Transition.Child>
+
+                      {/* This element is to trick the browser into centering the modal contents. */}
+                      <span
+                        className="inline-block h-screen align-middle"
+                        aria-hidden="true"
+                      >
+                        &#8203;
+                      </span>
+                      <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0 scale-95"
+                        enterTo="opacity-100 scale-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100 scale-100"
+                        leaveTo="opacity-0 scale-95"
+                      >
+                        <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+                          <div className="flex justify-between items-center">
+                            <Dialog.Title
+                              as="h3"
+                              className="text-lg font-medium leading-6 text-gray-900"
+                            >
+                              <h3 className="text-fxl font-title">
+                                {category}
+                              </h3>
+                            </Dialog.Title>
+                            <Dialog.Title
+                              as="h3"
+                              className="text-right leading-6 text-gray-900"
+                            >
+                              <button
+                                className="font-black"
+                                onClick={closeModal}
+                              >
                                 X
                               </button>
                             </Dialog.Title>
                           </div>
                           <div className="mt-2">
-                            <p className="text-sm md:text-lg text-gray-500">{detail}</p>
+                            <p className="text-sm md:text-lg text-gray-500">
+                              {detail}
+                            </p>
                           </div>
 
                           <div className="mt-4">
@@ -232,7 +596,8 @@ const InstructorDetail = ({e, data, Instructor, instructor}) => {
                                 <button
                                   type="button"
                                   className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                                  onClick={closeModal}>
+                                  onClick={closeModal}
+                                >
                                   โทรเลย!
                                 </button>
                               </a>
@@ -250,7 +615,9 @@ const InstructorDetail = ({e, data, Instructor, instructor}) => {
           <div className="mt-6 md:mt-0 lg:px-5">
             {" "}
             <div className="space-y-1">
-              <h1 className="font-Prompt font-bold text-f3xl text-[#F6A21C]">หมวดหมู่:</h1>
+              <h1 className="font-Prompt font-bold text-f3xl text-[#F6A21C]">
+                หมวดหมู่:
+              </h1>
               <div className="align-items-center justify-content-center bg-[#eaf0f6] border-b-2 border-gray-200 rounded-lg p-2">
                 <div className="ml-1 title text-black text-[32px]">
                   {e.ช่องทางการสอน == "" ? "ไม่พบข้อมูล" : e.ช่องทางการสอน}{" "}
@@ -258,13 +625,17 @@ const InstructorDetail = ({e, data, Instructor, instructor}) => {
               </div>
               <div className="align-items-center justify-content-center bg-[#eaf0f6] border-b-2 border-gray-200 rounded-lg p-2">
                 <div className="ml-1 title text-black text-[32px]">
-                  {e.filter_category_course == "" ? "ไม่พบข้อมูล" : e.filter_category_course}
+                  {e.filter_category_course == ""
+                    ? "ไม่พบข้อมูล"
+                    : e.filter_category_course}
                 </div>
               </div>
             </div>
             <div className="grid grid-cols-2 items-center justify-between mt-5">
               <div>
-                <h1 className="title font-Prompt font-bold text-f2xl text-[#F6A21C]">Rating</h1>
+                <h1 className="title font-Prompt font-bold text-f2xl text-[#F6A21C]">
+                  Rating
+                </h1>
               </div>
               <div className="text-right flex items-center justify-end">
                 <span className="mx-2">{start}</span>
@@ -276,27 +647,14 @@ const InstructorDetail = ({e, data, Instructor, instructor}) => {
                   size={22}
                   color2={"rgb(253 186 116)"}
                 />
-                {/* <span>
-                  <i className="fa fa-star text-[#f2994a] mr-1"></i>
-                </span>
-                <span>
-                  <i className="fa fa-star text-[#f2994a] mr-1"></i>
-                </span>
-                <span>
-                  <i className="fa fa-star text-[#f2994a] mr-1"></i>
-                </span>
-                <span>
-                  <i className="fa fa-star text-[#f2994a] mr-1"></i>
-                </span>
-                <span>
-                  <i className="fa fa-star text-[#f2994a] mr-1"></i>
-                </span> */}
               </div>
               <div>
                 <h1 className="font-title text-fxl">คอร์สทั้งหมด</h1>
               </div>
               <div className="text-right">
-                <h1 className="font-title text-fxl">{getCourseAmount.length}</h1>
+                <h1 className="font-title text-fxl">
+                  {getCourseAmount.length}
+                </h1>
               </div>
               <div>
                 <h1 className="font-title text-fxl">ผู้เข้าชม</h1>
@@ -308,8 +666,12 @@ const InstructorDetail = ({e, data, Instructor, instructor}) => {
           </div>
           <div className="lg:px-5 mt-6">
             {" "}
-            <h1 className="title font-Prompt font-bold text-f2xl  text-[#F6A21C]">แนะนำผู้สอน</h1>
-            <p className=" subtext ">{e.ประวัติการสอน == "" ? "ไม่พบข้อมูล" : e.ประวัติการสอน}</p>
+            <h1 className="title font-Prompt font-bold text-f2xl  text-[#F6A21C]">
+              แนะนำผู้สอน
+            </h1>
+            <p className=" subtext ">
+              {e.ประวัติการสอน == "" ? "ไม่พบข้อมูล" : e.ประวัติการสอน}
+            </p>
           </div>
           <div className="lg:px-5 mt-6">
             {" "}
@@ -322,11 +684,16 @@ const InstructorDetail = ({e, data, Instructor, instructor}) => {
           </div>
           <div className="lg:px-5 mt-6">
             {" "}
-            <h1 className="title font-Prompt font-bold text-f2xl text-[#F6A21C]">ติดต่อผู้สอน</h1>
+            <h1 className="title font-Prompt font-bold text-f2xl text-[#F6A21C]">
+              ติดต่อผู้สอน
+            </h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
               <p className="lead font-bold">Phone:</p>
               <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">
-                <a href={`tel:${e.เบอร์โทร}`}> {e.เบอร์โทร == "" ? "ไม่พบข้อมูล" : e.เบอร์โทร}</a>
+                <a href={`tel:${e.เบอร์โทร}`}>
+                  {" "}
+                  {e.เบอร์โทร == "" ? "ไม่พบข้อมูล" : e.เบอร์โทร}
+                </a>
               </p>
 
               <p className="lead font-bold">Email:</p>
@@ -339,15 +706,19 @@ const InstructorDetail = ({e, data, Instructor, instructor}) => {
               </p>
               <p className="lead font-bold">Address:</p>
               <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">
-                {e.กรณีเรียนนอกสถานที่ == "" ? "ไม่พบข้อมูล" : e.กรณีเรียนนอกสถานที่}
+                {e.กรณีเรียนนอกสถานที่ == ""
+                  ? "ไม่พบข้อมูล"
+                  : e.กรณีเรียนนอกสถานที่}
               </p>
             </div>
           </div>
           <div className="lg:px-5 mt-6">
             {" "}
-            <h1 className="title font-Prompt font-bold text-f2xl text-[#F6A21C]">Review</h1>
+            <h1 className="title font-Prompt font-bold text-f2xl text-[#F6A21C]">
+              Review
+            </h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-              <ol className="list-decimal" style={{color: "#808191"}}>
+              <ol className="list-decimal" style={{ color: "#808191" }}>
                 <li className="subtext">สอนเข้าใจง่าย</li>
                 <li className="subtext">เนื้อหากระชับ ชัดเจน</li>
                 <li className="subtext">คุณครูน่ารัก</li>
@@ -357,6 +728,16 @@ const InstructorDetail = ({e, data, Instructor, instructor}) => {
         </div>
       </div>
 
+      <div className="m-8">
+        <button
+          className="bg-blue-500 text-white p-4 rounded"
+          onClick={() => toast("This is Tailwind 1111")}
+        >
+          Create TailwindCSS Toast
+        </button>
+
+        <Toast t={toast} bgColor={bgColor} />
+      </div>
       {/* <div className="row d-flex mt-5">
         <div className="col-md-12 col-lg-6">
           <div className="align-items-center justify-content-center ">
@@ -509,7 +890,7 @@ const InstructorDetail = ({e, data, Instructor, instructor}) => {
         </div>
       </div> */}
     </>
-  )
-}
+  );
+};
 
-export default InstructorDetail
+export default InstructorDetail;
