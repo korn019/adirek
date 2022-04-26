@@ -17,7 +17,7 @@ const Instructor = () => {
   const [dataJson, setDataJson] = useState([])
 
   
-  const getData = async () => {
+  const getData =  () => {
     axios
       .get("https://www.api-adirek.online/api/instructor-course")
       .then((res) => {
@@ -31,9 +31,9 @@ const Instructor = () => {
     getData()
   }, [])
   
-  const FilterData = dataJson.map((x) => {
-    return x.filter_category_course
-  })
+  // const FilterData = dataJson.map((x) => {
+  //   return x.filter_category_course
+  // })
 
   return (
     <SearchCourseProvider>
@@ -44,7 +44,7 @@ const Instructor = () => {
             <>
               <div className="pd-bottom-115" key={e.id}>
                 <div className="container">
-                  <CoursePage e={e} FilterData={FilterData}/>
+                  <CoursePage e={e} dataJson={dataJson}/>
                 </div>
               </div>
             </>

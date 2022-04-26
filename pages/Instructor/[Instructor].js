@@ -46,7 +46,7 @@ let getInstructorId = data.map((item) => item.filter_category_course )
       <Layout>
         {data.map((e, id) => {
           console.log(e)
-          return Instructor == `id=${id}` ? (
+          return Instructor == `id=${e.instructor_id}` ? (
             <>
               {check.map((item) => {
                 return item.value.includes(e.filter_category_course) ? (

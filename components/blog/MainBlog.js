@@ -58,9 +58,12 @@ const MainBlog = ({search, setSearch}) => {
       <section className="pd-top-135 pd-bottom-120">
         <div className="container px-9">
           <div className="row">
-            <div className="col-md-8">
-              <div className="">
-                <h2 className="!font-Prompt font-black text:fxl md:text-f2xl mb-5">บทความ</h2>
+            <div className="col-md-12">
+            <div className="title-border flex justify-between items-center ">
+                <h2 className="  !text-[2.6rem] !font-semibold md:!text-f4xl text-Athiti !text-titleBlue !leading-border-from-title">
+                บทความ
+                </h2>
+              
               </div>
             </div>
           </div>

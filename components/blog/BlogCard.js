@@ -81,12 +81,12 @@ const BlogCard = (
             </div>
           </div>
           <div className="p-6 group-hover:bg-white group-hover:duration-500 group-hover:shadow-[0_2px_48px_0_rgba(0,0,0,0.08)]">
-            <h2 className="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">
+            <h2 className="tracking-widest !text-sm !text-gray-500 mb-1 text-Athiti !font-medium ">
               {article.date}
             </h2>
             <h1 className="title-font text-lg  group-hover:text-base font-black text-gray-900 mb-3">
               <Link href="">
-                <a onClick={CountView}>{article.title}</a>
+                <a onClick={CountView} className='text-Athiti !font-medium !text-md'>{article.title}</a>
               </Link>
             </h1>
             <p className="leading-relaxed mb-3 truncate">{article.subtitle}</p>

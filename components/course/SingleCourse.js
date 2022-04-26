@@ -11,7 +11,6 @@ const SingleCourse = ({course, index, filterImg}) => {
       return num.imgBanner
     }
   })
-  console.log(course)
 
   const IMG = () => {
     if (

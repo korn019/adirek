@@ -5,24 +5,38 @@ import BreadcrumbPage from "../BreadcrumbPage";
 import SingleCourse from "./SingleCourse";
 import SwiperCourse from "./SwiperCourse";
 import axios from "axios";
-const CoursePage = ({ e, FilterData }) => {
-  const [data, setData] = useState([]);
-  const [dataJson, setDataJson] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+import ClipLoader from "react-spinners/ClipLoader";
+const CoursePage = ({ e,dataJson }) => {
 
-  const getData = async () => {
-    axios
-      .get("https://www.api-adirek.online/api/instructor-course")
-      .then((res) => {
-        setData(res.data);
-        setIsLoading(true);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
-  let availableCourse = data.map((item) => item.filter_category_course)
-  let availableCourseCategory = data.map((item) => item.main_category)
+  // const [dataJson, setDataJson] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  let [loading, setLoading] = useState(false);
+  
+  
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const getData = async  () => {
+      await   axios
+        .get("https://www.api-adirek.online/api/instructor-course")
+        .then((res) => {
+          setData(res.data);
+          setIsLoading(true);
+        })
+        .catch((err) => {
+          console.error(err); 
+        });
+    };
+    
+    getData(); 
+    const endOffset = itemOffset + 24;
+    setCurrentItems(items.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(items.length / 24));
+    // setData(dataJson.map((item, id) => Object.assign(item, {id})))
+  }, [dataJson,  itemOffset,e]);
+
+  
+  let availableCourse = dataJson.map((item) => item.filter_category_course)
+  let availableCourseCategory = dataJson.map((item) => item.main_category)
   let filterLength = availableCourse.filter((num) => e.value.includes(num));
 
   let CourseLength = availableCourseCategory.filter((num) => {
@@ -34,7 +48,7 @@ const CoursePage = ({ e, FilterData }) => {
       return num.includes("Life Style");
     }
   });
-  const Filter = data.filter((x) => {
+  const Filter = dataJson.filter((x) => {
     if (e.value == e.category) {
       return x.main_category == e.category
     } else {
@@ -52,14 +66,6 @@ const CoursePage = ({ e, FilterData }) => {
       <SingleCourse course={course} key={course.instructor_id} index={course.instructor_id} />
     );
   });
-
-  useEffect(() => {
-    getData();
-    const endOffset = itemOffset + 24;
-    setCurrentItems(items.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(items.length / 24));
-    // setData(dataJson.map((item, id) => Object.assign(item, {id})))
-  }, [data, itemOffset]);
 
   const handlePageClick = (event) => {
     const newOffset = (event.selected * 24) % items.length;
@@ -127,7 +133,13 @@ const CoursePage = ({ e, FilterData }) => {
           </div>
         </>
       ) : (
-        <h1 className="font-title text-f3xl">กำลังโหลดข้อมูล....</h1>
+        <>
+        <div className="relative px-4 md:px-6">
+        <div className="sweet-loading text-center">
+          <ClipLoader color="blue" loading={loading} size={82} />
+        </div>
+      </div>
+        </>
       )}
     </>
   );
