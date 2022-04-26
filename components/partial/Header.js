@@ -326,7 +326,7 @@ function Header() {
               <div className="logo">
                 <Link href="/">
                   <a className="main-logo">
-                    <img src="/static/img/logo.png" alt="img" />
+                    <img src="/static/img/logo-knowledge.png" alt="Adirek" />
                   </a>
                 </Link>
               </div>

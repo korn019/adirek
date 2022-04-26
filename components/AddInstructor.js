@@ -56,7 +56,7 @@ const Add = () => {
 
   const categoryName = () => {
     axios
-      .get("https://www.api-adirek.online/api/filterCategory")
+      .get("http://www.api-adirek.online/api/filterCategory")
       .then((res) => {
         setGetCategory(res.data);
       })
@@ -76,15 +76,22 @@ const Add = () => {
     e.preventDefault();
     setLoading(true);
 
+    if(course.title_course === "" || course.detail === "" || course.price_course === ""){
+      toast("กรุณาเพิ่มคอร์สของคุณ")
+      setLoading(false)
+      setBgColor("bg-danger")
+    } else{
+
+    
     axios
-      .post("https://www.api-adirek.online/api/instructor/add", contact)
+      .post("http://localhost:3000/api/instructor/add", contact)
       .then(function (response) {
         setLoading(false);
         let idIns = response.data.add_id.toString() 
-        console.log(idIns)
+        console.log(response.data.add_id.toString() )
 
         axios
-          .post("https://www.api-adirek.online/api/course_title", course)
+          .post("http://localhost:3000/api/course_title", course)
           .then(function (response) {
             console.log(response);
             setWarnText(false);
@@ -92,7 +99,7 @@ const Add = () => {
             if (response.status === 200) {
               let TitleId = response.data.title_id.toString()
               axios
-                .post("https://www.api-adirek.online/api/course_price", course)
+                .post("http://localhost:3000/api/course_price", course)
                 .then(function (response) {
                   console.log(response);
                   setWarnText(false);
@@ -102,7 +109,7 @@ const Add = () => {
                     setLoading(false);
                     axios
                       .post(
-                        "https://www.api-adirek.online/api/course_details",
+                        "http://localhost:3000/api/course_details",
                         course
                       )
                       .then(function (response) {
@@ -125,7 +132,7 @@ const Add = () => {
                             headers: {"Content-Type": "application/x-www-form-urlencoded"},
                           }
                           axios
-                            .put(`https://www.api-adirek.online/api/course_list/${idIns}`, data)
+                            .put(`http://localhost:3000/api/course_list/${idIns}`, data)
                             .then(function (response) {
                               console.log(response.data)
                               toast("เพิ่มคอร์สเรียบร้อยแล้ว")
@@ -156,13 +163,14 @@ const Add = () => {
       })
       .catch(function (error) {
         console.log(error);
-        let err = error.response.data.error;
-        setWarning(true);
-        setWarnText(`***${err}***`);
-        if (error.response.status === 400) {
-          setLoading(false);
-        }
+        // // let err = error.response.error;
+        // setWarning(true);
+        // setWarnText(`***${error}***`);
+        // if (error.response.status === 400) {
+        //   setLoading(false);
+        // }
       });
+    }
   };
   useEffect(() => {
     categoryName();
@@ -187,6 +195,7 @@ const Add = () => {
                 value={contact.firstName}
                 name="firstName"
                 onChange={handleChange}
+                required
               />
               <input
                 className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
@@ -195,6 +204,7 @@ const Add = () => {
                 value={contact.lastName}
                 name="lastName"
                 onChange={handleChange}
+                required
               />
               <input
                 className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
@@ -203,6 +213,7 @@ const Add = () => {
                 value={contact.ที่อยู่อีเมล}
                 name="ที่อยู่อีเมล"
                 onChange={handleChange}
+                required
               />
               <input
                 className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
@@ -211,6 +222,7 @@ const Add = () => {
                 value={contact.เบอร์โทร}
                 onChange={handleChange}
                 name="เบอร์โทร"
+                required
               />
               <input
                 className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
@@ -235,6 +247,7 @@ const Add = () => {
                 value={contact.ฉีดวัคซีนป้องกัน}
                 onChange={handleChange}
                 name="ฉีดวัคซีนป้องกัน"
+                required
               />
 
               <input
