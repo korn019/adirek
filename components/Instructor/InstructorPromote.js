@@ -832,7 +832,7 @@ const InstructorPromote = () => {
         </div>
       </div> */}
 
-      <section className="testimonial-courses-area bg-gray-100 p-24">
+      <section className="testimonial-courses-area bg-gray-100 py-24">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
@@ -865,30 +865,30 @@ const InstructorPromote = () => {
                 breakpoints={{
                   320: {
                     slidesPerView: 1,
-                    spaceBetween: 90,
+                    spaceBetween: 1,
                   },
                   580: {
                     slidesPerView: 1,
-                    spaceBetween: 20,
+                    spaceBetween: 1,
                   },
                   640: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
+                    slidesPerView: 1,
+                    spaceBetween: 1,
                   },
                   1024: {
-                    slidesPerView: 2,
+                    slidesPerView: 1,
                     spaceBetween: 20,
                   },
                   1200: {
-                    slidesPerView: 2,
+                    slidesPerView: 1,
                     spaceBetween: 20,
                   },
                   1440: {
-                    slidesPerView: 2,
+                    slidesPerView: 1,
                     spaceBetween: 20,
                   },
                   1920: {
-                    slidesPerView: 2,
+                    slidesPerView: 1,
                     spaceBetween: 20,
                   },
                 }}
