@@ -78,7 +78,7 @@
   @apply font-Prompt font-normal  text-f4xl
 }
 .text-Athiti {
-  @apply font-Athiti not-italic font-normal text-[#0b132a] text-2xl leading-9  tracking-wide
+  @apply font-Athiti not-italic font-normal text-[#0b132a] text-2xl leading-9  
 }
 .subtext-Athiti {
   @apply font-Athiti not-italic font-normal text-[#525864] text-lg leading-9  tracking-wide
