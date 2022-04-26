@@ -12,7 +12,7 @@ const Add = () => {
     <SearchCourseProvider>
       <Layout>
         <BreadcrumbPage title="เพิ่มครูผู้สอน" breadActive="เพิ่มครูผู้สอน" hrefActive="/Add" />
-        <SearchCourse search={search} setSearch={setSearch} />
+        {/* <SearchCourse search={search} setSearch={setSearch} /> */}
         <AddInstructor search={search} setSearch={setSearch} />
         <div className="pb-12">
           <BannerAds />
