@@ -325,10 +325,38 @@ const Add = () => {
 
       </textarea> */}
             </div>
-            <Transition show={isOpenAddCourse} as={Fragment}>
+           
+            <div className="my-2 w-1/2 lg:w-1/3">
+              {warning && loading !== true ? (
+                <>
+                  <div className="flex -mx-3 items-center justify-center text-center">
+                    <div className="w-full ">
+                      <p className="block w-full max-w-xs mx-auto  text-red-700 font-title text-fmd">
+                        {warnText}
+                      </p>
+                    </div>
+                  </div>
+                </>
+              ) : null}
+
+              <div className="sweet-loading text-center">
+                <SyncLoader color="blue" loading={loading} size={12} />
+              </div>
+
+              {loading ? null : (
+                <button
+                  className="cursor-pointer btn uppercase text-f2xl p-0 font-title bg-blue-900 text-gray-100 rounded-lg w-full 
+                      focus:outline-none focus:shadow-outline"
+                  style={{ cursor: "pointer", }}
+                  type="submit"
+                >
+                  ยืนยัน
+                </button>
+              )}
+               <Transition show={isOpenAddCourse} as={Fragment}>
               <Dialog
                 as="div"
-                className="fixed inset-0 z-10 overflow-y-auto items-center justify-center mt-4"
+                className="fixed inset-0 z-50 overflow-y-auto items-center justify-center mt-4"
                 onClose={closeModal}
               >
                 <div className="min-h-screen px-4 text-center">
@@ -503,33 +531,6 @@ const Add = () => {
                 </div>
               </Dialog>
             </Transition>
-            <div className="my-2 w-1/2 lg:w-1/3">
-              {warning && loading !== true ? (
-                <>
-                  <div className="flex -mx-3 items-center justify-center text-center">
-                    <div className="w-full ">
-                      <p className="block w-full max-w-xs mx-auto  text-red-700 font-title text-fmd">
-                        {warnText}
-                      </p>
-                    </div>
-                  </div>
-                </>
-              ) : null}
-
-              <div className="sweet-loading text-center">
-                <SyncLoader color="blue" loading={loading} size={12} />
-              </div>
-
-              {loading ? null : (
-                <button
-                  className="cursor-pointer btn uppercase text-f2xl p-0 font-title bg-blue-900 text-gray-100 rounded-lg w-full 
-                      focus:outline-none focus:shadow-outline"
-                  style={{ cursor: "pointer", zIndex: 999 }}
-                  type="submit"
-                >
-                  ยืนยัน
-                </button>
-              )}
               <Transition show={isOpen} as={Fragment}>
                 <Dialog
                   as="div"
