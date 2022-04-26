@@ -15,16 +15,16 @@ const BreadcrumbPage = ({title, bread1, bread2, breadActive, href1, href2, hrefA
               href2={href2}
             />
           </div>
-          <div className="bg-slate-400 md:col-span-3 lg:col-span-8 xl:col-span-7 2xl:col-span-8 h-44 flex items-center justify-center w-full mt-12 md:mt-6">
+          <div className="text-Athiti bg-slate-400 md:col-span-3 lg:col-span-8 xl:col-span-7 2xl:col-span-8 h-44 flex items-center justify-center w-full mt-12 md:mt-6">
             <p>Banner Ads</p>
           </div>
         </div>
-        <div className="">
-          <h1 className=" sm:text-fmd  mb-4 font-Prompt font-black  text-gray-900">
+        <div className=""> 
+          <h1 className="text-Athiti  mb-4  !font-semibold text-Athiti   !text-titleBlue">
             {Search ? (
-              <span className="text-fxl md:text-fxl  drop-shadow-md">{title}</span>
+              <span className="!text-[3rem] md:!text-[4rem]   drop-shadow-md">{title}</span>
             ) : (
-              <span className="text-fxl md:text-f3xl  drop-shadow-md">{title}</span>
+              <span className="!text-[3rem] md:!text-[4rem]   drop-shadow-md">{title}</span>
             )}
           </h1>
         </div>

@@ -64,7 +64,7 @@ const Course = () => {
           <div className="row">
             <div className="col-lg-12">
               <div className="title-border flex justify-between items-center ">
-                <h2 className=" !font-DB  !text-[2.6rem] !font-semibold md:!text-f4xl text-Athiti !text-titleBlue !leading-border-from-title">
+                <h2 className="  !text-[2.6rem] !font-semibold md:!text-f4xl text-Athiti !text-titleBlue !leading-border-from-title">
                   คอร์สขายดี
                 </h2>
                 <Link href="/Category">

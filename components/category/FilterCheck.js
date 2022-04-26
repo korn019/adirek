@@ -4,6 +4,7 @@ import FilterPlace from "./FilterPlace"
 import {SearchCourseContext} from "../../pages/Category"
 import {contextSourcesMap} from "tailwindcss/lib/lib/sharedState"
 const filterCheck = ({
+  handleSubmit,
   data,
   mainCategory,
   CourseCheck,
@@ -45,7 +46,7 @@ const filterCheck = ({
     return (
       <ul key={item.id}>
         <li>
-          <div className="single-form-check form-check">
+          <div className="single-form-check form-check flex items-center space-x-2">
             <Checkbox
               type="checkbox"
               name={item.value}
@@ -53,7 +54,7 @@ const filterCheck = ({
               handleClick={handleClickPrice}
               isChecked={isCheckPrice.includes(item.value)}
             />
-            <label className="form-check-label" htmlFor="flexCheckDefault2">
+            <label className="form-check-label subtext-Athiti !font-semibold !text-lg" htmlFor="flexCheckDefault2">
               {item.label} บาท
             </label>
           </div>
@@ -75,8 +76,8 @@ const filterCheck = ({
       <div className="col-lg-3">
         <div className="dmne-sidebar grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-1">
           <div className="widget widget-select-inner dropdown-filter">
-            <h4 className=" font-Prompt font-black text-f2xl my-4">คอร์ส</h4>
-            <div className="single-form-check form-check">
+            <h4 className=" text-Athiti  !font-semibold !text-f2xl my-4">คอร์ส</h4>
+            <div className="single-form-check form-check flex space-x-2 items-center ">
               <Checkbox
                 type="checkbox"
                 name="selectAll"
@@ -84,20 +85,23 @@ const filterCheck = ({
                 handleClick={handleSelectAll}
                 isChecked={isCheckAll}
               />
+              <p className="subtext-Athiti text-black !font-semibold">
+
               ทั้งหมด
+              </p>
             </div>
-            {/* <label className="form-check-label" htmlFor="flexCheckDefault2"> */}
+            {/* <label className="form-check-label " htmlFor="flexCheckDefault2"> */}
             {mainCategory.map((item) => {
               return (
                 <>
-                  <h4 className="font-Prompt font-semibold text-f2xl my-4">{item}</h4>
+                  <h4 className="text-Athiti  !font-semibold !text-f2xl my-4" >{item}</h4>
                   {(() => {
                     if (item == "Design") {
                       return filter.map((check) => {
                         return (
                           <ul key={check.id}>
                             <li>
-                              <div className="single-form-check form-check">
+                              <div className="single-form-check form-check items-center flex space-x-2">
                                 <Checkbox
                                   type="checkbox"
                                   name={check.value}
@@ -106,7 +110,7 @@ const filterCheck = ({
                                   isChecked={isCheck.includes(check.value)}
                                 />
 
-                                <label className="form-check-label" htmlFor="flexCheckDefault2">
+                                <label className="form-check-label subtext-Athiti !font-semibold !text-lg" htmlFor="flexCheckDefault2">
                                   {/* {check.filterValue == 'Design' ? 'ออกแบบ' : check.value} */}
                                   {check.value}
                                   {/* {check.value} */}
@@ -121,7 +125,7 @@ const filterCheck = ({
                         return (
                           <ul key={check.id}>
                             <li>
-                              <div className="single-form-check form-check">
+                              <div className="single-form-check form-check items-center flex space-x-2">
                                 <Checkbox
                                   type="checkbox"
                                   name={check.value}
@@ -130,7 +134,7 @@ const filterCheck = ({
                                   isChecked={isCheck.includes(check.value)}
                                 />
 
-                                <label className="form-check-label" htmlFor="flexCheckDefault2">
+                                <label className="form-check-label subtext-Athiti !font-semibold !text-lg" htmlFor="flexCheckDefault2">
                                   {/* {check.filterValue == 'Design' ? 'ออกแบบ' : check.value} */}
                                   {check.value}
                                   {/* {check.value} */}
@@ -145,7 +149,7 @@ const filterCheck = ({
                         return (
                           <ul key={check.id}>
                             <li>
-                              <div className="single-form-check form-check">
+                              <div className="single-form-check form-check items-center flex space-x-2">
                                 <Checkbox
                                   type="checkbox"
                                   name={check.value}
@@ -153,7 +157,7 @@ const filterCheck = ({
                                   handleClick={handleClick}
                                   isChecked={isCheck.includes(check.value)}
                                 />
-                                <label className="form-check-label" htmlFor="flexCheckDefault2">
+                                <label className="form-check-label subtext-Athiti !font-semibold !text-lg" htmlFor="flexCheckDefault2">
                                   {/* {check.filterValue == 'Design' ? 'ออกแบบ' : check.value} */}
                                   {check.value}
                                   {/* {check.value} */}
@@ -168,7 +172,7 @@ const filterCheck = ({
                         return (
                           <ul key={check.id}>
                             <li>
-                              <div className="single-form-check form-check">
+                              <div className="single-form-check form-check items-center flex space-x-2">
                                 <Checkbox
                                   type="checkbox"
                                   name={check.value}
@@ -177,7 +181,7 @@ const filterCheck = ({
                                   isChecked={isCheck.includes(check.value)}
                                 />
 
-                                <label className="form-check-label" htmlFor="flexCheckDefault2">
+                                <label className="form-check-label subtext-Athiti !font-semibold !text-lg" htmlFor="flexCheckDefault2">
                                   {/* {check.filterValue == 'Design' ? 'ออกแบบ' : check.value} */}
                                   {check.value}
                                   {/* {check.value} */}
@@ -192,7 +196,7 @@ const filterCheck = ({
                         return (
                           <ul key={check.id}>
                             <li>
-                              <div className="single-form-check form-check">
+                              <div className="single-form-check form-check items-center flex space-x-2">
                                 <Checkbox
                                   type="checkbox"
                                   name={check.value}
@@ -201,7 +205,7 @@ const filterCheck = ({
                                   isChecked={isCheck.includes(check.value)}
                                 />
 
-                                <label className="form-check-label" htmlFor="flexCheckDefault2">
+                                <label className="form-check-label subtext-Athiti !font-semibold !text-lg" htmlFor="flexCheckDefault2">
                                   {/* {check.filterValue == 'Design' ? 'ออกแบบ' : check.value} */}
                                   {check.value}
                                   {/* {check.value} */}
@@ -219,11 +223,11 @@ const filterCheck = ({
             {/* </label> */}
           </div>
           <div className="widget widget-select-inner">
-            <h4 className="font-Prompt font-black text-f2xl">ราคา</h4>
+            <h4 className="text-Athiti  !font-semibold !text-f2xl mb-7">ราคา</h4>
             {PriceCourse}
           </div>
           <div className="widget widget-select-inner">
-            <h4 className="font-Prompt font-black text-f2xl ">สถานที่</h4>
+            <h4 className="text-Athiti  !font-semibold !text-f2xl  mb-7 ">สถานที่</h4>
             <FilterPlace
               setError={setError}
               error={error}
@@ -240,13 +244,19 @@ const filterCheck = ({
           </div>
         </div>
         <div className="widget widget-select-inner relative">
+        <button
+            onClick={handleSubmit}
+            className=" subtext-Athiti !font-bold  !text-2xl text-gray-700 border-2 border-blue-400  focus:ring-1 focus:outline-none focus:border-[#ff013c]  focus:text-[#ff013c]  rounded-lg  px-2 py-1 text-center mr-2 mb-2">
+            ค้นหา
+          </button>
           <button
             onClick={resetButton}
             type="button"
-            // className="font-Prompt text-2xl text-white bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-black rounded-lg  px-2 py-1 text-center mr-2 mb-2">
-            className="font-Prompt text-2xl text-gray-700 border-2 border-blue-400  focus:ring-1 focus:outline-none focus:ring-red-200 dark:focus:ring-red-700 font-black rounded-lg  px-2 py-1 text-center mr-2 mb-2">
+            // className="font-Prompt text-2xl text-white bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700  rounded-lg  px-2 py-1 text-center mr-2 mb-2">
+            className=" subtext-Athiti !font-bold  !text-2xl text-gray-700 border-2 border-blue-400  focus:ring-1 focus:outline-none focus:border-[#ff013c]  focus:text-[#ff013c]  rounded-lg  px-2 py-1 text-center mr-2 mb-2">
             แก้ไข
           </button>
+    
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 widget widget-select-inner">

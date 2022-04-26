@@ -8,13 +8,13 @@ const AdirekIs = () => {
       <section className="text-gray-700 body-font -mt-20 sm:-mt-36 bg-[#FFFFFF]">
         <div className="container mx-auto flex md:px-6 py-24 md:flex-row flex-col items-center">
           <div className="lg:flex-grow md:w-1/2 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-left  z-50">
-            <h1 className=" text-[5rem] mb-2 font-DB  font-black text-title">อดิเรก</h1>
+            <h1 className=" !text-[5rem] !mb-8 text-Athiti  !font-semibold !text-title">อดิเรก</h1>
             <p className="mb-8 indent-5 text-Athiti">
               เกิดขึ้นจากความเชื่อที่ว่า "ชีวิตคือการค้นหาและเรียนรู้สิ่งใหม่ๆ
               ที่ไม่มีวันสิ้นสุด"เราจึงก่อตั้ง{" "}
-              <strong className="text-3xl font-Prompt font-black text-title"> อดิเรก </strong>
+              <strong className="text-3xl text-Athiti !font-semibold !text-title"> อดิเรก </strong>
               ขึ้นในฐานะแพลตฟอร์มการเรียนรู้รูปแบบใหม่ที่ทำหน้าที่ป็นพื้นที่อิสระเพื่อเชื่อมระหว่างผู้เรียนและผู้สอนเข้าไว้ด้วยกันที่
-              <strong className="text-3xl font-Prompt font-black text-title"> อดิเรก </strong>
+              <strong className="text-3xl text-Athiti !font-semibold !text-title"> อดิเรก </strong>
             </p>
             <div className="flex justify-center">
               <p className="mb-8 indent-5 text-Athiti">
@@ -79,7 +79,7 @@ const AdirekIs = () => {
                     <div>
                       <p className="lg:text-[1.25rem] text-Athiti">
                         ทุกการเรียนรู้ เริ่มต้นที่{" "}
-                        <strong className="!text-4xl text-Athiti !font-black !text-[#FF5959]">
+                        <strong className="!text-2xl text-Athiti !font-semibold !text-[#FF5959]">
                           {" "}
                           อดิเรก{" "}
                         </strong>
@@ -91,7 +91,7 @@ const AdirekIs = () => {
                   <div className="flex items-center">
                     <div>
                       <p className="lg:text-[1.25rem]  text-Athiti">
-                        <strong className="text-3xl font-Prompt font-black text-[#FF5959]">
+                        <strong className="!text-2xl text-Athiti !font-semibold !text-[#FF5959]">
                           {" "}
                           อดิเรก{" "}
                         </strong>{" "}
@@ -104,7 +104,7 @@ const AdirekIs = () => {
                   <div className="flex items-center">
                     <div>
                       <p className="lg:text-[1.25rem]  text-Athiti">
-                        <strong className="text-3xl font-Prompt font-black text-[#FF5959]">
+                        <strong className="!text-2xl text-Athiti !font-semibold !text-[#FF5959]">
                           {" "}
                           อดิเรก{" "}
                         </strong>{" "}
@@ -117,7 +117,7 @@ const AdirekIs = () => {
                   <div className="flex items-center">
                     <div>
                       <p className="lg:text-[1.25rem]  text-Athiti">
-                        <strong className="text-3xl font-Prompt font-black text-[#FF5959]">
+                        <strong className="!text-2xl text-Athiti !font-semibold !text-[#FF5959]">
                           {" "}
                           อดิเรก{" "}
                         </strong>

@@ -160,7 +160,7 @@ const SingleCourse = ({course, index, filterImg}) => {
         <div className="wrap-details">
           <h6 className="truncate ...">
             <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
-              <a href="#" className="font-DB font-medium text-flg">
+              <a href="#" className="text-Athiti !font-medium text-flg">
                 {course.detail}
               </a>
             </Link>
@@ -191,11 +191,11 @@ const SingleCourse = ({course, index, filterImg}) => {
           <div className="price-wrap">
             <div className="row align-items-center">
               <div className="col-6">
-                <p className="text-xl md:text-[22px] truncate ...">
+                <p className="!text-xl !md:text-[20px] text-Athiti !font-medium truncate ...">
                   <Link
                     href={`/Course/${course.filter_category_course}`}
                     as={`/Course/${course.filter_category_course}`}>
-                    <a>{course.filter_category_course}</a>
+                    <a className=" ">{course.filter_category_course}</a>
                   </Link>
                   {/* <Link
                     href={`/Course/${course.filterCategory}`}
@@ -205,8 +205,8 @@ const SingleCourse = ({course, index, filterImg}) => {
                 </p>
               </div>
               <div className="col-6 text-end">
-                <div className="price">
-                  <p className="truncate ... price"> {formatNumber(course.price_course)} บาท</p>
+                <div className="price text-Athiti ">
+                  <p className="truncate ...  text-Athiti !font-semibold !text-[#0071dc]"> {formatNumber(course.price_course)} บาท</p>
                 </div>
               </div>
             </div>

@@ -27,13 +27,13 @@ const Partner = () => {
                 <div className="w-full">
                   <h2 className="text-Athiti !font-semibold !text-titleBlue !text-[2.2rem]  md:!text-[5rem]">
                     <span className="text-[#FF5959]">
-                      <strong className="font-Prompt font-bold text-title"> อดิเรก </strong>
+                      <strong className="!text-[3rem] md:!text-[6rem] !text-Athiti  !font-semibold !text-title"> อดิเรก </strong>
                     </span>{" "}
                     is Knowlegde Capital
                   </h2>
                 </div>
               </div>
-              <div className="flex flex-wrap justify-center text-center ">
+              <div className="flex flex-wrap justify-center text-center mt-24">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                   <div className="w-full  lg:mb-0 mb-12 ">
                     <div className=" ">

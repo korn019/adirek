@@ -1,9 +1,9 @@
-import ReactPaginate from "react-paginate"
-import {useState, useEffect, useContext} from "react"
-import SingleCourse from "../course/SingleCourse"
-import CourseNoCheckBox from "./CourseNoCheckBox"
-import {SearchCourseContext} from "../../pages/Category"
-import {useRouter} from "next/router"
+import ReactPaginate from "react-paginate";
+import { useState, useEffect, useContext } from "react";
+import SingleCourse from "../course/SingleCourse";
+import CourseNoCheckBox from "./CourseNoCheckBox";
+import { SearchCourseContext } from "../../pages/Category";
+import { useRouter } from "next/router";
 const PaginatedItems = ({
   itemsPerPage,
   data,
@@ -26,72 +26,80 @@ const PaginatedItems = ({
   fullAddress,
   setFullAddress,
 }) => {
-  const router = useRouter()
-  const query = Object.keys(router.query).toString()
-  const {searchCourse, setSearchCourse} = useContext(SearchCourseContext)
+  const router = useRouter();
+  const query = Object.keys(router.query).toString();
+  const { searchCourse, setSearchCourse } = useContext(SearchCourseContext);
   // const {searchCourse, setSearchCourse} = useState(SearchCourseContext)
 
   // let getparam = Object.keys(query)
   // let out = getparam.map((item) => item)
   // let str = out.toString()
 
-  const [currentItems, setCurrentItems] = useState(null)
-  const [pageCount, setPageCount] = useState(0)
-  const [itemOffset, setItemOffset] = useState(0)
-  const [checkItem, setCheckItem] = useState([])
+  const [currentItems, setCurrentItems] = useState(null);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffset, setItemOffset] = useState(0);
+  const [checkItem, setCheckItem] = useState([]);
 
-  const [one, setOne] = useState(0)
-  const [TWO, setTWO] = useState(0)
-  const [Three, setThree] = useState(0)
-  const [Four, setFour] = useState(0)
-  const [Five, setFive] = useState(0)
+  const [one, setOne] = useState(0);
+  const [TWO, setTWO] = useState(0);
+  const [Three, setThree] = useState(0);
+  const [Four, setFour] = useState(0);
+  const [Five, setFive] = useState(0);
 
   useEffect(() => {
-    const endOffset = itemOffset + itemsPerPage
-    setCurrentItems(items.slice(itemOffset, endOffset))
-    setPageCount(Math.ceil(items.length / itemsPerPage))
-  }, [itemOffset, itemsPerPage, data, isCheck, isCheckPrice, searchCourse, province])
+    const endOffset = itemOffset + itemsPerPage;
+    setCurrentItems(items.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(items.length / itemsPerPage));
+  }, [
+    itemOffset,
+    itemsPerPage,
+    data,
+    isCheck,
+    isCheckPrice,
+    searchCourse,
+    province,
+  ]);
 
   // เก็บค่า Course from CheckBox
   const checkFilter = isCheck.map((item) => {
-    return item
-  })
+    return item;
+  });
 
   //  console.log(isCheck)
   const checkPriceFilter = isCheckPrice.map((item) => {
     // return item.replace(/[^\d.-]/g, "")
-    return item
-  })
+    return item;
+  });
   // console.log(checkPriceFilter)
   // console.log(checkPriceFilter)
   // filter ข้อมูลจากค่าที่ได้จาก CheckBox
 
-  let int2 = parseFloat(checkPriceFilter)
-  let strInt = int2.toString()
+  let int2 = parseFloat(checkPriceFilter);
+  let strInt = int2.toString();
 
   const Filter = data.filter((course) => {
     // let priceFromUser = parseFloat(course.ราคาคอร์สเรียน.replace(/,/g, ""))
     // เช็คค่าจาก CheckFilter ว่ามี filterCategory เหมือนกันกับในข้อมูล userมั้ย
     // console.log(checkFilter && checkPriceFilter)
-    return course
-  })
+    return course;
+  });
 
-  var priceVal = ["0", "0"]
+  var priceVal = ["0", "0"];
   // let ster = checkPriceFilter
-  var arrAmount = checkPriceFilter
-  var arrCourse = checkFilter
+  var arrAmount = checkPriceFilter;
+  var arrCourse = checkFilter;
   for (var i = 0; i < arrAmount.length; i++) {
-    priceVal = arrAmount[i].split("-") // just split once
+    priceVal = arrAmount[i].split("-"); // just split once
   }
   // if(checkPriceFilter !== undefined){ return checkPriceFilter.replace(/,/g, "")}
   // console.log(typeof checkPriceFilter.toString())
-  var placeTest = []
-  var placeTest2 = province
+  var placeTest = [];
+  var placeTest2 = province;
   // console.log(province)
   for (var i = 0; i < 1; i++) {
-    placeTest.push(placeTest2)
+    placeTest.push(placeTest2);
   }
-  let myArrayFilteredPlace = data.filter(function (v) {})
+  let myArrayFilteredPlace = data.filter(function (v) {});
 
   let myArrayFiltered = data.filter(function (v) {
     // for (v.กรณีเรียนนอกสถานที่ !== undefined && v.กรณีเรียนนอกสถานที่.includes(province)) = definePlace
@@ -101,7 +109,7 @@ const PaginatedItems = ({
     // }else if (v.กรณีเรียนนอกสถานที่ !== undefined && v.กรณีเรียนนอกสถานที่.includes(province)) {
     //   return v
     // }
-    console.log(v)
+    console.log(v);
     if (
       arrCourse.length === 0 &&
       arrAmount.length === 0 &&
@@ -109,30 +117,36 @@ const PaginatedItems = ({
       searchCourse.length == 0
     ) {
       // ถ้าไม่มีค่าที่กรอกให้แสดงทั้งหมด
-      return v
+      return v;
     } else if (
-      (arrCourse.length === 0 &&
-        arrAmount.length === 0 &&
-        province.length === 0 &&
-        searchCourse.length > 0)
+      arrCourse.length === 0 &&
+      arrAmount.length === 0 &&
+      province.length === 0 &&
+      searchCourse.length > 0
     ) {
       if (searchCourse !== undefined) {
         if (searchCourse.length == 0) {
-          return v
+          return v;
         } else if (searchCourse.length > 0) {
           return (
-            v.filter_category_course.toLowerCase().includes(searchCourse.toLowerCase()) ||
+            v.filter_category_course
+              .toLowerCase()
+              .includes(searchCourse.toLowerCase()) ||
             v.firstName.toLowerCase().includes(searchCourse.toLowerCase()) ||
             v.detail.toLowerCase().includes(searchCourse.toLowerCase()) ||
             v.price_course.toLowerCase().includes(searchCourse.toLowerCase())
-          )
+          );
         }
       } else {
-        return v
+        return v;
       }
-    } else if (arrCourse.length > 0 && arrAmount.length === 0 && province.length === 0) {
+    } else if (
+      arrCourse.length > 0 &&
+      arrAmount.length === 0 &&
+      province.length === 0
+    ) {
       // แสดงค่าตาม Course ที่กรอก
-      return arrCourse.includes(v.filter_category_course)
+      return arrCourse.includes(v.filter_category_course);
     } else if (
       priceVal[1] &&
       arrAmount.length == 1 &&
@@ -141,13 +155,18 @@ const PaginatedItems = ({
     ) {
       // แสดงค่าตามราคาที่กรอก
       return (
-        parseFloat(v.price_course.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
+        parseFloat(v.price_course.replace(/,/g, "")) >=
+          parseFloat(priceVal[0]) &&
         parseFloat(v.price_course.replace(/,/g, "")) <= parseFloat(priceVal[1])
-      )
-    } else if (arrCourse.length === 0 && arrAmount.length === 0 && province.length > 0) {
+      );
+    } else if (
+      arrCourse.length === 0 &&
+      arrAmount.length === 0 &&
+      province.length > 0
+    ) {
       // แสดงค่าตามจังหวัดที่กรอก
       if (v.กรณีเรียนนอกสถานที่ !== undefined) {
-        return v.กรณีเรียนนอกสถานที่.includes(province)
+        return v.กรณีเรียนนอกสถานที่.includes(province);
       }
     } else if (
       priceVal[1] &&
@@ -158,17 +177,24 @@ const PaginatedItems = ({
       // แสดงค่าตามราคาที่กรอกและจังหวัดที่กรอก
       if (v.กรณีเรียนนอกสถานที่ !== undefined) {
         return (
-          parseFloat(v.price_course.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
-          parseFloat(v.price_course.replace(/,/g, "")) <= parseFloat(priceVal[1]) &&
+          parseFloat(v.price_course.replace(/,/g, "")) >=
+            parseFloat(priceVal[0]) &&
+          parseFloat(v.price_course.replace(/,/g, "")) <=
+            parseFloat(priceVal[1]) &&
           v.กรณีเรียนนอกสถานที่.includes(province)
-        )
+        );
       }
-    } else if (arrCourse.length > 0 && province.length > 0 && arrAmount.length == 0) {
+    } else if (
+      arrCourse.length > 0 &&
+      province.length > 0 &&
+      arrAmount.length == 0
+    ) {
       // แสดงค่าตาม Course ที่กรอกและจังหวัดที่กรอก
       if (v.กรณีเรียนนอกสถานที่ !== undefined) {
         return (
-          arrCourse.includes(v.filter_category_course) && v.กรณีเรียนนอกสถานที่.includes(province)
-        )
+          arrCourse.includes(v.filter_category_course) &&
+          v.กรณีเรียนนอกสถานที่.includes(province)
+        );
       }
     } else if (
       priceVal[1] &&
@@ -181,40 +207,51 @@ const PaginatedItems = ({
         return (
           arrCourse.includes(v.filter_category_course) &&
           v.กรณีเรียนนอกสถานที่.includes(province) &&
-          parseFloat(v.price_course.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
-          parseFloat(v.price_course.replace(/,/g, "")) <= parseFloat(priceVal[1])
-        )
+          parseFloat(v.price_course.replace(/,/g, "")) >=
+            parseFloat(priceVal[0]) &&
+          parseFloat(v.price_course.replace(/,/g, "")) <=
+            parseFloat(priceVal[1])
+        );
       }
     } else if (priceVal[1] && arrAmount.length == 1 && arrCourse.length > 0) {
       return (
         arrCourse.indexOf(v.filter_category_course) != -1 &&
-        parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
-        parseFloat(v.ราคาคอร์สเรียน.replace(/,/g, "")) <= parseFloat(priceVal[1])
-      )
+        parseFloat(v.price_course.replace(/,/g, "")) >=
+          parseFloat(priceVal[0]) &&
+        parseFloat(v.price_course.replace(/,/g, "")) <= parseFloat(priceVal[1])
+      );
     } else if (priceVal[1] && arrAmount.length == 1) {
       return (
-        parseFloat(v.price_course.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
+        parseFloat(v.price_course.replace(/,/g, "")) >=
+          parseFloat(priceVal[0]) &&
         parseFloat(v.price_course.replace(/,/g, "")) <= parseFloat(priceVal[1])
-      )
+      );
     } else if (priceVal[1] && arrAmount.length > 1) {
       return (
         arrCourse.indexOf(v.filter_category_course) != -1 &&
-        parseFloat(v.price_course.replace(/,/g, "")) >= parseFloat(priceVal[0]) &&
+        parseFloat(v.price_course.replace(/,/g, "")) >=
+          parseFloat(priceVal[0]) &&
         parseFloat(v.price_course.replace(/,/g, "")) <= parseFloat(priceVal[1])
-      )
+      );
     } else if (!priceVal[1]) {
-      return checkFilter.indexOf(v.filter_category_course) != -1
+      return checkFilter.indexOf(v.filter_category_course) != -1;
     }
-  })
+  });
 
   const items = myArrayFiltered.map((course) => {
-    return <SingleCourse course={course} key={course.instructor_id} index={course.instructor_id} />
-  })
+    return (
+      <SingleCourse
+        course={course}
+        key={course.instructor_id}
+        index={course.instructor_id}
+      />
+    );
+  });
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % items.length
-    setItemOffset(newOffset)
-  }
+    const newOffset = (event.selected * itemsPerPage) % items.length;
+    setItemOffset(newOffset);
+  };
 
   return (
     <>
@@ -227,34 +264,41 @@ const PaginatedItems = ({
                   <div key={index}>
                     <h3>{item}</h3>
                   </div>
-                )
+                );
               })}
           </div>
-          <div className="flex justify-center items-center grid-cols-1 lg:grid-cols-3 w-full">
+          <div className="flex justify-center items-center">
             <ReactPaginate
-              nextLabel="ถัดไป"
+              nextLabel=">"
               onPageChange={handlePageClick}
               pageRangeDisplayed={1}
               marginPagesDisplayed={1}
               pageCount={pageCount}
-              previousLabel="ก่อนหน้า"
-              pageClassName="page-item"
-              pageLinkClassName="page-link"
-              previousClassName="page-item"
-              previousLinkClassName="page-link"
-              nextClassName="page-item"
-              nextLinkClassName="page-link"
-              breakLabel="..."
+              previousLabel="<"
+              pageClassName="page-item subtext-Athiti !font-semibold  !text-sm  "
+              pageLinkClassName="page-link "
+              previousClassName="page-item subtext-Athiti !font-semibold  !text-sm  "
+              previousLinkClassName="page-link "
+              nextClassName="page-item subtext-Athiti !font-semibold   !text-sm "
+              nextLinkClassName="page-link "
+              breakLabel=".."
               breakClassName="page-item"
               breakLinkClassName="page-link"
-              containerClassName="pagination"
+              containerClassName="pagination  sm:block"
               activeClassName="active"
               renderOnZeroPageCount={null}
+              
             />
           </div>
         </>
       ) : (
-        <h1 className="font-title text-f3xl">ไม่พบข้อมูล โปรดลองใหม่อีกครั้ง....</h1>
+        <div className="  grid grid-cols-1">
+          <div className="w-full ">
+            <h2 className="text-Athiti !leading-/ !font-semibold !text-titleBlue !text-[1.6rem]  md:!text-[3rem]">
+              ไม่มีคอร์สที่คุณต้องการ โปรดลองใหม่อีกครั้ง....
+            </h2>
+          </div>
+        </div>
       )}
     </>
     // <>
@@ -319,6 +363,6 @@ const PaginatedItems = ({
     //     </>
     //   )}
     // </>
-  )
-}
-export default PaginatedItems
+  );
+};
+export default PaginatedItems;

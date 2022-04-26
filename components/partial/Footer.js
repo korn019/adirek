@@ -150,7 +150,7 @@ const Footer = () => {
               <div className="col-xl-7 align-self-center">
                 <div className="d-md-flex align-items-center mb-4 mb-xl-0">
                   <div className="logo d-inline-block">
-                    <img src="/static/img/logo.png" alt="img" />
+                    <img src="/static/img/logo-white.png" alt="Adirek" />
                   </div>
                   <div className="copyright-area">
                     <p className=" !font-Athiti font-medium !text-xl text-white">

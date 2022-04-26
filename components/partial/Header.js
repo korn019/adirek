@@ -369,7 +369,7 @@ function Header() {
                   offset={50}
                   duration={500}>
                   <a>
-                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium !font-Prompt">
+                    <h4 className=" text-Athiti  cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md !text-[18px] !font-semibold ">
                       หลักสูตรคอร์สเรียนทั้งหมด
                     </h4>
                   </a>
@@ -382,7 +382,7 @@ function Header() {
                   offset={50}
                   duration={500}>
                   <a>
-                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium !font-Prompt">
+                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md  !text-[18px]  font-medium !font-Prompt">
                       {" "}
                       มาร่วมสอนกับเรา
                     </h4>
@@ -390,7 +390,7 @@ function Header() {
                 </Link>
                 <Link href="/Blog" smooth={true} offset={50} duration={500}>
                   <a>
-                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium !font-Prompt">
+                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md  !text-[18px]  font-medium !font-Prompt">
                       {" "}
                       บทความและข่าวสาร
                     </h4>
@@ -406,7 +406,7 @@ function Header() {
                   offset={50}
                   duration={500}>
                   <a>
-                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium !font-Prompt">
+                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md  !text-[18px]  font-medium !font-Prompt">
                       ติดต่อเรา
                     </h4>
                   </a>
@@ -419,7 +419,7 @@ function Header() {
                   offset={50}
                   duration={500}>
                   <a>
-                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md text-md font-medium !font-Prompt">
+                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md  !text-[18px]  font-medium !font-Prompt">
                       เพิ่มครู
                     </h4>
                   </a>
@@ -521,7 +521,7 @@ function Header() {
                   <SwiperSlide>
                     <div className="p-2 animate-pulse  duration-700">
                       <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
-                        <a>{item.value}</a>
+                        <a className="text-Athiti !font-medium !text-base">{item.value}</a>
                       </Link>
                     </div>
                   </SwiperSlide>
@@ -572,26 +572,31 @@ function Header() {
             <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <a
                 href="/Category"
-                className="hover:bg-gray-700 hover:!text-white  text-black block px-3 py-2 rounded-md text-base font-medium !font-Prompt">
+                className="hover:bg-gray-700 hover:!text-white   text-Athiti   block px-3 py-2 rounded-md !text-base !font-medium">
                 หลักสูตรคอร์สเรียนทั้งหมด
               </a>
-
+              <a
+                href="/Instructor"
+                className="hover:bg-gray-700 hover:!text-white   text-Athiti   block px-3 py-2 rounded-md !text-base !font-medium">
+                มาร่วมสอนกับเรา
+              </a>
               <a
                 href="/Blog"
-                className="hover:bg-gray-700 hover:!text-white  text-black block px-3 py-2 rounded-md text-base font-medium !font-Prompt">
+                className="hover:bg-gray-700 hover:!text-white   text-Athiti   block px-3 py-2 rounded-md !text-base !font-medium">
                 บทความและข่าวสาร
               </a>
 
-              <a
-                href="/Instructor"
-                className="hover:bg-gray-700 hover:!text-white  text-black block px-3 py-2 rounded-md text-base font-medium !font-Prompt">
-                มาร่วมสอนกับเรา
-              </a>
+           
 
               <a
                 href="/Contact"
-                className="hover:bg-gray-700 hover:!text-white  text-black block px-3 py-2 rounded-md text-base font-medium !font-Prompt">
+                className="hover:bg-gray-700 hover:!text-white   text-Athiti   block px-3 py-2 rounded-md !text-base !font-medium">
                 ติดต่อเรา
+              </a>
+              <a
+                href="/Add"
+                className="hover:bg-gray-700 hover:!text-white   text-Athiti   block px-3 py-2 rounded-md !text-base !font-medium">
+                เพิ่มครู
               </a>
               <div className="">
                 <div className="flex justify-start items-center space-x-5 relative">
