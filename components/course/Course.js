@@ -9,6 +9,7 @@ import axios from "axios"
 import Link from "next/link"
 import {css} from "@emotion/react"
 import ClipLoader from "react-spinners/ClipLoader"
+import {MdKeyboardArrowRight} from "react-icons/md"
 const Course = () => {
   const [data, setData] = useState([])
   const [dataJson, setDataJson] = useState([])
@@ -68,9 +69,11 @@ const Course = () => {
                   คอร์สขายดี
                 </h2>
                 <Link href="/Category">
-                  <a className=" group flex items-center justify-center">
-                    <h2 className="!font-medium text-Athiti !text-[.9rem] md:!text-xl  !leading-0 font-DB group-hover:bg-red-500 group-hover:duration-500  group-hover:rounded-lg  group-hover:text-white p-2">
-                      ดูทั้งหมด <i className="fas fa-chevron-right"></i>
+                  <a className=" group flex items-center justify-center ">
+                    <h2 className="flex items-center justify-center !font-medium text-Athiti p-2 !text-[.9rem] md:!text-xl  !leading-0 font-DB group-hover:bg-red-500 group-hover:duration-500  group-hover:rounded-lg  group-hover:text-white ">
+                      ดูทั้งหมด
+                      <MdKeyboardArrowRight className="!font-black !text-3xl" />
+                      {/* <i className="fas fa-chevron-right"></i> */}
                     </h2>
                   </a>
                 </Link>
