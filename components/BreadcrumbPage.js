@@ -22,9 +22,9 @@ const BreadcrumbPage = ({title, bread1, bread2, breadActive, href1, href2, hrefA
         <div className=""> 
           <h1 className="text-Athiti  mb-4  !font-semibold text-Athiti   !text-titleBlue">
             {Search ? (
-              <span className="!text-[3rem] md:!text-[4rem]   drop-shadow-md">{title}</span>
+              <span className="!text-[3rem] md:!text-[3rem]   drop-shadow-md">{title}</span>
             ) : (
-              <span className="!text-[3rem] md:!text-[4rem]   drop-shadow-md">{title}</span>
+              <span className="!text-[3rem] md:!text-[3rem]   drop-shadow-md">{title}</span>
             )}
           </h1>
         </div>

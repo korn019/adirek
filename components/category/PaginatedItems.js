@@ -109,7 +109,6 @@ const PaginatedItems = ({
     // }else if (v.กรณีเรียนนอกสถานที่ !== undefined && v.กรณีเรียนนอกสถานที่.includes(province)) {
     //   return v
     // }
-    console.log(v);
     if (
       arrCourse.length === 0 &&
       arrAmount.length === 0 &&

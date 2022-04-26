@@ -1,14 +1,7 @@
-import ContactUs from "../components/ContactUs";
-import Layout from "../components/Layout";
-import {SearchCourseProvider} from "./Category"
+import ContactUs from "../components/ContactUs"
+
 const Contact = () => {
-    return (
-      <SearchCourseProvider>
-        <Layout>
-          <ContactUs />
-        </Layout>
-      </SearchCourseProvider>
-    )
+  return <ContactUs />
 }
 
-export default Contact;
+export default Contact

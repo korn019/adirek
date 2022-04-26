@@ -1,4 +1,6 @@
-const SingleTestimonial = ({ people }) => {
+import ReactStars from "react-stars"
+
+const SingleTestimonial = ({people}) => {
   return (
     <>
       <div key={people} className=" py-6 w-full text-center  shadow-none">
@@ -20,28 +22,25 @@ const SingleTestimonial = ({ people }) => {
                 {people.name}
               </a>
             </div>
-            <div className="mt-4 text-2xl">
-              <span>
-                <i className="fa fa-star text-[#FFC107] "></i>
-              </span>
-              <span>
-                <i className="fa fa-star text-[#FFC107] "></i>
-              </span>
-              <span>
-                <i className="fa fa-star text-[#FFC107] "></i>
-              </span>
-              <span>
-                <i className="fa fa-star text-[#FFC107] "></i>
-              </span>
-              <span>
-                <i className="fa fa-star text-[#FFC107] "></i>
-              </span>
+            <div className="mt-4 text-2xl flex items-center justify-center">
+              <span className="drop-shadow-sm">
+
+              <ReactStars
+                count={5}
+                half={true}
+                value={5}
+                // onChange={ratingChanged}
+                edit={false}
+                size={22}
+                color2={"rgb(253 186 116)"}
+                />
+                </span>
             </div>
           </div>
         </div>
       </div>
     </>
   )
-};
+}
 
-export default SingleTestimonial;
+export default SingleTestimonial

@@ -278,6 +278,7 @@ import {CourseCheck2} from "../category/Check"
 import {SearchCourseContext} from "../../pages/Category"
 import {useRouter} from "next/router"
 import {Dialog, Transition} from "@headlessui/react"
+import {GiArchiveResearch} from "react-icons/gi"
 function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [course, setCourse] = useState(CourseCheck)
@@ -326,7 +327,11 @@ function Header() {
               <div className="logo">
                 <Link href="/">
                   <a className="main-logo">
-                    <img src="/static/img/logo-knowledge.png" className="w-[191px] md:w-full" alt="Adirek" />
+                    <img
+                      src="/static/img/logo-knowledge.png"
+                      className="w-[191px] md:w-full"
+                      alt="Adirek"
+                    />
                   </a>
                 </Link>
               </div>
@@ -339,7 +344,7 @@ function Header() {
                       onChange={(e) => setSearchCourse(e.target.value)}
                       value={searchCourse}
                       onKeyDown={(e) => enterandgo(e)}
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900  text-Athiti !font-semibold  !text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     />
                     {/* <input
                       type="text"
@@ -351,7 +356,8 @@ function Header() {
                     /> */}
                     <Link href={searchCourse ? `/Search/${searchCourse}` : `/Category`}>
                       <button onKeyDown={(e) => enterandgo(e)}>
-                        <i className="fa fa-search"></i>
+                        <GiArchiveResearch className="text-3xl hover:text-bg hover:duration-700" />
+                        {/* <i className="fa fa-search"></i> */}
                       </button>
                     </Link>
                   </div>
@@ -382,7 +388,7 @@ function Header() {
                   offset={50}
                   duration={500}>
                   <a>
-                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md  !text-[18px]  font-medium !font-Prompt">
+                    <h4 className="text-Athiti  cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md !text-[18px] !font-semibold ">
                       {" "}
                       มาร่วมสอนกับเรา
                     </h4>
@@ -390,14 +396,13 @@ function Header() {
                 </Link>
                 <Link href="/Blog" smooth={true} offset={50} duration={500}>
                   <a>
-                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md  !text-[18px]  font-medium !font-Prompt">
+                    <h4 className="text-Athiti  cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md !text-[18px] !font-semibold ">
                       {" "}
                       บทความและข่าวสาร
                     </h4>
                   </a>
                 </Link>
 
-               
                 <Link
                   href="/Contact"
                   activeClass="Home"
@@ -406,7 +411,7 @@ function Header() {
                   offset={50}
                   duration={500}>
                   <a>
-                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md  !text-[18px]  font-medium !font-Prompt">
+                    <h4 className="text-Athiti  cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md !text-[18px] !font-semibold ">
                       ติดต่อเรา
                     </h4>
                   </a>
@@ -419,7 +424,7 @@ function Header() {
                   offset={50}
                   duration={500}>
                   <a>
-                    <h4 className="cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md  !text-[18px]  font-medium !font-Prompt">
+                    <h4 className="text-Athiti  cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md !text-[18px] !font-semibold ">
                       เพิ่มครู
                     </h4>
                   </a>
@@ -586,8 +591,6 @@ function Header() {
                 บทความและข่าวสาร
               </a>
 
-           
-
               <a
                 href="/Contact"
                 className="hover:bg-gray-700 hover:!text-white   text-Athiti   block px-3 py-2 rounded-md !text-base !font-medium">
@@ -606,11 +609,12 @@ function Header() {
                     onChange={(e) => setSearchCourse(e.target.value)}
                     value={searchCourse}
                     onKeyDown={(e) => enterandgo(e)}
-                    className="bg-[#f7f8fc] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-[#f7f8fc] dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="bg-[#f7f8fc] border border-gray-300 text-gray-900  text-Athiti !font-semibold !text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-[#f7f8fc] dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   />
                   <Link href={searchCourse ? `/Search/${searchCourse}` : `/Category`}>
                     <button onKeyDown={(e) => enterandgo(e)}>
-                      <i className="fa fa-search"></i>
+                      <GiArchiveResearch className="text-3xl hover:text-bg hover:duration-700" />
+                      {/* <i className="fa fa-search"></i> */}
                     </button>
                   </Link>
                 </div>

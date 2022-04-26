@@ -1,12 +1,8 @@
-import Layout from "../../components/Layout"
 import {useRouter} from "next/router"
 import {useState, useEffect} from "react"
 import {CourseCheck} from "../../components/course/Courselabel"
-import {CourseCheck2} from "../../components/category/Check"
 import {FilterCategoryLabel} from "../../components/course/filterCategory"
 import CoursePage from "../../components/course/CoursePage"
-import { SearchCourseProvider } from "../Category"
-import BannerAds from "../../components/BannerAds"
 import axios from "axios"
 
 const Instructor = () => {
@@ -15,7 +11,6 @@ const Instructor = () => {
   const [data, setData] = useState(FilterCategoryLabel)
   const [courseLabel, setCourseLabel] = useState(CourseCheck)
   const [dataJson, setDataJson] = useState([])
-
   
   const getData =  () => {
     axios
@@ -36,8 +31,7 @@ const Instructor = () => {
   // })
 
   return (
-    <SearchCourseProvider>
-      <Layout>
+ <>
         {/* <div className="instector-banner-area" style={{height: 400}}></div> */}
         {data.map((e, id) => {
           return Course == e.value    ? (
@@ -50,8 +44,7 @@ const Instructor = () => {
             </>
           ) : null
         })}
-      </Layout>
-    </SearchCourseProvider>
+    </>
   )
 }
 

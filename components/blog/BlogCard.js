@@ -89,7 +89,7 @@ const BlogCard = (
                 <a onClick={CountView} className='text-Athiti !font-medium !text-md'>{article.title}</a>
               </Link>
             </h1>
-            <p className="leading-relaxed mb-3 truncate">{article.subtitle}</p>
+            <p className="leading-relaxed mb-3 truncate subtext-Athiti">{article.subtitle}</p>
             <div className="flex items-center flex-wrap " onClick={CountView}>
               <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">By Admin</a>
               <span className="text-gray-600 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-300">

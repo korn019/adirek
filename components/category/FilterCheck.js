@@ -76,7 +76,7 @@ const filterCheck = ({
       <div className="col-lg-3">
         <div className="dmne-sidebar grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-1">
           <div className="widget widget-select-inner dropdown-filter">
-            <h4 className=" text-Athiti  !font-semibold !text-f2xl my-4">คอร์ส</h4>
+            <h4 className=" text-Athiti  !font-semibold !text-f2xl my-4">หมวดหมู่</h4>
             <div className="single-form-check form-check flex space-x-2 items-center ">
               <Checkbox
                 type="checkbox"

@@ -1,6 +1,7 @@
-    import {CourseCheck} from "../course/Courselabel"
+import {CourseCheck} from "../course/Courselabel"
 import {useState, useEffect} from "react"
 import Link from "next/link"
+import {FaAngleDoubleUp} from "react-icons/fa"
 const Footer = () => {
   const [course, setCourse] = useState(CourseCheck)
   return (
@@ -161,7 +162,7 @@ const Footer = () => {
               </div>
               <div className="col-xl-5 align-self-center text-xl-end">
                 <ul className="social-area d-inline-block ">
-                  <li >
+                  <li>
                     <a className=" " href="#">
                       <i className="fab fa-facebook-f "></i>
                     </a>
@@ -191,8 +192,9 @@ const Footer = () => {
 
       {/* <!-- back-to-top end --> */}
       <div className="back-to-top">
-        <span className="back-top">
-          <i className="fas fa-angle-double-up"></i>
+        <span className="back-top flex items-center justify-center">
+          <FaAngleDoubleUp />
+          {/* <i className="fas fa-angle-double-up"></i> */}
         </span>
       </div>
 
@@ -221,6 +223,6 @@ const Footer = () => {
         src="../../static/jquery.Thailand.js/dist/jquery.Thailand.min.js"></script>
     </>
   )
-};
+}
 
-export default Footer;
+export default Footer

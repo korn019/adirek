@@ -6,7 +6,7 @@ import Select from "../Select"
 import Toast from "../Toast"
 import {Toaster, toast, resolveValue} from "react-hot-toast"
 import ClipLoader from "react-spinners/ClipLoader"
-
+import {BsTelephoneOutbound} from "react-icons/bs"
 const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
   const [showModal, setShowModal] = useState(false)
   const [detail, setDetail] = useState([])
@@ -15,13 +15,7 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
   const [isOpen, setIsOpen] = useState(false)
   const [isOpenAddCourse, setIsOpenAddCourse] = useState(false)
   let [loading, setLoading] = useState(false)
-  const [warning, setWarning] = useState(false)
-  const [warnText, setWarnText] = useState()
-
   const [bgColor, setBgColor] = useState("")
-  // let filterInstructorId = instructor.filter((item) => item.instructor_id == id)
-  // let getId = filterInstructorId.map((item) => item.instructor_id)
-
   const [value, setValue] = useState("")
   const [getCategory, setGetCategory] = useState([])
 
@@ -29,7 +23,6 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
     setValue(e.target.value)
   }
 
-  // console.log(selectedOption.filter_category_course)
   const temp = getCategory.map((ext) => ext.filter_id)
   const [currentExtension, setCurrentExtension] = useState(temp)
 
@@ -68,24 +61,18 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
       axios
         .post("https://www.api-adirek.online/api/course_title", course)
         .then(function (response) {
-          // setWarnText(false)
-          // setIsOpen(true)
           if (response.status === 200) {
             console.log(response.data)
             let TitleId = response.data.title_id.toString()
             axios
               .post("https://www.api-adirek.online/api/course_price", course)
               .then(function (response) {
-                // setWarnText(false)
-                // setIsOpen(true)
                 if (response.status === 200) {
                   console.log(response.data)
                   let PriceId = response.data.price_id.toString()
                   axios
                     .post("https://www.api-adirek.online/api/course_details", course)
                     .then(function (response) {
-                      // setWarnText(false)
-                      // setIsOpen(true)
                       if (response.status === 200) {
                         console.log(response.data)
                         let DetailId = response.data.detail_id.toString()
@@ -96,8 +83,6 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
                           price_list_id: PriceId,
                           details_list_id: DetailId,
                         }
-
-                        console.log(data)
                         const config = {
                           headers: {"Content-Type": "application/x-www-form-urlencoded"},
                         }
@@ -118,24 +103,29 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
                       }
                     })
                     .catch(function (err) {
-                      console.log(err)
+                      toast(err.message)
+                      setLoading(false)
+                      setBgColor("bg-danger")
                     })
                 }
               })
               .catch(function (err) {
-                console.log(err)
+                toast(err.message)
+                setLoading(false)
+                setBgColor("bg-danger")
               })
           }
         })
         .catch(function (err) {
-          console.log(err.message)
+          toast(err.message)
+          setLoading(false)
+          setBgColor("bg-danger")
         })
     }
   }
 
   useEffect(() => {
     categoryName()
-    
   }, [])
 
   function closeModal() {
@@ -202,10 +192,14 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
             }}>
             <div className="col-12 col-md-12 col-lg-7 text-center text-md-center text-lg-center ">
               <div className="">
-                <h3 className="text-Athiti !font-semibold" style={{color: "white", fontSize: 42}}>
+                <h3
+                  className="text-Athiti !font-semibold leading-none my-3"
+                  style={{color: "white", fontSize: 42}}>
                   {e.firstName}
                 </h3>
-                <h3 className="text-Athiti !font-semibold" style={{color: "white", fontSize: 42}}>
+                <h3
+                  className="text-Athiti !font-semibold leading-none my-3"
+                  style={{color: "white", fontSize: 42}}>
                   {e.lastName}
                 </h3>
               </div>
@@ -255,7 +249,8 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
                 <div className="bg-slate-700 rounded-lg  px-2 lg:col-span-2">
                   <a href={`tel:${e.เบอร์โทร}`} className="flex items-center justify-between ">
                     <h1 className="font-DB font-black text-f3xl text-white">โทรหาผู้สอน</h1>
-                    <i className="fa fa-phone text-[#F6A21C] text-3xl"></i>
+                    {/* <i className="fa fa-phone text-[#F6A21C] text-3xl"></i> */}
+                    <BsTelephoneOutbound color="#F6A21C" className="text-3xl" />
                   </a>
                 </div>
               </div>
@@ -369,10 +364,11 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
                                 </select> */}
                                 <Select
                                   //className="flex-1"
+                                  category={category}
                                   options={getCategory}
                                   selectedOption={currentExtension}
                                   handelChange={(event) => {
-                                    console.log("parent", event)
+                                    // console.log("parent", event)
                                     setCurrentExtension(event)
                                     setValue(event.filter_id.toString())
                                   }}
