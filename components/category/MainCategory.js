@@ -104,7 +104,7 @@ const MainCategory = () => {
   // console.log(data)
   const getData = async () => {
     axios
-      .get("https://www.api-adirek.online/api/test")
+      .get("https://www.api-adirek.online/api/instructor-course")
       .then((res) => {
         setData(res.data)
         setIsLoading(true)
@@ -118,7 +118,7 @@ const MainCategory = () => {
 
   const Testcourse = () => {
     axios
-      .get("http://localhost:3000/api/instructor_course")
+      .get("https://www.api-adirek.online/api/instructor_course")
       .then((res) => {
         setTestdata(res.data)
       })
@@ -129,7 +129,7 @@ const MainCategory = () => {
   }
   const TestName = () => {
     axios
-      .get("https://www.api-adirek.online/api/test")
+      .get("https://www.api-adirek.online/api/instructor-course")
       .then((res) => {
         setTestName(res.data)
       })

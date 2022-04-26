@@ -50,11 +50,11 @@ const Partner = () => {
                           <p className="text-Athiti !font-semibold !text-textRed">
                             <a href="#">อิสระในการเรียนรู้</a>
                           </p>
-                          <p className=" text-content text-center subtext-Athiti">
-                            {/* เรียนได้ทุกที่ ทุกเวลา */}
+                        {/* <p className=" text-content text-center subtext-Athiti">
+                          เรียนได้ทุกที่ ทุกเวลา 
                             เข้าถึงการเรียนการเรียนรู้ได้ทุกที่ทุกเวลาอย่างง่ายดาย
-                            {/* การันตีได้ผลจริงพร้อมช่วยสร้างความมั่นใจและความก้าวหน้าให้กับคุณได้ง่าย */}
-                          </p>
+                          การันตีได้ผลจริงพร้อมช่วยสร้างความมั่นใจและความก้าวหน้าให้กับคุณได้ง่าย 
+                          </p>  */}
                         </div>
                       </div>
                     </div>
@@ -74,9 +74,9 @@ const Partner = () => {
                           <p className="text-Athiti !font-semibold !text-textRed">
                             <a href="#">การสร้างโอกาส</a>
                           </p>
-                          <p className=" text-content  text-center subtext-Athiti">
+                          {/* <p className=" text-content  text-center subtext-Athiti">
                             ทุกเรื่องที่คุณสนใจ และช่องทางที่จะเปลี่ยนงานอดิเรกของคุณให้เป็นรายได้
-                          </p>
+                          </p> */}
                         </div>
                       </div>
                     </div>
@@ -96,9 +96,9 @@ const Partner = () => {
                           <p className="!text-[23px] text-Athiti !font-semibold !text-textRed">
                             <a href="#">เข้าถึง Community เพื่อการเรียนรู้</a>
                           </p>
-                          <p className=" text-content  text-center subtext-Athiti">
+                          {/* <p className=" text-content  text-center subtext-Athiti">
                             จุดเริ่มต้นของสังคมแห่งการเรียนรู้ไม่มีที่สิ้นสุด
-                          </p>
+                          </p> */}
                         </div>
                       </div>
                     </div>

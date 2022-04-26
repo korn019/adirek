@@ -47,10 +47,10 @@ const Add = () => {
     setLoading(true)
 
     axios
-      .post("http://localhost:3000/api/instructor/add", contact)
+      .post("https://www.api-adirek.online/api/instructor/add", contact)
       .then(function (response) {
         axios
-          .post("http://localhost:3000/api/course_title", course)
+          .post("https://www.api-adirek.online/api/course_title", course)
           .then(function (res) {
             console.log(response)
             setWarnText(false)
@@ -63,7 +63,7 @@ const Add = () => {
             console.log(err)
           })
         axios
-          .post("http://localhost:3000/api/course_price", course)
+          .post("https://www.api-adirek.online/api/course_price", course)
           .then(function (res) {
             console.log(response)
             setWarnText(false)
@@ -76,7 +76,7 @@ const Add = () => {
             console.log(err)
           })
         axios
-          .post("http://localhost:3000/api/course_details", course)
+          .post("https://www.api-adirek.online/api/course_details", course)
           .then(function (res) {
             console.log(response)
             setWarnText(false)

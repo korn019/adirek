@@ -19,7 +19,7 @@ const Instructor = () => {
   
   const getData = async () => {
     axios
-      .get("https://www.api-adirek.online/api/test")
+      .get("https://www.api-adirek.online/api/instructor-course")
       .then((res) => {
         setDataJson(res.data)
       })

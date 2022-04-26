@@ -16,7 +16,7 @@ const Course = () => {
   let [loading, setLoading] = useState(true)
   const getData = () => {
     axios
-      .get("https://www.api-adirek.online/api/test")
+      .get("https://www.api-adirek.online/api/instructor-course")
       .then((res) => {
         //  console.log(res)
         setData(res.data)
