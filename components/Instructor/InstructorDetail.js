@@ -180,7 +180,9 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
               <div className="card-body">
                 <div className="">
                   <img
-                    src={e.รูปถ่าย == "" ? "/static/img/Logo-Adirek.png" : `${e.รูปถ่าย}`}
+                    src={
+                      e.รูปถ่าย == "" ? "/static/img/Knowledge-Logo-Vertical.png" : `${e.รูปถ่าย}`
+                    }
                     alt="img"
                     className="object-scale-down w-[370px] h-[240px]"
                   />
@@ -292,7 +294,6 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
                       })}
                     </ul>
                     <div className="text-right">
-
                       <button
                         className=" relative  subtext-Athiti !font-bold  !text-2xl text-gray-700 border-2 border-blue-400  focus:ring-1 focus:outline-none focus:border-[#ff013c]  focus:text-[#ff013c]  rounded-lg  px-2 py-1  mr-2 mb-2"
                         onClick={() => setIsOpenAddCourse(true)}>
@@ -303,7 +304,7 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
                     {/* {e.title_course} */}
                   </div>
                 </div>
-                
+
                 <Transition show={isOpenAddCourse} as={Fragment}>
                   <Dialog
                     as="div"
@@ -437,12 +438,12 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
 
                             {loading ? null : (
                               <div className="relative">
-                              <button
-                                type="submit"
-                                className="py-2 bg-black text-Athiti !font-semibold  text-white w-100 mt-2 rounded-md hover:duration-500 hover:!bg-white hover:!text-black hover:border-2 hover:border-black">
-                                เพิ่ม
-                              </button>
-                                  </div>
+                                <button
+                                  type="submit"
+                                  className="py-2 bg-black text-Athiti !font-semibold  text-white w-100 mt-2 rounded-md hover:duration-500 hover:!bg-white hover:!text-black hover:border-2 hover:border-black">
+                                  เพิ่ม
+                                </button>
+                              </div>
                             )}
                           </form>
 

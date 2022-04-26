@@ -167,8 +167,12 @@ const SingleCourse = ({course, index, filterImg}) => {
           <div className="user-area w-full">
             <div className="user-details truncate">
               <img
-                className="w-[3rem] h-[2.5rem]"
-                src={course.รูปถ่าย == "" ? "/static/img/Logo-Adirek.png" : `${course.รูปถ่าย}`}
+                className="w-[2.5rem] h-[2.5rem]"
+                src={
+                  course.รูปถ่าย == ""
+                    ? "/static/img/Knowledge-Logo-Vertical.png"
+                    : `${course.รูปถ่าย}`
+                }
                 alt="img"
               />
               <p className="truncate">
@@ -205,7 +209,10 @@ const SingleCourse = ({course, index, filterImg}) => {
               </div>
               <div className="col-6 text-end">
                 <div className="price text-Athiti ">
-                  <p className="truncate ...  text-Athiti !font-semibold !text-[#0071dc]"> {formatNumber(course.price_course)} บาท</p>
+                  <p className="truncate ...  text-Athiti !font-semibold !text-[#0071dc]">
+                    {" "}
+                    {formatNumber(course.price_course)} บาท
+                  </p>
                 </div>
               </div>
             </div>
