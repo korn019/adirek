@@ -198,24 +198,24 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
               padding: "1.4rem",
               borderRadius: 10,
             }}>
-            <div className="col-12 col-md-12 col-lg-7 text-center text-md-center text-lg-center">
-              <div>
-                <h3 className="font-DB" style={{color: "white", fontSize: 42}}>
+            <div className="col-12 col-md-12 col-lg-7 text-center text-md-center text-lg-center ">
+              <div className="">
+                <h3 className="text-Athiti !font-semibold" style={{color: "white", fontSize: 42}}>
                   {e.firstName}
                 </h3>
-                <h3 className="font-DB " style={{color: "white", fontSize: 42}}>
+                <h3 className="text-Athiti !font-semibold" style={{color: "white", fontSize: 42}}>
                   {e.lastName}
                 </h3>
               </div>
             </div>
             <div className="col-12 col-md-12 col-lg-5  border-md-left">
               <div className="text-center  text-md-center mt-3 space-y-1">
-                <p className="sub-title-teacher font-DB  text-[#f8f8f8] text-[24px] leading-relaxed">
+                <p className=" subtext-Athiti  !font-semibold !text-[#f8f8f8] !text-[24px] leading-relaxed">
                   {" "}
                   <i className="fa fa-check-circle text-[aquamarine]" aria-hidden="true"></i>
                   &nbsp; Verified
                 </p>
-                <p className="sub-title-teacher  font-DB  text-[#f8f8f8] text-[24px] leading-relaxed">
+                <p className="s subtext-Athiti  !font-semibold !text-[#f8f8f8] !text-[24px] leading-relaxed">
                   {" "}
                   <i className="fa fa-check-circle text-[aquamarine]" aria-hidden="true"></i>
                   &nbsp; {e.ฉีดวัคซีนป้องกัน}
@@ -259,7 +259,7 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 md:space-x-3 mt-4">
                 <div className="align-items-center justify-content-center  md:col-span-3   px-3">
-                  <div className="title text-black text-[32px]">
+                  <div className="title text-black text-[32px] relative">
                     <ul className="list-decimal divide-y">
                       {filterCourse.map((item) => {
                         return (
@@ -291,22 +291,25 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
                         )
                       })}
                     </ul>
-                    <div className="text-right relative">
+                    <div className="text-right">
+
                       <button
-                        className="bg-red-300 py-0 px-2 rounded-sm"
+                        className=" relative  subtext-Athiti !font-bold  !text-2xl text-gray-700 border-2 border-blue-400  focus:ring-1 focus:outline-none focus:border-[#ff013c]  focus:text-[#ff013c]  rounded-lg  px-2 py-1  mr-2 mb-2"
                         onClick={() => setIsOpenAddCourse(true)}>
-                        <p className="ttext-Athiti ">เพิ่มคอร์ส</p>
+                        เพิ่มคอร์ส
                       </button>
                     </div>
+
                     {/* {e.title_course} */}
                   </div>
                 </div>
+                
                 <Transition show={isOpenAddCourse} as={Fragment}>
                   <Dialog
                     as="div"
-                    className="fixed inset-0 z-10 overflow-y-auto items-center justify-center mt-4"
+                    className="fixed inset-0 z-10 overflow-y-auto items-center justify-center mt-4 "
                     onClose={closeModal}>
-                    <div className="min-h-screen px-4 text-center">
+                    <div className="min-h-screen px-8 py-12 text-center">
                       <Transition.Child
                         as={Fragment}
                         enter="ease-out duration-300"
@@ -433,11 +436,13 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
                             </div>
 
                             {loading ? null : (
+                              <div className="relative">
                               <button
                                 type="submit"
                                 className="py-2 bg-black text-Athiti !font-semibold  text-white w-100 mt-2 rounded-md hover:duration-500 hover:!bg-white hover:!text-black hover:border-2 hover:border-black">
                                 เพิ่ม
                               </button>
+                                  </div>
                             )}
                           </form>
 
