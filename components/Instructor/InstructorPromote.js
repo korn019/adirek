@@ -96,36 +96,14 @@ const InstructorPromote = () => {
         </div>
       </section>
 
-      <section className="bg-red-400">
-        <div className="h-32"></div>
-        <div className="relative bg-gray-50 text-black-500">
-          <div
-            className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
-            style={{ height: 80 }}
-          >
-            <svg
-              className="absolute bottom-0 overflow-hidden"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-              version="1.1"
-              viewBox="0 0 2560 100"
-              x="0"
-              y="0"
-            >
-              <polygon
-                className="text-gray-100 fill-current"
-                points="2560 0 2560 100 0 100"
-              ></polygon>
-            </svg>
-          </div>
-        </div>
-        <div className="text-center  bg-gray-100">
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-lg-8">
+      <section className="">
+        <div className="text-center  bg-background">
+          <div className="container ">
+            <div className="row justify-content-center ">
+              <div className="col-lg-8  my-12">
                 <div className="">
-                  <h2 className="font-Prompt font-black !text-f3xl my-5">
-                    สร้างรายได้ด้วยศักยภาพของคุณ
+                  <h2 className="text-Athiti !font-semibold !text-titleBlue  !text-[2.2rem] !leading-none md:!text-[4rem] my-5">
+                    สร้างรายได้ด้วยความรู้ของคุณ
                   </h2>
                   {/* <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget aenean accumsan
@@ -135,7 +113,7 @@ const InstructorPromote = () => {
               </div>
             </div>
             <div className="row justify-center text-center ">
-              <div className="col-lg-4 col-sm-6">
+              <div className="col-lg-4 col-sm-6  ">
                 <div className="single-intro-wrap-2 ">
                   <div className="thumb  justify-center items-center flex">
                     <img
@@ -145,8 +123,14 @@ const InstructorPromote = () => {
                     />
                   </div>
                   <div className="wrap-details">
-                    <h4 className="title-text !text-xl !font-title">
-                      <a href="#">รับรายได้จากลูกค้าทันที</a>
+                    <h4 className="text-Athiti !font-semibold !text-textRed">
+                      <a
+                        href="#"
+                        className="text-Athiti !font-semibold !text-textRed"
+                      >
+                        {" "}
+                        รับรายได้จากลูกค้าทันที
+                      </a>
                     </h4>
                     {/* <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -166,8 +150,13 @@ const InstructorPromote = () => {
                     />
                   </div>
                   <div className="wrap-details">
-                    <h4 className="title-text !font-title">
-                      <a href="#">ไม่มีหักเปอร์เซ็นต์</a>
+                    <h4 className="text-Athiti !font-semibold !text-textRed">
+                      <a
+                        href="#"
+                        className="text-Athiti !font-semibold !text-textRed"
+                      >
+                        ไม่มีหักเปอร์เซ็นต์
+                      </a>
                     </h4>
                     {/* <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -187,8 +176,13 @@ const InstructorPromote = () => {
                     />
                   </div>
                   <div className="wrap-details">
-                    <h4 className="title-text ">
-                      <a href="#">มีลูกค้ามากกว่า 50,000 คน</a>
+                    <h4>
+                      <a
+                        href="#"
+                        className="text-Athiti !font-semibold !text-textRed"
+                      >
+                        มีลูกค้ามากกว่า 50,000 คน
+                      </a>
                     </h4>
                     {/* <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -279,7 +273,7 @@ const InstructorPromote = () => {
         </div> */}
 
         {/* <div className="bg-red-400 h-10 mt-24"></div> */}
-        <div className="py-14 items-center test-class flex-wrap grid grid-cols-1 lg:grid-cols-2 z-50">
+        <div className="py-8 items-center test-class flex-wrap grid grid-cols-1 lg:grid-cols-2 z-50">
           <div className="w-full xl:w-11/12 ml-auto mr-auto px-4">
             <iframe
               src="https://www.youtube.com/embed/I9TCLKlMzpc"
@@ -291,51 +285,45 @@ const InstructorPromote = () => {
           </div>
           <div className="w-full  ml-auto mr-auto px-4">
             <div className="md:pr-12">
-              <h2 className="mb-6  mt-8 text-3xl font-title text-f2xl md:text-fxl lg:text-f3xl ">
-                <strong className="text-f3xl font-Prompt font-black text-[#FF5959]">
+              <h2 className="mb-6  mt-8 !text-flg !md:text-flg !lg:text--flg subtext-Athiti !font-semibold !text-black">
+                <span className="!text-f2xl !md:text-6xl !lg:text-f6xl !mb-8 text-Athiti  !font-semibold !text-title">
+                  {" "}
+                  อดิเรก
+                </span>{" "}
+                คืออะไร?
+              </h2>
+              <p className="mt-4 indent-5 !text-2xl  text-Athiti !font-normal">
+                <strong className="!text-3xl text-Athiti !font-semibold !text-title">
                   {" "}
                   อดิเรก{" "}
                 </strong>
-                คืออะไร?
-              </h2>
-              <p className="mt-4 text-grey-500  text-md  indent-5 text-lg leading-relaxed text-grey-500  text-subtext lg:text-[1.2rem]  !font-k2d font-light">
-                <strong className="text-f2xl font-Prompt font-semibold text-[#FF5959]">
-                  {" "}
-                  อดิเรก{" "}
-                </strong>{" "}
-                คือ
+                ขึ้นในฐานะแพลตฟอร์มการเรียนรู้รูปแบบใหม่ที่ทำหน้าที่ป็นพื้นที่อิสระเพื่อเชื่อมระหว่างผู้เรียนและผู้สอนเข้าไว้ด้วยกันที่คือ
                 แพลตฟอร์มการเรียนรู้รูปแบบใหม่ที่ทำหน้าที่เป็นพื้นที่อิสระเพื่อเชื่อมระหว่างผู้เรียนและผู้สอน
                 ไว้ด้วยกัน พร้อมสื่อสารกัน โดยตรง ไม่ผ่านคนกลาง สามารถกำหนดวัน
                 เวลา สถานที่ได้อย่างอิสระ
               </p>
-              <ul className="list-disc mt-6">
+              <ul className="list-disc list-inside md:list-outside  mt-6 ">
                 <ul>
-                  <p className="leading-relaxed font-body text-3xl  drop-shadow-2xl">
-                    <strong>
-                      สิ่งที่คุณจะได้จากการสอนที่{" "}
-                      <strong className="text-f2xl font-Prompt font-semibold text-[#FF5959]">
-                        {" "}
-                        อดิเรก{" "}
-                      </strong>
-                    </strong>{" "}
+                  <p className="leading-relaxed  text-Athiti !font-semibold  !text-flg !md:text-6xl !lg:text-f6xl  text-Athiti   drop-shadow-2xl mb-4">
+                    สิ่งที่คุณจะได้จากการสอนที่{" "}
+                    <strong className="!text-title !font-semibold">
+                      {" "}
+                      อดิเรก{" "}
+                    </strong>
                   </p>
                 </ul>
-                <li className="py-2">
-                  <div className="flex items-center">
-                    <div>
-                      <p className=" text-grey-500  text-md   text-lg leading-relaxed text-grey-500  text-subtext lg:text-[1.2rem]  !font-k2d font-light">
-                        ช่องทางรายได้ใหม่ๆ
-                        เปลี่ยนความรู้และความสามารถของคุณให้เป็นรายได้โดยที่ไม่ต้องลงทุน
-                        ไม่มีหักเปอร์เซ็นต์ หรือคอมมิชชั่นใดๆ{" "}
-                        <strong className="font-black"> ฟรีทุกอย่าง! </strong>
-                      </p>
-                    </div>
-                  </div>
+                <li className="">
+                  <p className="!text-xl md:!text-2xl  text-Athiti !font-normal">
+                    ช่องทางรายได้ใหม่ๆ
+                    เปลี่ยนความรู้และความสามารถของคุณให้เป็นรายได้โดยที่ไม่ต้องลงทุน
+                    ไม่มีหักเปอร์เซ็นต์ หรือคอมมิชชั่นใดๆ{" "}
+                    <strong className="font-black"> ฟรีทุกอย่าง! </strong>
+                  </p>
                 </li>
                 <li className="py-2">
                   <div className="flex items-center">
                     <div>
-                      <p className=" text-grey-500  text-md  text-lg leading-relaxed text-grey-500  text-subtext lg:text-[1.2rem]  !font-k2d font-light">
+                      <p className=" !text-xl md:!text-2xl  text-Athiti !font-normal">
                         เพิ่มทักษะให้กับผู้อื่นได้แบ่งปันความรู้
                         ช่วยเพิ่มทักษะให้กับผู้เรียนที่มีความสนใจ
                         ช่วยผลักดันผู้เรียนไปสู่ประตูแห่งโอกาสใหม่ ๆ
@@ -346,7 +334,7 @@ const InstructorPromote = () => {
                 <li className="py-2">
                   <div className="flex items-center">
                     <div>
-                      <p className=" text-grey-500  text-md text-lg leading-relaxed text-grey-500  text-subtext lg:text-[1.2rem]  !font-k2d font-light">
+                      <p className="!text-xl md:!text-2xl  text-Athiti !font-normal">
                         เวลาการทำงานที่ยืดหยุ่น กำหนดรายละเอียดต่างๆ
                         ได้ด้วยตนเอง ไม่ว่าจะเป็นวัน เวลา รายละเอียด
                         แม้กระทั่งราคาคอร์ส
@@ -357,7 +345,7 @@ const InstructorPromote = () => {
                 <li className="py-2">
                   <div className="flex items-center">
                     <div>
-                      <p className=" text-grey-500  text-md  text-lg leading-relaxed text-grey-500  text-subtext lg:text-[1.2rem]  !font-k2d font-light">
+                      <p className=" !text-xl md:!text-2xl  text-Athiti !font-normal">
                         สร้างสังคมแห่งการเรียนรู้ เพียงคุณมีความรู้และความสามารถ
                         และมีใจที่อยากแบ่งปันความรู้ให้กับผู้อื่น
                         คุณก็เป็นส่วนหนึ่งในการสร้างสังคมแห่งการเรียนรู้ไปกับเราได้
@@ -368,7 +356,7 @@ const InstructorPromote = () => {
                 <li className="py-2">
                   <div className="flex items-center">
                     <div>
-                      <p className=" text-grey-500  text-md  text-lg leading-relaxed text-grey-500  text-subtext lg:text-[1.2rem]  !font-k2d font-light">
+                      <p className=" !text-xl md:!text-2xl  text-Athiti !font-normal">
                         เพิ่มทักษะให้กับตัวคุณเอง สร้างคอร์สเรียนได้ง่าย ๆ
                         แม้ไม่มีประสบการณ์ในการสอนมาก่อน เพราะเรามีทีมงานคอยให้
                         คำปรึกษาและช่วยเหลือคุณตลอด 24 ชั่วโมง
@@ -382,24 +370,20 @@ const InstructorPromote = () => {
         </div>
       </section>
 
-      <section className="bg-gray-100 my-24"> 
-      <div className="text-center  ">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-8">
-              <div className="">
-                <h2 className="font-Prompt font-black !text-f3xl my-5">
-                  ขั้นตอนการสมัครเป็น Partner ผู้สอน{" "}
-                </h2>
-                <p>
-                  ภาพกราฟิค Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit. Eget aenean accumsan bibendum gravida maecenas augue
-                  elementum et neque. Suspendisse imperdiet .
-                </p>
+      <section className="bg-background py-24">
+        <div className="text-center  ">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-lg-8">
+                <div className="">
+                  <h2 className="text-Athiti !font-semibold !text-titleBlue  !text-[2.2rem] !leading-none md:!text-[3.5rem] my-5">
+                    ขั้นตอนการสมัครเป็น Partner ผู้สอน{" "}
+                  </h2>
+                  <p>ภาพกราฟิค</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="row justify-content-center">
+            {/* <div className="row justify-content-center">
             <div className="col-lg-3 col-sm-6">
               <div className="single-fact-wrap">
                 <div className="fact-count">
@@ -448,18 +432,18 @@ const InstructorPromote = () => {
                 </div>
               </div>
             </div>
+          </div> */}
           </div>
         </div>
-      </div>
-      </section> 
+      </section>
       <section id="register">
         <div className="min-w-screen min-h-screen bg-svg flex items-center justify-center px-2 py-2">
           <div
             className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden"
             style={{ maxWidth: 1000 }}
           >
-            <div className="md:flex w-full ">
-              <div className="hidden md:block w-1/2 bg-indigo-500 py-10 px-5 md:px-10">
+            <div className="md:flex w-full items-center justify-center">
+              {/* <div className="hidden md:block w-1/2 bg-indigo-500 py-10 px-5 md:px-10">
                 <div className="text-center  items-center justify-center">
                   <h1 className="font-title text-f3xl text-white">
                     ขั้นตอนการสอนกับเรา
@@ -472,23 +456,31 @@ const InstructorPromote = () => {
                     </ol>
                   </div>
                 </div>
-              </div>
-              <div className="w-full md:w-1/2 py-10 px-2 sm:px-4 md:px-10">
+              </div> */}
+              <div className="w-full md:w-1/2 py-10 px-2 sm:px-4 md:px-10 ">
                 <div className="text-center mb-10">
-                  <h1 className="font-title text-f4xl text-gray-900">
+                  <h2 className="text-Athiti !font-semibold !text-titleBlue  !text-[3rem] !leading-none md:!text-[4rem] ">
                     ลงทะเบียน
-                  </h1>
-                  <p>กรอกข้อมูลลงทะเบียนเพื่อให้เราติดต่อกลับ</p>
+                  </h2>
+                  {/* <h1 className="font-title text-f4xl text-gray-900">
+                    ลงทะเบียน
+                  </h1> */}
+                  <p className="subtext-Athiti !font-medium">
+                    กรอกข้อมูลลงทะเบียนเพื่อให้เราติดต่อกลับ
+                  </p>
                 </div>
                 <form onSubmit={handleSubmit}>
                   <div className="flex -mx-3">
                     <div className="w-1/2 px-3 mb-5">
-                      <label htmlFor="" className="text-xs font-semibold px-1">
+                      <label
+                        htmlFor=""
+                        className="text-sm !font-semibold px-1 subtext-Athiti "
+                      >
                         ชื่อจริง
                       </label>
                       <div className="flex">
                         <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                          <i className="mdi mdi-account-outline text-gray-400 text-lg"></i>
+                          <i class="fa fa-user"></i>
                         </div>
                         <input
                           type="text"
@@ -501,12 +493,15 @@ const InstructorPromote = () => {
                       </div>
                     </div>
                     <div className="w-1/2 px-3 mb-5">
-                      <label htmlFor="" className="text-xs font-semibold px-1">
+                      <label
+                        htmlFor=""
+                        className="text-sm !font-semibold px-1 subtext-Athiti "
+                      >
                         นามสกุล
                       </label>
                       <div className="flex">
                         <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                          <i className="mdi mdi-account-outline text-gray-400 text-lg"></i>
+                          <i class="fa fa-user"></i>
                         </div>
                         <input
                           type="text"
@@ -521,12 +516,16 @@ const InstructorPromote = () => {
                   </div>
                   <div className="flex -mx-3">
                     <div className="w-full px-3 mb-5">
-                      <label htmlFor="" className="text-xs font-semibold px-1">
+                      <label
+                        htmlFor=""
+                        className="text-sm !font-semibold px-1 subtext-Athiti "
+                      >
                         Email
                       </label>
                       <div className="flex">
                         <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                          <i className="mdi mdi-email-outline text-gray-400 text-lg"></i>
+                          <i class="fa fa-envelope"></i>
+                          {/* <i className="mdi mdi-email-outline text-gray-400 text-lg"></i> */}
                         </div>
                         <input
                           type="email"
@@ -541,12 +540,15 @@ const InstructorPromote = () => {
                   </div>
                   <div className="flex -mx-3">
                     <div className="w-full px-3 mb-12">
-                      <label htmlFor="" className="text-xs font-semibold px-1">
+                      <label
+                        htmlFor=""
+                        className="text-sm !font-semibold px-1 subtext-Athiti "
+                      >
                         เบอร์โทรศัพท์
                       </label>
                       <div className="flex">
                         <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                          <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
+                          <i class="fa fa-phone-alt"></i>
                         </div>
                         <input
                           className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
@@ -583,7 +585,7 @@ const InstructorPromote = () => {
                       {loading ? null : (
                         <button
                           type="submit"
-                          className=" block w-full max-w-xs mx-auto text-center bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-0 font-title text-f3xl"
+                          className=" block w-full max-w-xs mx-auto text-center bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg !p-3  !font-semibold !leading-none !text-f3xl text-Athiti"
                         >
                           ยืนยัน
                         </button>
@@ -835,9 +837,11 @@ const InstructorPromote = () => {
           <div className="row">
             <div className="col-lg-12">
               <div className="">
-                <h2 className="text-center mb-4 font-Prompt !font-semibold my-12  title-text !text-[2.1rem] md:!text-f4xl leading-normal tracking-tight drop-shadow-2xl">
+                {/* <h2 className="text-center mb-4 font-Prompt !font-semibold my-12  title-text !text-[2.1rem] md:!text-f4xl leading-normal tracking-tight drop-shadow-2xl">
                   ความประทับใจของ ผู้สอน
-                  {/* <i style={{color: "var(--main-color)"}} className="fa fa-heart"></i>{" "} */}
+                </h2> */}
+                <h2 className="text-center text-Athiti !font-semibold !text-titleBlue  !text-[2.2rem] !leading-none md:!text-[3.5rem] my-5">
+                  ความประทับใจของ ผู้สอน
                 </h2>
               </div>
             </div>
@@ -892,23 +896,32 @@ const InstructorPromote = () => {
                 <SwiperSlide>
                   <div className=" py-6 text-center  shadow-none">
                     <div className="flex flex-col items-center hover:scale-[1.01] duration-300">
-                      <a href="#">
+                      {/* <a href="#">
                         <img
                           className=" rounded-full mx-auto top-0   "
                           src="static/img/user-review2.png"
                         />
-                      </a>
+                      </a> */}
 
-                      <div className="bg-white drop-shadow-md p-8 rounded-3xl mt-8 grid grid-cols-1">
-                        <div className="my-2">
-                          <p className=" text-md md:text-xl  font-Mitr font-light text-black ">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Velit placerat sit feugiat ornare tortor arcu,
-                            euismod pellentesque porta. Lacus, semper congue
-                            consequat, potenti suspendisse luctus cras vel.
-                          </p>
-                        </div>
-                        <div className="mt-5 text-center">
+                      <div className="drop-shadow-md p-8 rounded-3xl mt-8 grid grid-cols-1">
+                        <div className=" text-center">
+                          <div className="text-2xl p-4  ">
+                            <span>
+                              <i className="fa fa-star text-[#FFC107] "></i>
+                            </span>
+                            <span>
+                              <i className="fa fa-star text-[#FFC107] "></i>
+                            </span>
+                            <span>
+                              <i className="fa fa-star text-[#FFC107] "></i>
+                            </span>
+                            <span>
+                              <i className="fa fa-star text-[#FFC107] "></i>
+                            </span>
+                            <span>
+                              <i className="fa fa-star text-[#FFC107] "></i>
+                            </span>
+                          </div>
                           <a
                             href="#"
                             className="hover:text-indigo-500 text-white text-xl font-Mitr font-light bg-red-600 py-2 px-12  rounded-full "
@@ -916,92 +929,14 @@ const InstructorPromote = () => {
                             Jessica Jessy
                           </a>
                         </div>
-                        <div className="mt-4 text-2xl">
-                          <span>
-                            <i className="fa fa-star text-[#FFC107] "></i>
-                          </span>
-                          <span>
-                            <i className="fa fa-star text-[#FFC107] "></i>
-                          </span>
-                          <span>
-                            <i className="fa fa-star text-[#FFC107] "></i>
-                          </span>
-                          <span>
-                            <i className="fa fa-star text-[#FFC107] "></i>
-                          </span>
-                          <span>
-                            <i className="fa fa-star text-[#FFC107] "></i>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {/* <div className="item">
-                    <div className="single-testimonial-wrap">
-                      <div className="thumb  justify-center items-center flex">
-                        <img src="/static/img/quote.png" alt="img" />
-                      </div>
-                      <div className="wrap-details">
-                        <h5>
-                          <a href="#">Super fast WordPress themes</a>
-                        </h5>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Velit placerat sit feugiat ornare tortor arcu,
-                          euismod pellentesque porta. Lacus, semper congue
-                          consequat, potenti suspendisse luctus cras vel.
-                        </p>
-                        <span>- Jessica Jessy</span>
-                        <a className="play-btn" href="#">
-                          <i className="fa fa-play"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div> */}
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className=" py-6 text-center  shadow-none">
-                    <div className="flex flex-col items-center hover:scale-[1.01] duration-300">
-                      <a href="#">
-                        <img
-                          className=" rounded-full mx-auto top-0   "
-                          src="static/img/user-review2.png"
-                        />
-                      </a>
 
-                      <div className="bg-white drop-shadow-md p-8 rounded-3xl mt-8 grid grid-cols-1">
-                        <div className="my-2">
-                          <p className=" text-md md:text-xl  font-Mitr font-light text-black ">
+                        <div className="my-5">
+                          <p className=" text-lg md:text-3xl subpixel-antialiased  text-black subtext-Athiti ">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit. Velit placerat sit feugiat ornare tortor arcu,
                             euismod pellentesque porta. Lacus, semper congue
                             consequat, potenti suspendisse luctus cras vel.
                           </p>
-                        </div>
-                        <div className="mt-5 text-center">
-                          <a
-                            href="#"
-                            className="hover:text-indigo-500 text-white text-xl font-Mitr font-light bg-red-600 py-2 px-12  rounded-full "
-                          >
-                            Jessica Jessy
-                          </a>
-                        </div>
-                        <div className="mt-4 text-2xl">
-                          <span>
-                            <i className="fa fa-star text-[#FFC107] "></i>
-                          </span>
-                          <span>
-                            <i className="fa fa-star text-[#FFC107] "></i>
-                          </span>
-                          <span>
-                            <i className="fa fa-star text-[#FFC107] "></i>
-                          </span>
-                          <span>
-                            <i className="fa fa-star text-[#FFC107] "></i>
-                          </span>
-                          <span>
-                            <i className="fa fa-star text-[#FFC107] "></i>
-                          </span>
                         </div>
                       </div>
                     </div>
@@ -1010,23 +945,32 @@ const InstructorPromote = () => {
                 <SwiperSlide>
                   <div className=" py-6 text-center  shadow-none">
                     <div className="flex flex-col items-center hover:scale-[1.01] duration-300">
-                      <a href="#">
+                      {/* <a href="#">
                         <img
                           className=" rounded-full mx-auto top-0   "
                           src="static/img/user-review2.png"
                         />
-                      </a>
+                      </a> */}
 
-                      <div className="bg-white drop-shadow-md p-8 rounded-3xl mt-8 grid grid-cols-1">
-                        <div className="my-2">
-                          <p className=" text-md md:text-xl  font-Mitr font-light text-black ">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Velit placerat sit feugiat ornare tortor arcu,
-                            euismod pellentesque porta. Lacus, semper congue
-                            consequat, potenti suspendisse luctus cras vel.
-                          </p>
-                        </div>
-                        <div className="mt-5 text-center">
+                      <div className="drop-shadow-md p-8 rounded-3xl mt-8 grid grid-cols-1">
+                        <div className=" text-center">
+                          <div className="text-2xl p-4  ">
+                            <span>
+                              <i className="fa fa-star text-[#FFC107] "></i>
+                            </span>
+                            <span>
+                              <i className="fa fa-star text-[#FFC107] "></i>
+                            </span>
+                            <span>
+                              <i className="fa fa-star text-[#FFC107] "></i>
+                            </span>
+                            <span>
+                              <i className="fa fa-star text-[#FFC107] "></i>
+                            </span>
+                            <span>
+                              <i className="fa fa-star text-[#FFC107] "></i>
+                            </span>
+                          </div>
                           <a
                             href="#"
                             className="hover:text-indigo-500 text-white text-xl font-Mitr font-light bg-red-600 py-2 px-12  rounded-full "
@@ -1034,22 +978,14 @@ const InstructorPromote = () => {
                             Jessica Jessy
                           </a>
                         </div>
-                        <div className="mt-4 text-2xl">
-                          <span>
-                            <i className="fa fa-star text-[#FFC107] "></i>
-                          </span>
-                          <span>
-                            <i className="fa fa-star text-[#FFC107] "></i>
-                          </span>
-                          <span>
-                            <i className="fa fa-star text-[#FFC107] "></i>
-                          </span>
-                          <span>
-                            <i className="fa fa-star text-[#FFC107] "></i>
-                          </span>
-                          <span>
-                            <i className="fa fa-star text-[#FFC107] "></i>
-                          </span>
+
+                        <div className="my-5">
+                          <p className=" text-lg md:text-3xl subpixel-antialiased  text-black subtext-Athiti ">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Velit placerat sit feugiat ornare tortor arcu,
+                            euismod pellentesque porta. Lacus, semper congue
+                            consequat, potenti suspendisse luctus cras vel.
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -1058,23 +994,32 @@ const InstructorPromote = () => {
                 <SwiperSlide>
                   <div className=" py-6 text-center  shadow-none">
                     <div className="flex flex-col items-center hover:scale-[1.01] duration-300">
-                      <a href="#">
+                      {/* <a href="#">
                         <img
                           className=" rounded-full mx-auto top-0   "
                           src="static/img/user-review2.png"
                         />
-                      </a>
+                      </a> */}
 
-                      <div className="bg-white drop-shadow-md p-8 rounded-3xl mt-8 grid grid-cols-1">
-                        <div className="my-2">
-                          <p className=" text-md md:text-xl font-Mitr font-light text-black ">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Velit placerat sit feugiat ornare tortor arcu,
-                            euismod pellentesque porta. Lacus, semper congue
-                            consequat, potenti suspendisse luctus cras vel.
-                          </p>
-                        </div>
-                        <div className="mt-5 text-center">
+                      <div className="drop-shadow-md p-8 rounded-3xl mt-8 grid grid-cols-1">
+                        <div className=" text-center">
+                          <div className="text-2xl p-4  ">
+                            <span>
+                              <i className="fa fa-star text-[#FFC107] "></i>
+                            </span>
+                            <span>
+                              <i className="fa fa-star text-[#FFC107] "></i>
+                            </span>
+                            <span>
+                              <i className="fa fa-star text-[#FFC107] "></i>
+                            </span>
+                            <span>
+                              <i className="fa fa-star text-[#FFC107] "></i>
+                            </span>
+                            <span>
+                              <i className="fa fa-star text-[#FFC107] "></i>
+                            </span>
+                          </div>
                           <a
                             href="#"
                             className="hover:text-indigo-500 text-white text-xl font-Mitr font-light bg-red-600 py-2 px-12  rounded-full "
@@ -1082,22 +1027,63 @@ const InstructorPromote = () => {
                             Jessica Jessy
                           </a>
                         </div>
-                        <div className="mt-4 text-2xl">
-                          <span>
-                            <i className="fa fa-star text-[#FFC107] "></i>
-                          </span>
-                          <span>
-                            <i className="fa fa-star text-[#FFC107] "></i>
-                          </span>
-                          <span>
-                            <i className="fa fa-star text-[#FFC107] "></i>
-                          </span>
-                          <span>
-                            <i className="fa fa-star text-[#FFC107] "></i>
-                          </span>
-                          <span>
-                            <i className="fa fa-star text-[#FFC107] "></i>
-                          </span>
+
+                        <div className="my-5">
+                          <p className=" text-lg md:text-3xl subpixel-antialiased  text-black subtext-Athiti ">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Velit placerat sit feugiat ornare tortor arcu,
+                            euismod pellentesque porta. Lacus, semper congue
+                            consequat, potenti suspendisse luctus cras vel.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className=" py-6 text-center  shadow-none">
+                    <div className="flex flex-col items-center hover:scale-[1.01] duration-300">
+                      {/* <a href="#">
+                        <img
+                          className=" rounded-full mx-auto top-0   "
+                          src="static/img/user-review2.png"
+                        />
+                      </a> */}
+
+                      <div className="drop-shadow-md p-8 rounded-3xl mt-8 grid grid-cols-1">
+                        <div className=" text-center">
+                          <div className="text-2xl p-4  ">
+                            <span>
+                              <i className="fa fa-star text-[#FFC107] "></i>
+                            </span>
+                            <span>
+                              <i className="fa fa-star text-[#FFC107] "></i>
+                            </span>
+                            <span>
+                              <i className="fa fa-star text-[#FFC107] "></i>
+                            </span>
+                            <span>
+                              <i className="fa fa-star text-[#FFC107] "></i>
+                            </span>
+                            <span>
+                              <i className="fa fa-star text-[#FFC107] "></i>
+                            </span>
+                          </div>
+                          <a
+                            href="#"
+                            className="hover:text-indigo-500 text-white text-xl font-Mitr font-light bg-red-600 py-2 px-12  rounded-full "
+                          >
+                            Jessica Jessy
+                          </a>
+                        </div>
+
+                        <div className="my-5">
+                          <p className=" text-lg md:text-3xl subpixel-antialiased  text-black subtext-Athiti ">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Velit placerat sit feugiat ornare tortor arcu,
+                            euismod pellentesque porta. Lacus, semper congue
+                            consequat, potenti suspendisse luctus cras vel.
+                          </p>
                         </div>
                       </div>
                     </div>
