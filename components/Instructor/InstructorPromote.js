@@ -832,7 +832,7 @@ const InstructorPromote = () => {
         </div>
       </div> */}
 
-      <section className="testimonial-courses-area pd-bottom-150 bg-gray-100 ">
+      <section className="testimonial-courses-area bg-gray-100 p-24">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
@@ -840,7 +840,7 @@ const InstructorPromote = () => {
                 {/* <h2 className="text-center mb-4 font-Prompt !font-semibold my-12  title-text !text-[2.1rem] md:!text-f4xl leading-normal tracking-tight drop-shadow-2xl">
                   ความประทับใจของ ผู้สอน
                 </h2> */}
-                <h2 className="text-center text-Athiti !font-semibold !text-titleBlue  !text-[2.2rem] !leading-none md:!text-[3.5rem] my-5">
+                <h2 className="text-center text-Athiti !font-semibold !text-titleBlue  !text-[2.2rem] !leading-none md:!text-[3.5rem] ">
                   ความประทับใจของ ผู้สอน
                 </h2>
               </div>
@@ -894,7 +894,7 @@ const InstructorPromote = () => {
                 }}
               >
                 <SwiperSlide>
-                  <div className=" py-6 text-center  shadow-none">
+                  <div className="  text-center  shadow-none">
                     <div className="flex flex-col items-center hover:scale-[1.01] duration-300">
                       {/* <a href="#">
                         <img
@@ -943,7 +943,7 @@ const InstructorPromote = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <div className=" py-6 text-center  shadow-none">
+                  <div className="  text-center  shadow-none">
                     <div className="flex flex-col items-center hover:scale-[1.01] duration-300">
                       {/* <a href="#">
                         <img
@@ -992,7 +992,7 @@ const InstructorPromote = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <div className=" py-6 text-center  shadow-none">
+                  <div className="  text-center  shadow-none">
                     <div className="flex flex-col items-center hover:scale-[1.01] duration-300">
                       {/* <a href="#">
                         <img
@@ -1041,7 +1041,7 @@ const InstructorPromote = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <div className=" py-6 text-center  shadow-none">
+                  <div className="  text-center  shadow-none">
                     <div className="flex flex-col items-center hover:scale-[1.01] duration-300">
                       {/* <a href="#">
                         <img
