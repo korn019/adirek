@@ -6860,7 +6860,7 @@ input[type="submit"] {
   margin: 0 auto;
 }
 
-button[type="button"] {
+button[type="button"],button[type="submit"]{
   display: block;
   appearance: none;
   background: #333;
