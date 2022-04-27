@@ -99,14 +99,14 @@ const Perfectionist = () => {
                   </p>
                   <ul>
                     <li>
-                      <p className=" indent-5  mt-10 text-base leading-relaxed !text-grey-500   text-content-justify">
+                      <p className=" indent-5  mt-10  leading-relaxed !text-grey-500   text-content-justify">
                         หากเรากำลังเผชิญกับความรู้สึกนี้อยู่บ่อย ๆ
                         ขอให้เริ่มลองฝึกเมตตาต่อตนเองด้วยวิธีเหล่านี้ดูนะคะ
                       </p>
                     </li>
                     <ul className="list-disc">
                       <li>
-                        <p className=" indent-5  mt-10 text-base leading-relaxed !text-grey-500   text-content-justify">
+                        <p className=" indent-5  mt-10  leading-relaxed !text-grey-500   text-content-justify">
                           หลังจากทั่วโลกเกิดการปฏิวัติทางอุตสาหกรรม
                           สังคมโลกก้าวเข้าสู่เศรษฐกิจแบบทุนนิยม
                           มนุษย์ต้องทำงานเพื่อแลกกับเงินแทนการผลิตเพื่อบริโภค
@@ -114,7 +114,7 @@ const Perfectionist = () => {
                         </p>
                       </li>
                       <li>
-                        <p className=" indent-5  mt-10 text-base leading-relaxed !text-grey-500   text-content-justify">
+                        <p className=" indent-5  mt-10  leading-relaxed !text-grey-500   text-content-justify">
                           สร้างสิ่งแวดล้อมที่เอื้อต่อการเติบโตให้แก่ตนเองและผู้อื่น
                           แทนที่จะใช้การลงโทษหรือตำหนิเมื่อเกิดความผิดพลาดจากตนเองหรือผู้อื่น
                           เรามุ่งเป้าไปที่การแก้ไขและพัฒนา
@@ -122,7 +122,7 @@ const Perfectionist = () => {
                         </p>
                       </li>
                       <li>
-                        <p className=" indent-5  mt-10 text-base leading-relaxed !text-grey-500   text-content-justify">
+                        <p className=" indent-5  mt-10  leading-relaxed !text-grey-500   text-content-justify">
                           มีงานวิจัยชี้ว่าการฝึกทำสมาธิ เจริญสติ (mindfulness) ช่วยให้เห็นสิ่งต่าง ๆ
                           ตามความเป็นจริงมากขึ้น
                           ช่วยให้เราสามารถตั้งเป้าหมายที่สมเหตุสมผลและไม่ขยายความผิดพลาดให้ใหญ่โตจนเกินความเป็นจริง
@@ -130,14 +130,14 @@ const Perfectionist = () => {
                         </p>
                       </li>
                       <li>
-                        <p className=" indent-5  mt-10 text-base leading-relaxed !text-grey-500  text-content-justify">
+                        <p className=" indent-5  mt-10  leading-relaxed !text-grey-500  text-content-justify">
                           ให้ตระหนักไว้เสมอว่าความคิดในหัวของเรา ไม่ใช่ความจริง
                           สิ่งที่เกิดขึ้นจริงกับความคิดของเรานั้นไม่ใช่เรื่องเดียวกัน
                           ดังนั้นการตระหนักรู้ว่าเสียงวิพากษ์วิจารณ์ที่เกิดขึ้นในหัวของเราไม่ใช่ตัวตัดสินคุณค่าของเรา
                         </p>
                       </li>
                     </ul>
-                    <p className=" indent-5  mt-10 text-base leading-relaxed !text-grey-500  text-content-justify">
+                    <p className=" indent-5  mt-10  leading-relaxed !text-grey-500  text-content-justify">
                       อย่างที่กล่าวไปข้างต้นว่าความคาดหวังที่จะทำบางสิ่งให้ออกมาดีที่สุดนั้นคือสิ่งที่มีประโยชน์
                       สุดท้ายแล้วสิ่งที่เราทำนั้นจะดีพอหรือไม่ย่อมไม่สามารถทำให้สมบูรณ์แบบได้ในสายตาของทุกคน
                       และนั่นคือสวยงามของมุมมองที่มีความแตกต่างหลากหลาย

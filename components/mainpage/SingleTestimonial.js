@@ -9,7 +9,7 @@ const SingleTestimonial = ({people}) => {
             <img className=" rounded-full mx-auto top-0   " src="static/img/user-review2.png" />
           </a>
 
-          <div className=" drop-shadow-sm p-8 px-24 rounded-xl mt-8 grid grid-cols-1">
+          <div className=" drop-shadow-sm p-8 rounded-xl mt-8 grid grid-cols-1">
             <div className="my-2">
               <p className=" text-lg md:text-3xl subpixel-antialiased  text-black subtext-Athiti">
                 {people.text}

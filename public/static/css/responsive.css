@@ -359,7 +359,7 @@
 }
 @media all and (max-width: 767px) {
   .banner-area {
-    background-image: url(../img/banner/bg.jpg) !important;
+    background-image: url(/static/img/instructor-banner.png) !important;
     background-size: contain;
     background-position: bottom;
     padding: 75px 0 90px;

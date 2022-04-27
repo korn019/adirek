@@ -31,19 +31,19 @@ const AdirekIs = () => {
               </button>
             </div>
           </div>
-          <div className=" lg:max-w-lg lg:w-full md:w-1/2 w-5/6 img-hover-zoom">
+          <div className=" lg:max-w-lg lg:w-full md:w-1/2 w-5/6 img-hover-zoom ">
             <div className="body--container">
               <img
                 className="text w-[400px] h-[400px] object-cover"
                 alt="Adirek"
                 src="static/img/Knowledge-Logo-Vertical.png"
               />
-              <div className="bubble--container">
+              {/* <div className="bubble--container  ">
                 <div className="bubble bubble--large"></div>
                 <div className="bubble bubble--one top-[200px] left-[-50px] sm:left-0 sm:top-[400px]"></div>
                 <div className="bubble bubble--two top-50 left-0 sm:top-[400px] sm:right-0"></div>
                 <div className="bubble bubble--three top-[300px] left-0 sm:top-[450px] sm:left-0"></div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

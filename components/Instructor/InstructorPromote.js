@@ -7,6 +7,7 @@ import axios from "axios";
 import { Dialog, Transition } from "@headlessui/react";
 import { css } from "@emotion/react";
 import SyncLoader from "react-spinners/SyncLoader";
+import ReactStars from "react-stars";
 
 const InstructorPromote = () => {
   const [instructor, setInstructor] = useState({
@@ -58,21 +59,25 @@ const InstructorPromote = () => {
   `;
   return (
     <>
-      <section className="banner-area instructor-banner p-0 bg-[#11142d]">
+      <section className="banner-area instructor-banner p-0  bg-[#11142d] bg-[url(/static/img/instructor-banner.png)]">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-5 col-8">
               <div className="thumb  justify-center items-center flex">
-                <img src="/static/img/instructor.png" alt="img" />
+                <img
+                  src="/static/img/instruc.png"
+                  alt="img"
+                  className="object-cover"
+                />
               </div>
             </div>
             <div className="col-md-7 col-sm-10 align-self-center ">
               <div className="banner-inner text-md-start text-center relative">
-                <h1 className="text-white text-f4xl font-Prompt drop-shadow-2xl font-bold">
+                <h1 className="text-[#0b132a] text-f4xl font-Prompt drop-shadow-2xl font-bold">
                   สมัครเลย !
                 </h1>
                 <div className=" me-0">
-                  <p className="text-white !text-fmd drop-shadow-2xl !font-Mitr">
+                  <p className="text-[#0b132a] !text-fmd drop-shadow-2xl !font-Mitr">
                     ช่องทางรายได้ใหม่ๆ ไม่มีหักเปอร์เซ็นต์ หรือคอมมิชชั่นใดๆ
                     ฟรีทุกอย่าง!
                   </p>
@@ -117,7 +122,7 @@ const InstructorPromote = () => {
                 <div className="single-intro-wrap-2 ">
                   <div className="thumb  justify-center items-center flex">
                     <img
-                      src="/static/img/intro/01.png"
+                      src="/static/img/intro/instructor-1.png"
                       className="w-[140px] h-[140px]"
                       alt="img"
                     />
@@ -144,7 +149,7 @@ const InstructorPromote = () => {
                 <div className="single-intro-wrap-2">
                   <div className="thumb  justify-center items-center flex">
                     <img
-                      src="/static/img/intro/02.png"
+                      src="/static/img/intro/instructor-2.png"
                       className="w-[140px] h-[140px]"
                       alt="img"
                     />
@@ -170,7 +175,7 @@ const InstructorPromote = () => {
                 <div className="single-intro-wrap-2">
                   <div className="thumb  justify-center items-center flex">
                     <img
-                      src="/static/img/intro/03.png"
+                      src="/static/img/intro/instructor-3.png"
                       className="w-[140px] h-[140px]"
                       alt="img"
                     />
@@ -905,190 +910,35 @@ const InstructorPromote = () => {
 
                       <div className="drop-shadow-md p-8 rounded-3xl mt-8 grid grid-cols-1">
                         <div className=" text-center">
-                          <div className="text-2xl p-4  ">
-                            <span>
-                              <i className="fa fa-star text-[#FFC107] "></i>
-                            </span>
-                            <span>
-                              <i className="fa fa-star text-[#FFC107] "></i>
-                            </span>
-                            <span>
-                              <i className="fa fa-star text-[#FFC107] "></i>
-                            </span>
-                            <span>
-                              <i className="fa fa-star text-[#FFC107] "></i>
-                            </span>
-                            <span>
-                              <i className="fa fa-star text-[#FFC107] "></i>
-                            </span>
+                          <div className="text-2xl p-4  text-center items-center justify-center flex">
+                            <ReactStars
+                              count={5}
+                              half={true}
+                              value={5}
+                              // onChange={ratingChanged}
+                              edit={false}
+                              size={32}
+                              color2={"#FFC107"}
+                            />
                           </div>
                           <a
                             href="#"
                             className="hover:text-indigo-500 text-white text-xl font-Mitr font-light bg-red-600 py-2 px-12  rounded-full "
                           >
-                            Jessica Jessy
+                           สุภเวช
                           </a>
                         </div>
 
                         <div className="my-5">
                           <p className=" text-lg md:text-3xl subpixel-antialiased  text-black subtext-Athiti ">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Velit placerat sit feugiat ornare tortor arcu,
-                            euismod pellentesque porta. Lacus, semper congue
-                            consequat, potenti suspendisse luctus cras vel.
+                           แพลตฟอร์มที่มีผู้เรียนมาก ทำให้ผู้เรียนสามารถเลือกครูได้อย่างอิสระ และยังไม่มีการหักค่าคอมใดๆเลย 
                           </p>
                         </div>
                       </div>
                     </div>
                   </div>
                 </SwiperSlide>
-                <SwiperSlide>
-                  <div className="  text-center  shadow-none">
-                    <div className="flex flex-col items-center hover:scale-[1.01] duration-300">
-                      {/* <a href="#">
-                        <img
-                          className=" rounded-full mx-auto top-0   "
-                          src="static/img/user-review2.png"
-                        />
-                      </a> */}
-
-                      <div className="drop-shadow-md p-8 rounded-3xl mt-8 grid grid-cols-1">
-                        <div className=" text-center">
-                          <div className="text-2xl p-4  ">
-                            <span>
-                              <i className="fa fa-star text-[#FFC107] "></i>
-                            </span>
-                            <span>
-                              <i className="fa fa-star text-[#FFC107] "></i>
-                            </span>
-                            <span>
-                              <i className="fa fa-star text-[#FFC107] "></i>
-                            </span>
-                            <span>
-                              <i className="fa fa-star text-[#FFC107] "></i>
-                            </span>
-                            <span>
-                              <i className="fa fa-star text-[#FFC107] "></i>
-                            </span>
-                          </div>
-                          <a
-                            href="#"
-                            className="hover:text-indigo-500 text-white text-xl font-Mitr font-light bg-red-600 py-2 px-12  rounded-full "
-                          >
-                            Jessica Jessy
-                          </a>
-                        </div>
-
-                        <div className="my-5">
-                          <p className=" text-lg md:text-3xl subpixel-antialiased  text-black subtext-Athiti ">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Velit placerat sit feugiat ornare tortor arcu,
-                            euismod pellentesque porta. Lacus, semper congue
-                            consequat, potenti suspendisse luctus cras vel.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="  text-center  shadow-none">
-                    <div className="flex flex-col items-center hover:scale-[1.01] duration-300">
-                      {/* <a href="#">
-                        <img
-                          className=" rounded-full mx-auto top-0   "
-                          src="static/img/user-review2.png"
-                        />
-                      </a> */}
-
-                      <div className="drop-shadow-md p-8 rounded-3xl mt-8 grid grid-cols-1">
-                        <div className=" text-center">
-                          <div className="text-2xl p-4  ">
-                            <span>
-                              <i className="fa fa-star text-[#FFC107] "></i>
-                            </span>
-                            <span>
-                              <i className="fa fa-star text-[#FFC107] "></i>
-                            </span>
-                            <span>
-                              <i className="fa fa-star text-[#FFC107] "></i>
-                            </span>
-                            <span>
-                              <i className="fa fa-star text-[#FFC107] "></i>
-                            </span>
-                            <span>
-                              <i className="fa fa-star text-[#FFC107] "></i>
-                            </span>
-                          </div>
-                          <a
-                            href="#"
-                            className="hover:text-indigo-500 text-white text-xl font-Mitr font-light bg-red-600 py-2 px-12  rounded-full "
-                          >
-                            Jessica Jessy
-                          </a>
-                        </div>
-
-                        <div className="my-5">
-                          <p className=" text-lg md:text-3xl subpixel-antialiased  text-black subtext-Athiti ">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Velit placerat sit feugiat ornare tortor arcu,
-                            euismod pellentesque porta. Lacus, semper congue
-                            consequat, potenti suspendisse luctus cras vel.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="  text-center  shadow-none">
-                    <div className="flex flex-col items-center hover:scale-[1.01] duration-300">
-                      {/* <a href="#">
-                        <img
-                          className=" rounded-full mx-auto top-0   "
-                          src="static/img/user-review2.png"
-                        />
-                      </a> */}
-
-                      <div className="drop-shadow-md p-8 rounded-3xl mt-8 grid grid-cols-1">
-                        <div className=" text-center">
-                          <div className="text-2xl p-4  ">
-                            <span>
-                              <i className="fa fa-star text-[#FFC107] "></i>
-                            </span>
-                            <span>
-                              <i className="fa fa-star text-[#FFC107] "></i>
-                            </span>
-                            <span>
-                              <i className="fa fa-star text-[#FFC107] "></i>
-                            </span>
-                            <span>
-                              <i className="fa fa-star text-[#FFC107] "></i>
-                            </span>
-                            <span>
-                              <i className="fa fa-star text-[#FFC107] "></i>
-                            </span>
-                          </div>
-                          <a
-                            href="#"
-                            className="hover:text-indigo-500 text-white text-xl font-Mitr font-light bg-red-600 py-2 px-12  rounded-full "
-                          >
-                            Jessica Jessy
-                          </a>
-                        </div>
-
-                        <div className="my-5">
-                          <p className=" text-lg md:text-3xl subpixel-antialiased  text-black subtext-Athiti ">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Velit placerat sit feugiat ornare tortor arcu,
-                            euismod pellentesque porta. Lacus, semper congue
-                            consequat, potenti suspendisse luctus cras vel.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
+               
               </Swiper>
             </div>
           </div>

@@ -16,10 +16,10 @@ const Footer = () => {
                   <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-3 ">
                     {course.map((e, id) => {
                       return (
-                        <ul className="p-2 md:p-0" key={e.id}>
-                          <li>
+                        <ul className="p-2 md:p-0 !font-medium " key={e.id}>
+                          <li className="!text-Athiti !font-medium  ">
                             <Link href={`/Course/${e.value}`} as={`/Course/${e.value}`}>
-                              <a className="!font-Athiti font-medium ">{e.value}</a>
+                              <a className="text-Athiti  !text-xs  ">{e.value}</a>
                             </Link>
                           </li>
                         </ul>

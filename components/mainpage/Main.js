@@ -12,10 +12,10 @@ const Main = () => {
   return (
     <>
       <LandingScreen />
-      <div className="test-class ">
+      <div className=" ">
       <SlideCourse />
       </div>
-      <div className="test-class bg-gray-100 ">
+      <div className=" bg-gray-100 ">
         <AdirekIs />
       </div>
       <div className="py-12">
@@ -30,7 +30,7 @@ const Main = () => {
       <div className="bg-gray-100">
         <Course />
       </div>
-      <div className="test-class py-12">
+      <div className=" py-12">
         <Activity />
       </div>
       <div className="">
