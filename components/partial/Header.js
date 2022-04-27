@@ -55,7 +55,7 @@
 //                   <input
 //                     className="form-control"
 //                     type="text"
-//                     placeholder="ค้นหาหลักสูตร..."
+//                     placeholder="ค้นหาคอร์สที่สนใจ..."
 //                     onChange={(e) => setSearchCourse(e.target.value)}
 //                     value={searchCourse}
 //                     onKeyDown={(e) => enterandgo(e)}
@@ -187,7 +187,7 @@
 //               <div className="single-input-wrap  hidden md:block">
 //                 <input
 //                   type="text"
-//                   placeholder="ค้นหาหลักสูตร..."
+//                   placeholder="ค้นหาคอร์สที่สนใจ..."
 //                   onChange={(e) => setSearchCourse(e.target.value)}
 //                   value={searchCourse}
 //                   onKeyDown={(e) => enterandgo(e)}
@@ -202,7 +202,7 @@
 //               <ul className="navbar-nav menu-open text-end">
 //                 <li className="menu-item">
 //                   <Link href="/Category">
-//                     <a>หลักสูตรคอร์สเรียนทั้งหมด</a>
+//                     <a>คอร์สเรียนทั้งหมด</a>
 //                   </Link>
 //                 </li>
 //                 <li className="menu-item">
@@ -268,68 +268,70 @@
 // }
 
 // export default Header
-import {Swiper, SwiperSlide} from "swiper/react"
-import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
 
-import Link from "next/link"
-import {useEffect, useState, useContext, Fragment} from "react"
-import {CourseCheck} from "../course/Courselabel"
-import {CourseCheck2} from "../category/Check"
-import {SearchCourseContext} from "../../pages/Category"
-import {useRouter} from "next/router"
-import {Dialog, Transition} from "@headlessui/react"
-import {GiArchiveResearch} from "react-icons/gi"
+import Link from "next/link";
+import { useEffect, useState, useContext, Fragment } from "react";
+import { CourseCheck } from "../course/Courselabel";
+import { CourseCheck2 } from "../category/Check";
+import { SearchCourseContext } from "../../pages/Category";
+import { useRouter } from "next/router";
+import { Dialog, Transition } from "@headlessui/react";
+import { GiArchiveResearch } from "react-icons/gi";
 function Header() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [course, setCourse] = useState(CourseCheck)
-  const router = useRouter()
-  const {searchCourse, setSearchCourse} = useContext(SearchCourseContext)
-  const [navHead, setNavHead] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [course, setCourse] = useState(CourseCheck);
+  const router = useRouter();
+  const { searchCourse, setSearchCourse } = useContext(SearchCourseContext);
+  const [navHead, setNavHead] = useState(false);
+  
   const changeBg = () => {
     if (typeof window !== "undefined") {
       if (window.scrollY > 80) {
-        setNavHead(true)
+        setNavHead(true);
       } else if (window.scrollY < 30) {
-        setNavHead(false)
+        setNavHead(false);
       }
     }
-  }
+  };
 
   function closeModal() {
-    setIsOpen(false)
+    setIsOpen(false);
   }
 
   function openModal() {
-    setIsOpen(true)
+    setIsOpen(true);
   }
   const enterandgo = (event) => {
     if (event.keyCode === 13) {
-      router.push(`/Search/${searchCourse}`)
-      setIsOpen(false)
+      router.push(`/Search/${searchCourse}`);
+      setIsOpen(false);
     }
-  }
+  };
   useEffect(() => {
-    window.addEventListener("scroll", changeBg)
-  }, [])
-  const [isOpenModal, setIsOpenModal] = useState(false)
+    window.addEventListener("scroll", changeBg);
+  }, []);
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   return (
-    <nav className=" shadow-sm sticky  w-full z-[999] top-0 left-0      bg-white duration-500  ">
-      <div className="relative w-full container-fluid md:container ">
+    <nav className=" drop-shadow-md sticky  w-full z-[999] top-0 left-0      bg-white ">
+      <div className="relative w-full container md:container ">
         <div
           className={
             navHead
               ? "relative  flex items-center h-32 duration-700 w-full"
               : "relative  flex items-center h-36 duration-700 w-full"
-          }>
+          }
+        >
           <div className="flex item items-center justify-between w-full">
             <div className="flex flex-row justify-center items-center flex-shrink-0 space-x-2">
-              <div className="logo">
+              <div className="">
                 <Link href="/">
                   <a className="main-logo">
                     <img
                       src="/static/img/logo-knowledge.png"
-                      className="w-[191px] md:w-full"
+                      className="w-[181px] md:w-full"
                       alt="Adirek"
                     />
                   </a>
@@ -337,10 +339,10 @@ function Header() {
               </div>
               <div className=" navbar-collapse hidden md:block">
                 <div className="">
-                  <div className="flex justify-center items-center space-x-5 relative">
+                  <div className="flex justify-center items-center md:space-x-5 relative">
                     <input
                       type="text"
-                      placeholder="ค้นหาหลักสูตร..."
+                      placeholder="ค้นหาคอร์สที่สนใจ..."
                       onChange={(e) => setSearchCourse(e.target.value)}
                       value={searchCourse}
                       onKeyDown={(e) => enterandgo(e)}
@@ -348,13 +350,18 @@ function Header() {
                     />
                     {/* <input
                       type="text"
-                      placeholder="ค้นหาหลักสูตร..."
+                      placeholder="ค้นหาคอร์สที่สนใจ..."
                       onChange={(e) => setSearchCourse(e.target.value)}
                       value={searchCourse}
                       onKeyDown={(e) => enterandgo(e)}
                       className="w-60"
                     /> */}
-                    <Link href={searchCourse ? `/Search/${searchCourse}` : `/Category`}>
+                    <Link
+                      href={
+                        searchCourse ? `/Search/${searchCourse}` : `/Category`
+                      }
+                    >
+                      
                       <button onKeyDown={(e) => enterandgo(e)}>
                         <GiArchiveResearch className="text-3xl hover:text-bg hover:duration-700" />
                         {/* <i className="fa fa-search"></i> */}
@@ -368,19 +375,34 @@ function Header() {
             <div className="hidden lg:block">
               <div className=" flex items-baseline ">
                 <Link
+                  href="/"
+                  activeClass="Home"
+                  to="about"
+                  smooth={true}
+                  offset={50}
+                  duration={500}
+                >
+                  <a>
+                    <h4 className=" text-Athiti  cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md !text-[18px] !font-semibold ">
+                      หน้าแรก
+                    </h4>
+                  </a>
+                </Link>
+                <Link
                   href="/Category"
                   activeClass="Home"
                   to="about"
                   smooth={true}
                   offset={50}
-                  duration={500}>
+                  duration={500}
+                >
                   <a>
                     <h4 className=" text-Athiti  cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md !text-[18px] !font-semibold ">
-                      หลักสูตรคอร์สเรียนทั้งหมด
+                      คอร์สเรียนทั้งหมด
                     </h4>
                   </a>
                 </Link>
-                <Link
+                {/* <Link
                   href="/Instructor"
                   activeClass="Home"
                   to="about"
@@ -393,7 +415,7 @@ function Header() {
                       มาร่วมสอนกับเรา
                     </h4>
                   </a>
-                </Link>
+                </Link> */}
                 <Link href="/Blog" smooth={true} offset={50} duration={500}>
                   <a>
                     <h4 className="text-Athiti  cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md !text-[18px] !font-semibold ">
@@ -409,26 +431,28 @@ function Header() {
                   to="about"
                   smooth={true}
                   offset={50}
-                  duration={500}>
+                  duration={500}
+                >
                   <a>
                     <h4 className="text-Athiti  cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md !text-[18px] !font-semibold ">
                       ติดต่อเรา
                     </h4>
                   </a>
                 </Link>
-                <Link
+                {/* <Link
                   href="/Add"
                   activeClass="Home"
                   to="about"
                   smooth={true}
                   offset={50}
-                  duration={500}>
+                  duration={500}
+                >
                   <a>
                     <h4 className="text-Athiti  cursor-pointer duration-200 hover:bg-blue-600/[.8]  hover:text-white  p-2 rounded-md !text-[18px] !font-semibold ">
                       เพิ่มครู
                     </h4>
                   </a>
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
@@ -437,17 +461,19 @@ function Header() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="bg-primary inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-primary focus: outline-none  focus: ring-offset-2 focus:ring-offset-blue-800 focus:ring-white"
+              className=" bg-primary items-center justify-center p-1 rounded-md text-white hover:bg-primary focus: outline-none  focus: ring-offset-2 focus:ring-offset-blue-800 focus:ring-white"
               aria-controls="mobile-menu"
-              aria-expanded="false">
+              aria-expanded="false"
+            >
               {isOpen ? (
                 <svg
-                  className="block h-6 w-6"
+                  className="block h-5 w-5"
                   xmlns="http:www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  aria-hidden="true">
+                  aria-hidden="true"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -457,12 +483,13 @@ function Header() {
                 </svg>
               ) : (
                 <svg
-                  className="block h-6 w-6"
+                  className="block h-5 w-5"
                   xmlns="http:www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  aria-hidden="true">
+                  aria-hidden="true"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -478,10 +505,11 @@ function Header() {
         <div
           className={
             navHead
-              ? "border-t border-[#e5f1fb]  mt-0  hidden duration-1000"
-              : "border-t border-[#e5f1fb] mt-0 block duration-1000"
-          }>
-          <div className="text-center p-1">
+              ? "border-t border-[#e5f1fb]  mt-0  hidden "
+              : "border-t border-[#e5f1fb] mt-0 block "
+          }
+        >
+          <div className="text-center ">
             <Swiper
               navigation={{
                 nextEl: ".swiper-next",
@@ -520,98 +548,90 @@ function Header() {
                   slidesPerView: 8,
                   spaceBetween: 1,
                 },
-              }}>
+              }}
+            >
               {course.map((item, index) => {
                 return (
                   <SwiperSlide>
-                    <div className="p-2 animate-pulse  duration-700">
-                      <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
-                        <a className="text-Athiti !font-medium !text-base">{item.value}</a>
+                    <div className="py-2 animate-pulse  duration-700">
+                      <Link
+                        href={`/Course/${item.value}`}
+                        as={`/Course/${item.value}`}
+                      >
+                        <a className="text-Athiti !font-medium !text-base">
+                          {item.value}
+                        </a>
                       </Link>
                     </div>
                   </SwiperSlide>
-                )
+                );
               })}
             </Swiper>
           </div>
         </div>
-
-        {/* <!-- style="margin-top: 72px" --> */}
-        {/* <div
-          className={
-            navHead
-              ? "category-navbar navbar-area block  mt-0 duration-1000"
-              : "category-navbar navbar-area hidden  mt-0 duration-1000"
-          }>
-          <nav className="navbar navbar-expand-lg">
-            <div className="container nav-container">
-              <div className="collapse navbar-collapse">
-                <ul className="navbar-nav menu-open">
-                  {course.map((item, index) => {
-                    return (
-                      <li key={item.id}>
-                        <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
-                          <a>{item.value}</a>
-                        </Link>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>
-            </div>
-          </nav>
-        </div> */}
+     
       </div>
 
       {/* start Dropdown */}
       <Transition
         show={isOpen}
         enter="transition ease-out duration-100 transform"
-        enterFrom="opacity-0 scale-95"
+        enterFrom="opacity-0 scale-100"
         enterTo="opacity-100 scale-100"
         leave="transition ease-in duration-75 transform"
         leaveFrom="opacity-100 scale-100"
-        leaveTo="opacity-0 scale-95">
+        leaveTo="opacity-0 scale-100"
+      >
         {(ref) => (
           <div className="lg:hidden" id="mobile-menu">
             <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <a
-                href="/Category"
-                className="hover:bg-gray-700 hover:!text-white   text-Athiti   block px-3 py-2 rounded-md !text-base !font-medium">
-                หลักสูตรคอร์สเรียนทั้งหมด
-              </a>
-              <a
-                href="/Instructor"
-                className="hover:bg-gray-700 hover:!text-white   text-Athiti   block px-3 py-2 rounded-md !text-base !font-medium">
-                มาร่วมสอนกับเรา
-              </a>
-              <a
-                href="/Blog"
-                className="hover:bg-gray-700 hover:!text-white   text-Athiti   block px-3 py-2 rounded-md !text-base !font-medium">
-                บทความและข่าวสาร
-              </a>
+              <Link href="/">
+                <a className="hover:bg-gray-700 hover:!text-white   text-Athiti   block px-3 py-2 rounded-md !text-base !font-medium">
+                  {/* <p>หน้าแรก</p> */}
+                  หน้าแรก
+                </a>
+              </Link>
+              <Link href="/Category">
+                <a className="hover:bg-gray-700 hover:!text-white   text-Athiti   block px-3 py-2 rounded-md !text-base !font-medium">
+                  คอร์สเรียนทั้งหมด
+                </a>
+              </Link>
+              <Link href="/Blog">
+                <a className="hover:bg-gray-700 hover:!text-white   text-Athiti   block px-3 py-2 rounded-md !text-base !font-medium">
+                  บทความและข่าวสาร
+                </a>
+              </Link>
+              <Link href="/Instructor">
+                <a className="hover:bg-gray-700 hover:!text-white   text-Athiti   block px-3 py-2 rounded-md !text-base !font-medium">
+                  มาร่วมสอนกับเรา
+                </a>
+              </Link>
+              <Link href="/Contact">
+                <a className="hover:bg-gray-700 hover:!text-white   text-Athiti   block px-3 py-2 rounded-md !text-base !font-medium">
+                  ติดต่อเรา
+                </a>
+              </Link>
+              {/* <Link href="/Add">
+                <a className="hover:bg-gray-700 hover:!text-white   text-Athiti   block px-3 py-2 rounded-md !text-base !font-medium">
+                  เพิ่มครู
+                </a>
+              </Link> */}
 
-              <a
-                href="/Contact"
-                className="hover:bg-gray-700 hover:!text-white   text-Athiti   block px-3 py-2 rounded-md !text-base !font-medium">
-                ติดต่อเรา
-              </a>
-              <a
-                href="/Add"
-                className="hover:bg-gray-700 hover:!text-white   text-Athiti   block px-3 py-2 rounded-md !text-base !font-medium">
-                เพิ่มครู
-              </a>
               <div className="">
                 <div className="flex justify-start items-center space-x-5 relative">
                   <input
                     type="text"
-                    placeholder="ค้นหาหลักสูตร..."
+                    placeholder="ค้นหาคอร์สที่สนใจ..."
                     onChange={(e) => setSearchCourse(e.target.value)}
                     value={searchCourse}
                     onKeyDown={(e) => enterandgo(e)}
                     className="bg-[#f7f8fc] border border-gray-300 text-gray-900  text-Athiti !font-semibold !text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-[#f7f8fc] dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   />
-                  <Link href={searchCourse ? `/Search/${searchCourse}` : `/Category`}>
+                  <Link
+                    href={
+                      searchCourse ? `/Search/${searchCourse}` : `/Category`
+                    }
+                  >
                     <button onKeyDown={(e) => enterandgo(e)}>
                       <GiArchiveResearch className="text-3xl hover:text-bg hover:duration-700" />
                       {/* <i className="fa fa-search"></i> */}
@@ -624,7 +644,7 @@ function Header() {
         )}
       </Transition>
     </nav>
-  )
+  );
 }
 
-export default Header
+export default Header;

@@ -47,8 +47,8 @@ const Partner = () => {
                           />
                         </div>
                         <div className="wrap-details my-4">
-                          <p className="text-Athiti !font-semibold !text-textRed">
-                            <a href="#">อิสระในการเรียนรู้</a>
+                          <p className="text-Athiti !font-semibold !text-black">
+                            <a href="#">เรียนรู้ตามความต้องการด้วยคอร์สที่คุณเลือกเอง</a>
                           </p>
                         {/* <p className=" text-content text-center subtext-Athiti">
                           เรียนได้ทุกที่ ทุกเวลา 
@@ -71,8 +71,8 @@ const Partner = () => {
                           />
                         </div>
                         <div className="wrap-details my-4">
-                          <p className="text-Athiti !font-semibold !text-textRed">
-                            <a href="#">การสร้างโอกาส</a>
+                          <p className="text-Athiti !font-semibold !text-black">
+                            <a href="#">เพิ่มทักษะเพื่อสร้างโอกาสใหม่</a>
                           </p>
                           {/* <p className=" text-content  text-center subtext-Athiti">
                             ทุกเรื่องที่คุณสนใจ และช่องทางที่จะเปลี่ยนงานอดิเรกของคุณให้เป็นรายได้
@@ -93,8 +93,8 @@ const Partner = () => {
                           />
                         </div>
                         <div className="wrap-details my-4">
-                          <p className="!text-[23px] text-Athiti !font-semibold !text-textRed">
-                            <a href="#">เข้าถึง Community เพื่อการเรียนรู้</a>
+                          <p className="!text-[23px] text-Athiti !font-semibold !text-black">
+                            <a href="#">ค้นหาง่าย จากผู้สอนมากกว่า 500 คน</a>
                           </p>
                           {/* <p className=" text-content  text-center subtext-Athiti">
                             จุดเริ่มต้นของสังคมแห่งการเรียนรู้ไม่มีที่สิ้นสุด

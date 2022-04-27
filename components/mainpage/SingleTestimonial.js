@@ -5,7 +5,7 @@ const SingleTestimonial = ({people}) => {
     <>
       <div key={people} className=" py-6 w-full text-center  shadow-none">
         <div className="flex flex-col items-center hover:scale-105 duration-300">
-          <a href="#">
+          <a>
             <img className=" rounded-full mx-auto top-0   " src="static/img/user-review2.png" />
           </a>
 
@@ -17,8 +17,8 @@ const SingleTestimonial = ({people}) => {
             </div>
             <div className="mt-5 text-center">
               <a
-                href="#"
-                className="hover:text-indigo-500 text-white text-xl font-Mitr font-light bg-red-600 py-2 px-12  rounded-full ">
+               
+                className="hover:text-indigo-500 text-white text-xl font-Mitr font-light bg-red-600 py-2 px-12  rounded-full cursor-pointer">
                 {people.name}
               </a>
             </div>

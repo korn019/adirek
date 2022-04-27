@@ -1,130 +1,85 @@
-import {CourseCheck} from "../course/Courselabel"
-import {useState, useEffect} from "react"
-import Link from "next/link"
-import {FaAngleDoubleUp} from "react-icons/fa"
+import { CourseCheck } from "../course/Courselabel";
+import { useState } from "react";
+import { RiFacebookCircleFill } from "react-icons/ri";
+import { AiFillYoutube } from "react-icons/ai";
+import { FaLine } from "react-icons/fa";
+import { FaAngleDoubleUp } from "react-icons/fa";
 const Footer = () => {
-  const [course, setCourse] = useState(CourseCheck)
+  const [course, setCourse] = useState(CourseCheck);
   return (
     <>
       <footer className="footer-area bg-[#0c4159]">
         <div className="footer-inner">
           <div className="container">
             <div className="row">
-              <div className="col-lg-8 col-md-4 col-sm-6">
-                <div className="footer-widget widget widget_link widget_link ">
-                  <h4 className="!font-semibold text-Athiti mb-4 text-white">หลักสูตร</h4>
-                  <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-3 ">
+              {/* <div className="col-lg-8 col-md-4 col-sm-6">
+                <div className="footer-widget widget widget_link ">
+                  <h4 className="!font-semibold text-Athiti mb-4 text-white">
+                    คอร์ส
+                  </h4>
+                  <div className=" grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3">
                     {course.map((e, id) => {
                       return (
-                        <ul className="p-2 md:p-0 !font-medium " key={e.id}>
-                          <li className="!text-Athiti !font-medium  ">
-                            <Link href={`/Course/${e.value}`} as={`/Course/${e.value}`}>
-                              <a className="text-Athiti  !text-xs  ">{e.value}</a>
+                        <ul className="py-2 md:p-0 ">
+                          <li className="pe-4 !font-Athiti font-medium text-white" key={e.id}>
+                            <Link
+                              href={`/Course/${e.value}`}
+                              as={`/Course/${e.value}`}
+                            >
+                              <a
+                                href="#"
+                                className=""
+                              >
+                                {e.value}
+                              </a>
                             </Link>
                           </li>
                         </ul>
-                      )
+                      );
                     })}
                   </div>
-                  {/* <div className="row">
-                    <div className="col-lg-4">
-                      <ul className="pe-5">
-                        <li>
-                          <a href="category.html">UI &amp; UX</a>
-                        </li>
-                        <li>
-                          <a href="category.html">Web Design</a>
-                        </li>
-                        <li>
-                          <a href="category.html">Graphic Design & Illustration</a>
-                        </li>
-                        <li>
-                          <a href="category.html">Design Tools</a>
-                        </li>
-                        <li>
-                          <a href="category.html">Game Design</a>
-                        </li>
-                        <li>
-                          <a href="category.html">3D & Animation</a>
-                        </li>
-                        <li>
-                          <a href="category.html">Fashion Design</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="col-lg-4">
-                      <ul className="pe-5">
-                        <li>
-                          <a href="category.html">Architectural Design</a>
-                        </li>
-                        <li>
-                          <a href="category.html">Interior Design</a>
-                        </li>
-                        <li>
-                          <a href="category.html">สุขภาพและความแข็งแรง</a>
-                        </li>
-                        <li>
-                          <a href="category.html">คณิตศาสตร์</a>
-                        </li>
-                        <li>
-                          <a href="category.html">ภาษา</a>
-                        </li>
-                        <li>
-                          <a href="category.html">ทำอาหารและขนม</a>
-                        </li>
-                        <li>
-                          <a href="category.html">แต่งหน้า</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="col-lg-4">
-                      <ul>
-                        <li>
-                          <a href="category.html">ถ่ายรูปและแต่งรูป</a>
-                        </li>
-                        <li>
-                          <a href="category.html">บุคลิกภาพ</a>
-                        </li>
-                        <li>
-                          <a href="category.html">ร้องเพลงและการแสดง</a>
-                        </li>
-                        <li>
-                          <a href="category.html">กีฬา</a>
-                        </li>
-                        <li>
-                          <a href="category.html">ดนตรี</a>
-                        </li>
-                        <li>
-                          <a href="category.html">จัดดอกไม้และจัดสวนถาด</a>
-                        </li>
-                        <li>
-                          <a href="category.html">วาดรูป</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div> */}
                 </div>
-              </div>
-              <div className="col-lg-2 col-md-4 col-sm-6">
+              </div> */}
+              <div className="col-lg-4 col-md-4 col-sm-6">
                 <div className="footer-widget widget widget_link">
-                  <h4 className="!font-semibold text-Athiti mb-4 text-white">การเชื่อมโยง</h4>
-                  <ul className="pe-4 !font-Athiti font-medium text-white">
+                  <h4 className="!font-semibold text-Athiti mb-4 text-white">
+                    การเชื่อมโยง
+                  </h4>
+                  <ul className="pe-4 text-Athiti font-medium text-white ">
                     <li>
-                      <a href="/Blog">ข่าวสาร และ บทความ</a>
+                      <a href="/Category" className="!text-lg">
+                        ค้นหาคอร์ส
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="!text-lg">
+                        มาร่วมสอนกับเรา
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/Blog" className="!text-lg">
+                        Blog
+                      </a>
                     </li>
 
                     <li>
-                      <a href="/Category">หลักสูตร</a>
+                      <a href="#" className="!text-lg">
+                        Privacy Policy
+                      </a>
                     </li>
                     <li>
-                      <a href="/Instructor">สอนบน อดิเรก</a>
+                      <a href="#" className="!text-lg">
+                        Sitemap
+                      </a>
                     </li>
                   </ul>
                 </div>
               </div>
-              <div className="col-lg-2 col-md-4 col-sm-6">
+              <div className="col-lg-4 col-md-4 col-sm-6">
                 <div className="footer-widget widget widget_link">
-                  <h4 className="!font-semibold text-Athiti mb-4 text-white">ช่วยเหลือ</h4>
+                  <h4 className="!font-semibold text-Athiti mb-4 text-white">
+                    ช่วยเหลือ
+                  </h4>
                   <ul className="pe-4 !font-Athiti font-medium !text-base !text-white">
                     {/* <li>
                       <a href="home.html">เอกสาร</a>
@@ -136,9 +91,53 @@ const Footer = () => {
                       <a href="dashboard.html">รายงาน</a>
                     </li> */}
                     <li>
-                      <a href="/Contact">ติดต่อเรา</a>
+                      <a href="/Contact" className="!text-lg">
+                        ติดต่อเรา
+                      </a>
                     </li>
                   </ul>
+                </div>
+              </div>
+              <div className="col-lg-4 col-md-4 col-sm-6">
+                <div className="footer-widget widget widget_link">
+                  <h4 className="!font-semibold text-Athiti text-white">
+                    Follow Us
+                  </h4>
+                  <div className="flex my-4 w-2/3 lg:w-1/2 ">
+                    <a
+                      href="#"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-full bg-white h-8 w-8 mx-1 text-center  flex justify-center items-center"
+                    >
+                      {/* <i className="fab fa-facebook-f text-blue-900" /> */}
+                      <RiFacebookCircleFill
+                        className="!text-[#4267B2]"
+                        size="1.7rem"
+                      />
+                    </a>
+                    <a
+                      href="#"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-full bg-white h-8 w-8 mx-1 text-center  flex justify-center items-center"
+                    >
+                      <AiFillYoutube
+                        className="!text-[#FF0000]"
+                        size="1.7rem"
+                      />
+                      {/* <i className="fab fa-youtube-in text-blue-900" /> */}
+                    </a>
+                    <a
+                      href="#"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-full bg-white h-8 w-8 mx-1 text-center  flex justify-center items-center"
+                    >
+                      <FaLine className="!text-[#00B900]" size="1.6rem" />
+                      {/* <i className="fab fa-youtube-in text-blue-900" /> */}
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -151,7 +150,10 @@ const Footer = () => {
               <div className="col-xl-7 align-self-center">
                 <div className="d-md-flex align-items-center mb-4 mb-xl-0">
                   <div className="logo d-inline-block">
-                    <img src="/static/img/logo-white-knowledge.png" alt="Adirek" />
+                    <img
+                      src="/static/img/logo-white-knowledge.png"
+                      alt="Adirek"
+                    />
                   </div>
                   <div className="copyright-area">
                     <p className=" !font-Athiti font-medium !text-xl text-white">
@@ -160,29 +162,7 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-xl-5 align-self-center text-xl-end">
-                <ul className="social-area d-inline-block ">
-                  <li>
-                    <a className=" " href="#">
-                      <i className="fab fa-facebook-f "></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="fab fa-line"></i>
-                    </a>
-                  </li>
-                </ul>
-                {/* <select className="single-select float-sm-end">
-                  <option>ภาษาไทย</option>
-                  <option value="asc">English</option>
-                </select> */}
-              </div>
+             
             </div>
           </div>
         </div>
@@ -214,15 +194,18 @@ const Footer = () => {
       <script src="../../static/js/main.js"></script>
       <script
         type="text/javascript"
-        src="../../static/jquery.Thailand.js/dependencies/JQL.min.js"></script>
+        src="../../static/jquery.Thailand.js/dependencies/JQL.min.js"
+      ></script>
       <script
         type="text/javascript"
-        src="../../static/jquery.Thailand.js/dependencies/typeahead.bundle.js"></script>
+        src="../../static/jquery.Thailand.js/dependencies/typeahead.bundle.js"
+      ></script>
       <script
         type="text/javascript"
-        src="../../static/jquery.Thailand.js/dist/jquery.Thailand.min.js"></script>
+        src="../../static/jquery.Thailand.js/dist/jquery.Thailand.min.js"
+      ></script>
     </>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

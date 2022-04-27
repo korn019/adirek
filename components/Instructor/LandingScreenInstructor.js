@@ -1,0 +1,49 @@
+import Link from 'next/link'
+
+const LandingScreenInstructor = () => {
+  return (
+    <section className="banner-area instructor-banner p-0  bg-[#11142d] bg-[url(/static/img/instructor-banner.png)]">
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-5 col-8">
+            <div className="thumb  justify-center items-center flex">
+              <img
+                src="/static/img/instruc.png"
+                alt="img"
+                className="object-cover"
+              />
+            </div>
+          </div>
+          <div className="col-md-7 col-sm-10 align-self-center ">
+            <div className="banner-inner text-md-start text-center relative">
+              <h1 className="md:!text-[#0b132a] text-white text-f4xl font-Prompt drop-shadow-2xl font-bold">
+                สมัครเลย !
+              </h1>
+              <div className=" me-0">
+                <p className="md:!text-[#0b132a] text-white !text-fmd drop-shadow-2xl !font-Mitr">
+                  ช่องทางรายได้ใหม่ๆ ไม่มีหักเปอร์เซ็นต์ หรือคอมมิชชั่นใดๆ
+                  ฟรีทุกอย่าง!
+                </p>
+              </div>
+              <Link href="/Add" className="group ">
+                <button
+                  className="bg-orange-500 group-hover:bg-black  px-10 py-2 rounded-xl text-slate-200 text-shade2   !font-Prompt font-black  text-fxl"
+                  style={{
+                    fontSize: "clamp(2rem, 8vw, 1.2rem)",
+                    marginTop: 30,
+                  }}
+                >
+                  <a className="drop-shadow-md font-Prompt text-flg md:text-f2xl group-hover:text-black ">
+                    มาร่วมสอนกับเรา
+                  </a>
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default LandingScreenInstructor;

@@ -83,7 +83,7 @@ function ClientArea() {
                       spaceBetween: 10,
                     },
                   }}>
-                  <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1 px-5">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1 px-5">
                     {client.map((clientImg, index) => (
                       <SwiperSlide key={index}>
                         <div className="item text-center flex items-center justify-center">

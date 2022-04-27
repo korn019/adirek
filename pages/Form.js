@@ -1,35 +1,57 @@
-import { useState } from "react"
+import axios from "axios";
+import React from "react";
+import ReactDOM from "react-dom";
+import { useForm } from "react-hook-form";
+import { Input, SelectForm } from "../components/Input";
 
-export default function Form(props) {
-  const heroes = ["Batman", "Batman2", "Superman", "Aquaman", "Flash", "Green Lantern"]
-  const [checkedValues, setCheckedValues] = useState([])
+// import "./styles.css";
 
-  const cvProps = {heroes, checkedValues, setCheckedValues}
+function Form() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors }
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    axios
+      .post("http://localhost:3000/api/instructors/contact", data)
+      .then(function (response) {
+      
+        if (response.status === 200) {
+          console.log('success');
+        }
+      }).catch(function (error) {
+        console.log(error)
+  }); 
+}
+console.log(watch("firstName")); 
   return (
-    <form>
-      <CheckedValues {...cvProps} />
+    <section className="bg-red-300">
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {/* register your input into the hook by invoking the "register" function */}
+      {/* <input defaultValue="test" {...register("test")} /> */}
+
+      {/* include validation with required or other standard HTML validation rules */}
+      {/* <input defaultValue="firstName"  {...register("firstName", { required: true })} />
+      <input {...register("lastName", { required: true })} />
+      <input {...register("email", { required: true })} />
+      <input {...register("tel", { required: true })} /> */}
+      <Input  label="firstName" register={register} required/>
+      <Input  label="lastName" register={register} required/>
+      <Input  label="email" register={register} required/>
+      {/* <Input  label="tel" register={register} required/> */}
+      <SelectForm label="tel" register={register}/>
+      {/* errors will return when field validation fails  */}
+
+
+      {errors.firstName && <p className="text-white">This field is required</p>}
+      <input type="submit" />
     </form>
-  )
+    </section>
+  );
 }
+export default Form
 
-function CheckedValues(props) {
-  const handleChecked = (e) => {
-    const hero = props.heroes[e.target.dataset.id]
-    let newCheckedValues = props.checkedValues.filter((item) => item !== hero)
-    if (e.target.checked) newCheckedValues.push(hero)
-    props.setCheckedValues(newCheckedValues)
-  }
-
-  return (
-    <div className="App">
-      {props.heroes.map((hero, id) => (
-        <label key={id}>
-          <input type="checkbox" data-id={id} onClick={handleChecked} /> {hero}
-        </label>
-      ))}
-      <hr />
-      <h3>Results</h3>
-      <p>{props.checkedValues.join(", ")}</p>
-    </div>
-  )
-}
