@@ -23,6 +23,7 @@ import Layout from "../components/Layout"
 import {SearchCourseProvider} from "./Category"
 
 // import "/static/css/style.css"
+import "react-toastify/dist/ReactToastify.css"
 
 SwiperCore.use([Autoplay, Navigation, Pagination])
 

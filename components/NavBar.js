@@ -1,64 +1,63 @@
-import Link from "next/link";
-import { useEffect, useState, useContext, Fragment } from "react";
-import { Disclosure, Menu, Transition, Dialog } from "@headlessui/react";
-import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
-import { SearchCourseContext } from "../pages/Category";
-import { useRouter } from "next/router";
-import { GiArchiveResearch } from "react-icons/gi";
-import { CourseCheck } from "./course/Courselabel";
-
+import Link from "next/link"
+import {useEffect, useState, useContext, Fragment} from "react"
+import {Disclosure, Menu, Transition, Dialog} from "@headlessui/react"
+import {BellIcon, MenuIcon, XIcon} from "@heroicons/react/outline"
+import {SearchCourseContext} from "../pages/Category"
+import {GiArchiveResearch} from "react-icons/gi"
+import {CourseCheck} from "./course/Courselabel"
+import {useRouter} from "next/router"
 const navigation = [
-  { name: "หน้าแรก", href: "/", current: true },
-  { name: "คอร์สเรียนทั้งหมด", href: "/Category", current: false },
-  { name: "บทความและข่าวสาร", href: "/Blog", current: false },
-  { name: "ติดต่อเรา", href: "/Contact", current: false },
-];
+  {name: "หน้าแรก", href: "/", current: true},
+  {name: "คอร์สเรียนทั้งหมด", href: "/Category", current: false},
+  {name: "บทความและข่าวสาร", href: "/Blog", current: false},
+  {name: "ติดต่อเรา", href: "/Contact", current: false},
+]
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(" ")
 }
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [course, setCourse] = useState(CourseCheck);
-  const router = useRouter();
-  const { searchCourse, setSearchCourse } = useContext(SearchCourseContext);
-  const [navHead, setNavHead] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+  const [course, setCourse] = useState(CourseCheck)
+  const {searchCourse, setSearchCourse} = useContext(SearchCourseContext)
+  const [navHead, setNavHead] = useState(false)
+  const router = useRouter()
 
   const changeBg = () => {
     if (typeof window !== "undefined") {
       if (window.scrollY > 80) {
-        setNavHead(true);
+        setNavHead(true)
       } else if (window.scrollY < 30) {
-        setNavHead(false);
+        setNavHead(false)
       }
     }
-  };
+  }
+  const LogOut = () => {
+    localStorage.removeItem("token")
+    router.push("/Login")
+  }
 
   function closeModal() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
 
   function openModal() {
-    setIsOpen(true);
+    setIsOpen(true)
   }
   const enterandgo = (event) => {
     if (event.keyCode === 13) {
-      router.push(`/Search/${searchCourse}`);
-      setIsOpen(false);
+      router.push(`/Search/${searchCourse}`)
+      setIsOpen(false)
     }
-  };
+  }
   useEffect(() => {
-    window.addEventListener("scroll", changeBg);
-  }, []);
-  const [isOpenModal, setIsOpenModal] = useState(false);
-
+    window.addEventListener("scroll", changeBg)
+  }, [])
+  const [isOpenModal, setIsOpenModal] = useState(false)
   return (
-    <Disclosure
-      as="nav"
-      className="bg-gray-800 sticky w-full z-[999] top-0 left-0"
-    >
-      {({ open }) => (
+    <Disclosure as="nav" className="bg-gray-800 sticky w-full z-[999] top-0 left-0">
+      {({open}) => (
         <>
           <div className="  max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between h-28">
@@ -87,23 +86,20 @@ export default function Navbar() {
                   />
                 </div>
 
-           
-
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                        <Link href={item.href}  key={item.name}>
-                      <a
-                        className={classNames(
-                          item.current
-                            ? "bg-gray-900 !text-white"
-                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                          "px-3 py-2 rounded-md !text-sm !font-medium  !text-white text-Athiti"
-                        )}
-                        aria-current={item.current ? "page" : undefined}
-                      >
-                        {item.name}
-                      </a>
+                      <Link href={item.href} key={item.name}>
+                        <a
+                          className={classNames(
+                            router.pathname == item.href
+                              ? "bg-gray-900 !text-white active:bg-blue-600 "
+                              : "text-gray-300 hover:bg-gray-700 hover:text-white active:bg-blue-600 ",
+                            "px-3 py-2 rounded-md !text-sm !font-medium  !text-white text-Athiti"
+                          )}
+                          aria-current={item.current ? "page" : undefined}>
+                          {item.name}
+                        </a>
                       </Link>
                     ))}
                   </div>
@@ -119,31 +115,28 @@ export default function Navbar() {
                       onKeyDown={(e) => enterandgo(e)}
                       className="bg-gray-50 border border-gray-300 text-gray-900  text-Athiti !font-medium  !text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     />
-                    <Link
-                      href={
-                        searchCourse ? `/Search/${searchCourse}` : `/Category`
-                      }
-                    >
+                    <Link href={searchCourse ? `/Search/${searchCourse}` : `/Category`}>
                       <button onKeyDown={(e) => enterandgo(e)}>
-                        <GiArchiveResearch color='white' className="text-3xl  hover:!text-bg hover:duration-700" />
+                        <GiArchiveResearch
+                          color="white"
+                          className="text-3xl  hover:!text-bg hover:duration-700"
+                        />
                       </button>
                     </Link>
                   </div>
                 </div>
-
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
-                  className=" p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                >
+                  className=" p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="ml-3 relative">
-                  <div>
+                  <div className="flex justify-center items-center space-x-2">
                     <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                       <span className="sr-only">Open user menu</span>
                       <img
@@ -152,6 +145,7 @@ export default function Navbar() {
                         alt=""
                       />
                     </Menu.Button>
+                      <p className="text-Athiti !font-semibold !text-white !text-base">User</p>
                   </div>
                   <Transition
                     as={Fragment}
@@ -160,44 +154,41 @@ export default function Navbar() {
                     enterTo="transform opacity-100 scale-100"
                     leave="transition ease-in duration-75"
                     leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
+                    leaveTo="transform opacity-0 scale-95">
                     <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
-                        {({ active }) => (
+                        {({active}) => (
                           <a
                             href="#"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
-                            )}
-                          >
+                            )}>
                             Your Profile
                           </a>
                         )}
                       </Menu.Item>
                       <Menu.Item>
-                        {({ active }) => (
+                        {({active}) => (
                           <a
                             href="#"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
-                            )}
-                          >
+                            )}>
                             Settings
                           </a>
                         )}
                       </Menu.Item>
                       <Menu.Item>
-                        {({ active }) => (
+                        {({active}) => (
                           <a
                             href="#"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
-                          >
+                            onClick={LogOut}>
                             Sign out
                           </a>
                         )}
@@ -222,8 +213,7 @@ export default function Navbar() {
                       : "text-gray-300 hover:bg-gray-700 hover:text-white",
                     "block px-3 py-2 rounded-md text-base font-medium"
                   )}
-                  aria-current={item.current ? "page" : undefined}
-                >
+                  aria-current={item.current ? "page" : undefined}>
                   {item.name}
                 </Disclosure.Button>
               ))}
@@ -237,11 +227,7 @@ export default function Navbar() {
                     onKeyDown={(e) => enterandgo(e)}
                     className="bg-gray-50 border border-gray-300 text-gray-900  text-Athiti !font-semibold  !text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   />
-                  <Link
-                    href={
-                      searchCourse ? `/Search/${searchCourse}` : `/Category`
-                    }
-                  >
+                  <Link href={searchCourse ? `/Search/${searchCourse}` : `/Category`}>
                     <button onKeyDown={(e) => enterandgo(e)}>
                       <GiArchiveResearch className="text-3xl hover:text-bg hover:duration-700" />
                     </button>
@@ -253,5 +239,5 @@ export default function Navbar() {
         </>
       )}
     </Disclosure>
-  );
+  )
 }
