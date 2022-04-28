@@ -251,16 +251,16 @@ const PaginatedItems = ({
     const newOffset = (event.selected * itemsPerPage) % items.length;
     setItemOffset(newOffset);
   };
-
+console.log(items.length )
   return (
     <>
       {myArrayFiltered.length > 0 ? (
         <>
-          <div className="   grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3  md:space-x-2 lg:space-x-2">
+          <div className="bg-red-400  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3  md:space-x-2 lg:space-x-2 bg-red-40">
             {currentItems &&
               currentItems.map((item, index) => {
                 return (
-                  <div key={index}>
+                  <div key={index} className=" ">
                     <h3>{item}</h3>
                   </div>
                 );

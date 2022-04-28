@@ -189,7 +189,7 @@ const Add = () => {
               <div className="w-full py-10 px-12 sm:px-4 md:px-10 ">
                 <div className="text-center mb-10">
                   <h2 className="text-Athiti !font-semibold !text-titleBlue  !text-[3rem] !leading-none md:!text-[4rem] ">
-                    ลงทะเบียน
+                  ลงทะเบียนผู้สอน
                   </h2>
                   {/* <h1 className="font-title text-f4xl text-gray-900">
                     ลงทะเบียน
@@ -276,10 +276,10 @@ const Add = () => {
                   </div>
                   <div className="text-left relative  flex cursor-pointer my-4">
                     <div
-                      className=" subtext-Athiti !font-bold  !text-2xl text-gray-700 border-2 border-blue-400  focus:ring-1 focus:outline-none focus:border-[#ff013c]  focus:text-[#ff013c]  rounded-lg  px-2 py-1 text-center mr-2 mb-2"
+                      className=" subtext-Athiti !font-semibold  !text-2xl  border-2  focus:ring-1 focus:outline-none focus:border-[#ff013c]  focus:text-[#ff013c]  bg-[#D1157B] rounded-lg  px-2 py-1 text-center mr-2 mb-2"
                       onClick={() => setIsOpenAddCourse(true)}
                     >
-                      <p className="text-Athiti ">เพิ่มคอร์ส</p>
+                      <p className="text-Athiti !text-white">เพิ่มคอร์ส</p>
                     </div>
                   </div>
 
@@ -372,7 +372,35 @@ const Add = () => {
                       </div>
                     </Dialog>
                   </Transition>
-                  <input type="submit" />
+                  <SelectForm
+                              label="course_list_id"
+                              register={register}
+                              getCategory={getCategory}
+                            />
+                            <Input
+                              label="title_course"
+                              register={register}
+                              placeholder="หัวข้อคอร์ส"
+                            />
+                            <Input
+                              label="detail"
+                              register={register}
+                              placeholder="รายละเอียดคอร์ส"
+                            />
+                            <Input
+                              label="price_course"
+                              register={register}
+                              placeholder="ราคาคอร์ส"
+                            />
+                  <button
+                            className=" subtext-Athiti !font-semibold  !text-3xl bg-gradient-to-r from-pink-500 hover:to-yellow-5 inline-block px-8 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
+                            type="submit"
+                            data-mdb-ripple="true"
+                            data-mdb-ripple-color="light"
+                            s>
+                            ลงทะเบียน
+                          </button>
+
                 </form>
               </div>
             </div>

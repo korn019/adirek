@@ -3781,7 +3781,7 @@ ul {
 
 .banner-inner div p {
   font-family: HeaventRoundedBd;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 .banner-inner div a {
   font-family: HeaventRoundedBd;
@@ -6389,19 +6389,19 @@ button:hover {
 
 button:after {
   content: "";
-  background: white;
+  /* background: white; */
   position: absolute;
   z-index: -1;
   left: -20%;
   right: -20%;
   top: 0;
   bottom: 0;
-  transform: skewX(-45deg) scale(0, 1);
+  /* transform: skewX(-45deg) scale(0, 1); */
   transition: all 0.5s;
 }
 
 button:hover:after {
-  transform: skewX(-45deg) scale(1, 1);
+  /* transform: skewX(-45deg) scale(1, 1); */
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
@@ -6803,7 +6803,7 @@ input {
   margin-bottom: 10px;
   font-size: 14px;
 }
-label {
+/* label {
   line-height: 2;
   text-align: left;
   display: block;
@@ -6812,7 +6812,7 @@ label {
   color: white;
   font-size: 14px;
   font-weight: 200;
-}
+} */
 
 button[type="submit"],
 input[type="submit"] {
@@ -6824,7 +6824,7 @@ input[type="submit"] {
   padding: 20px;
   font-size: 16px;
   font-weight: 100;
-  letter-spacing: 10px;
+  /* letter-spacing: 10px; */
 }
 
 button[type="submit"]:hover,

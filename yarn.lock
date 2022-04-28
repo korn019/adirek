@@ -322,6 +322,11 @@
   "resolved" "https://registry.npmjs.org/@headlessui/react/-/react-1.5.0.tgz"
   "version" "1.5.0"
 
+"@heroicons/react@^1.0.6":
+  "integrity" "sha512-JJCXydOFWMDpCP4q13iEplA503MQO3xLoZiKum+955ZCtHINWnx26CUxVxxFQu/uLb4LW3ge15ZpzIkXKkJ8oQ=="
+  "resolved" "https://registry.npmjs.org/@heroicons/react/-/react-1.0.6.tgz"
+  "version" "1.0.6"
+
 "@hookform/error-message@^2.0.0":
   "integrity" "sha512-Y90nHzjgL2MP7GFy75kscdvxrCTjtyxGmOLLxX14nd08OXRIh9lMH/y9Kpdo0p1IPowJBiZMHyueg7p+yrqynQ=="
   "resolved" "https://registry.npmjs.org/@hookform/error-message/-/error-message-2.0.0.tgz"
@@ -3460,7 +3465,7 @@
     "react-dom" "^16.5.0"
     "webpack" "^2.6.1"
 
-"react@*", "react@^16 || ^17", "react@^16 || ^17 || ^18", "react@^16.0.0 || ^17.0.0", "react@^16.3.0 || ^17", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0", "react@^17.0.2", "react@^17.0.2 || ^18.0.0-0", "react@>= 16.8.0 || 17.x.x || 18.x.x", "react@>=16", "react@>=16.0.0", "react@>=16.8.0", "react@17.0.2":
+"react@*", "react@^16 || ^17", "react@^16 || ^17 || ^18", "react@^16.0.0 || ^17.0.0", "react@^16.3.0 || ^17", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0", "react@^17.0.2", "react@^17.0.2 || ^18.0.0-0", "react@>= 16", "react@>= 16.8.0 || 17.x.x || 18.x.x", "react@>=16", "react@>=16.0.0", "react@>=16.8.0", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"

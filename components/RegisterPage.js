@@ -1,34 +1,35 @@
-import {Input} from "./Input"
-import {useForm} from "react-hook-form"
-import Toast from "./Toast"
-import {toast} from "react-hot-toast"
-import axios from "axios"
-import {useState} from "react"
+import { Input, SelectType } from "./Input";
+import { useForm } from "react-hook-form";
+import Toast from "./Toast";
+import { toast } from "react-hot-toast";
+import axios from "axios";
+import { useState } from "react";
+
 const RegisterPage = () => {
   const {
     register,
     handleSubmit,
     watch,
-    formState: {errors},
-  } = useForm()
-  const [bgColor, setBgColor] = useState("")
+    formState: { errors },
+  } = useForm();
+  const [bgColor, setBgColor] = useState("");
   const onSubmit = (data, e) => {
-    e.preventDefault()
-    console.log(data)
+    e.preventDefault();
+    console.log(data);
     axios
       .post("http://localhost:3000/api/users/register", data)
       .then((res) => {
-        console.log(res)
-        setBgColor("bg-success")
-        toast("สมัครสมาชิกสำเร็จ")
-        window.location = '/Login'
+        console.log(res);
+        setBgColor("bg-success");
+        toast("สมัครสมาชิกสำเร็จ");
+        // window.location = "/Login";
       })
       .catch((err) => {
-        console.log(err.response.data)
-        setBgColor("bg-danger")
-        toast(err.response.data.message)
-      })
-  }
+        console.log(err.response.data);
+        setBgColor("bg-danger");
+        toast(err.response.data.message);
+      });
+  };
   return (
     <>
       {/* <section className="h-full gradient-form bg-gray-200">
@@ -139,6 +140,15 @@ const RegisterPage = () => {
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="py-4 px-8">
+                <div className="w-full md:w-1/3  mb-6 md:mb-0">
+                 
+                  <SelectType
+                    label="type"
+                    register={register}
+                    placeholder="ประเภทบัญชี"
+                    />
+                   
+                </div>
                 <div className="flex mb-4">
                   <div className="w-1/2 mr-1">
                     <Input
@@ -158,7 +168,12 @@ const RegisterPage = () => {
                   </div>
                 </div>
                 <div className="mb-4">
-                  <Input label="tel" register={register} placeholder="เบอร์โทรศัพท์" required />
+                  <Input
+                    label="tel"
+                    register={register}
+                    placeholder="เบอร์โทรศัพท์"
+                    required
+                  />
                 </div>
                 <div className="mb-4">
                   <Input
@@ -175,12 +190,23 @@ const RegisterPage = () => {
                     placeholder="Password"
                     type="password"
                   />
-                  <p className="text-grey text-xs mt-1">At least 6 characters</p>
+                  <p className="text-grey text-xs mt-1">
+                    รหัสผ่านอย่างน้อย 8 ตัวอักษร
+                  </p>
+                </div>
+                <div className="">
+                  <Input
+                    label="confirm_password"
+                    register={register}
+                    placeholder="Confirm password"
+                    type="password"
+                  />
                 </div>
                 <div className="flex items-center justify-between">
                   <button
                     className="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full"
-                    type="submit">
+                    type="submit"
+                  >
                     Sign Up
                   </button>
                 </div>
@@ -190,6 +216,6 @@ const RegisterPage = () => {
         </div>
       </div>
     </>
-  )
-}
-export default RegisterPage
+  );
+};
+export default RegisterPage;

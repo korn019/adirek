@@ -70,7 +70,7 @@ const CourseCategory = () => {
   //   })
   // const getData = () => {
   //   axios
-  //     .get("https://www.api-adirek.online/api/instructor-course")
+  //     .get("http://localhost:3000/api/instructor-course")
   //     .then((res) => {
   //       setData(res.data)
   //       setIsLoading(true)

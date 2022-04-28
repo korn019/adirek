@@ -73,11 +73,11 @@ const filterCheck = ({
   let filter5 = list.filter((item) => item.filterValue == "การลงทุน").map((value) => value)
   return (
     <>
-      <div className="col-lg-3">
+      <div className="col-lg-3 bg-gray-200">
         <div className="dmne-sidebar grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-1">
           <div className="widget widget-select-inner dropdown-filter">
-            <h4 className=" text-Athiti  !font-semibold !text-f2xl my-4">หมวดหมู่</h4>
-            <div className="single-form-check form-check flex space-x-2 items-center ">
+            {/* <h4 className=" text-Athiti  !font-semibold !text-f2xl my-4">หมวดหมู่</h4> */}
+            {/* <div className="single-form-check form-check flex space-x-2 items-center ">
               <Checkbox
                 type="checkbox"
                 name="selectAll"
@@ -89,7 +89,7 @@ const filterCheck = ({
 
               ทั้งหมด
               </p>
-            </div>
+            </div> */}
             {/* <label className="form-check-label " htmlFor="flexCheckDefault2"> */}
             {mainCategory.map((item) => {
               return (
@@ -101,7 +101,7 @@ const filterCheck = ({
                         return (
                           <ul key={check.id}>
                             <li>
-                              <div className="single-form-check form-check items-center flex space-x-2">
+                              <div className="single-form-check form-check flex  space-x-2">
                                 <Checkbox
                                   type="checkbox"
                                   name={check.value}
@@ -243,7 +243,7 @@ const filterCheck = ({
             />
           </div>
         </div>
-        <div className="widget widget-select-inner relative">
+        <div className="widget widget-select-inner relative flex">
         <button
             onClick={handleSubmit}
             className=" subtext-Athiti !font-bold  !text-2xl text-gray-700 border-2 border-blue-400  focus:ring-1 focus:outline-none focus:border-[#ff013c]  focus:text-[#ff013c]  rounded-lg  px-2 py-1 text-center mr-2 mb-2">

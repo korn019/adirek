@@ -28,7 +28,7 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
 
   const categoryName = () => {
     axios
-      .get("https://www.api-adirek.online/api/filterCategory")
+      .get("http://localhost:3000/api/filterCategory")
       .then((res) => {
         setGetCategory(res.data)
       })
@@ -50,6 +50,7 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
   let instructorId = Instructor.match(/\d/g)
   let InstructorId = instructorId.join("")
 
+  console.log(InstructorId)
   const handleSubmit = (e) => {
     e.preventDefault()
     setLoading(true)
@@ -59,19 +60,19 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
       course.price_course.length !== 0
     ) {
       axios
-        .post("https://www.api-adirek.online/api/course_title", course)
+        .post("http://www.localhost:3000/api/course_title", course)
         .then(function (response) {
           if (response.status === 200) {
             console.log(response.data)
             let TitleId = response.data.title_id.toString()
             axios
-              .post("https://www.api-adirek.online/api/course_price", course)
+              .post("http://www.localhost:3000/api/course_price", course)
               .then(function (response) {
                 if (response.status === 200) {
                   console.log(response.data)
                   let PriceId = response.data.price_id.toString()
                   axios
-                    .post("https://www.api-adirek.online/api/course_details", course)
+                    .post("http://www.localhost:3000/api/course_details", course)
                     .then(function (response) {
                       if (response.status === 200) {
                         console.log(response.data)
@@ -87,10 +88,10 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
                           headers: {"Content-Type": "application/x-www-form-urlencoded"},
                         }
                         axios
-                          .put(`https://www.api-adirek.online/api/course_list/${id}`, data)
+                          .put(`http://www.localhost:3000/api/course_list/${InstructorId}`, data)
                           .then(function (response) {
                             console.log(response.data)
-                            toast("เพิ่มคอร์สเรียบร้อยแล้ว")
+                            toast("เพิ่มคอร์สเรียบร้อยแล้ว")  
                             setBgColor("bg-success")
                             setLoading(false)
                           })

@@ -20,9 +20,9 @@ const LandingScreenInstructor = () => {
                 สมัครเลย !
               </h1>
               <div className=" me-0">
-                <p className="md:!text-[#0b132a] text-white !text-fmd drop-shadow-2xl !font-Mitr">
-                  ช่องทางรายได้ใหม่ๆ ไม่มีหักเปอร์เซ็นต์ หรือคอมมิชชั่นใดๆ
-                  ฟรีทุกอย่าง!
+                <p className="md:!text-[#0b132a] text-white !text-[3rem] drop-shadow-2xl !font-Mitr">
+                รับรายได้จากทักษะของคุณ <br/>ไม่หักเปอร์เซ็นต์ หรือคอมมิชชั่นใดๆ
+                 
                 </p>
               </div>
               <Link href="/Add" className="group ">

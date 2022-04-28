@@ -57,7 +57,7 @@ function FilterPlace(props) {
 
   // console.log(district)
   return (
-    <div className="address flex flex-col space-y-1 ">
+    <div className=" space-y-1 ">
       {/* <div className="flex justify-start focus:outline-none ">
         <InputAddress
           style={{width: "100%", outlineStyle: "none", fontSize: "1rem", fontWeight: "900"}}
@@ -83,7 +83,7 @@ function FilterPlace(props) {
           onSelect={onSelect}
         />
       </div> */}
-      <div className="flex justify-start">
+      <div className="">
         <form className="flex relative">
           <input
             className="rounded-lg p-1 border mr-0  text-gray-800 border-gray-200 bg-white subtext-Athiti !font-semibold !text-lg"

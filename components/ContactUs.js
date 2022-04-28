@@ -41,7 +41,7 @@ const ContactUs = () => {
     setLoading(true)
 
     axios
-      .post("https://www.api-adirek.online/api/contactus", contact)
+      .post("http://localhost:3000/api/contactus", contact)
       .then(function (response) {
         setWarnText(false)
         // setIsOpen(true)

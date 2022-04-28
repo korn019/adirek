@@ -27,15 +27,15 @@ const PartnerInstructor = () => {
                   />
                 </div>
                 <div className="wrap-details">
-                  <h4 className="text-Athiti !font-semibold !text-black">
+                  <p className="text-Athiti !font-semibold !text-black !text-3xl">
                     <a
                       href="#"
-                      className="text-Athiti !font-semibold !text-black"
+                      className=""
                     >
                       {" "}
                       รับรายได้จากลูกค้าทันที
                     </a>
-                  </h4>
+                  </p>
                   {/* <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Dui praesent nam fermentum, est neque, dignissim.
@@ -54,14 +54,14 @@ const PartnerInstructor = () => {
                   />
                 </div>
                 <div className="wrap-details">
-                  <h4 className="text-Athiti !font-semibold !text-black">
+                  <p className="text-Athiti !font-semibold !text-black !text-3xl">
                     <a
                       href="#"
-                      className="text-Athiti !font-semibold !text-black"
+                      className=""
                     >
                       ไม่มีหักเปอร์เซ็นต์
                     </a>
-                  </h4>
+                  </p>
                   {/* <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Dui praesent nam fermentum, est neque, dignissim.
@@ -80,14 +80,14 @@ const PartnerInstructor = () => {
                   />
                 </div>
                 <div className="wrap-details">
-                  <h4>
+                  <p className="text-Athiti !font-semibold !text-black !text-3xl">
                     <a
                       href="#"
-                      className="text-Athiti !font-semibold !text-black"
+                      className=""
                     >
                       มีลูกค้ามากกว่า 50,000 คน
                     </a>
-                  </h4>
+                  </p>
                   {/* <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Dui praesent nam fermentum, est neque, dignissim.

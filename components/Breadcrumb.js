@@ -9,14 +9,8 @@ const Breadcrumb = ({bread1, bread2, breadActive, href1, href2, hrefActive}) => 
       <div className="flex justify-start items-center">
         <div className="flex items-center overflow-y-auto whitespace-nowrap">
           <Link href="/">
-            <a className="text-gray-600 dark:text-gray-200">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-5 h-5"
-                viewBox="0 0 20 20"
-                fill="currentColor">
-                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-              </svg>
+            <a className="text-gray-600 dark:text-gray-400 text-lg  font-Athiti !font-semibold">
+              หน้าแรก
             </a>
           </Link>
           {breadcrumb1 ? (
@@ -80,8 +74,7 @@ const Breadcrumb = ({bread1, bread2, breadActive, href1, href2, hrefActive}) => 
                 </svg>
               </span>
               <Link href={hrefActive}>
-                <a className="text-blue-600 dark:text-blue-400 hover:underline font-title  text-flg">
-                  {" "}
+                <a className="text-blue-600 dark:text-blue-400 hover:underline  text-lg  font-Athiti !font-semibold">
                   {breadActive}
                 </a>
               </Link>
