@@ -1,9 +1,9 @@
 import Home from "../components/profile/Home";
 
-const profile = () => {
+const Profile = () => {
     return (
         <Home/>
     );
 }
 
-export default profile;
+export default Profile;
