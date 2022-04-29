@@ -48,7 +48,7 @@ export const DataProvider = ({children}) => {
       .catch((err) => {
         console.log(err)
       })
-  }, [setUserLogin, userLogin, data])
+  }, [setUserLogin, userLogin])
 
   return (
     <DataContext.Provider

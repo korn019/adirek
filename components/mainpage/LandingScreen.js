@@ -5,7 +5,7 @@ const LandingScreen = () => {
     <div className="row-hero">
       <div class="overlay"></div>
       <video
-        className="video object-cover "
+        className="video object-cover z-0"
         poster="/static/video/poster.png"
         autoPlay
         playsInline
@@ -27,10 +27,22 @@ const LandingScreen = () => {
           <br />
           <span className="text-fxl md:text-f4xl">ให้ทุกวันคือการสร้างโอกาสใหม่</span>
         </p>
-
-        <button className="btn shadow-2xl" style={{marginTop: 25}}>
+        {/* <Link href="/Category" className="group  text-center items-center justify-center flex">
+          <button
+            className="bg-orange-500 group-hover:bg-black  px-10 py-2 rounded-xl text-slate-200  !font-Prompt font-black  "
+            style={{
+              marginTop: 25,
+            }}>
+            <a className="drop-shadow-md font-Prompt text-flg md:text-f2xl group-hover:text-black ">
+              ค้นหาคอร์สเรียนออนไลน์
+            </a>
+          </button>
+        </Link> */}
+        <button
+          className="bg-orange-500 btn p-3 group-hover:bg-black  px-10   rounded-xl text-slate-200    !font-Prompt font-black "
+          style={{marginTop: 25}}>
           <Link href="/Category">
-            <span className="drop-shadow-md font-Prompt text-flg md:text-f2xl ">
+            <span className="drop-shadow-md font-Prompt text-flg md:text-f2xl">
               {" "}
               ค้นหาคอร์สเรียนออนไลน์{" "}
             </span>

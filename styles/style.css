@@ -6355,7 +6355,7 @@ display: none;
   overflow: hidden;
   align-items: center;
   justify-content: center;
-  background-color: var(--background-3);
+  background-color: var(--background-3) ;
   /* animation: buttonanimation 4s linear infinite; */
 }
 
@@ -6864,7 +6864,7 @@ button[type="submit"]{
   display: block;
   appearance: none;
   background: #333;
-  color: white;
+  color: white !important;
   border: none;
   text-transform: uppercase;
   padding: 10px 20px;
@@ -6873,8 +6873,8 @@ button[type="submit"]{
 button{
   display: block;
   appearance: none;
-  background: #333 !important;
-  color: white;
+  background: #333;
+  color: white !important;
   border: none;
   text-transform: uppercase;
   padding: 10px 20px;

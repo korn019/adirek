@@ -140,7 +140,7 @@ export default function Navbar() {
                     <Link href="/Login">
                       <a>
                         {" "}
-                        <p className="text-white">Sign IN</p>
+                        <p className="!text-white text-Athiti">เข้าสู่ระบบ</p>
                       </a>
                     </Link>
                   </>
@@ -164,7 +164,7 @@ export default function Navbar() {
                           />
                         </Menu.Button>
                         <p className="text-Athiti !font-semibold !text-white !text-base">
-                          {auth.user.email}
+                          {auth.user?.email}
                         </p>
                       </div>
                       <Transition
