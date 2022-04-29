@@ -1,4 +1,4 @@
-import CourseCard from "./course-card"
+import CourseCard from "./CourseCard"
 import {useRouter} from "next/router"
 import {DataContext} from "../../store/GlobalState"
 import {toast} from "react-toastify"
