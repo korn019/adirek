@@ -25,7 +25,7 @@ const RegisterPage = () => {
     e.preventDefault();
     // console.log(data);
     axios
-      .post("http://localhost:3000/api/users/register", data)
+      .post("https://www.api-adirek.online/api/users/register", data)
       .then((res) => {
         setBgColor("bg-success");
         toast("สมัครสมาชิกสำเร็จ");

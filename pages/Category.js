@@ -13,7 +13,7 @@ import axios from "axios"
 //   // const [isLoading, setIsLoading] = useState(false)
 //   // const getData = () => {
 //   //   axios
-//   //     .get("http://localhost:3000/api/instructor-course")
+//   //     .get("https://www.api-adirek.online/api/instructor-course")
 //   //     .then((res) => {
 //   //       setData(res.data)
 //   //       setIsLoading(true)

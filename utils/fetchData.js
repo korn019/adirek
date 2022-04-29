@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BaseUrl = "http://localhost:3000";
+const BaseUrl = "https://www.api-adirek.online"
 
 export const getData = async (url, token) => {
   const response = await axios(`${BaseUrl}/api/${url}`, {

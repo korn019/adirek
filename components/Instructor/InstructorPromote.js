@@ -9,7 +9,7 @@ import { css } from "@emotion/react";
 import SyncLoader from "react-spinners/SyncLoader";
 import ReactStars from "react-stars";
 import AdirekisInstructor from "../mainpage/AdirekisInstructor";
-import HowToBePartner from "./HowTobePartner";
+import HowToBePartner from "./HowToBePartner";
 import TestimonialInstructor from "./TestimonialInstructor";
 import PartnerInstructor from "./PartnerInstructor";
 import LandingScreenInstructor from "./LandingScreenInstructor";
@@ -40,7 +40,7 @@ const InstructorPromote = () => {
     e.preventDefault();
     setLoading(true);
     axios
-      .post("http://localhost:3000/api/instructors/contact", instructor)
+      .post("https://www.api-adirek.online/api/instructors/contact", instructor)
       .then(function (response) {
         setWarnText(false);
         setIsOpen(true);
