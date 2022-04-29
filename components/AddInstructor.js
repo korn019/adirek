@@ -56,7 +56,7 @@ const Add = () => {
 
   const categoryName = () => {
     axios
-      .get("http://localhost:3000/api/filterCategory")
+      .get("https://www.api-adirek.online/api/filterCategory")
       .then((res) => {
         setGetCategory(res.data);
       })
@@ -96,14 +96,14 @@ const Add = () => {
       setBgColor("bg-danger");
     } else {
       axios
-        .post("http://localhost:3000/api/instructor/add", instructor)
+        .post("https://www.api-adirek.online/api/instructor/add", instructor)
         .then(function (response) {
           setLoading(false);
           let idIns = response.data.add_id.toString();
           console.log(response.data.add_id.toString());
 
           axios
-            .post("http://localhost:3000/api/course_title", course)
+            .post("https://www.api-adirek.online/api/course_title", course)
             .then(function (response) {
               console.log(response);
               setWarnText(false);
@@ -112,7 +112,7 @@ const Add = () => {
                 let TitleId = response.data.title_id.toString();
                 axios
                   .post(
-                    "http://localhost:3000/api/course_price",
+                    "https://www.api-adirek.online/api/course_price",
                     course
                   )
                   .then(function (response) {
@@ -124,7 +124,7 @@ const Add = () => {
                       setLoading(false);
                       axios
                         .post(
-                          "http://localhost:3000/api/course_details",
+                          "https://www.api-adirek.online/api/course_details",
                           course
                         )
                         .then(function (response) {
@@ -151,7 +151,7 @@ const Add = () => {
                             };
                             axios
                               .put(
-                                `http://localhost:3000/api/course_list/${idIns}`,
+                                `https://www.api-adirek.online/api/course_list/${idIns}`,
                                 data
                               )
                               .then(function (response) {

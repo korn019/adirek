@@ -2,10 +2,11 @@ import Link from "next/link"
 import {useEffect, useState, useContext, Fragment} from "react"
 import {Disclosure, Menu, Transition, Dialog} from "@headlessui/react"
 import {BellIcon, MenuIcon, XIcon} from "@heroicons/react/outline"
-import {SearchCourseContext} from "../pages/Category"
+import {DataContext} from "../store/GlobalState"
 import {GiArchiveResearch} from "react-icons/gi"
 import {CourseCheck} from "./course/Courselabel"
 import {useRouter} from "next/router"
+import { toast } from "react-toastify";
 const navigation = [
   {name: "หน้าแรก", href: "/", current: true},
   {name: "คอร์สเรียนทั้งหมด", href: "/Category", current: false},
@@ -20,10 +21,9 @@ function classNames(...classes) {
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [course, setCourse] = useState(CourseCheck)
-  const {searchCourse, setSearchCourse} = useContext(SearchCourseContext)
+  const {searchCourse, setSearchCourse,data,userLogin,state, dispatch} = useContext(DataContext)
   const [navHead, setNavHead] = useState(false)
   const router = useRouter()
-
   const changeBg = () => {
     if (typeof window !== "undefined") {
       if (window.scrollY > 80) {
@@ -35,7 +35,13 @@ export default function Navbar() {
   }
   const LogOut = () => {
     localStorage.removeItem("token")
-    router.push("/Login")
+    localStorage.removeItem("user")
+    localStorage.removeItem("firstLogin")
+    window.location = "/Login"
+    dispatch({
+      type: "NOTIFY",
+      payload: { error: toast.error('Logged out') },
+    });
   }
 
   function closeModal() {
@@ -51,9 +57,11 @@ export default function Navbar() {
       setIsOpen(false)
     }
   }
+  const [users, setUsers] = useState([])
   useEffect(() => {
     window.addEventListener("scroll", changeBg)
-  }, [])
+    
+  }, [userLogin])
   const [isOpenModal, setIsOpenModal] = useState(false)
   return (
     <Disclosure as="nav" className="bg-gray-800 sticky w-full z-[999] top-0 left-0">
@@ -145,7 +153,9 @@ export default function Navbar() {
                         alt=""
                       />
                     </Menu.Button>
-                      <p className="text-Athiti !font-semibold !text-white !text-base">User</p>
+                  
+                                <p className="text-Athiti !font-semibold !text-white !text-base">{userLogin.email}</p>
+                
                   </div>
                   <Transition
                     as={Fragment}
@@ -159,7 +169,7 @@ export default function Navbar() {
                       <Menu.Item>
                         {({active}) => (
                           <a
-                            href="#"
+                            href="/profile"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"

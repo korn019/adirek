@@ -17,7 +17,7 @@ function Form() {
   const onSubmit = (data) => {
     console.log(data);
     axios
-      .post("http://localhost:3000/api/instructors/contact", data)
+      .post("https://www.api-adirek.online/api/instructors/contact", data)
       .then(function (response) {
       
         if (response.status === 200) {

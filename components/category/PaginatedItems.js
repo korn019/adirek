@@ -2,7 +2,7 @@ import ReactPaginate from "react-paginate";
 import { useState, useEffect, useContext } from "react";
 import SingleCourse from "../course/SingleCourse";
 import CourseNoCheckBox from "./CourseNoCheckBox";
-import { SearchCourseContext } from "../../pages/Category";
+import { DataContext } from "../../store/GlobalState";
 import { useRouter } from "next/router";
 const PaginatedItems = ({
   itemsPerPage,
@@ -28,8 +28,8 @@ const PaginatedItems = ({
 }) => {
   const router = useRouter();
   const query = Object.keys(router.query).toString();
-  const { searchCourse, setSearchCourse } = useContext(SearchCourseContext);
-  // const {searchCourse, setSearchCourse} = useState(SearchCourseContext)
+  const { searchCourse, setSearchCourse } = useContext(DataContext);
+  // const {searchCourse, setSearchCourse} = useState(DataContext)
 
   // let getparam = Object.keys(query)
   // let out = getparam.map((item) => item)

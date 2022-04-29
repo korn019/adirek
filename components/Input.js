@@ -33,11 +33,14 @@ export const SelectForm = ({
 }) => {
   return (
     <>
+     <label className=" !font-semibold px-1 subtext-Athiti block   text-gray-700 text-sm mb-2" for="grid-state">
+        {placeholder}
+      </label>
       <select {...register(label)} onChange={onChange}>
         {getCategory.map((item, index) => {
           return (
             <>
-              <option value={item.filter_id}>
+              <option value={item.filter_id} defaultValue={item.filter_category_course}>
                 {item.filter_category_course}
               </option>
             </>

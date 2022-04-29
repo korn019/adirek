@@ -1,4 +1,4 @@
-import { useState, Fragment } from "react";
+import { useState, Fragment, useContext } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { css } from "@emotion/react";
 import SyncLoader from "react-spinners/SyncLoader";
@@ -7,10 +7,13 @@ import Select from "./Select";
 import ClipLoader from "react-spinners/ClipLoader";
 import { useEffect } from "react";
 import Toast from "./Toast";
-import { toast } from "react-hot-toast";
+import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { Input, SelectForm } from "./Input";
+import { postData, putData } from "../utils/fetchData";
+import { DataContext } from "../store/GlobalState";
 const Add = () => {
+  const { state, dispatch } = useContext(DataContext);
   const {
     register,
     handleSubmit,
@@ -19,95 +22,80 @@ const Add = () => {
   } = useForm();
   const onSubmit = (data, e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:3000/api/instructor/add", data)
-      .then(function (response) {
-        setLoading(false);
-        let idIns = response.data.add_id.toString();
-        console.log(response.data.add_id.toString());
+    postData("instructor/add", data)
+      .then((res) => {
+        let idIns = res.data.add_id.toString();
 
-        axios
-          .post("http://localhost:3000/api/course_title", data)
-          .then(function (response) {
-            console.log(response);
-            setWarnText(false);
-            setIsOpen(true);
-            if (response.status === 200) {
-              let TitleId = response.data.title_id.toString();
-              axios
-                .post("http://localhost:3000/api/course_price", data)
-                .then(function (response) {
-                  console.log(response);
-                  setWarnText(false);
-                  setIsOpen(true);
-                  if (response.status === 200) {
-                    let PriceId = response.data.price_id.toString();
-                    setLoading(false);
-                    axios
-                      .post("http://localhost:3000/api/course_details", data)
-                      .then(function (response) {
-                        console.log(response);
-                        setWarnText(false);
-                        setIsOpen(true);
-                        if (response.status === 200) {
-                          let DetailId = response.data.detail_id.toString();
-                          setLoading(false);
-                          const data2 = {
-                            instructor_list_id: idIns,
-                            course_list_id: data.course_list_id,
-                            title_list_id: TitleId,
-                            price_list_id: PriceId,
-                            details_list_id: DetailId,
-                          };
+        postData("course_title", data)
+          .then((res) => {
+            let TitleId = res.data.title_id.toString();
+            postData("course_details", data)
+              .then((res) => {
+                let DetailId = res.data.detail_id.toString();
 
-                          console.log(data2);
-                          const config = {
-                            headers: {
-                              "Content-Type":
-                                "application/x-www-form-urlencoded",
-                            },
-                          };
-                          axios
-                            .put(
-                              `http://localhost:3000/api/course_list/${idIns}`,
-                              data2
-                            )
-                            .then(function (response) {
-                              console.log(response.data);
-                              toast("เพิ่มคอร์สเรียบร้อยแล้ว");
-                              setBgColor("bg-success");
-                              setLoading(false);
-                            })
-                            .catch((error) => {
-                              console.log(error.message);
-                              toast("เกิดข้อผิดพลาด ลองใหม่อีกครั้ง");
-                              setLoading(false);
-                              setBgColor("bg-danger");
-                            });
-                        }
+                postData("course_price", data)
+                  .then((res) => {
+                    let PriceId = res.data.price_id.toString();
+                    console.log(data.course_list_id);
+
+                    const data2 = {
+                      instructor_list_id: idIns,
+                      course_list_id: data.course_list_id,
+                      title_list_id: TitleId,
+                      price_list_id: PriceId,
+                      details_list_id: DetailId,
+                    };
+
+                    putData(`course_list/${idIns}`, data2)
+                      .then((res) => {
+                        dispatch({
+                          type: "NOTIFY",
+                          payload: { error: toast.success(res.data.message) },
+                        });
+                        console.log(res);
                       })
-                      .catch(function (err) {
+                      .catch((err) => {
+                        dispatch({
+                          type: "NOTIFY",
+                          payload: {
+                            error: toast.error(err.response.data.message),
+                          },
+                        });
                         console.log(err);
                       });
-                  }
-                })
-                .catch(function (err) {
-                  console.log(err);
+                  })
+                  .catch((err) => {
+                    dispatch({
+                      type: "NOTIFY",
+                      payload: {
+                        error: toast.error(err.response.data.message),
+                      },
+                    });
+                    console.log(err);
+                  });
+              })
+              .catch((err) => {
+                dispatch({
+                  type: "NOTIFY",
+                  payload: { error: toast.error(err.response.data.message) },
                 });
-            }
+                console.log(err);
+              });
           })
-          .catch(function (err) {
-            console.log(err);
+          .catch((err) => {
+            dispatch({
+              type: "NOTIFY",
+              payload: { error: toast.error(err.response.data.message) },
+            });
+            console.log(err.response.data);
           });
       })
-      .catch(function (error) {
-        console.log(error);
-        // // let err = error.response.error;
-        // setWarning(true);
-        // setWarnText(`***${error}***`);
-        // if (error.response.status === 400) {
-        //   setLoading(false);
-        // }
+      .catch((err) => {
+        console.log(err);
+        dispatch({
+          type: "NOTIFY",
+          payload: { error: toast.error(err.response.data.message) },
+        });
       });
   };
 
@@ -157,7 +145,7 @@ const Add = () => {
 
   const categoryName = () => {
     axios
-      .get("http://localhost:3000/api/filterCategory")
+      .get("https://www.api-adirek.online/api/filterCategory")
       .then((res) => {
         setGetCategory(res.data);
       })
@@ -189,7 +177,7 @@ const Add = () => {
               <div className="w-full py-10 px-12 sm:px-4 md:px-10 ">
                 <div className="text-center mb-10">
                   <h2 className="text-Athiti !font-semibold !text-titleBlue  !text-[3rem] !leading-none md:!text-[4rem] ">
-                  ลงทะเบียนผู้สอน
+                    ลงทะเบียนผู้สอน
                   </h2>
                   {/* <h1 className="font-title text-f4xl text-gray-900">
                     ลงทะเบียน
@@ -204,7 +192,6 @@ const Add = () => {
                       label="firstName"
                       register={register}
                       placeholder="ชื่อจริง"
-                      required
                     />
 
                     <Input
@@ -274,133 +261,43 @@ const Add = () => {
                       placeholder="อีเมลผู้กรอกฟอร์ม"
                     />
                   </div>
-                  <div className="text-left relative  flex cursor-pointer my-4">
-                    <div
-                      className=" subtext-Athiti !font-semibold  !text-2xl  border-2  focus:ring-1 focus:outline-none focus:border-[#ff013c]  focus:text-[#ff013c]  bg-[#D1157B] rounded-lg  px-2 py-1 text-center mr-2 mb-2"
-                      onClick={() => setIsOpenAddCourse(true)}
-                    >
-                      <p className="text-Athiti !text-white">เพิ่มคอร์ส</p>
+
+                  <div className="my-5">
+                    <div>
+                      <label>คอร์สของคุณ</label>
                     </div>
+                    <SelectForm
+                      placeholder="ประเภท"
+                      label="course_list_id"
+                      register={register}
+                      getCategory={getCategory}
+                    />
+                    <Input
+                      label="title_course"
+                      register={register}
+                      placeholder="หัวข้อคอร์ส"
+                    />
+                    <Input
+                      label="detail"
+                      register={register}
+                      placeholder="รายละเอียดคอร์ส"
+                    />
+                    <Input
+                      label="price_course"
+                      register={register}
+                      placeholder="ราคาคอร์ส"
+                      type="number"
+                    />
                   </div>
-
-                  <Transition show={isOpenAddCourse} as={Fragment}>
-                    <Dialog
-                      as="div"
-                      className="fixed inset-0 z-50 overflow-y-auto items-center justify-center mt-4"
-                      onClose={closeModal}
-                    >
-                      <div className="min-h-screen px-4 text-center">
-                        <Transition.Child
-                          as={Fragment}
-                          enter="ease-out duration-300"
-                          enterFrom="opacity-0"
-                          enterTo="opacity-100"
-                          leave="ease-in duration-200"
-                          leaveFrom="opacity-100"
-                          leaveTo="opacity-0"
-                        >
-                          <Dialog.Overlay className="fixed inset-0 bg-black/[.2]" />
-                        </Transition.Child>
-
-                        {/* This element is to trick the browser into centering the modal contents. */}
-                        <span
-                          className="inline-block h-screen align-middle"
-                          aria-hidden="true"
-                        >
-                          &#8203;
-                        </span>
-                        <Transition.Child
-                          as={Fragment}
-                          enter="ease-out duration-300"
-                          enterFrom="opacity-0 scale-95"
-                          enterTo="opacity-100 scale-100"
-                          leave="ease-in duration-200"
-                          leaveFrom="opacity-100 scale-100"
-                          leaveTo="opacity-0 scale-95"
-                        >
-                          <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-                            <div className="flex justify-between items-center">
-                              <Dialog.Title
-                                as="h3"
-                                className="text-lg font-medium leading-6 text-gray-900"
-                              >
-                                {/* <h3 className="text-fxl font-title">{category}</h3> */}
-                              </Dialog.Title>
-                              <Dialog.Title
-                                as="h3"
-                                className="text-right leading-6 text-gray-900"
-                              >
-                                <button
-                                  className="font-black"
-                                  onClick={closeModal}
-                                >
-                                  X
-                                </button>
-                              </Dialog.Title>
-                            </div>
-
-                            <SelectForm
-                              label="course_list_id"
-                              register={register}
-                              getCategory={getCategory}
-                            />
-                            <Input
-                              label="title_course"
-                              register={register}
-                              placeholder="หัวข้อคอร์ส"
-                            />
-                            <Input
-                              label="detail"
-                              register={register}
-                              placeholder="รายละเอียดคอร์ส"
-                            />
-                            <Input
-                              label="price_course"
-                              register={register}
-                              placeholder="ราคาคอร์ส"
-                            />
-
-                            <div className="sweet-loading text-center">
-                              <ClipLoader
-                                color="blue"
-                                loading={loading}
-                                size={82}
-                              />
-                            </div>
-                          </div>
-                        </Transition.Child>
-                      </div>
-                    </Dialog>
-                  </Transition>
-                  <SelectForm
-                              label="course_list_id"
-                              register={register}
-                              getCategory={getCategory}
-                            />
-                            <Input
-                              label="title_course"
-                              register={register}
-                              placeholder="หัวข้อคอร์ส"
-                            />
-                            <Input
-                              label="detail"
-                              register={register}
-                              placeholder="รายละเอียดคอร์ส"
-                            />
-                            <Input
-                              label="price_course"
-                              register={register}
-                              placeholder="ราคาคอร์ส"
-                            />
                   <button
-                            className=" subtext-Athiti !font-semibold  !text-3xl bg-gradient-to-r from-pink-500 hover:to-yellow-5 inline-block px-8 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
-                            type="submit"
-                            data-mdb-ripple="true"
-                            data-mdb-ripple-color="light"
-                            s>
-                            ลงทะเบียน
-                          </button>
-
+                    className=" subtext-Athiti !font-semibold  !text-3xl bg-gradient-to-r from-pink-500 hover:to-yellow-5 inline-block px-8 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
+                    type="submit"
+                    data-mdb-ripple="true"
+                    data-mdb-ripple-color="light"
+                    s
+                  >
+                    ลงทะเบียน
+                  </button>
                 </form>
               </div>
             </div>

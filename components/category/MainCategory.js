@@ -6,14 +6,14 @@ import PaginatedItems from "./PaginatedItems"
 import {CourseCheck2} from "./Check"
 import {PriceData} from "./Price"
 import {useRouter} from "next/router"
-import {SearchCourseContext} from "../../pages/Category"
+import {DataContext} from "../../store/GlobalState"
 import SearchCourse from "../blog/SearchCourse"
 import axios from "axios"
 import ClipLoader from "react-spinners/ClipLoader"
 const MainCategory = () => {
   //  console.log(`searchCourse: ${setSearchCourse}`)
   //Filter Course & Price
-  const {searchCourse, setSearchCourse} = useContext(SearchCourseContext)
+  const {searchCourse, setSearchCourse} = useContext(DataContext)
 
   const [data, setData] = useState([])
   const [dataJson, setDataJson] = useState([])
@@ -105,7 +105,7 @@ const MainCategory = () => {
   // console.log(data)
   const getData = async () => {
     axios
-      .get("http://localhost:3000/api/instructor-course")
+      .get("https://www.api-adirek.online/api/instructor-course")
       .then((res) => {
         setData(res.data)
         setIsLoading(true)

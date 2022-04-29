@@ -1,50 +1,58 @@
-import {useRouter} from "next/router"
-import {useState, useEffect, useContext} from "react"
-import BreadcrumbPage from "../../components/BreadcrumbPage"
-import ReactPaginate from "react-paginate"
-import SingleCourse from "../../components/course/SingleCourse"
-import BannerAds from "../../components/BannerAds"
-import {SearchCourseContext} from "../Category"
+import { useRouter } from "next/router";
+import { useState, useEffect, useContext } from "react";
+import BreadcrumbPage from "../../components/BreadcrumbPage";
+import ReactPaginate from "react-paginate";
+import SingleCourse from "../../components/course/SingleCourse";
+import BannerAds from "../../components/BannerAds";
+import { DataContext, SearchCourseContext } from "../../store/GlobalState";
 
 const CourseCategory = () => {
-  const {data, isLoading} = useContext(SearchCourseContext)
-  const router = useRouter()
-  const {Search} = router.query
+  const { data, isLoading } = useContext(DataContext);
+  const router = useRouter();
+  const { Search } = router.query;
   // const [data, setData] = useState([])
   // const [isLoading, setIsLoading] = useState(false)
 
-  const [currentItems, setCurrentItems] = useState(null)
-  const [pageCount, setPageCount] = useState(0)
-  const [itemOffset, setItemOffset] = useState(0)
-  const [checkItem, setCheckItem] = useState([])
+  const [currentItems, setCurrentItems] = useState(null);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffset, setItemOffset] = useState(0);
+  const [checkItem, setCheckItem] = useState([]);
 
   useEffect(() => {
     // getData()
-    const endOffset = itemOffset + 20
-    setCurrentItems(items.slice(itemOffset, endOffset))
-    setPageCount(Math.ceil(items.length / 20))
-  }, [data, itemOffset, Search])
+    const endOffset = itemOffset + 20;
+    setCurrentItems(items.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(items.length / 20));
+  }, [data, itemOffset, Search]);
 
   const SearchCateCourse = data.filter((v) => {
     if (Search !== undefined) {
       if (Search.length > 0) {
         return (
-          v.filter_category_course.toLowerCase().includes(Search.toLowerCase()) ||
+          v.filter_category_course
+            .toLowerCase()
+            .includes(Search.toLowerCase()) ||
           v.firstName.toLowerCase().includes(Search.toLowerCase()) ||
           v.detail.toLowerCase().includes(Search.toLowerCase()) ||
           v.price_course.toLowerCase().includes(Search.toLowerCase())
-        )
+        );
       }
     }
-  })
+  });
   const items = SearchCateCourse.map((course) => {
-    return <SingleCourse course={course} key={course.instructor_id} index={course.instructor_id} />
-  })
+    return (
+      <SingleCourse
+        course={course}
+        key={course.instructor_id}
+        index={course.instructor_id}
+      />
+    );
+  });
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * 20) % items.length
-    setItemOffset(newOffset)
-  }
+    const newOffset = (event.selected * 20) % items.length;
+    setItemOffset(newOffset);
+  };
   // const getData = () => {
   //   fetch("../../assets/json/user.json", {
   //     headers: {
@@ -70,7 +78,7 @@ const CourseCategory = () => {
   //   })
   // const getData = () => {
   //   axios
-  //     .get("http://localhost:3000/api/instructor-course")
+  //     .get("https://www.api-adirek.online/api/instructor-course")
   //     .then((res) => {
   //       setData(res.data)
   //       setIsLoading(true)
@@ -80,9 +88,9 @@ const CourseCategory = () => {
   //     })
   // }
 
-  let courseCounter = []
+  let courseCounter = [];
   for (let i = 0; i < SearchCateCourse.length; i++) {
-    courseCounter = SearchCateCourse.length
+    courseCounter = SearchCateCourse.length;
   }
 
   return (
@@ -109,7 +117,7 @@ const CourseCategory = () => {
                     <div key={index}>
                       <h3>{item}</h3>
                     </div>
-                  )
+                  );
                 })}
             </div>
             <div className="flex justify-center items-center grid-cols-1 lg:grid-cols-3 w-full">
@@ -151,7 +159,7 @@ const CourseCategory = () => {
         <BannerAds />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default CourseCategory
+export default CourseCategory;

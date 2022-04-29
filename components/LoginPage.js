@@ -1,64 +1,90 @@
-import {Input} from "./Input"
-import {useForm} from "react-hook-form"
-import Toast from "./Toast"
+import { Input } from "./Input";
+import { useForm } from "react-hook-form";
+import Toast from "./Toast";
 // import {toast} from "react-hot-toast"
-import axios from "axios"
-import {useState} from "react"
-import Link from "next/link"
-import {useRouter} from "next/router"
-import {toast} from "react-toastify"
-
+import axios from "axios";
+import { useState, useContext } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { toast } from "react-toastify";
+import { DataContext } from "../store/GlobalState";
+import { getData, postData } from "../utils/fetchData";
 const LoginPage = () => {
-  const router = useRouter()
+  const { state, dispatch } = useContext(DataContext);
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     watch,
-    formState: {errors},
-  } = useForm()
+    formState: { errors },
+  } = useForm();
 
-  const [bgColor, setBgColor] = useState("")
+  const [bgColor, setBgColor] = useState("");
 
   const onSubmit = (data, e) => {
-    e.preventDefault()
+    e.preventDefault();
     // console.log(data)
-    axios
-      .post("http://localhost:3000/api/users/login", data)
-      .then((res) => {
-        localStorage.setItem("token", res.data.token)
-        setBgColor("bg-success")
-        toast.success("เข้าสู่ระบบสำเร็จ")
+    postData("users/login", data)
+      .then((response) => {
+        console.log(response.data.users)
+        // console.log( JSON.stringify(response.data)); 
+        dispatch({type: 'AUTH', payload: {
+          user: response.data.users,
+          token: response.data.token
+        } });
+        dispatch({
+          type: "NOTIFY",
+          payload: { success: toast.success(response.data.message) },
+        });
+        localStorage.setItem("token", response.data.token);
+          localStorage.setItem("firstLogin", true);
+        // getData("users/auth", response.data.token)
+        // .then((res) => {
+        //   localStorage.setItem("user",  JSON.stringify(res.data.user));
+        //   console.log( res.data.user);
+        // }).catch((err) => {
+        //   console.log(err.response)
+        // })
+
         setTimeout(() => {
-          router.push("/")
-        }, 1000)
+          router.push("/");
+        }, 2000);
       })
       .catch((err) => {
-        console.log(err.response.message)
-        setBgColor("bg-danger")
-        toast.error(err.response.data.message)
-      })
-  }
+        console.log(err.response.data.message);
+        setBgColor("bg-danger");
+        dispatch({
+          type: "NOTIFY",
+          payload: { error: toast.error(err.response.data.message) },
+        });
+     
+      });
+    // axios
+    //   .post("https://www.api-adirek.online/api/users/login", data)
+    //   .then((res) => {
+    //     localStorage.setItem("token", res.data.token);
+    //     setBgColor("bg-success");
+    //     dispatch({
+    //       type: "NOTIFY",
+    //       payload: { success: toast.success("เข้าสู่ระบบสำเร็จ") },
+    //     });
+    //     setTimeout(() => {
+    //       router.push("/");
+    //     }, 1000);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err.response.message);
+    //     setBgColor("bg-danger");
+    //     dispatch({
+    //       type: "NOTIFY",
+    //       payload: { error: toast.error(err.response.data.message) },
+    //     });
+    //   });
+  };
 
   return (
     <>
-      <Toast toast={toast.message} bgColor={bgColor} />
       <section className="h-full gradient-form bg-gray-200 ">
-        <div>
-          {/* <ToastContainer
-            bodyClassName="!font-semibold text-Athiti"
-            // toastClassName={`${bgColor}`}
-            draggablePercent={60}
-            position="top-right"
-            autoClose={2000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          /> */}
-        </div>
         <div className="container py-12 px-6 h-full">
           <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
             <div className="xl:w-10/12">
@@ -73,8 +99,9 @@ const LoginPage = () => {
                           alt="logo"
                         />
                         <p
-                          className="text-black text-center  drop-shadow-xl  font-semibold font-Athiti
-        text-f2xl md:text-f3xl lg:text-[3rem]">
+                          className="text-black text-center    font-semibold font-Athiti
+        text-f2xl md:text-f3xl lg:text-[3rem]"
+                        >
                           เปิดประตู{" "}
                           <strong className="!text-[#FF5959]  font-Athiti">
                             "สู่การเรียนรู้"{" "}
@@ -85,7 +112,11 @@ const LoginPage = () => {
                       <form onSubmit={handleSubmit(onSubmit)}>
                         <p className="mb-4">Please login to your account</p>
                         <div className="mb-4">
-                          <Input label="email" register={register} placeholder="Email Address" />
+                          <Input
+                            label="email"
+                            register={register}
+                            placeholder="Email Address"
+                          />
                         </div>
                         <div className="">
                           <Input
@@ -101,7 +132,8 @@ const LoginPage = () => {
                             type="submit"
                             data-mdb-ripple="true"
                             data-mdb-ripple-color="light"
-                            s>
+                            s
+                          >
                             Log in
                           </button>
                           <div className="flex  justify-end">
@@ -117,7 +149,8 @@ const LoginPage = () => {
                               type="button"
                               className="inline-block px-6 py-2 border-2 border-red-600 text-white font-medium text-xs leading-tight uppercase rounded hover:!bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                               data-mdb-ripple="true"
-                              data-mdb-ripple-color="light">
+                              data-mdb-ripple-color="light"
+                            >
                               Register
                             </button>
                           </Link>
@@ -132,6 +165,6 @@ const LoginPage = () => {
         </div>
       </section>
     </>
-  )
-}
-export default LoginPage
+  );
+};
+export default LoginPage;

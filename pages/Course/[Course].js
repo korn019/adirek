@@ -14,7 +14,7 @@ const Instructor = () => {
   
   const getData =  () => {
     axios
-      .get("http://localhost:3000/api/instructor-course")
+      .get("https://www.api-adirek.online/api/instructor-course")
       .then((res) => {
         setDataJson(res.data)
       })

@@ -275,7 +275,7 @@ import Link from "next/link";
 import { useEffect, useState, useContext, Fragment } from "react";
 import { CourseCheck } from "../course/Courselabel";
 import { CourseCheck2 } from "../category/Check";
-import { SearchCourseContext } from "../../pages/Category";
+import { DataContext } from "../../store/GlobalState";
 import { useRouter } from "next/router";
 import { Dialog, Transition } from "@headlessui/react";
 import { GiArchiveResearch } from "react-icons/gi";
@@ -283,7 +283,7 @@ function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [course, setCourse] = useState(CourseCheck);
   const router = useRouter();
-  const { searchCourse, setSearchCourse } = useContext(SearchCourseContext);
+  const { searchCourse, setSearchCourse } = useContext(DataContext);
   const [navHead, setNavHead] = useState(false);
   
   const changeBg = () => {

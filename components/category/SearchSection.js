@@ -1,7 +1,7 @@
 import {useState, useContext} from "react"
-import {SearchCourseContext} from "../../pages/Category"
+import {DataContext} from "../../store/GlobalState"
 const SearchSection = (props) => {
-    const {searchCourse, setSearchCourse} = useContext(SearchCourseContext)
+    const {searchCourse, setSearchCourse} = useContext(DataContext)
 //   const {search, setSearch} = props
   return (
     <div className="blog-cat ">

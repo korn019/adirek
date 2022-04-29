@@ -1,39 +1,47 @@
-import {useState, useEffect, useContext} from "react"
-import ReactPaginate from "react-paginate"
-import BannerAds from "../BannerAds"
-import BreadcrumbPage from "../BreadcrumbPage"
-import SingleCourse from "./SingleCourse"
-import SwiperCourse from "./SwiperCourse"
-import axios from "axios"
-import ClipLoader from "react-spinners/ClipLoader"
-import {SearchCourseContext} from "../../pages/Category"
-const CoursePage = ({e, dataJson}) => {
-  const {data, isLoading} = useContext(SearchCourseContext)
+import { useState, useEffect, useContext } from "react";
+import ReactPaginate from "react-paginate";
+import BannerAds from "../BannerAds";
+import BreadcrumbPage from "../BreadcrumbPage";
+import SingleCourse from "./SingleCourse";
+import SwiperCourse from "./SwiperCourse";
+import axios from "axios";
+import ClipLoader from "react-spinners/ClipLoader";
+import { DataContext } from "../../store/GlobalState";
+const CoursePage = ({ e, dataJson }) => {
+  // const {data, isLoading} = useContext(DataContext)
+  const {state, dispatch, data, isLoading} = useContext(DataContext);
+  // const {data, isLoading} = state
   // const [dataJson, setDataJson] = useState([])
   // const [isLoading, setIsLoading] = useState(false);
-  let [loading, setLoading] = useState(false)
+  let [loading, setLoading] = useState(false);
 
   // const [data, setData] = useState([]);
 
-  const [currentItems, setCurrentItems] = useState(null)
-  const [pageCount, setPageCount] = useState(0)
-  const [itemOffset, setItemOffset] = useState(0)
-  const [checkItem, setCheckItem] = useState([])
+  const [currentItems, setCurrentItems] = useState(null);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffset, setItemOffset] = useState(0);
+  const [checkItem, setCheckItem] = useState([]);
 
   const Filter = data.filter((x) => {
     if (e.value == e.category) {
-      return x.main_category == e.category
+      return x.main_category == e.category;
     } else {
-      return x.filter_category_course == e.value
+      return x.filter_category_course == e.value;
     }
-  })
+  });
   const items = Filter.map((course) => {
-    return <SingleCourse course={course} key={course.instructor_id} index={course.instructor_id} />
-  })
+    return (
+      <SingleCourse
+        course={course}
+        key={course.instructor_id}
+        index={course.instructor_id}
+      />
+    );
+  });
   useEffect(() => {
     // const getData = async  () => {
     //   await   axios
-    //     .get("http://localhost:3000/api/instructor-course")
+    //     .get("https://www.api-adirek.online/api/instructor-course")
     //     .then((res) => {
     //       setData(res.data);
     //       setIsLoading(true);
@@ -44,30 +52,30 @@ const CoursePage = ({e, dataJson}) => {
     // };
 
     // getData();
-    const endOffset = itemOffset + 24
-    setCurrentItems(items.slice(itemOffset, endOffset))
-    setPageCount(Math.ceil(items.length / 24))
+    const endOffset = itemOffset + 24;
+    setCurrentItems(items.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(items.length / 24));
     // setData(data.map((item, id) => Object.assign(item, {id})))
-  }, [data, itemOffset])
+  }, [data, itemOffset]);
 
-  let availableCourse = data.map((item) => item.filter_category_course)
-  let availableCourseCategory = data.map((item) => item.main_category)
-  let filterLength = availableCourse.filter((num) => e.value.includes(num))
+  let availableCourse = data.map((item) => item.filter_category_course);
+  let availableCourseCategory = data.map((item) => item.main_category);
+  let filterLength = availableCourse.filter((num) => e.value.includes(num));
 
   let CourseLength = availableCourseCategory.filter((num) => {
     if (e.value.includes("Design")) {
-      return num.includes("Design")
+      return num.includes("Design");
     } else if (e.value.includes("วิชาการ")) {
-      return num.includes("วิชาการ")
+      return num.includes("วิชาการ");
     } else if (e.value.includes("Life Style")) {
-      return num.includes("Life Style")
+      return num.includes("Life Style");
     }
-  })
+  });
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * 24) % items.length
-    setItemOffset(newOffset)
-  }
+    const newOffset = (event.selected * 24) % items.length;
+    setItemOffset(newOffset);
+  };
 
   return (
     <>
@@ -100,7 +108,7 @@ const CoursePage = ({e, dataJson}) => {
                   <div key={index}>
                     <h3>{item}</h3>
                   </div>
-                )
+                );
               })}
           </div>
           <div className="flex justify-center items-center grid-cols-1 lg:grid-cols-3 w-full">
@@ -139,7 +147,7 @@ const CoursePage = ({e, dataJson}) => {
         </>
       )}
     </>
-  )
-}
+  );
+};
 
-export default CoursePage
+export default CoursePage;

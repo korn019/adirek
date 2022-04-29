@@ -1,41 +1,56 @@
-import {Input, SelectType} from "./Input"
-import {useForm} from "react-hook-form"
-import Toast from "./Toast"
-import {toast} from "react-toastify"
-import axios from "axios"
-import {useState} from "react"
-import {useRouter} from "next/router"
+import { Input, SelectType } from "./Input";
+import { useForm } from "react-hook-form";
+import Toast from "./Toast";
+import { toast } from "react-toastify";
+import axios from "axios";
+import { useState, useContext,useEffect } from "react";
+import { useRouter } from "next/router";
+import { DataContext } from "../store/GlobalState";
+import Link from "next/link";
 const RegisterPage = () => {
-  const router = useRouter()
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     watch,
-    formState: {errors},
-  } = useForm()
-  const [bgColor, setBgColor] = useState("")
+    formState: { errors },
+  } = useForm();
+  const [bgColor, setBgColor] = useState("");
+  const { state, dispatch,userLogin } = useContext(DataContext);
+  const {auth} = state
   const onSubmit = (data, e) => {
-    e.preventDefault()
+    e.preventDefault();
     // console.log(data);
     axios
-      .post("http://localhost:3000/api/users/register", data)
+      .post("https://www.api-adirek.online/api/users/register", data)
       .then((res) => {
-        setBgColor("bg-success")
-        toast("สมัครสมาชิกสำเร็จ")
+        setBgColor("bg-success");
+        toast("สมัครสมาชิกสำเร็จ");
         // console.log(res);
-        router.push("/Login")
+        router.push("/Login");
         // window.location = "/Login";
+        dispatch({
+          type: "NOTIFY",
+          payload: { success: toast(res.data.message) },
+        });
       })
-      .catch((err) => {
-        console.log(err.response.data)
-        setBgColor("bg-danger")
-        toast(err.response.data.message)
-      })
-  }
+      .catch((error) => {
+        console.log(error.response.data.message);
+        setBgColor("bg-danger");
+        // toast(err.data.message)
+        dispatch({
+          type: "NOTIFY",
+          payload: { error: toast(error.response.data.message) },
+        });
+      });
+  };
+  useEffect(() => {
+    
+ 
+  }, [])
+  
   return (
     <>
-      <Toast t={toast.message} bgColor={bgColor} />
-
       <div className="w-full bg-grey-lightest">
         <div className="container mx-auto py-8">
           <div className="w-5/6 lg:w-1/2 mx-auto bg-white rounded shadow">
@@ -45,7 +60,11 @@ const RegisterPage = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="py-4 px-8">
                 <div className="w-full md:w-1/3  mb-6 md:mb-0">
-                  <SelectType label="type" register={register} placeholder="ประเภทบัญชี" />
+                  <SelectType
+                    label="type"
+                    register={register}
+                    placeholder="ประเภทบัญชี"
+                  />
                 </div>
                 <div className="flex mb-4">
                   <div className="w-1/2 mr-1">
@@ -66,7 +85,11 @@ const RegisterPage = () => {
                   </div>
                 </div>
                 <div className="mb-4">
-                  <Input label="tel" register={register} placeholder="เบอร์โทรศัพท์" />
+                  <Input
+                    label="tel"
+                    register={register}
+                    placeholder="เบอร์โทรศัพท์"
+                  />
                 </div>
                 <div className="mb-4">
                   <Input
@@ -83,7 +106,9 @@ const RegisterPage = () => {
                     placeholder="Password"
                     type="password"
                   />
-                  <p className="text-grey text-xs mt-1">รหัสผ่านอย่างน้อย 8 ตัวอักษร</p>
+                  <p className="text-grey text-xs mt-1">
+                    รหัสผ่านอย่างน้อย 8 ตัวอักษร
+                  </p>
                 </div>
                 <div className="">
                   <Input
@@ -96,16 +121,25 @@ const RegisterPage = () => {
                 <div className="flex items-center justify-between">
                   <button
                     className="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full"
-                    type="submit">
+                    type="submit"
+                  >
                     Sign Up
                   </button>
                 </div>
+                <div className="flex items-center justify-start my-6">
+                          <p className="mb-0 mr-2">Already have an account?</p>
+                          <Link href="/Login">
+                            <a className="text-red-400">
+                              Login Now
+                            </a>
+                          </Link>
+                        </div>
               </div>
             </form>
           </div>
         </div>
       </div>
     </>
-  )
-}
-export default RegisterPage
+  );
+};
+export default RegisterPage;

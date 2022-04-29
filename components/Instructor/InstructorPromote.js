@@ -40,7 +40,7 @@ const InstructorPromote = () => {
     e.preventDefault();
     setLoading(true);
     axios
-      .post("http://localhost:3000/api/instructors/contact", instructor)
+      .post("https://www.api-adirek.online/api/instructors/contact", instructor)
       .then(function (response) {
         setWarnText(false);
         setIsOpen(true);

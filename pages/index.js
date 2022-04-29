@@ -1,44 +1,38 @@
-import Main from "../components/mainpage/Main"
-import {useEffect, useState} from "react"
-import axios from "axios"
-import Toast from "../components/Toast"
-import {toast} from "react-hot-toast"
+import Main from "../components/mainpage/Main";
+import { useEffect, useState, useContext } from "react";
+import axios from "axios";
+import Toast from "../components/Toast";
+import { toast } from "react-toastify";
+import { getData } from "../utils/fetchData";
+import { DataContext } from "../store/GlobalState";
 export default function Home() {
-  const [bgColor, setBgColor] = useState("")
+  const [bgColor, setBgColor] = useState("");
+  const { state, dispatch } = useContext(DataContext);
   useEffect(() => {
-    const token = localStorage.getItem("token")
-    const config = {
-      headers: {
-        Authorization: `Bearer {eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVlIiwiaWF0IjoxNjUxMDgyMDA1LCJleHAiOjE2NTM2NzQwMDV9.MO8nCs1gEMJPzcFz0-PdPAUg1qX0aezRdM_olVGooAA}
-`,
-      },
-    }
-    console.log(token)
-    axios
-      .get("http://localhost:3000/api/users/auth", {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': "Bearer " + token,
-        },
-      })
+    const token = localStorage.getItem("token");
+
+    getData("users/auth", token)
       .then((res) => {
-        // console.log(res.data.message)
-        setBgColor("bg-success")
-        toast(res.data.message)
+        dispatch({
+          type: "NOTIFY",
+          payload: { success: toast.success(res.data.message) },
+        });
       })
-      .catch((err) => {
-        console.log(err)
-        setBgColor("bg-danger")
-        toast(err)
-        window.location = "/Login"
-        localStorage.removeItem("token")
-      })
-  }),
-    []
+      .catch((error) => {
+        console.log(error.response);
+        dispatch({
+          type: "NOTIFY",
+          payload: { error: toast.error(error) },
+        });
+        localStorage.removeItem("token");
+        // window.location = "/Login"
+      });
+  }, []);
+
   return (
     <>
-      <Toast t={toast.message} bgColor={bgColor} />
+      {/* <Toast t={toast.message} bgColor={bgColor} /> */}
       <Main />
     </>
-  )
+  );
 }

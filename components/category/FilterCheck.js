@@ -1,7 +1,7 @@
 import {useEffect, useState, useContext} from "react"
 import Checkbox from "./CheckBox"
 import FilterPlace from "./FilterPlace"
-import {SearchCourseContext} from "../../pages/Category"
+import {DataContext} from "../../store/GlobalState"
 import {contextSourcesMap} from "tailwindcss/lib/lib/sharedState"
 const filterCheck = ({
   handleSubmit,
@@ -40,7 +40,7 @@ const filterCheck = ({
     setList(CourseCheck)
     setPrice(PriceData)
   }, [])
-  const {setSearchCourse, searchCourse} = useContext(SearchCourseContext)
+  const {setSearchCourse, searchCourse} = useContext(DataContext)
 
   const PriceCourse = price.map((item) => {
     return (
