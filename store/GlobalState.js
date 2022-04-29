@@ -1,61 +1,54 @@
-import {
-  Children,
-  createContext,
-  useReducer,
-  useState,
-  useEffect,
-} from "react";
-import reducers from "./Reducers";
-import axios from "axios";
-import { getData } from "../utils/fetchData";
-export const DataContext = createContext();
+import {Children, createContext, useReducer, useState, useEffect} from "react"
+import reducers from "./Reducers"
+import axios from "axios"
+import {getData} from "../utils/fetchData"
+export const DataContext = createContext()
 
-export const DataProvider = ({ children }) => {
-  const initialState = { notify: {}, auth: {} };
-  const [state, dispatch] = useReducer(reducers, initialState);
-  const { auth } = state;
-
-  const [searchCourse, setSearchCourse] = useState("");
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [userLogin, setUserLogin] = useState([]);
-  // const getData = () => {
-  //   axios
-  //     .get("https://www.api-adirek.online/api/instructor-course")
-  //     .then((res) => {
-  //       setData(res.data);
-  //       setIsLoading(true);
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  // };
-  // const userLogin = JSON.parse(localStorage.getItem("user"))
+export const DataProvider = ({children}) => {
+  const initialState = {notify: {}, auth: {}, courseData: {}, searchCourseNav: "", isLoading: null}
+  const [state, dispatch] = useReducer(reducers, initialState)
+  // const [course, dispatch] = useReducer(course, initialState)
+  const {auth} = state
+  const [data, setData] = useState([])
+  const [searchCourse, setSearchCourse] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+  const [userLogin, setUserLogin] = useState([])
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    const firstLogin = localStorage.getItem("firstLogin");
-
+    const token = localStorage.getItem("token")
+    const firstLogin = localStorage.getItem("firstLogin")
     if (firstLogin) {
       getData("users/auth", token)
         .then((res) => {
-          localStorage.setItem("user", JSON.stringify(res.data.user));
-          let keepUser =  JSON.parse(localStorage.getItem("user"))
-          setUserLogin(keepUser);
+          // console.log(res)
+          dispatch({
+            type: "AUTH",
+            payload: {
+
+              user:res.data.user,
+              token: token
+            }
+          })
+          // localStorage.setItem("user", JSON.stringify(res.data.user));
+          // let keepUser =  JSON.parse(localStorage.getItem("user"))
+          // setUserLogin(keepUser);
         })
         .catch((err) => {
-          console.log(err.response);
-        });
+          localStorage.removeItem("firstLogin")
+          console.log(err.response)
+        })
     }
 
     getData("instructor-course", token)
       .then((res) => {
-        setData(res.data);
+        setData(res.data)
+        setIsLoading(true)
+        dispatch({type: "COURSE", payload: res.data})
       })
       .catch((err) => {
-        console.log(err);
-      });
-  }, [setUserLogin,userLogin]);
+        console.log(err)
+      })
+  }, [setUserLogin, userLogin, data])
 
   return (
     <DataContext.Provider
@@ -67,9 +60,8 @@ export const DataProvider = ({ children }) => {
         searchCourse,
         setSearchCourse,
         userLogin,
-      }}
-    >
+      }}>
       {children}
     </DataContext.Provider>
-  );
-};
+  )
+}

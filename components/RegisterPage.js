@@ -18,11 +18,14 @@ const RegisterPage = () => {
   const [bgColor, setBgColor] = useState("");
   const { state, dispatch,userLogin } = useContext(DataContext);
   const {auth} = state
+  useEffect(() => {
+    if (Object.keys(auth).length !== 0) router.push("/")
+  }, [auth])
   const onSubmit = (data, e) => {
     e.preventDefault();
     // console.log(data);
     axios
-      .post("https://www.api-adirek.online/api/users/register", data)
+      .post("http://localhost:3000/api/users/register", data)
       .then((res) => {
         setBgColor("bg-success");
         toast("สมัครสมาชิกสำเร็จ");

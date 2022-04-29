@@ -1,5 +1,21 @@
-import CourseCard from "./course-card";
+import CourseCard from "./course-card"
+import {useRouter} from "next/router"
+import {DataContext} from "../../store/GlobalState"
+import {toast} from "react-toastify"
+import {useEffect, useState, useContext, Fragment} from "react"
 const Home = () => {
+  const {searchCourse, setSearchCourse, state, dispatch} = useContext(DataContext)
+  const {auth} = state
+  const router = useRouter()
+
+  useEffect(() => {
+     const token = localStorage.getItem("token")
+
+    if (!token) {
+      dispatch({type: "NOTIFY", payload: {error: toast.error("You are not already logged in")}})
+      router.push("/")
+    } 
+  }, [auth])
   return (
     <>
       <div className="drawer drawer-mobile bg-[#2a303c]">
@@ -8,22 +24,17 @@ const Home = () => {
           <div className="lg:w-[60vw] max-w-screen-lg lg:pt-4 lg:p-4">
             <div className="navbar bg-base-100 lg:hidden sticky top-0 w-full z-50">
               <div className="flex-none">
-                <label
-                  for="my-drawer-2"
-                  className="btn btn-square btn-ghost lg:hidden"
-                >
+                <label for="my-drawer-2" className="btn btn-square btn-ghost lg:hidden">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    className="inline-block w-5 h-5 stroke-current"
-                  >
+                    className="inline-block w-5 h-5 stroke-current">
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       stroke-width="2"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    ></path>
+                      d="M4 6h16M4 12h16M4 18h16"></path>
                   </svg>
                 </label>
               </div>
@@ -36,13 +47,11 @@ const Home = () => {
                 <button
                   data-set-theme="winter"
                   className="btn btn-sm btn-ghost btn-square"
-                  data-act-className="btn-active"
-                >
+                  data-act-className="btn-active">
                   <svg
                     className="inline-block w-4 h-4 fill-current"
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512"
-                  >
+                    viewBox="0 0 512 512">
                     <title>ionicons-v5-q</title>
                     <path d="M256,118a22,22,0,0,1-22-22V48a22,22,0,0,1,44,0V96A22,22,0,0,1,256,118Z" />
                     <path d="M256,486a22,22,0,0,1-22-22V416a22,22,0,0,1,44,0v48A22,22,0,0,1,256,486Z" />
@@ -58,16 +67,14 @@ const Home = () => {
                 <button
                   data-set-theme="garden"
                   className="btn btn-sm btn-ghost btn-square"
-                  data-act-className="btn-active"
-                >
+                  data-act-className="btn-active">
                   <svg
                     className="inline-block w-4 h-4 fill-current"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    stroke-width="2"
-                  >
+                    stroke-width="2">
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
@@ -78,13 +85,11 @@ const Home = () => {
                 <button
                   data-set-theme="dark"
                   className="btn btn-sm btn-ghost btn-square"
-                  data-act-className="btn-active"
-                >
+                  data-act-className="btn-active">
                   <svg
                     className="inline-block w-4 h-4 fill-current"
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512"
-                  >
+                    viewBox="0 0 512 512">
                     <title>ionicons-v5-j</title>
                     <path d="M152.62,126.77c0-33,4.85-66.35,17.23-94.77C87.54,67.83,32,151.89,32,247.38,32,375.85,136.15,480,264.62,480c95.49,0,179.55-55.54,215.38-137.85-28.42,12.38-61.8,17.23-94.77,17.23C256.76,359.38,152.62,255.24,152.62,126.77Z" />
                   </svg>
@@ -93,50 +98,41 @@ const Home = () => {
             </div>
             <div className="flex-1 p-3 md:py-[35]">
               <div className="space-y-2 md:space-y-6">
-                    <CourseCard />
+                <CourseCard />
 
                 <div className="card card-side bg-base-200 shadow-xl">
                   <div className="card-body">
                     <h2 className="card-title">
-                      Fringilla est ullamcorper eget nulla facilisi etiam
-                      dignissim.
+                      Fringilla est ullamcorper eget nulla facilisi etiam dignissim.
                     </h2>
                     <div className="justify-start">
                       <button className="btn btn-xs btn-accent">Article</button>
                     </div>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Rhoncus dolor purus non enim. Purus viverra
-                      accumsan in nisl. Aliquam faucibus purus in massa. In
-                      vitae turpis massa sed elementum tempus egestas. Nisl
-                      purus in mollis nunc sed. Ullamcorper morbi tincidunt
-                      ornare massa eget. Enim nulla aliquet porttitor lacus
-                      luctus accumsan. Id neque aliquam vestibulum morbi blandit
-                      cursus. Pellentesque eu tincidunt tortor aliquam nulla
-                      facilisi cras. Sed augue lacus viverra vitae.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                      incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non enim.
+                      Purus viverra accumsan in nisl. Aliquam faucibus purus in massa. In vitae
+                      turpis massa sed elementum tempus egestas. Nisl purus in mollis nunc sed.
+                      Ullamcorper morbi tincidunt ornare massa eget. Enim nulla aliquet porttitor
+                      lacus luctus accumsan. Id neque aliquam vestibulum morbi blandit cursus.
+                      Pellentesque eu tincidunt tortor aliquam nulla facilisi cras. Sed augue lacus
+                      viverra vitae.
                     </p>
                   </div>
                 </div>
                 <div className="card card-side bg-base-200 shadow-xl">
                   <figure>
-                    <img
-                      src="https://api.lorem.space/image/book?w=200&h=280"
-                      alt="Book"
-                    />
+                    <img src="https://api.lorem.space/image/book?w=200&h=280" alt="Book" />
                   </figure>
                   <div className="card-body">
-                    <h2 className="card-title">
-                      Rhoncus dolor purus non enim.
-                    </h2>
+                    <h2 className="card-title">Rhoncus dolor purus non enim.</h2>
                     <div className="justify-start">
                       <button className="btn btn-xs btn-error">Books</button>
                       <button className="btn btn-xs btn-success">Author</button>
                     </div>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Rhoncus dolor purus non enim.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                      incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non enim.
                     </p>
                   </div>
                 </div>
@@ -149,33 +145,27 @@ const Home = () => {
                       <button className="btn btn-xs btn-warning">Note</button>
                     </div>
                     <p>
-                      Sagittis id consectetur purus ut faucibus pulvinar
-                      elementum integer. Massa sed elementum tempus egestas sed.
-                      Proin sagittis nisl rhoncus mattis rhoncus urna. Amet
-                      volutpat consequat mauris nunc congue nisi vitae suscipit
-                      tellus. Posuere urna nec tincidunt praesent semper.
-                      Elementum pulvinar etiam non quam lacus suspendisse.
+                      Sagittis id consectetur purus ut faucibus pulvinar elementum integer. Massa
+                      sed elementum tempus egestas sed. Proin sagittis nisl rhoncus mattis rhoncus
+                      urna. Amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus.
+                      Posuere urna nec tincidunt praesent semper. Elementum pulvinar etiam non quam
+                      lacus suspendisse.
                     </p>
                   </div>
                 </div>
                 <div className="card card-side bg-base-200 shadow-xl">
                   <figure>
-                    <img
-                      src="https://api.lorem.space/image/game?w=200&h=280"
-                      alt="Game"
-                    />
+                    <img src="https://api.lorem.space/image/game?w=200&h=280" alt="Game" />
                   </figure>
                   <div className="card-body">
-                    <h2 className="card-title">
-                      Sed augue lacus viverra vitae.
-                    </h2>
+                    <h2 className="card-title">Sed augue lacus viverra vitae.</h2>
                     <div className="justify-start">
                       <button className="btn btn-xs btn-primary">Game</button>
                     </div>
                     <p>
-                      Sodales ut etiam sit amet nisl purus in mollis nunc.
-                      Suspendisse potenti nullam ac tortor vitae purus. Eu mi
-                      bibendum neque egestas congue quisque egestas diam.
+                      Sodales ut etiam sit amet nisl purus in mollis nunc. Suspendisse potenti
+                      nullam ac tortor vitae purus. Eu mi bibendum neque egestas congue quisque
+                      egestas diam.
                     </p>
                   </div>
                 </div>
@@ -204,8 +194,9 @@ const Home = () => {
                 </div>
               </div>
               {/* <!-- avatar end --> */}
-              <h1 className="text-2xl p-2 pl-4">Sarissa Blog</h1>
-              <p className="text-sm pl-4">Responsive Blog Template</p>
+              <h1 className="text-2xl p-2 pl-4 text-white text-center"> {auth.user?.first_name}</h1>
+              <h1 className="text-2xl p-2 pl-4 text-white text-center"> {auth.user?.last_name}</h1>
+              <p className="text-sm pl-4 text-white text-center"> {auth.user?.type}</p>
               <div className="flex gap-1 justify-center pt-4">
                 <a className="btn btn-sm btn-ghost btn-square">
                   <svg
@@ -215,8 +206,7 @@ const Home = () => {
                     stroke="currentColor"
                     stroke-width="2"
                     stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
+                    stroke-linejoin="round">
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                   </svg>
                 </a>
@@ -228,8 +218,7 @@ const Home = () => {
                     stroke="currentColor"
                     stroke-width="2"
                     stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
+                    stroke-linejoin="round">
                     <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
                   </svg>
                 </a>
@@ -241,8 +230,7 @@ const Home = () => {
                     stroke="currentColor"
                     stroke-width="2"
                     stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
+                    stroke-linejoin="round">
                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                     <rect x="2" y="9" width="4" height="12" />
                     <circle cx="4" cy="4" r="2" />
@@ -256,8 +244,7 @@ const Home = () => {
                     stroke="currentColor"
                     stroke-width="2"
                     stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
+                    stroke-linejoin="round">
                     {" "}
                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                   </svg>
@@ -274,8 +261,7 @@ const Home = () => {
                         className="h-5 w-5"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
+                        stroke="currentColor">
                         <path
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -294,8 +280,7 @@ const Home = () => {
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        stroke-width="2"
-                      >
+                        stroke-width="2">
                         <path
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -313,8 +298,7 @@ const Home = () => {
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        stroke-width="2"
-                      >
+                        stroke-width="2">
                         <path
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -332,8 +316,7 @@ const Home = () => {
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        stroke-width="2"
-                      >
+                        stroke-width="2">
                         <path
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -351,8 +334,7 @@ const Home = () => {
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        stroke-width="2"
-                      >
+                        stroke-width="2">
                         <path
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -368,13 +350,11 @@ const Home = () => {
                       <button
                         data-set-theme="winter"
                         className="btn btn-sm btn-ghost btn-square"
-                        data-act-className="btn-active"
-                      >
+                        data-act-className="btn-active">
                         <svg
                           className="inline-block w-4 h-4 fill-current"
                           xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 512 512"
-                        >
+                          viewBox="0 0 512 512">
                           <title>ionicons-v5-q</title>
                           <path d="M256,118a22,22,0,0,1-22-22V48a22,22,0,0,1,44,0V96A22,22,0,0,1,256,118Z" />
                           <path d="M256,486a22,22,0,0,1-22-22V416a22,22,0,0,1,44,0v48A22,22,0,0,1,256,486Z" />
@@ -390,16 +370,14 @@ const Home = () => {
                       <button
                         data-set-theme="garden"
                         className="btn btn-sm btn-ghost btn-square"
-                        data-act-className="btn-active"
-                      >
+                        data-act-className="btn-active">
                         <svg
                           className="inline-block w-4 h-4 fill-current"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
-                          stroke-width="2"
-                        >
+                          stroke-width="2">
                           <path
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -410,13 +388,11 @@ const Home = () => {
                       <button
                         data-set-theme="dark"
                         className="btn btn-sm btn-ghost btn-square"
-                        data-act-className="btn-active"
-                      >
+                        data-act-className="btn-active">
                         <svg
                           className="inline-block w-4 h-4 fill-current"
                           xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 512 512"
-                        >
+                          viewBox="0 0 512 512">
                           <title>ionicons-v5-j</title>
                           <path d="M152.62,126.77c0-33,4.85-66.35,17.23-94.77C87.54,67.83,32,151.89,32,247.38,32,375.85,136.15,480,264.62,480c95.49,0,179.55-55.54,215.38-137.85-28.42,12.38-61.8,17.23-94.77,17.23C256.76,359.38,152.62,255.24,152.62,126.77Z" />
                         </svg>
@@ -431,7 +407,7 @@ const Home = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

@@ -1,43 +1,46 @@
-import { Input } from "./Input";
-import { useForm } from "react-hook-form";
-import Toast from "./Toast";
+import {Input} from "./Input"
+import {useForm} from "react-hook-form"
+import Toast from "./Toast"
 // import {toast} from "react-hot-toast"
-import axios from "axios";
-import { useState, useContext } from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { toast } from "react-toastify";
-import { DataContext } from "../store/GlobalState";
-import { getData, postData } from "../utils/fetchData";
+import axios from "axios"
+import {useState, useContext, useEffect} from "react"
+import Link from "next/link"
+import {useRouter} from "next/router"
+import {toast} from "react-toastify"
+import {DataContext} from "../store/GlobalState"
+import {getData, postData} from "../utils/fetchData"
 const LoginPage = () => {
-  const { state, dispatch } = useContext(DataContext);
-  const router = useRouter();
+  const {state, dispatch} = useContext(DataContext)
+  const {auth} = state
+  const router = useRouter()
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
-  } = useForm();
-
-  const [bgColor, setBgColor] = useState("");
+    formState: {errors},
+  } = useForm()
+  const [bgColor, setBgColor] = useState("")
+  useEffect(() => {
+    if (Object.keys(auth).length !== 0) router.push("/")
+  }, [auth])
 
   const onSubmit = (data, e) => {
-    e.preventDefault();
+    e.preventDefault()
     // console.log(data)
     postData("users/login", data)
       .then((response) => {
         console.log(response.data.users)
-        // console.log( JSON.stringify(response.data)); 
-        dispatch({type: 'AUTH', payload: {
-          user: response.data.users,
-          token: response.data.token
-        } });
+        // console.log( JSON.stringify(response.data));
+        // dispatch({type: 'AUTH', payload: {
+        //   user: response.data.users,
+        //   token: response.data.token
+        // } });
         dispatch({
           type: "NOTIFY",
-          payload: { success: toast.success(response.data.message) },
-        });
-        localStorage.setItem("token", response.data.token);
-          localStorage.setItem("firstLogin", true);
+          payload: {success: toast.success(response.data.message)},
+        })
+        localStorage.setItem("token", response.data.token)
+        localStorage.setItem("firstLogin", true)
         // getData("users/auth", response.data.token)
         // .then((res) => {
         //   localStorage.setItem("user",  JSON.stringify(res.data.user));
@@ -47,20 +50,19 @@ const LoginPage = () => {
         // })
 
         setTimeout(() => {
-          router.push("/");
-        }, 2000);
+          router.push("/")
+        }, 2000)
       })
       .catch((err) => {
-        console.log(err.response.data.message);
-        setBgColor("bg-danger");
+        console.log(err.response.data.message)
+        setBgColor("bg-danger")
         dispatch({
           type: "NOTIFY",
-          payload: { error: toast.error(err.response.data.message) },
-        });
-     
-      });
+          payload: {error: toast.error(err.response.data.message)},
+        })
+      })
     // axios
-    //   .post("https://www.api-adirek.online/api/users/login", data)
+    //   .post("http://localhost:3000/api/users/login", data)
     //   .then((res) => {
     //     localStorage.setItem("token", res.data.token);
     //     setBgColor("bg-success");
@@ -80,7 +82,7 @@ const LoginPage = () => {
     //       payload: { error: toast.error(err.response.data.message) },
     //     });
     //   });
-  };
+  }
 
   return (
     <>
@@ -100,8 +102,7 @@ const LoginPage = () => {
                         />
                         <p
                           className="text-black text-center    font-semibold font-Athiti
-        text-f2xl md:text-f3xl lg:text-[3rem]"
-                        >
+        text-f2xl md:text-f3xl lg:text-[3rem]">
                           เปิดประตู{" "}
                           <strong className="!text-[#FF5959]  font-Athiti">
                             "สู่การเรียนรู้"{" "}
@@ -112,11 +113,7 @@ const LoginPage = () => {
                       <form onSubmit={handleSubmit(onSubmit)}>
                         <p className="mb-4">Please login to your account</p>
                         <div className="mb-4">
-                          <Input
-                            label="email"
-                            register={register}
-                            placeholder="Email Address"
-                          />
+                          <Input label="email" register={register} placeholder="Email Address" />
                         </div>
                         <div className="">
                           <Input
@@ -132,8 +129,7 @@ const LoginPage = () => {
                             type="submit"
                             data-mdb-ripple="true"
                             data-mdb-ripple-color="light"
-                            s
-                          >
+                            s>
                             Log in
                           </button>
                           <div className="flex  justify-end">
@@ -149,8 +145,7 @@ const LoginPage = () => {
                               type="button"
                               className="inline-block px-6 py-2 border-2 border-red-600 text-white font-medium text-xs leading-tight uppercase rounded hover:!bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                               data-mdb-ripple="true"
-                              data-mdb-ripple-color="light"
-                            >
+                              data-mdb-ripple-color="light">
                               Register
                             </button>
                           </Link>
@@ -165,6 +160,6 @@ const LoginPage = () => {
         </div>
       </section>
     </>
-  );
-};
-export default LoginPage;
+  )
+}
+export default LoginPage

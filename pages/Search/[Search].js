@@ -7,7 +7,8 @@ import BannerAds from "../../components/BannerAds";
 import { DataContext, SearchCourseContext } from "../../store/GlobalState";
 
 const CourseCategory = () => {
-  const { data, isLoading } = useContext(DataContext);
+  const { data, isLoading,state,dispatch } = useContext(DataContext);
+  const {courseData} = state;
   const router = useRouter();
   const { Search } = router.query;
   // const [data, setData] = useState([])

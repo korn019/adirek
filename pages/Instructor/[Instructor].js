@@ -12,7 +12,7 @@ const Instructor = () => {
 
   const getData = () => {
     axios
-      .get("https://www.api-adirek.online/api/instructor-course")
+      .get("http://localhost:3000/api/instructor-course")
       .then((res) => {
         // console.log(res.data)
         setData(res.data)
@@ -24,7 +24,7 @@ const Instructor = () => {
   }
   const getData2 = () => {
     axios
-      .get("https://www.api-adirek.online/api/instructor")
+      .get("http://localhost:3000/api/instructor")
       .then((res) => {
         setData2(res.data)
         // setIsLoading(true)

@@ -145,7 +145,7 @@ const Add = () => {
 
   const categoryName = () => {
     axios
-      .get("https://www.api-adirek.online/api/filterCategory")
+      .get("http://localhost:3000/api/filterCategory")
       .then((res) => {
         setGetCategory(res.data);
       })
