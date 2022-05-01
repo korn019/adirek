@@ -22,13 +22,14 @@ const LoginPage = () => {
   const [bgColor, setBgColor] = useState("")
   useEffect(() => {
     if (Object.keys(auth).length !== 0) router.push("/")
-  }, [auth])
+  }, [auth, router.pathname])
 
   const onSubmit = (data, e) => {
     e.preventDefault()
-    // console.log(data)
     postData("users/login", data)
       .then((response) => {
+        localStorage.setItem("token", response.data.token)
+        localStorage.setItem("firstLogin", true)
         console.log(response.data.users)
         // console.log( JSON.stringify(response.data));
         // dispatch({type: 'AUTH', payload: {
@@ -39,8 +40,6 @@ const LoginPage = () => {
           type: "NOTIFY",
           payload: {success: toast.success(response.data.message)},
         })
-        localStorage.setItem("token", response.data.token)
-        localStorage.setItem("firstLogin", true)
         // getData("users/auth", response.data.token)
         // .then((res) => {
         //   localStorage.setItem("user",  JSON.stringify(res.data.user));
@@ -48,14 +47,11 @@ const LoginPage = () => {
         // }).catch((err) => {
         //   console.log(err.response)
         // })
-
-        setTimeout(() => {
+        if (response.status == 200) {
           router.push("/")
-        }, 2000)
+        }
       })
       .catch((err) => {
-        console.log(err.response.data.message)
-        setBgColor("bg-danger")
         dispatch({
           type: "NOTIFY",
           payload: {error: toast.error(err.response.data.message)},
@@ -144,8 +140,7 @@ const LoginPage = () => {
                             <button
                               type="button"
                               className="inline-block px-6 py-2 border-2 border-red-600 text-white font-medium text-xs leading-tight uppercase rounded !bg-black hover:!bg-slate-800 hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-                              data-mdb-ripple="true"
-                              >
+                              data-mdb-ripple="true">
                               Register
                             </button>
                           </Link>

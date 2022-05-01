@@ -12,6 +12,11 @@ const reducers = (state, action) => {
         ...state,
         auth: action.payload,
       }
+    case ACTIONS.EDITPROFILE:
+      return {
+        ...state,
+        editprofil: action.payload,
+      }
     case ACTIONS.COURSE:
       return {
         ...state,

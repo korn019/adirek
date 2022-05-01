@@ -38,7 +38,7 @@ export default function Category() {
   const [searchSection, setSearchSection] = useState("")
   return (
     <>
-      <BreadcrumbPage title="คอร์สทั้งหมด" breadActive="คอร์สทั้งหมด" hrefActive="/Category" />
+      <BreadcrumbPage title="คอร์สทั้งหมด" breadActive="คอร์สทั้งหมด" hrefActive="/category" />
       {/* <SearchSection setSearchSection={setSearchSection} searchSection={searchSection} /> */}
       <MainCategory setSearchSection={setSearchSection} searchSection={searchSection} />
       <div className="pb-24">

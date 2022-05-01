@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BaseUrl = "https://www.api-adirek.online"
+const BaseUrl = "http://localhost:3000"
 
 export const getData = async (url, token) => {
   const response = await axios(`${BaseUrl}/api/${url}`, {
@@ -19,6 +19,12 @@ export const postData = async (url,post, token) => {
 };
 
 export const putData = async (url,put, token) => {
-  const response = await axios.put(`${BaseUrl}/api/${url}`, put);
+  const response = await axios.put(`${BaseUrl}/api/${url}`, put, {
+    headers: {
+      // "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
+  })
   return response;
 };
+

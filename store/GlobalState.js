@@ -2,10 +2,18 @@ import {Children, createContext, useReducer, useState, useEffect} from "react"
 import reducers from "./Reducers"
 import axios from "axios"
 import {getData} from "../utils/fetchData"
+import {useRouter} from "next/router"
 export const DataContext = createContext()
 
 export const DataProvider = ({children}) => {
-  const initialState = {notify: {}, auth: {}, courseData: {}, searchCourseNav: "", isLoading: null}
+  const initialState = {
+    notify: {},
+    auth: {},
+    courseData: {},
+    searchCourseNav: "",
+    isLoading: null,
+    editprofile: {},
+  }
   const [state, dispatch] = useReducer(reducers, initialState)
   // const [course, dispatch] = useReducer(course, initialState)
   const {auth} = state
@@ -13,21 +21,28 @@ export const DataProvider = ({children}) => {
   const [searchCourse, setSearchCourse] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [userLogin, setUserLogin] = useState([])
-
+  const [firstLogin2, setFirstLogin2] = useState(true)
+  const router = useRouter()
   useEffect(() => {
     const token = localStorage.getItem("token")
     const firstLogin = localStorage.getItem("firstLogin")
     if (firstLogin) {
       getData("users/auth", token)
         .then((res) => {
-          // console.log(res)
           dispatch({
             type: "AUTH",
             payload: {
-
-              user:res.data.user,
-              token: token
-            }
+              user: res.data.user,
+              token: token,
+              editprofile: res.data.user,
+            },
+          })
+          dispatch({
+            type: "EDITPROFILE",
+            payload: {
+              editprofile: res.data.user,
+              // token: token,
+            },
           })
           // localStorage.setItem("user", JSON.stringify(res.data.user));
           // let keepUser =  JSON.parse(localStorage.getItem("user"))
@@ -48,7 +63,7 @@ export const DataProvider = ({children}) => {
       .catch((err) => {
         console.log(err)
       })
-  }, [setUserLogin, userLogin])
+  }, [setUserLogin, userLogin, router.pathname, auth.EditUser])
 
   return (
     <DataContext.Provider

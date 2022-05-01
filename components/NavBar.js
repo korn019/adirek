@@ -1,18 +1,19 @@
 import Link from "next/link"
-import {useEffect, useState, useContext, Fragment} from "react"
+import {useEffect, useState, useContext, Fragment, useRef} from "react"
 import {Disclosure, Menu, Transition, Dialog} from "@headlessui/react"
 import {BellIcon, MenuIcon, XIcon} from "@heroicons/react/outline"
-import {SearchCourseContext} from "../pages/Category"
+import {SearchCourseContext} from "../pages/category"
 import {GiArchiveResearch} from "react-icons/gi"
 import {CourseCheck} from "./course/Courselabel"
 import {useRouter} from "next/router"
 import {DataContext} from "../store/GlobalState"
 import {toast} from "react-toastify"
+import {SearchBarLg, SearchBarMobile} from "./SearchBar"
 const navigation = [
   {name: "หน้าแรก", href: "/", current: true},
-  {name: "คอร์สเรียนทั้งหมด", href: "/Category", current: false},
-  {name: "บทความและข่าวสาร", href: "/Blog", current: false},
-  {name: "ติดต่อเรา", href: "/Contact", current: false},
+  {name: "คอร์สเรียนทั้งหมด", href: "/category", current: false},
+  {name: "บทความและข่าวสาร", href: "/blog", current: false},
+  {name: "ติดต่อเรา", href: "/contact", current: false},
 ]
 
 function classNames(...classes) {
@@ -22,11 +23,12 @@ function classNames(...classes) {
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [course, setCourse] = useState(CourseCheck)
-  const {searchCourse, setSearchCourse, state,dispatch} = useContext(DataContext)
+  const {searchCourse, setSearchCourse, state, dispatch} = useContext(DataContext)
   const {auth} = state
   const [navHead, setNavHead] = useState(false)
   const router = useRouter()
-// console.log(auth)
+  console.log(auth)
+
   const changeBg = () => {
     if (typeof window !== "undefined") {
       if (window.scrollY > 80) {
@@ -40,7 +42,7 @@ export default function Navbar() {
     localStorage.removeItem("token")
     localStorage.removeItem("user")
     localStorage.removeItem("firstLogin")
-    dispatch({type: "AUTH", payload: ''})
+    dispatch({type: "AUTH", payload: ""})
     dispatch({type: "NOTIFY", payload: {success: toast.success("ออกจากระบบเรียบร้อย")}})
     // router.push("/Login")
   }
@@ -68,32 +70,41 @@ export default function Navbar() {
         <>
           <div className="  max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between h-28">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              <div className="absolute inset-y-0 left-0 flex items-center lg:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XIcon className="block h-6 w-6" aria-hidden="true" />
+                    <>
+                      <XIcon className="block h-6 w-6" aria-hidden="true" />
+                    </>
                   ) : (
                     <MenuIcon className="block h-6 w-6" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+              <div className="flex-1 flex items-center justify-center lg:items-stretch lg:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  <img
-                    className="block lg:hidden h-8 w-auto"
-                    src="/static/img/logo-white-knowledge.png"
-                    alt="adirek"
-                  />
-                  <img
-                    className="hidden lg:block h-8 w-auto"
-                    src="/static/img/logo-white-knowledge.png"
-                    alt="adirek"
-                  />
+                  <Link href="/">
+                    <a>
+                      <img
+                        className="block lg:hidden h-8 w-auto"
+                        src="/static/img/logo-white-knowledge.png"
+                        alt="adirek"
+                      />
+                    </a>
+                  </Link>
+                  <Link href="/">
+                    <a>
+                      <img
+                        className="hidden lg:block h-8 w-auto"
+                        src="/static/img/logo-white-knowledge.png"
+                        alt="adirek"
+                      />
+                    </a>
+                  </Link>
                 </div>
-
-                <div className="hidden sm:block sm:ml-6">
+                <div className="hidden lg:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <Link href={item.href} key={item.name}>
@@ -102,7 +113,7 @@ export default function Navbar() {
                             router.pathname == item.href
                               ? "bg-gray-900 !text-white active:bg-blue-600 "
                               : "text-gray-300 hover:bg-gray-700 hover:text-white active:bg-blue-600 ",
-                            "px-3 py-2 rounded-md !text-sm !font-medium  !text-white text-Athiti"
+                            "px-2 py-2 rounded-md !text-sm !font-medium  !text-white text-Athiti"
                           )}
                           aria-current={item.current ? "page" : undefined}>
                           {item.name}
@@ -111,33 +122,18 @@ export default function Navbar() {
                     ))}
                   </div>
                 </div>
-
-                <div className="flex-shrink-0 flex items-center hidden md:block">
-                  <div className="flex justify-center items-center md:space-x-5 relative">
-                    <input
-                      type="text"
-                      placeholder="ค้นหาคอร์สที่สนใจ..."
-                      onChange={(e) => setSearchCourse(e.target.value)}
-                      value={searchCourse}
-                      onKeyDown={(e) => enterandgo(e)}
-                      className="bg-gray-50 border border-gray-300 text-gray-900  text-Athiti !font-medium  !text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    />
-                    <Link href={searchCourse ? `/Search/${searchCourse}` : `/Category`}>
-                      <button onKeyDown={(e) => enterandgo(e)}>
-                        <GiArchiveResearch
-                          color="white"
-                          className="text-3xl  hover:!text-bg hover:duration-700"
-                        />
-                      </button>
-                    </Link>
-                  </div>
-                </div>
+                <SearchBarLg
+                  searchCourse={searchCourse}
+                  setSearchCourse={setSearchCourse}
+                  onKeyDown={enterandgo}
+                  onChange={(e) => setSearchCourse(e.target.value)}
+                />
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {/* Profile dropdown */}
                 {Object.keys(auth).length == 0 ? (
                   <>
-                    <Link href="/Login">
+                    <Link href="/login">
                       <a>
                         {" "}
                         <p className="!text-white text-Athiti">เข้าสู่ระบบ</p>
@@ -157,14 +153,27 @@ export default function Navbar() {
                       <div className="flex justify-center items-center space-x-2">
                         <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                           <span className="sr-only">Open user menu</span>
-                          <img
-                            className="h-8 w-8 rounded-full"
-                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt=""
-                          />
+                          <div className="h-8 w-8 rounded-full overflow-hidden bg-white justify-center items-center flex">
+                            <span className="text-black text-Athiti !font-semibold !text-base">
+                              {Object.keys(auth).length !== 0 ? (
+                                auth.EditUser ? (
+                                  auth.EditUser?.first_name.charAt(0) +
+                                  auth.EditUser?.last_name.charAt(0)
+                                ) : (
+                                  auth.user?.first_name.charAt(0) + auth.user?.last_name.charAt(0)
+                                )
+                              ) : (
+                                <img
+                                  className="h-8 w-8 rounded-full"
+                                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                  alt=""
+                                />
+                              )}
+                            </span>
+                          </div>
                         </Menu.Button>
-                        <p className="text-Athiti !font-semibold !text-white !text-base">
-                          {auth.user?.email}
+                        <p className="text-Athiti !font-semibold !text-white !text-base hidden lg:block">
+                          { auth.user?.email}
                         </p>
                       </div>
                       <Transition
@@ -178,14 +187,18 @@ export default function Navbar() {
                         <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                           <Menu.Item>
                             {({active}) => (
-                              <a
-                                href="/profile"
-                                className={classNames(
-                                  active ? "bg-gray-100" : "",
-                                  "block px-4 py-2 text-sm text-gray-700"
-                                )}>
-                                Your Profile
-                              </a>
+                              <Link
+                                href={`/user/profile/${auth.user?.first_name}-${auth.user?.last_name}`}
+                                as={`/user/profile/${auth.user?.first_name}-${auth.user?.last_name}`}>
+                                <a
+                                  href=""
+                                  className={classNames(
+                                    active ? "bg-gray-100" : "",
+                                    "block px-4 py-2 text-sm text-gray-700"
+                                  )}>
+                                  Your Profile
+                                </a>
+                              </Link>
                             )}
                           </Menu.Item>
                           <Menu.Item>
@@ -222,8 +235,7 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-
-          <Disclosure.Panel className="sm:hidden">
+          <Disclosure.Panel className="lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
                 <Disclosure.Button
@@ -240,23 +252,12 @@ export default function Navbar() {
                   {item.name}
                 </Disclosure.Button>
               ))}
-              <div className="flex-shrink-0 block md:hidden">
-                <div className="flex justify-center items-center space-x-2 md:space-x-5 relative">
-                  <input
-                    type="text"
-                    placeholder="ค้นหาคอร์สที่สนใจ..."
-                    onChange={(e) => setSearchCourse(e.target.value)}
-                    value={searchCourse}
-                    onKeyDown={(e) => enterandgo(e)}
-                    className="bg-gray-50 border border-gray-300 text-gray-900  text-Athiti !font-semibold  !text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  />
-                  <Link href={searchCourse ? `/Search/${searchCourse}` : `/Category`}>
-                    <button onKeyDown={(e) => enterandgo(e)}>
-                      <GiArchiveResearch className="text-3xl hover:text-bg hover:duration-700" />
-                    </button>
-                  </Link>
-                </div>
-              </div>
+              <SearchBarMobile
+                searchCourse={searchCourse}
+                setSearchCourse={setSearchCourse}
+                onKeyDown={enterandgo}
+                onChange={(e) => setSearchCourse(e.target.value)}
+              />
             </div>
           </Disclosure.Panel>
         </>

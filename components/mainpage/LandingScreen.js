@@ -3,7 +3,7 @@ import Link from "next/link"
 const LandingScreen = () => {
   return (
     <div className="row-hero">
-      <div class="overlay"></div>
+      <div className="overlay"></div>
       <video
         className="video object-cover z-0"
         poster="/static/video/poster.png"
