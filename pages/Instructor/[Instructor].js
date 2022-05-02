@@ -3,16 +3,17 @@ import {useState, useEffect} from "react"
 import InstructorDetail from "../../components/Instructor/InstructorDetail"
 import {CourseCheck2} from "../../components/category/Check"
 import axios from "axios"
+import {getData} from "../../utils/fetchData"
 const Instructor = () => {
   const router = useRouter()
   const {Instructor} = router.query
   const [data, setData] = useState([])
-  const [data2, setData2] = useState([])
+  const [course, setCourse] = useState([])
   const [check, setCheck] = useState(CourseCheck2)
 
-  const getData = () => {
+  const getData2 = () => {
     axios
-      .get("https://www.api-adirek.online/api/instructor-course")
+      .get("http://localhost:3000/api/instructor-course")
       .then((res) => {
         // console.log(res.data)
         setData(res.data)
@@ -22,26 +23,55 @@ const Instructor = () => {
         console.error(err)
       })
   }
-  const getData2 = () => {
-    axios
-      .get("https://www.api-adirek.online/api/instructor")
+  const info = () => {
+    getData("users/usersData")
       .then((res) => {
-        setData2(res.data)
-        // setIsLoading(true)
+        setCourse(res.data)
       })
       .catch((err) => {
-        console.error(err)
+        console.log(err)
       })
   }
+
   useEffect(() => {
-    getData()
     getData2()
+    info()
   }, [])
+  const mapped = data.map((obj, index) => obj.filter_category_course)
+  const filtered = mapped.filter((type, index) => mapped.indexOf(type) === index )
+  
   // let getInstructorId = data.map((item) => item.filter_category_course )
   return (
     <>
-      {data.map((e, id) => {
-        return Instructor == `id=${e.instructor_id}` ? (
+      {course.map((e) => {
+        if (`id=${e.id}` === Instructor) {
+          return (
+            <>
+              {check.map((item) => {
+                return filtered.map((c) => {
+                  return item.value.includes(c) ? (
+                    <>
+                      <img
+                        className="object-cover h-[400px] w-full"
+                        src={`/${item.imgBannerDetails}`}
+                        alt="img"
+                      />
+                    </>
+                  ) : null
+                })
+              })}
+              <div className="pd-bottom-115">
+                <div className="container">
+                  <InstructorDetail data={data} e={e} Instructor={Instructor} id={e.id} />
+                </div>
+              </div>
+            </>
+          )
+        }
+      })}
+      {/* {data.map((e, id2) => {
+        console.log(e)
+        return Instructor == `id=${e.id}` ? (
           <>
             {check.map((item) => {
               return item.value.includes(e.filter_category_course) ? (
@@ -57,12 +87,12 @@ const Instructor = () => {
             })}
             <div className="pd-bottom-115">
               <div className="container">
-                <InstructorDetail data={data} e={e} Instructor={Instructor} id={id} />
+                <InstructorDetail data={data} e={e} Instructor={Instructor} id={e.id} />
               </div>
             </div>
           </>
         ) : null
-      })}
+      })} */}
       {/* {data.map((e, id) => {
           console.log(e)
           return Instructor == `id=${e.instructor_id}` ? (

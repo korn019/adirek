@@ -47,83 +47,83 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
     setCourse({...course, [event.target.name]: event.target.value})
   }
 
-  let instructorId = Instructor.match(/\d/g)
-  let InstructorId = instructorId.join("")
+  // let instructorId = Instructor.match(/\d/g)
+  // let InstructorId = instructorId.join("")
 
-  console.log(InstructorId)
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setLoading(true)
-    if (
-      course.title_course.length !== 0 &&
-      course.detail.length !== 0 &&
-      course.price_course.length !== 0
-    ) {
-      axios
-        .post("http://www.localhost:3000/api/course_title", course)
-        .then(function (response) {
-          if (response.status === 200) {
-            console.log(response.data)
-            let TitleId = response.data.title_id.toString()
-            axios
-              .post("http://www.localhost:3000/api/course_price", course)
-              .then(function (response) {
-                if (response.status === 200) {
-                  console.log(response.data)
-                  let PriceId = response.data.price_id.toString()
-                  axios
-                    .post("http://www.localhost:3000/api/course_details", course)
-                    .then(function (response) {
-                      if (response.status === 200) {
-                        console.log(response.data)
-                        let DetailId = response.data.detail_id.toString()
-                        const data = {
-                          instructor_list_id: InstructorId,
-                          course_list_id: value,
-                          title_list_id: TitleId,
-                          price_list_id: PriceId,
-                          details_list_id: DetailId,
-                        }
-                        const config = {
-                          headers: {"Content-Type": "application/x-www-form-urlencoded"},
-                        }
-                        axios
-                          .put(`http://www.localhost:3000/api/course_list/${InstructorId}`, data)
-                          .then(function (response) {
-                            console.log(response.data)
-                            toast("เพิ่มคอร์สเรียบร้อยแล้ว")  
-                            setBgColor("bg-success")
-                            setLoading(false)
-                          })
-                          .catch((error) => {
-                            console.log(error.message)
-                            toast("เกิดข้อผิดพลาด ลองใหม่อีกครั้ง")
-                            setLoading(false)
-                            setBgColor("bg-danger")
-                          })
-                      }
-                    })
-                    .catch(function (err) {
-                      toast(err.message)
-                      setLoading(false)
-                      setBgColor("bg-danger")
-                    })
-                }
-              })
-              .catch(function (err) {
-                toast(err.message)
-                setLoading(false)
-                setBgColor("bg-danger")
-              })
-          }
-        })
-        .catch(function (err) {
-          toast(err.message)
-          setLoading(false)
-          setBgColor("bg-danger")
-        })
-    }
-  }
+  // console.log(InstructorId)
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   setLoading(true)
+  //   if (
+  //     course.title_course.length !== 0 &&
+  //     course.detail.length !== 0 &&
+  //     course.price_course.length !== 0
+  //   ) {
+  //     axios
+  //       .post("http://www.localhost:3000/api/course_title", course)
+  //       .then(function (response) {
+  //         if (response.status === 200) {
+  //           console.log(response.data)
+  //           let TitleId = response.data.title_id.toString()
+  //           axios
+  //             .post("http://www.localhost:3000/api/course_price", course)
+  //             .then(function (response) {
+  //               if (response.status === 200) {
+  //                 console.log(response.data)
+  //                 let PriceId = response.data.price_id.toString()
+  //                 axios
+  //                   .post("http://www.localhost:3000/api/course_details", course)
+  //                   .then(function (response) {
+  //                     if (response.status === 200) {
+  //                       console.log(response.data)
+  //                       let DetailId = response.data.detail_id.toString()
+  //                       const data = {
+  //                         instructor_list_id: InstructorId,
+  //                         course_list_id: value,
+  //                         title_list_id: TitleId,
+  //                         price_list_id: PriceId,
+  //                         details_list_id: DetailId,
+  //                       }
+  //                       const config = {
+  //                         headers: {"Content-Type": "application/x-www-form-urlencoded"},
+  //                       }
+  //                       axios
+  //                         .put(`http://www.localhost:3000/api/course_list/${InstructorId}`, data)
+  //                         .then(function (response) {
+  //                           console.log(response.data)
+  //                           toast("เพิ่มคอร์สเรียบร้อยแล้ว")
+  //                           setBgColor("bg-success")
+  //                           setLoading(false)
+  //                         })
+  //                         .catch((error) => {
+  //                           console.log(error.message)
+  //                           toast("เกิดข้อผิดพลาด ลองใหม่อีกครั้ง")
+  //                           setLoading(false)
+  //                           setBgColor("bg-danger")
+  //                         })
+  //                     }
+  //                   })
+  //                   .catch(function (err) {
+  //                     toast(err.message)
+  //                     setLoading(false)
+  //                     setBgColor("bg-danger")
+  //                   })
+  //               }
+  //             })
+  //             .catch(function (err) {
+  //               toast(err.message)
+  //               setLoading(false)
+  //               setBgColor("bg-danger")
+  //             })
+  //         }
+  //       })
+  //       .catch(function (err) {
+  //         toast(err.message)
+  //         setLoading(false)
+  //         setBgColor("bg-danger")
+  //       })
+  //   }
+  // }
 
   useEffect(() => {
     categoryName()
@@ -153,7 +153,7 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
   }
   let filterCourse = data.filter((item) => {
-    return item.instructor_id === e.instructor_id
+    return item.id === e.id
   })
 
   let filterDetailsCourse = data.filter((item) => {
@@ -193,16 +193,38 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
             }}>
             <div className="col-12 col-md-12 col-lg-7 text-center text-md-center text-lg-center ">
               <div className="">
-                <h3
-                  className="text-Athiti !font-semibold leading-none my-3"
-                  style={{color: "white", fontSize: 42}}>
-                  {e.firstName}
-                </h3>
-                <h3
-                  className="text-Athiti !font-semibold leading-none my-3"
-                  style={{color: "white", fontSize: 42}}>
-                  {e.lastName}
-                </h3>
+                {e.type == "instructor" ? (
+                  <>
+                    <h3
+                      className="text-Athiti !font-semibold !text-4xl leading-none my-3"
+                      style={{color: "white", fontSize: 42}}>
+                      {console.log(e)}
+                      {e.first_name}
+                    </h3>
+                    <h3
+                      className="text-Athiti !font-semibold !text-4xl leading-none my-3"
+                      style={{color: "white", fontSize: 42}}>
+                      {e.last_name}
+                    </h3>
+                  </>
+                ) : e.type == "institute" ? (
+                  <>
+                    <h3
+                      className="text-Athiti !font-semibold !text-4xl leading-none my-3"
+                      style={{color: "white", fontSize: 42}}>
+                      {e.institute}
+                    </h3>
+                  </>
+                ) : null}
+                <div className="text-center ">
+                  {e?.type == "student" ? (
+                    <button className="btn btn-xs btn-error"> {e?.type}</button>
+                  ) : e?.type == "instructor" ? (
+                    <button className="btn btn-xs btn-success"> {e?.type}</button>
+                  ) : e?.type == "institute" ? (
+                    <button className="btn btn-xs btn-success"> {e?.type}</button>
+                  ) : null}
+                </div>
               </div>
             </div>
             <div className="col-12 col-md-12 col-lg-5  border-md-left">
@@ -215,7 +237,7 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
                 <p className="s subtext-Athiti  !font-semibold !text-[#f8f8f8] !text-[24px] leading-relaxed">
                   {" "}
                   <i className="fa fa-check-circle text-[aquamarine]" aria-hidden="true"></i>
-                  &nbsp; {e.ฉีดวัคซีนป้องกัน}
+                  &nbsp; {e.ฉีดวัคซีนป้องกัน == "" ? "ไม่มีข้อมูล" : e.ฉีดวัคซีนป้องกัน}
                 </p>
                 <ul className="social-area d-inline-block">
                   <li>
@@ -248,7 +270,7 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
                   คอร์สเรียน
                 </h1>
                 <div className="bg-slate-700 rounded-lg  px-2 lg:col-span-2">
-                  <a href={`tel:${e.เบอร์โทร}`} className="flex items-center justify-between ">
+                  <a href={`tel:${e.tel}`} className="flex items-center justify-between ">
                     <h1 className="font-DB font-black text-f3xl text-white">โทรหาผู้สอน</h1>
                     {/* <i className="fa fa-phone text-[#F6A21C] text-3xl"></i> */}
                     <BsTelephoneOutbound color="#F6A21C" className="text-3xl" />
@@ -260,6 +282,7 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
                   <div className="title text-black text-[32px] relative">
                     <ul className="list-decimal divide-y">
                       {filterCourse.map((item) => {
+                        console.log(item)
                         return (
                           <>
                             <li key={item.instructor_id}>
@@ -343,106 +366,6 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
                               </button>
                             </Dialog.Title>
                           </div>
-                          <form className="mx-auto my-4 " onSubmit={handleSubmit}>
-                            <label
-                              htmlFor="exampleFormControlTextarea1"
-                              className="subtext-Athiti !font-semibold">
-                              หมวดหมู่
-                            </label>
-                            <div className="flex items-center justify-center ">
-                              <div className="w-full ">
-                                {/* <select
-                                  value={value}
-                                  onChange={handleChangeSelect}
-                                >
-                                  {getCategory.map((e, i) => {
-                                    return (
-                                      <option value={e.filter_id}>
-                                        {e.filter_category_course}
-                                      </option>
-                                    );
-                                  })}
-                                </select> */}
-                                <Select
-                                  //className="flex-1"
-                                  category={category}
-                                  options={getCategory}
-                                  selectedOption={currentExtension}
-                                  handelChange={(event) => {
-                                    // console.log("parent", event)
-                                    setCurrentExtension(event)
-                                    setValue(event.filter_id.toString())
-                                  }}
-                                />
-                              </div>
-                            </div>
-                            <div className="form-group my-2">
-                              <label
-                                htmlFor="exampleFormControlTextarea1"
-                                className="subtext-Athiti !font-semibold">
-                                ชื่อคอร์ส
-                              </label>
-                              <input
-                                className="form-control w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                                id="exampleFormControlTextarea1"
-                                type="text"
-                                placeholder="ชื่อคอร์สเรียน"
-                                value={course.title_course}
-                                onChange={handleChange}
-                                name="title_course"
-                                required
-                              />
-                            </div>
-                            <div className="form-group my-2">
-                              <label
-                                htmlFor="exampleFormControlTextarea1"
-                                className="subtext-Athiti !font-semibold">
-                                รายละเอียด
-                              </label>
-                              <textarea
-                                className="form-control w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                                id="exampleFormControlTextarea1"
-                                type="textarea"
-                                placeholder="รายละเอียดคอร์ส"
-                                value={course.detail}
-                                onChange={handleChange}
-                                name="detail"
-                                required
-                              />
-                            </div>
-                            <div className="form-group my-2">
-                              <label
-                                htmlFor="exampleFormControlTextarea1"
-                                className="subtext-Athiti !font-semibold">
-                                ราคา
-                              </label>
-                              <input
-                                className="form-control w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                                id="exampleFormControlTextarea1"
-                                type="number"
-                                required
-                                step="any"
-                                placeholder="ราคา"
-                                value={course.price_course}
-                                onChange={handleChange}
-                                name="price_course"
-                              />
-                            </div>
-
-                            <div className="sweet-loading text-center">
-                              <ClipLoader color="blue" loading={loading} size={82} />
-                            </div>
-
-                            {loading ? null : (
-                              <div className="relative">
-                                <button
-                                  type="submit"
-                                  className="py-2 bg-black text-Athiti !font-semibold  text-white w-100 mt-2 rounded-md hover:duration-500 hover:!bg-white hover:!text-black hover:border-2 hover:border-black">
-                                  เพิ่ม
-                                </button>
-                              </div>
-                            )}
-                          </form>
 
                           {/* <div className="mt-4">
                             <div className="flex justify-between items-center">
@@ -543,7 +466,10 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
               </div>
               <div className="align-items-center justify-content-center bg-[#eaf0f6] border-b-2 border-gray-200 rounded-lg p-2">
                 <div className="ml-1 title text-black text-[32px]">
-                  {e.filter_category_course == "" ? "ไม่พบข้อมูล" : e.filter_category_course}
+                  {e.ช่วงอายุของกลุ่มผู้เรียนที่ถนัดในการสอน == ""
+                    ? "ไม่พบข้อมูล"
+                    : e.ช่วงอายุของกลุ่มผู้เรียนที่ถนัดในการสอน}{" "}
+                  ปี
                 </div>
               </div>
             </div>
@@ -596,12 +522,12 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
               <p className="lead font-bold">Phone:</p>
               <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">
-                <a href={`tel:${e.เบอร์โทร}`}> {e.เบอร์โทร == "" ? "ไม่พบข้อมูล" : e.เบอร์โทร}</a>
+                <a href={`tel:${e.tel}`}> {e.tel == "" ? "ไม่พบข้อมูล" : e.tel}</a>
               </p>
 
               <p className="lead font-bold">Email:</p>
               <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">
-                {e.ที่อยู่อีเมล == "" ? "ไม่พบข้อมูล" : e.ที่อยู่อีเมล}
+                <a href={`mailto:${e.email}`}> {e.email == "" ? "ไม่พบข้อมูล" : e.email}</a>
               </p>
               <p className="lead font-bold">Line:</p>
               <p className="line-clamp-3 col-span-1 text-left !indent-0 subtext">

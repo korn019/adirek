@@ -15,7 +15,7 @@ const reducers = (state, action) => {
     case ACTIONS.EDITPROFILE:
       return {
         ...state,
-        editprofil: action.payload,
+        edit: action.payload,
       }
     case ACTIONS.COURSE:
       return {

@@ -131,7 +131,8 @@ const PaginatedItems = ({
             v.filter_category_course
               .toLowerCase()
               .includes(searchCourse.toLowerCase()) ||
-            v.firstName.toLowerCase().includes(searchCourse.toLowerCase()) ||
+            v.first_name.toLowerCase().includes(searchCourse.toLowerCase()) ||
+            v.institute.toLowerCase().includes(searchCourse.toLowerCase()) ||
             v.detail.toLowerCase().includes(searchCourse.toLowerCase()) ||
             v.price_course.toLowerCase().includes(searchCourse.toLowerCase())
           );
@@ -251,7 +252,6 @@ const PaginatedItems = ({
     const newOffset = (event.selected * itemsPerPage) % items.length;
     setItemOffset(newOffset);
   };
-console.log(items.length )
   return (
     <>
       {myArrayFiltered.length > 0 ? (

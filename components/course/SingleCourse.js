@@ -1,9 +1,11 @@
 import Link from "next/link"
-import {useState} from "react"
+import {useState, useContext} from "react"
+import { DataContext } from "../../store/GlobalState"
 import {CourseCheck} from "../course/Courselabel"
 const SingleCourse = ({course, index, filterImg}) => {
   const [data, setData] = useState(CourseCheck)
-
+  const {state, dispatch, userLogin} = useContext(DataContext)
+  const {auth} = state
   let imgBanner = data.map((item) => item.value)
   // console.log(course.filterCategory)
   let filter = data.filter((num) => {
@@ -148,19 +150,20 @@ const SingleCourse = ({course, index, filterImg}) => {
   function formatNumber (num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
 }
+console.log(course)
   return (
     <div className="item h-[400px]">
       <div className="single-course-wrap  ">
         <div className="thumb w-full h-[190px] cursor-pointer">
-          <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
+          <Link href={`/Instructor/${course.id}`} as={`/Instructor/id=${course.id}`}>
             <IMG />
           </Link>
         </div>
         <div className="wrap-details">
           <h6 className="truncate ...">
-            <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
+            <Link href={`/Instructor/${course.id}`} as={`/Instructor/id=${course.id}`}>
               <a href="#" className="text-Athiti !font-medium text-flg">
-                {course.detail}
+                {course.title_course}
               </a>
             </Link>
           </h6>
@@ -176,9 +179,13 @@ const SingleCourse = ({course, index, filterImg}) => {
                 alt="img"
               />
               <p className="truncate">
-                <Link href={`/Instructor/${index}`} as={`/Instructor/id=${index}`}>
+                <Link href={`/Instructor/${course.id}`} as={`/Instructor/id=${course.id}`}>
                   <a>
-                    {course.firstName} {course.lastName}
+                    {course.type == "instructor" || course.type == ""
+                      ? course.first_name + course.last_name
+                      : course.type == "institute"
+                      ? course.institute
+                      : null}
                   </a>
                 </Link>
               </p>

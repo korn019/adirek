@@ -105,7 +105,7 @@ const MainCategory = () => {
   // console.log(data)
   const getData = async () => {
     axios
-      .get("https://www.api-adirek.online/api/instructor-course")
+      .get("http://localhost:3000/api/instructor-course")
       .then((res) => {
         setData(res.data)
         setIsLoading(true)
@@ -114,7 +114,7 @@ const MainCategory = () => {
         console.error(err)
       })
   }
-
+console.log(data)
   const [mainCategory, setMainCategory] = useState([])
   useEffect(() => {
     setMainCategory(MainCategoryData.map((item) => item.value))

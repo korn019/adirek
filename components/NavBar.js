@@ -27,7 +27,6 @@ export default function Navbar() {
   const {auth} = state
   const [navHead, setNavHead] = useState(false)
   const router = useRouter()
-  console.log(auth)
 
   const changeBg = () => {
     if (typeof window !== "undefined") {
@@ -156,11 +155,12 @@ export default function Navbar() {
                           <div className="h-8 w-8 rounded-full overflow-hidden bg-white justify-center items-center flex">
                             <span className="text-black text-Athiti !font-semibold !text-base">
                               {Object.keys(auth).length !== 0 ? (
-                                auth.EditUser ? (
-                                  auth.EditUser?.first_name.charAt(0) +
-                                  auth.EditUser?.last_name.charAt(0)
+                                auth.user?.type == "student" || auth.user?.type == "instructor" ? (
+                                  auth.user?.first_name?.charAt(0) + auth.user?.last_name?.charAt(0)
+                                ) : auth.user?.type == "institute" ? (
+                                  auth.user?.institute?.charAt(0)
                                 ) : (
-                                  auth.user?.first_name.charAt(0) + auth.user?.last_name.charAt(0)
+                                  ""
                                 )
                               ) : (
                                 <img
@@ -173,7 +173,7 @@ export default function Navbar() {
                           </div>
                         </Menu.Button>
                         <p className="text-Athiti !font-semibold !text-white !text-base hidden lg:block">
-                          { auth.user?.email}
+                          {auth.user?.email}
                         </p>
                       </div>
                       <Transition

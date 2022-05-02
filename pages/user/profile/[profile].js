@@ -18,7 +18,6 @@ const profile = () => {
       router.push("/")
     }
   }, [auth])
-  console.log(router.query)
   return (
     <LayoutProfile>
       <Home />

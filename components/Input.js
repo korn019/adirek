@@ -21,7 +21,36 @@ export const Input = ({inputName, label, register, required, placeholder, type, 
     </>
   )
 }
-export const SelectForm = ({onChange, name, label, value, register, getCategory, placeholder}) => {
+export const Inputtextarea = ({inputName, label, register, required, placeholder, type, defaultValue}) => {
+  const {
+    formState: {errors},
+  } = useForm()
+  return (
+    <>
+      <div className="">
+        <label className="text-sm !font-semibold px-1 subtext-Athiti ">{placeholder}</label>
+        <textarea
+          {...register(label, {required})}
+          type={type}
+          defaultValue={defaultValue}
+          placeholder={inputName}
+          className=" subtext-Athiti !text-base !font-medium  !text-gray-700 bg-white w-full h-20 px-3 py-1.5 bg-clip-padding rounded border-2  border-gray-200 outline-none focus:border-indigo-500  transition ease-in-out m-0
+        focus:!text-gray-700 focus:bg-white  focus:outline-none  block "
+        />
+      </div>
+    </>
+  )
+}
+export const SelectForm = ({
+  onChange,
+  name,
+  label,
+  value,
+  register,
+  getCategory,
+  placeholder,
+  defaultValue,
+}) => {
   return (
     <>
       <label
@@ -29,11 +58,11 @@ export const SelectForm = ({onChange, name, label, value, register, getCategory,
         for="grid-state">
         {placeholder}
       </label>
-      <select {...register(label)} onChange={onChange}>
+      <select {...register(label)} onChange={onChange} defaultValue={defaultValue}>
         {getCategory.map((item, index) => {
           return (
             <>
-              <option value={item.filter_id} defaultValue={item.filter_category_course}>
+              <option value={item.filter_id} >
                 {item.filter_category_course}
               </option>
             </>

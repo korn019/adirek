@@ -9,10 +9,10 @@ export const DataProvider = ({children}) => {
   const initialState = {
     notify: {},
     auth: {},
-    courseData: {},
+    courseData: [],
     searchCourseNav: "",
     isLoading: null,
-    editprofile: {},
+    edit: {},
   }
   const [state, dispatch] = useReducer(reducers, initialState)
   // const [course, dispatch] = useReducer(course, initialState)
@@ -28,22 +28,22 @@ export const DataProvider = ({children}) => {
     const firstLogin = localStorage.getItem("firstLogin")
     if (firstLogin) {
       getData("users/auth", token)
-        .then((res) => {
-          dispatch({
-            type: "AUTH",
-            payload: {
-              user: res.data.user,
-              token: token,
-              editprofile: res.data.user,
-            },
-          })
-          dispatch({
-            type: "EDITPROFILE",
-            payload: {
-              editprofile: res.data.user,
-              // token: token,
-            },
-          })
+        .then((response) => {
+          getData(`users/users/${response.data.user.id}`, token)
+            .then((res) => {
+              // console.log(res.data[0])
+              dispatch({
+                type: "AUTH",
+                payload: {
+                  user: res.data[0],
+                  token: token,
+                  // editprofile: res.data.user,
+                },
+              })
+            })
+            .catch((error) => {
+              console.log(error)
+            })
           // localStorage.setItem("user", JSON.stringify(res.data.user));
           // let keepUser =  JSON.parse(localStorage.getItem("user"))
           // setUserLogin(keepUser);
@@ -53,7 +53,6 @@ export const DataProvider = ({children}) => {
           console.log(err.response)
         })
     }
-
     getData("instructor-course", token)
       .then((res) => {
         setData(res.data)
@@ -63,7 +62,7 @@ export const DataProvider = ({children}) => {
       .catch((err) => {
         console.log(err)
       })
-  }, [setUserLogin, userLogin, router.pathname, auth.EditUser])
+  }, [setUserLogin, userLogin, router.pathname, auth.user])
 
   return (
     <DataContext.Provider
