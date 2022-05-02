@@ -1,28 +1,42 @@
-import { useState, useEffect } from "react";
-import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SingleSlideCourse from "./SingleSlideCourse";
-import { CourseCheck } from "../course/Courselabel";
-import axios from "axios";
+import {useState, useEffect, useContext} from "react"
+import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
+import {Swiper, SwiperSlide} from "swiper/react"
+import SingleSlideCourse from "./SingleSlideCourse"
+import {CourseCheck} from "../course/Courselabel"
+import {getData, getDataNoToken} from "../../utils/fetchData"
+import axios from "axios"
+import {DataContext} from "../../store/GlobalState"
 const SlideCourse = () => {
-  const [data, setData] = useState(CourseCheck);
-  const [available, setAvailable] = useState([]);
-  const getData = () => {
-    axios
-      .get("https://www.api-adirek.online/api/instructor-course")
+  const [data, setData] = useState(CourseCheck)
+  const [available, setAvailable] = useState([])
+  const {state, dispatch} = useContext(DataContext)
+  const {courseData} = state
+  // console.log(courseData)
+  // const getData2 = () => {
+  //   axios
+  //     .get("https://www.api-adirek.online/api/instructor-course")
+  //     .then((res) => {
+  //       // console.log(res)
+  //       setAvailable(res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
+  // };
+
+  useEffect(() => {
+    // getData2();
+
+    getData("filterCategory")
       .then((res) => {
-        // console.log(res)
-        setAvailable(res.data);
+        setAvailable(res.data)
       })
       .catch((err) => {
-        console.error(err);
-      });
-  };
-  useEffect(() => {
-    getData();
-  }, []);
+        console.error(err)
+      })
+  }, [])
 
-  let availableCourse = available.map((item) => item.filter_category_course)
+  let availableCourse = courseData.map((item) => item.filter_category_course)
   let availableCourseCategory = available.map((item) => item.main_category)
   return (
     <>
@@ -37,8 +51,7 @@ const SlideCourse = () => {
                     nextEl: ".swiper-next",
                     prevEl: ".swiper-prev",
                   }}
-                  modules={[Navigation,  Pagination]}
-               
+                  modules={[Navigation, Pagination]}
                   loop={true}
                   slidesPerView={4}
                   breakpoints={{
@@ -70,13 +83,14 @@ const SlideCourse = () => {
                       slidesPerView: 4,
                       spaceBetween: 10,
                     },
-                  }}
-                >
+                  }}>
                   <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1 px-5">
-                    {data.map((SlideCourseData) => (
-                      <SwiperSlide key={SlideCourseData.id}>
+                    {available.map((SlideCourseData) => (
+                      <SwiperSlide key={SlideCourseData.filter_id}>
                         <SingleSlideCourse
+                          courseData={courseData}
                           item={SlideCourseData}
+                          available={available}
                           availableCourse={availableCourse}
                           availableCourseCategory={availableCourseCategory}
                         />
@@ -90,7 +104,7 @@ const SlideCourse = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default SlideCourse;
+export default SlideCourse

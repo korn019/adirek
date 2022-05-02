@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "axios"
 
 const BaseUrl = "http://localhost:3000"
 
@@ -7,24 +7,27 @@ export const getData = async (url, token) => {
     method: "GET",
     headers: {
       // "Content-Type": "application/json",
-      'Authorization': "Bearer " + token,
+      Authorization: "Bearer " + token,
     },
-  });
-  return response;
-};
+  })
+  return response
+}
+export const getDataNoToken = (url) => {
+  const response = axios.get(`${BaseUrl}/api/${url}`)
+  return response
+}
 
-export const postData = async (url,post, token) => {
-  const response = await axios.post(`${BaseUrl}/api/${url}`, post);
-  return response;
-};
+export const postData = async (url, post, token) => {
+  const response = await axios.post(`${BaseUrl}/api/${url}`, post)
+  return response
+}
 
-export const putData = async (url,put, token) => {
+export const putData = async (url, put, token) => {
   const response = await axios.put(`${BaseUrl}/api/${url}`, put, {
     headers: {
       // "Content-Type": "application/json",
       Authorization: "Bearer " + token,
     },
   })
-  return response;
-};
-
+  return response
+}

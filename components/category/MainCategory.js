@@ -114,7 +114,6 @@ const MainCategory = () => {
         console.error(err)
       })
   }
-console.log(data)
   const [mainCategory, setMainCategory] = useState([])
   useEffect(() => {
     setMainCategory(MainCategoryData.map((item) => item.value))

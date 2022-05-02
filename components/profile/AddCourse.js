@@ -26,8 +26,7 @@ const AddCourse = () => {
   const [priceId, setPriceId] = useState("")
   const [detailId, setDetailId] = useState("")
 
-  const onSubmit = (dataForm, e) => {
-    console.log(titleId)
+  const onSubmit =  (dataForm, e) => {
     e.preventDefault()
     postData(`course_title`, dataForm)
       .then((res) => {
@@ -83,24 +82,23 @@ const AddCourse = () => {
       price_list_id: priceId,
       details_list_id: detailId,
     }
-if(titleId && priceId && detailId){
-    putData(`course_list/${auth.user?.id}`, data2, auth.token)
-      .then((res) => {
-        dispatch({
-          type: "NOTIFY",
-          payload: {error: toast.success(res.data.message)},
+      putData(`course_list/${auth.user?.id}`, data2, auth.token)
+        .then((res) => {
+          dispatch({
+            type: "NOTIFY",
+            payload: {error: toast.success(res.data.message)},
+          })
+          console.log(res)
         })
-        console.log(res)
-      })
-      .catch((err) => {
-        dispatch({
-          type: "NOTIFY",
-          payload: {
-            error: toast.error(err.response.data.message),
-          },
+        .catch((err) => {
+          console.log(err.response)
+          dispatch({
+            type: "NOTIFY",
+            payload: {
+              error: toast.error(err.response.data.message),
+            },
+          })
         })
-      })
-    }
     //  postData("course_title", dataForm)
     //    .then((res) => {
     //      let TitleId = res.data.title_id.toString()
@@ -176,11 +174,9 @@ if(titleId && priceId && detailId){
   }
   useEffect(() => {
     categoryName()
-    console.log(auth.user?.id)
-
-  }, [])
+  }, [titleId , priceId , detailId])
   // console.log(watch("price_course"))
-// console.log(getCategory[0].filter_id)
+  // console.log(getCategory[0].filter_id)
   return (
     <section id="register">
       <div className="min-w-screen min-h-screen bg-svg flex items-center justify-center px-2 py-12">

@@ -2,11 +2,12 @@ import {useRouter} from "next/router"
 import {DataContext} from "../../store/GlobalState"
 import {toast} from "react-toastify"
 import {useEffect, useState, useContext, Fragment} from "react"
+import Link from "next/link"
+import { dash } from "../../utils/dash"
 const CourseCard = ({item}) => {
   const {searchCourse, setSearchCourse, state, dispatch} = useContext(DataContext)
   const {auth} = state
   const router = useRouter()
-  console.log(item)
   useEffect(() => {
     const token = localStorage.getItem("token")
 
@@ -14,19 +15,19 @@ const CourseCard = ({item}) => {
       dispatch({type: "NOTIFY", payload: {error: toast.error("You are not already logged in")}})
       router.push("/")
     }
-  }, [auth])
+  }, [])
   return (
     <>
       <div className="container mx-auto py-12 px-6 card card-side !bg-[rgb(245 245 245)]">
         <div className="">
           <div className="space-y-4 lg:grid lg:grid-cols-3 lg:items-start lg:gap-6 lg:space-y-0">
-              <div className="w-full">
-                <img
-                  className="object-cover shadow-lg rounded-lg group-hover:opacity-75"
-                  src="https://stackdiary.com/140x100.png"
-                  alt="Featured Photo"
-                />
-              </div>
+            <div className="w-full">
+              <img
+                className="object-cover shadow-lg rounded-lg group-hover:opacity-75"
+                src="https://stackdiary.com/140x100.png"
+                alt="Featured Photo"
+              />
+            </div>
 
             <div className="sm:col-span-2">
               <div className="flex items-center space-x-3">
@@ -66,14 +67,16 @@ const CourseCard = ({item}) => {
               </div>
 
               <div className="mt-2">
-                <a
-                  href="https://laravel.cm/articles/traquer-un-champ-validation-conditionelle-react-hook-form-5"
-                  className="group">
-                  <h4 className="text-xl leading-6 font-semibold  text-skin-inverted group-hover:text-skin-primary font-Athiti ">
-                    {item.title_course}
-                  </h4>
-                </a>
-
+                {/* <Link
+                  href={`/course/${dash(item.title_course)}`}
+                  as={`/course/${item.list_id}`}> */}
+                <Link href={{pathname: "/course/[course]", query: {course: `${dash(item.title_course)}`}}}>
+                  <a className="group">
+                    <h4 className="text-xl leading-6 font-semibold  text-skin-inverted group-hover:text-skin-primary font-Athiti ">
+                      {item.title_course}
+                    </h4>
+                  </a>
+                </Link>
                 <p className="mt-1 text-sm font-normal text-skin-base leading-5 line-clamp-4">
                   {item.detail}
                 </p>

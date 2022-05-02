@@ -1,28 +1,30 @@
-import Link from "next/link";
-import { useState } from "react";
-import { CourseCheck2 } from "../category/Check";
+import Link from "next/link"
+import {useState} from "react"
+import {CourseCheck2} from "../category/Check"
 const SingleSlideCourse = ({
   item,
   availableCourse,
   availableCourseCategory,
+  available,
+  courseData,
 }) => {
-  const [course, setCourse] = useState(CourseCheck2);
+  const [course, setCourse] = useState(CourseCheck2)
 
-  let filter = availableCourse.filter((num) => item.value.includes(num));
+  const CourseLength = availableCourse.filter((num) => num.includes(item.filter_category_course))
 
-  let CourseLength = availableCourseCategory.filter((num) => {
-    if (item.value.includes("Design")) {
-      return num.includes("Design");
-    } else if (item.value.includes("วิชาการ")) {
-      return num.includes("วิชาการ");
-    } else if (item.value.includes("Life Style")) {
-      return num.includes("Life Style");
-    }
-  });
+  // let CourseLength = availableCourseCategory.filter((num) => {
+  //   if (item.value.includes("Design")) {
+  //     return num.includes("Design");
+  //   } else if (item.value.includes("วิชาการ")) {
+  //     return num.includes("วิชาการ");
+  //   } else if (item.value.includes("Life Style")) {
+  //     return num.includes("Life Style");
+  //   }
+  // });
 
   return (
     <>
-      <div className="item z-50 group drop-shadow-xl">
+      <div className="item z-50  drop-shadow-xl">
         {/* <div
           className={`single-intro-wrap group-hover:scale-[1.02] group-hover:duration-200  ${
             item.value === "Design"
@@ -55,29 +57,27 @@ const SingleSlideCourse = ({
           }`}
         > */}
         <div
-          className={`single-intro-wrap group-hover:scale-[1.02] group-hover:duration-200  ${
-            item.id % 2 == 1
-              ? "!bg-[#EB7E23]  group-hover:!bg-slate-50  group-hover:duration-400"
-              : "!bg-[#D1157B] group-hover:!bg-slate-50  group-hover:duration-400"
+          className={`single-intro-wrap    ${
+            item.filter_id % 2 == 1
+              ? "!bg-[#EB7E23]  group-hover:!bg-slate-50  "
+              : "!bg-[#22356C] group-hover:!bg-slate-50  "
           }`}>
-          <div className="thumb">
+          {/* <div className="thumb">
             <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
               <a>
-                <img
-                  src={item.img}
-                  alt={item.value}
-                  className="group-hover:scale-125 group-hover:duration-1000"
-                />
+                <img src={item.img} alt={item.value} className="group-hover:scale-125 " />
               </a>
             </Link>
-          </div>
+          </div> */}
           <div className="wrap-details ">
             <h6 className="text-center">
-              <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
+              <Link
+                href={`/category/${item.filter_category_course}`}
+                as={`/category/${item.filter_category_course}`}>
                 <a
                   style={{fontSize: 22}}
-                  className={`text-Athiti !font-semibold !text-slate-50  group-hover:!text-black   leading-relaxed tracking-wide  `}>
-                  {item.value}
+                  className='text-Athiti !font-semibold !text-slate-50  group-hover:!text-black   leading-relaxed tracking-wide'>
+                  {item.filter_category_course}
                 </a>
               </Link>
             </h6>
@@ -86,14 +86,18 @@ const SingleSlideCourse = ({
               {" "}
               ทั้งหมด{" "}
               <strong className="text-xl   font-normal ">
+                {/* {filter.map((num) => {
+                  return num
+                })} */}
                 &nbsp;
-                {item.value == "Design"
+                {CourseLength.length}
+                {/* {item.value == "Design"
                   ? CourseLength.length
                   : item.value == "วิชาการ"
                   ? CourseLength.length
                   : item.value == "Life Style"
                   ? CourseLength.length
-                  : filter.length}
+                  : filter.length} */}
                 &nbsp;
               </strong>{" "}
               คอร์ส
@@ -103,6 +107,6 @@ const SingleSlideCourse = ({
       </div>
     </>
   )
-};
+}
 
-export default SingleSlideCourse;
+export default SingleSlideCourse

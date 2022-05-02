@@ -4,6 +4,7 @@ import {DataContext} from "../store/GlobalState"
 import {toast} from "react-toastify"
 import {useEffect, useState, useContext, Fragment} from "react"
 import Link from "next/link"
+import { dash } from "../utils/dash"
 const LayoutProfile = ({children}) => {
   const {searchCourse, setSearchCourse, state, dispatch} = useContext(DataContext)
   const {auth} = state
@@ -11,12 +12,9 @@ const LayoutProfile = ({children}) => {
   useEffect(() => {
     const token = localStorage.getItem("token")
 
-    if (!token) {
-      dispatch({type: "NOTIFY", payload: {error: toast.error("You are not already logged in")}})
-      router.push("/")
-    }
+      if (!auth) router.push("/")
   }, [auth])
-
+ console.log( dash('asd sd'))
   return (
     <>
       <div className="drawer drawer-mobile bg-[#2a303c] ">
@@ -46,7 +44,7 @@ const LayoutProfile = ({children}) => {
                       return (
                         <>
                           <h1 className="text-2xl p-2 pl-4 text-white text-center">
-                            {auth.user?.first_name}
+                            {dashauth.user?.first_name}
                           </h1>
                           <h1 className="text-2xl p-2 pl-4 text-white text-center">
                             {auth.user?.last_name}
@@ -190,9 +188,9 @@ const LayoutProfile = ({children}) => {
                     <Link
                       href={`/user/profile/${
                         auth.user?.type == "student" || auth.user?.type == "instructor"
-                          ? auth.user?.first_name
+                          ? dash(auth.user?.first_name)
                           : auth.user?.type == "institute"
-                          ? auth.user?.institute
+                          ? dash(auth.user?.institute)
                           : null
                       }`}>
                       <a>

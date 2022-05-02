@@ -22,7 +22,7 @@ const RegisterPage = () => {
   const {auth} = state
   useEffect(() => {
     if (Object.keys(auth).length !== 0) router.push("/")
-  }, [auth])
+  }, [])
   const onSubmit = (data, e) => {
     e.preventDefault()
     // console.log(data);

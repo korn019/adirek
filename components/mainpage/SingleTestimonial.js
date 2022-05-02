@@ -29,7 +29,6 @@ const SingleTestimonial = ({people}) => {
                 count={5}
                 half={true}
                 value={5}
-                // onChange={ratingChanged}
                 edit={false}
                 size={22}
                 color2={"rgb(253 186 116)"}

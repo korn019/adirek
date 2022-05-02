@@ -12,11 +12,7 @@ const profile = () => {
   const router = useRouter()
   useEffect(() => {
     const token = localStorage.getItem("token")
-
-    if (!token) {
-      dispatch({type: "NOTIFY", payload: {error: toast.error("You are not already logged in")}})
-      router.push("/")
-    }
+      if (!auth) router.push("/")
   }, [auth])
   return (
     <LayoutProfile>

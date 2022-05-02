@@ -12,13 +12,12 @@ const Home = () => {
   useEffect(() => {
     const token = localStorage.getItem("token")
 
-    if (!token) {
-      dispatch({type: "NOTIFY", payload: {error: toast.error("You are not already logged in")}})
-      router.push("/")
-    }
-  }, [auth, courseData])
+  if (!auth) router.push("/")
+     
+      //  dispatch({type: "NOTIFY", payload: {error: toast.error("คุณยังไม่ได้เข้าสู่ระบบ")}})
+  }, [auth])
+
   let filterCourse = courseData.filter((item) => {
-    console.log(item)
     return item.id == auth.user?.id
   })
   // console.log(filterCourse)

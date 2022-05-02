@@ -22,6 +22,7 @@ const LoginPage = () => {
   const [bgColor, setBgColor] = useState("")
   useEffect(() => {
     if (Object.keys(auth).length !== 0) router.push("/")
+     router.prefetch("/")
   }, [auth, router.pathname])
 
   const onSubmit = (data, e) => {
@@ -48,7 +49,10 @@ const LoginPage = () => {
         //   console.log(err.response)
         // })
         if (response.status == 200) {
-          router.push("/")
+            const firstLogin = localStorage.getItem("firstLogin")
+          if (firstLogin) {
+            router.push("/")
+          } 
         }
       })
       .catch((err) => {

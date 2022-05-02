@@ -554,17 +554,12 @@ function Header() {
                 return (
                   <SwiperSlide>
                     <div className="py-2 animate-pulse  duration-700">
-                      <Link
-                        href={`/Course/${item.value}`}
-                        as={`/Course/${item.value}`}
-                      >
-                        <a className="text-Athiti !font-medium !text-base">
-                          {item.value}
-                        </a>
+                      <Link href={`/category/${item.value}`} as={`/category/${item.value}`}>
+                        <a className="text-Athiti !font-medium !text-base">{item.value}</a>
                       </Link>
                     </div>
                   </SwiperSlide>
-                );
+                )
               })}
             </Swiper>
           </div>

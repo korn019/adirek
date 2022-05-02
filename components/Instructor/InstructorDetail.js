@@ -282,7 +282,6 @@ const InstructorDetail = ({e, data, Instructor, instructor, id}) => {
                   <div className="title text-black text-[32px] relative">
                     <ul className="list-decimal divide-y">
                       {filterCourse.map((item) => {
-                        console.log(item)
                         return (
                           <>
                             <li key={item.instructor_id}>

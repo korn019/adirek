@@ -16,7 +16,7 @@ export const DataProvider = ({children}) => {
   }
   const [state, dispatch] = useReducer(reducers, initialState)
   // const [course, dispatch] = useReducer(course, initialState)
-  const {auth} = state
+  const {auth, courseData} = state
   const [data, setData] = useState([])
   const [searchCourse, setSearchCourse] = useState("")
   const [isLoading, setIsLoading] = useState(false)
@@ -62,7 +62,8 @@ export const DataProvider = ({children}) => {
       .catch((err) => {
         console.log(err)
       })
-  }, [setUserLogin, userLogin, router.pathname, auth.user])
+
+  }, [router.pathname])
 
   return (
     <DataContext.Provider
