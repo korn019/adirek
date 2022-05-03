@@ -42,9 +42,9 @@ const LandingScreen = () => {
           className="bg-orange-500 btn p-3 group-hover:bg-black  px-10   rounded-xl text-slate-200    !font-Prompt font-black "
           style={{marginTop: 25}}>
           <Link href="/Category">
-            <span className="drop-shadow-md font-Prompt text-flg md:text-f2xl">
+            <span className="drop-shadow-md font-Prompt text-flg md:text-fxl">
               {" "}
-              ค้นหาคอร์สเรียนออนไลน์{" "}
+              ค้นหาคอร์สเรียน
             </span>
           </Link>
         </button>

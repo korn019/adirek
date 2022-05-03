@@ -1,0 +1,8 @@
+<br />
+<b>Fatal error</b>:  Uncaught TypeError: Return value of PhpMyAdmin\Encoding::convertString() must be of the type string, bool returned in C:\xampp\phpMyAdmin\libraries\classes\Encoding.php:199
+Stack trace:
+#0 C:\xampp\phpMyAdmin\libraries\classes\Export.php(182): PhpMyAdmin\Encoding::convertString('utf-8', 'windows-1252', '&quot;id&quot;;&quot;type&quot;;&quot;em...')
+#1 C:\xampp\phpMyAdmin\libraries\classes\Plugins\Export\ExportCsv.php(270): PhpMyAdmin\Export-&gt;outputHandler('&quot;id&quot;;&quot;type&quot;;&quot;em...')
+#2 C:\xampp\phpMyAdmin\libraries\classes\Export.php(1117): PhpMyAdmin\Plugins\Export\ExportCsv-&gt;exportData('adirek', 'users', '\r\n', 'index.php?route...', 'SELECT `id`, `t...', Array)
+#3 C:\xampp\phpMyAdmin\libraries\classes\Controllers\ExportController.php(613): PhpMyAdmin\Export-&gt;exportTable('adirek', 'users', 'data', Object(PhpMyAdmin\Plugins\Export\ExportExcel), '\r\n', 'index.php?route...', 'table', false, false, false, false, '1', '0', '0', '', Array)
+#4 C:\xampp\phpMyAdmin\libraries\classes\Routing.php(187): PhpMyAdmin\Controllers\ExportController-&gt;inde in <b>C:\xampp\phpMyAdmin\libraries\classes\Encoding.php</b> on line <b>199</b><br />

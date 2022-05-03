@@ -71,7 +71,7 @@ const EditInstructor = ({onSubmit, register, auth}) => {
           <Input
             label="ประวัติการศึกษา"
             register={register}
-            placeholder="ประวัติการศึกษา"
+            placeholder="ประวัติการศึกษา (ถ้ามี)"
             defaultValue={auth.user?.ประวัติการศึกษา}
           />
           {/* <Input
@@ -90,26 +90,38 @@ const EditInstructor = ({onSubmit, register, auth}) => {
           <Input
             label="ประวัติการสอน"
             register={register}
-            placeholder="ประวัติการสอน"
+            placeholder="ประวัติการสอน (ถ้ามี)"
             defaultValue={auth.user?.ประวัติการสอน}
           />
           <Input
             label="ประกาศนียบัตร"
             register={register}
-            placeholder="ประกาศนียบัตร"
+            placeholder="รางวัลจากการสอน (ถ้ามี)"
             defaultValue={auth.user?.ประกาศนียบัตร}
           />
           <Input
             label="กรณีเรียนนอกสถานที่"
             register={register}
-            placeholder="กรณีเรียนนอกสถานที่"
+            placeholder="สถานที่สอน (กรณีเรียนนอกสถานที่) (ถ้ามี)"
             defaultValue={auth.user?.กรณีเรียนนอกสถานที่}
           />
           <Input
             label="รูปถ่าย"
             register={register}
-            placeholder="รูปถ่าย"
+            placeholder="รูป Profile (ถ้ามี)"
             defaultValue={auth.user?.รูปถ่าย}
+          />
+          <Input
+            label="Social Media"
+            register={register}
+            placeholder="ช่องทาง Social Media"
+            // defaultValue={auth.user?.รูปถ่าย}
+          />
+          <Input
+            label="บัตรประชาชน"
+            register={register}
+            placeholder="บัตรประชาชน"
+            // defaultValue={auth.user?.รูปถ่าย}
           />
         </div>
 

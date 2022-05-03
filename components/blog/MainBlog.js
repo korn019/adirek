@@ -61,7 +61,7 @@ const MainBlog = ({search, setSearch}) => {
             <div className="col-md-12">
             <div className="title-border flex justify-between items-center ">
                 <h2 className="  !text-[2.6rem] !font-semibold md:!text-f4xl text-Athiti !text-titleBlue !leading-border-from-title">
-                บทความ
+                บทความด้านจิตวิทยา
                 </h2>
               
               </div>

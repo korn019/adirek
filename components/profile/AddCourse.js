@@ -5,74 +5,74 @@ import {
   SelectTeach,
   SelectVaccine,
   SelectForm,
-} from "../Input"
-import {toast} from "react-toastify"
-import {useForm} from "react-hook-form"
-import {DataContext} from "../../store/GlobalState"
-import {useContext, useEffect, useState} from "react"
-import {getData, postData, putData} from "../../utils/fetchData"
+} from "../Input";
+import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
+import { DataContext } from "../../store/GlobalState";
+import { useContext, useEffect, useState } from "react";
+import { getData, postData, putData } from "../../utils/fetchData";
 const AddCourse = () => {
-  const {state, dispatch} = useContext(DataContext)
-  const {auth} = state
-  const [getCategory, setGetCategory] = useState([])
+  const { state, dispatch } = useContext(DataContext);
+  const { auth } = state;
+  const [getCategory, setGetCategory] = useState([]);
   const {
     register,
     handleSubmit,
     watch,
-    formState: {errors},
-  } = useForm()
+    formState: { errors },
+  } = useForm();
 
-  const [titleId, setTitleId] = useState("")
-  const [priceId, setPriceId] = useState("")
-  const [detailId, setDetailId] = useState("")
+  const [titleId, setTitleId] = useState("");
+  const [priceId, setPriceId] = useState("");
+  const [detailId, setDetailId] = useState("");
 
-  const onSubmit =  (dataForm, e) => {
-    e.preventDefault()
+  const onSubmit = (dataForm, e) => {
+    e.preventDefault();
     postData(`course_title`, dataForm)
       .then((res) => {
         if (res.status === 200) {
           // let TitleId = res.data.title_id.toString()
-          setTitleId(res.data.title_id.toString())
-          console.log(res.data.title_id)
+          setTitleId(res.data.title_id.toString());
+          console.log(res.data.title_id);
         }
       })
       .catch((err) => {
         dispatch({
           type: "NOTIFY",
-          payload: {error: toast.error(err.response.data.message)},
-        })
-      })
+          payload: { error: toast.error(err.response.data.message) },
+        });
+      });
 
     postData("course_price", dataForm)
       .then((res) => {
         if (res.status === 200) {
           // let TitleId = res.data.title_id.toString()
-          setPriceId(res.data.price_id.toString())
-          console.log(res.data.price_id)
+          setPriceId(res.data.price_id.toString());
+          console.log(res.data.price_id);
         }
       })
       .catch((err) => {
-        console.log(err.response.data.message)
+        console.log(err.response.data.message);
         dispatch({
           type: "NOTIFY",
-          payload: {error: toast.error(err.response.data.message)},
-        })
-      })
+          payload: { error: toast.error(err.response.data.message) },
+        });
+      });
 
     postData(`course_details`, dataForm)
       .then((res) => {
         if (res.status === 200) {
           // let TitleId = res.data.title_id.toString()
-          setDetailId(res.data.detail_id.toString())
-          console.log(res.data.detail_id)
+          setDetailId(res.data.detail_id.toString());
+          console.log(res.data.detail_id);
         }
       })
       .catch((err) => {
         dispatch({
           type: "NOTIFY",
-          payload: {error: toast.error(err.response.data.message)},
-        })
-      })
+          payload: { error: toast.error(err.response.data.message) },
+        });
+      });
 
     const data2 = {
       id: auth.user?.id.toString(),
@@ -81,24 +81,30 @@ const AddCourse = () => {
       title_list_id: titleId,
       price_list_id: priceId,
       details_list_id: detailId,
-    }
+    };
+
+    console.log(data2);
+    if (titleId && priceId && detailId) {
       putData(`course_list/${auth.user?.id}`, data2, auth.token)
         .then((res) => {
-          dispatch({
-            type: "NOTIFY",
-            payload: {error: toast.success(res.data.message)},
-          })
-          console.log(res)
+          if (res.status === 200) {
+            dispatch({
+              type: "NOTIFY",
+              payload: { error: toast.success(res.data.message) },
+            });
+            console.log(res);
+          }
         })
         .catch((err) => {
-          console.log(err.response)
+          console.log(err.response);
           dispatch({
             type: "NOTIFY",
             payload: {
               error: toast.error(err.response.data.message),
             },
-          })
-        })
+          });
+        });
+    }
     //  postData("course_title", dataForm)
     //    .then((res) => {
     //      let TitleId = res.data.title_id.toString()
@@ -162,19 +168,19 @@ const AddCourse = () => {
     //      })
     //      console.log(err.response.data)
     //    })
-  }
+  };
   const categoryName = () => {
     getData("filterCategory")
       .then((res) => {
-        setGetCategory(res.data)
+        setGetCategory(res.data);
       })
       .catch((err) => {
         // console.log(err);
-      })
-  }
+      });
+  };
   useEffect(() => {
-    categoryName()
-  }, [titleId , priceId , detailId])
+    categoryName();
+  }, [titleId, priceId, detailId]);
   // console.log(watch("price_course"))
   // console.log(getCategory[0].filter_id)
   return (
@@ -182,7 +188,8 @@ const AddCourse = () => {
       <div className="min-w-screen min-h-screen bg-svg flex items-center justify-center px-2 py-12">
         <div
           className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden"
-          style={{maxWidth: 1500}}>
+          style={{ maxWidth: 1500 }}
+        >
           <div className="md:flex w-full items-center justify-center">
             <div className="w-full py-10 px-12 sm:px-4 md:px-10 ">
               <div className="text-center mb-4">
@@ -206,8 +213,16 @@ const AddCourse = () => {
                       defaultValue={getCategory[0]?.filter_id}
                     />
                   </div>
-                  <Input label="title_course" register={register} placeholder="หัวข้อคอร์ส" />
-                  <Input label="detail" register={register} placeholder="รายละเอียดคอร์ส" />
+                  <Input
+                    label="title_course"
+                    register={register}
+                    placeholder="ชื่อคอร์ส"
+                  />
+                  <Input
+                    label="detail"
+                    register={register}
+                    placeholder="รายละเอียดคอร์ส"
+                  />
                   <Input
                     label="price_course"
                     register={register}
@@ -220,7 +235,8 @@ const AddCourse = () => {
                   type="submit"
                   data-mdb-ripple="true"
                   data-mdb-ripple-color="light"
-                  s>
+                  s
+                >
                   ลงทะเบียน
                 </button>
               </form>
@@ -229,7 +245,7 @@ const AddCourse = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default AddCourse
+export default AddCourse;
