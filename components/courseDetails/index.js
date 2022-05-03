@@ -7,35 +7,34 @@ import CourseOverview from "./course-overview"
 import {useRouter} from "next/router"
 
 
-const index = ({courseData,course}) => {
+const index = ({courseData,Course,item,shareUrl}) => {
   const router = useRouter()
   return (
     <>
 
-      <section className="courses-details-area pd-top-135 pd-bottom-130">
+      <section className="courses-details-area py-24">
         <div className="container">
           <div className="row">
             <div className="col-lg-8">
-              <div className="single-course-wrap mb-0">
-                <CourseVideo />
-                <div className="wrap-details">
-                  <h5>{/* <a href="#">{coursedetail}</a> */}</h5>
-                  <p>
-                    Learn Python like a Professional Start from the basics and go all the way to
-                    creating your own applications and games
-                  </p>
-                  <div className="user-area">
-                    <CourseUser />
+              <div className="mb-0  ">
+                <CourseVideo item={item}/>
+                <div className=" pt-3">
+                  <div className="space-y-4">
+                    <h5 className="text-Athiti !font-semibold !text-f2xl">{item.title_course}</h5>
+                    {/* <p>{item.detail}</p> */}
                   </div>
-                  <div className="buying-wrap d-flex align-items-center">
-                    <CoursePrice />
+                  <div className="user-area flex mt-3">
+                    <CourseUser item={item}/>
+                  </div>
+                  <div className="buying-wrap d-flex align-items-center mt-4">
+                    <CoursePrice  item={item} shareUrl={shareUrl} />
                   </div>
                 </div>
               </div>
               <ul className="course-tab nav nav-pills pd-top-100">
-                <li className="nav-item">
+                <li className="nav-item ">
                   <button
-                    className="nav-link active"
+                    className="nav-link active text-black  !font-semibold"
                     id="pill-1"
                     data-bs-toggle="pill"
                     data-bs-target="#pills-01"
@@ -43,33 +42,7 @@ const index = ({courseData,course}) => {
                     role="tab"
                     aria-controls="pills-01"
                     aria-selected="true">
-                    Overview
-                  </button>
-                </li>
-                <li className="nav-item">
-                  <button
-                    className="nav-link"
-                    id="pill-2"
-                    data-bs-toggle="pill"
-                    data-bs-target="#pills-02"
-                    type="button"
-                    role="tab"
-                    aria-controls="pills-02"
-                    aria-selected="false">
-                    Exercise Files
-                  </button>
-                </li>
-                <li className="nav-item">
-                  <button
-                    className="nav-link"
-                    id="pill-3"
-                    data-bs-toggle="pill"
-                    data-bs-target="#pills-03"
-                    type="button"
-                    role="tab"
-                    aria-controls="pills-03"
-                    aria-selected="false">
-                    Reviews
+                      <p className="text-Athiti !font-semibold !text-f2xl">รายละเอียดคอร์ส</p>
                   </button>
                 </li>
               </ul>
@@ -80,29 +53,15 @@ const index = ({courseData,course}) => {
                   role="tabpanel"
                   aria-labelledby="pill-1">
                   <div className="overview-area">
-                    <CourseOverview />
+                    <CourseOverview item={item}/>
                   </div>
-                </div>
-                <div
-                  className="tab-pane fade"
-                  id="pills-02"
-                  role="tabpanel"
-                  aria-labelledby="pill-2">
-                  ...
-                </div>
-                <div
-                  className="tab-pane fade"
-                  id="pills-03"
-                  role="tabpanel"
-                  aria-labelledby="pill-3">
-                  ...
                 </div>
               </div>
             </div>
             <div className="col-lg-4 sidebar-area">
-              <div className="widget widget-accordion-inner">
+              {/* <div className="widget widget-accordion-inner">
                 <CourseLesson />
-              </div>
+              </div> */}
               <div className="widget widget-course-details mb-0">
                 <CourseInfo />
               </div>

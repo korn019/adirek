@@ -1,7 +1,7 @@
 const CourseInfo = () => {
   return (
     <>
-      <h5 className="widget-title">Course Details</h5>
+      <h5 className="widget-title">รายละเอียดคอร์ส</h5>
       <ul>
         <li>
           Level: <span>Beginner</span>

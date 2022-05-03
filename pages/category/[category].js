@@ -34,7 +34,7 @@ const Instructor = () => {
  <>
         {/* <div className="instector-banner-area" style={{height: 400}}></div> */}
         {data.map((e, id) => {
-          return category == e.value ? (
+          return category == e.value.toLowerCase() ? (
             <>
               <div className="pd-bottom-115" key={e.id}>
                 <div className="container">

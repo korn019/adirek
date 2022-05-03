@@ -1,15 +1,11 @@
-const CourseOverview = () => {
+const CourseOverview = ({item}) => {
+  console.log(item)
   return (
     <>
-      <h5>Course details</h5>
-      <p>
-        New to web design? Start here first. Instructor James Williamson introduces the fundamental
-        concepts, tools, and learning paths for web design. He explains what it means to be a web
-        designer, the various areas of specialization, and whether web design is the right hobby or
-        career for you. Along the way, he talks to five prominent designers and developers, who have
-        each found success in a different corner of the web.
+      <p className="subtext-Athiti !text-2xl ">
+       {item.detail}
       </p>
-      <div className="bg-gray">
+      {/* <div className="bg-gray">
         <h6>What Will I Learn?</h6>
         <div className="row">
           <div className="col-md-6">
@@ -44,8 +40,8 @@ const CourseOverview = () => {
             </ul>
           </div>
         </div>
-      </div>
-      <h6>Requirements</h6>
+      </div> */}
+      {/* <h6>Requirements</h6>
       <ul>
         <li>
           <i className="fa fa-check"></i>No previous experience or software needed!
@@ -69,25 +65,23 @@ const CourseOverview = () => {
           <i className="fa fa-check"></i>If you want to learn to master Wordpress without getting
           bogged down with technical jargon, this course is for you.
         </li>
-      </ul>
+      </ul> */}
       <div className="reviewers-area">
         <div className="row">
           <div className="col-lg-5">
-            <div className="media d-flex align-items-center">
+            <div className="media flex  !my-4">
               <div className="thumb">
                 <img src="/static/img/author/01.png" alt="img" />
               </div>
-              <div className="media-body">
-                <h6>Jessica Jessy</h6>
-                <span>Product Designer</span>
+              <div className="media-body py-4">
+                <p className="font-Athiti font-semibold text-2xl">{item.type == 'institute' ? item.institute : `${item.first_name} ${item.last_name}` }</p>
+                <span className="subtext-Athiti  !text-lg uppercase">{item.type}</span>
               </div>
             </div>
           </div>
           <div className="col-lg-7">
             <p className="review-content">
-              Great for the people that are willing to improve and learn. Please show up to the
-              course with an open mind because the instructor got his own views and philosophy
-              towards design that might challenge your own. This course will teach you...
+            {item.ประวัติการสอน}
             </p>
           </div>
         </div>
@@ -110,7 +104,7 @@ const CourseOverview = () => {
             <i className="far fa-user me-2" style={{color: "var(--main-color)"}}></i>6794 students
           </div>
         </div>
-      </div>
+      </div> 
     </>
   )
 }

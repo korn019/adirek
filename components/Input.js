@@ -209,13 +209,13 @@ export const SelectRangeAge = ({
             defaultValue={defaultValue}
             className="subtext-Athiti !text-base !font-medium  block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-2 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="grid-state">
-            <option value="1-10">1-10 ปี</option>
-            <option value="11-20">11-20 ปี</option>
-            <option value="21-30">21-30 ปี</option>
-            <option value="31-40">31-40 ปี</option>
-            <option value="41-50">41-50 ปี</option>
-            <option value="51-60">51-60 ปี</option>
-            <option value="61-70">61-70 ปี</option>
+            <option value="1-10 ปี">1-10 ปี</option>
+            <option value="11-20 ปี">11-20 ปี</option>
+            <option value="21-30 ปี">21-30 ปี</option>
+            <option value="31-40 ปี">31-40 ปี</option>
+            <option value="41-50 ปี">41-50 ปี</option>
+            <option value="51-60 ปี">51-60 ปี</option>
+            <option value="61-70 ปี">61-70 ปี</option>
           </select>
           <div className="pointer-events-none absolute  right-0 top-3 flex items-center justify-center px-1 text-gray-700">
             <svg

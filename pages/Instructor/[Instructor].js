@@ -1,55 +1,59 @@
-import {useRouter} from "next/router"
-import {useState, useEffect} from "react"
-import InstructorDetail from "../../components/Instructor/InstructorDetail"
-import {CourseCheck2} from "../../components/category/Check"
-import axios from "axios"
-import {getData} from "../../utils/fetchData"
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
+import InstructorDetail from "../../components/Instructor/InstructorDetail";
+import { CourseCheck2 } from "../../components/category/Check";
+import axios from "axios";
+import { getData } from "../../utils/fetchData";
 const Instructor = () => {
-  const router = useRouter()
-  const {Instructor} = router.query
-  const [data, setData] = useState([])
-  const [course, setCourse] = useState([])
-  const [check, setCheck] = useState(CourseCheck2)
+  const router = useRouter();
+  const { Instructor } = router.query;
+  const [data, setData] = useState([]);
+  const [course, setCourse] = useState([]);
+  const [check, setCheck] = useState(CourseCheck2);
 
   const getData2 = () => {
     axios
       .get("http://localhost:3000/api/instructor-course")
       .then((res) => {
         // console.log(res.data)
-        setData(res.data)
+        setData(res.data);
         // setIsLoading(true)
       })
       .catch((err) => {
-        console.error(err)
-      })
-  }
+        console.error(err);
+      });
+  };
   const info = () => {
     getData("users/usersData")
       .then((res) => {
-        setCourse(res.data)
+        setCourse(res.data);
       })
       .catch((err) => {
-        console.log(err)
-      })
-  }
+        console.log(err);
+      });
+  };
 
   useEffect(() => {
-    getData2()
-    info()
-  }, [])
-  const mapped = data.map((obj, index) => obj.filter_category_course)
-  const filtered = mapped.filter((type, index) => mapped.indexOf(type) === index )
-  
+    getData2();
+    info();
+  }, []);
+  const mapped = data.map((obj, index) => obj.main_category);
+  const filtered = mapped.filter(
+    (type, index) => mapped.indexOf(type) === index
+  );
+
   // let getInstructorId = data.map((item) => item.filter_category_course )
   return (
     <>
       {course.map((e) => {
-        if (`id=${e.id}` === Instructor) {
+        console.log(e);
+        if (`id=${e.id}` === Instructor && e.type !== "student") {
           return (
             <>
-              {check.map((item) => {
+              {/* {check.map((item) => {
                 return filtered.map((c) => {
-                  return item.value.includes(c) ? (
+                  console.log(c)
+                  return item.filterValue.includes(c) ? (
                     <>
                       <img
                         className="object-cover h-[400px] w-full"
@@ -59,14 +63,30 @@ const Instructor = () => {
                     </>
                   ) : null
                 })
-              })}
+              })} */}
+
+              <img
+                className="object-cover h-[400px] w-full"
+                src="/static/img/icon/course/PP1.jpg"
+                alt={`${
+                  e.type == "instructor" || e.type == ""
+                    ? e.first_name
+                    : e.institute
+                }`}
+              />
+
               <div className="pd-bottom-115">
                 <div className="container">
-                  <InstructorDetail data={data} e={e} Instructor={Instructor} id={e.id} />
+                  <InstructorDetail
+                    data={data}
+                    e={e}
+                    Instructor={Instructor}
+                    id={e.id}
+                  />
                 </div>
               </div>
             </>
-          )
+          );
         }
       })}
       {/* {data.map((e, id2) => {
@@ -126,7 +146,7 @@ const Instructor = () => {
         <BannerAds />
       </div> */}
     </>
-  )
-}
+  );
+};
 
-export default Instructor
+export default Instructor;

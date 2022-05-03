@@ -115,7 +115,7 @@ const EditInstitute = ({onSubmit, register, auth}) => {
           data-mdb-ripple="true"
           data-mdb-ripple-color="light"
           s>
-          บันทึก
+          ยืนยัน
         </button>
       </form>
     </div>

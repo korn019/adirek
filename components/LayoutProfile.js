@@ -14,7 +14,6 @@ const LayoutProfile = ({children}) => {
 
       if (!auth) router.push("/")
   }, [auth])
- console.log( dash('asd sd'))
   return (
     <>
       <div className="drawer drawer-mobile bg-[#2a303c] ">
@@ -44,7 +43,7 @@ const LayoutProfile = ({children}) => {
                       return (
                         <>
                           <h1 className="text-2xl p-2 pl-4 text-white text-center">
-                            {dashauth.user?.first_name}
+                            {auth.user?.first_name}
                           </h1>
                           <h1 className="text-2xl p-2 pl-4 text-white text-center">
                             {auth.user?.last_name}

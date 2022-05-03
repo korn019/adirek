@@ -246,14 +246,14 @@ const filterCheck = ({
         <div className="widget widget-select-inner relative flex">
         <button
             onClick={handleSubmit}
-            className=" subtext-Athiti !font-bold  !text-2xl text-gray-700 border-2 border-blue-400  focus:ring-1 focus:outline-none focus:border-[#ff013c]  focus:text-[#ff013c]  rounded-lg  px-2 py-1 text-center mr-2 mb-2">
+            className="bg-red-500 subtext-Athiti !font-bold  !text-2xl text-gray-700 !border-2 !border-blue-400  focus:ring-1 focus:outline-none focus:!border-[#ff013c]  focus:text-[#ff013c]  rounded-lg  px-2 py-1 text-center mr-2 mb-2">
             ค้นหา
           </button>
           <button
             onClick={resetButton}
             type="button"
             // className="font-Prompt text-2xl text-white bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700  rounded-lg  px-2 py-1 text-center mr-2 mb-2">
-            className=" subtext-Athiti !font-bold  !text-2xl text-gray-700 border-2 border-blue-400  focus:ring-1 focus:outline-none focus:border-[#ff013c]  focus:text-[#ff013c]  rounded-lg  px-2 py-1 text-center mr-2 mb-2">
+            className="bg-red-500 subtext-Athiti !font-bold  !text-2xl text-gray-700 border-2 border-blue-400  focus:ring-1 focus:outline-none focus:border-[#ff013c]  focus:text-[#ff013c]  rounded-lg  px-2 py-1 text-center mr-2 mb-2">
             แก้ไข
           </button>
     
