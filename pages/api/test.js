@@ -1,13 +1,14 @@
-import { sql_query } from "../../lib/db"
+import {query} from "../../lib/db"
 
 const handler = async (req, res) => {
   try {
-    const results = await sql_query(`SELECT * FROM instructor`) 
+    const results = await query(`SELECT * FROM users`) 
     return res.json(results)
   } catch (error) {
     res.status(500).json({message: error.message})
   }
 }
+
 export default handler
 // const mysql = require("mysql")
 

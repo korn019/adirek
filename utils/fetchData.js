@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const BaseUrl = "http://localhost:3000"
+const BaseUrl = "http://localhost:8000"
 
 export const getData = async (url, token) => {
   const response = await axios(`${BaseUrl}/api/${url}`, {
@@ -31,3 +31,40 @@ export const putData = async (url, put, token) => {
   })
   return response
 }
+
+// export const getData = async (url, token) => {
+//   const res = await fetch(`${BaseUrl}/api/${url}`, {
+//     method: "GET",
+//     headers: {
+//       Authorization: "Bearer " + token,
+//     },
+//   })
+//   const data = await res.json()
+//   return data
+// }
+
+// export const postData = async (url,post, token) => {
+//   const res = await fetch(`${BaseUrl}/api/${url}`, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//       "Authorization": token,
+//     },
+//     body: JSON.stringify(post),
+//   })
+//   const data = await res.json()
+//   return data
+// }
+
+// export const putData = async (url,put, token) => {
+//   const res = await fetch(`${BaseUrl}/api/${url}`, {
+//     method: "PUT",
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'Authorization': "Bearer " + token,
+//     },
+//     body: JSON.stringify(put),
+//   })
+//   const data = await res.json()
+//   return data
+// }

@@ -8,6 +8,8 @@ import {useRouter} from "next/router"
 import {DataContext} from "../store/GlobalState"
 import Link from "next/link"
 import {postData} from "../utils/fetchData"
+import valid from "../lib/valid"
+
 const RegisterPage = () => {
   const router = useRouter()
   const {
@@ -23,31 +25,49 @@ const RegisterPage = () => {
   useEffect(() => {
     if (Object.keys(auth).length !== 0) router.push("/")
   }, [])
-  const onSubmit = (data, e) => {
-    e.preventDefault()
-    // console.log(data);
-    // axios
-    //   .post("https://www.api-adirek.online/api/users/register", data)
-    //   .then((res) => {
-    //     setBgColor("bg-success");
-    //     toast("สมัครสมาชิกสำเร็จ");
-    //     // console.log(res);
-    //     router.push("/Login");
-    //     // window.location = "/Login";
-    //     dispatch({
-    //       type: "NOTIFY",
-    //       payload: { success: toast(res.data.message) },
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     console.log(error.response.data.message);
-    //     setBgColor("bg-danger");
-    //     // toast(err.data.message)
-    //     dispatch({
-    //       type: "NOTIFY",
-    //       payload: { error: toast(error.response.data.message) },
-    //     });
-    //   });
+  const onSubmit = async (data, e) => {
+    // e.preventDefault()
+    const errMsg = valid(
+      data.type,
+      data.first_name,
+      data.last_name,
+      data.email,
+      data.tel,
+      data.password,
+      data.confirm_password
+    )
+    if (errMsg) {
+      return dispatch({
+        type: "NOTIFY",
+        payload: {error: toast(errMsg)},
+      })
+    }
+
+    // const res = await postData("auth/register", data)
+
+    // console.log(res)
+    axios
+      .post("https://www.api-adirek.online/api/users/register", data)
+      .then((res) => {
+        setBgColor("bg-success");
+        toast("สมัครสมาชิกสำเร็จ");
+        // console.log(res);
+        router.push("/Login");
+        // window.location = "/Login";
+        dispatch({
+          type: "NOTIFY",
+          payload: { success: toast(res.data.message) },
+        });
+      })
+      .catch((error) => {
+        console.log(error.response.data.message);
+        setBgColor("bg-danger");
+        // toast(err.data.message)
+        dispatch({
+          type: "NOTIFY",
+          payload: { error: toast(error.response.data.message) },
+        });
+      });
 
     postData("users/register", data)
       .then((res) => {
@@ -74,7 +94,6 @@ const RegisterPage = () => {
   const onChangeInput = (e) => {
     setType(e.target.value)
   }
-  console.log(type)
   return (
     <>
       <div className="w-full bg-grey-lightest">
