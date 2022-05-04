@@ -9,6 +9,7 @@ import {useRouter} from "next/router"
 import {toast} from "react-toastify"
 import {DataContext} from "../store/GlobalState"
 import {getData, postData} from "../utils/fetchData"
+import Cookie from "js-cookie"
 const LoginPage = () => {
   const {state, dispatch} = useContext(DataContext)
   const {auth} = state
@@ -22,45 +23,66 @@ const LoginPage = () => {
   const [bgColor, setBgColor] = useState("")
   useEffect(() => {
     if (Object.keys(auth).length !== 0) router.push("/")
-     router.prefetch("/")
+    router.prefetch("/")
   }, [auth, router.pathname])
 
-  const onSubmit = (data, e) => {
+  const onSubmit = async (data, e) => {
     e.preventDefault()
-    postData("users/login", data)
-      .then((response) => {
-        localStorage.setItem("token", response.data.token)
-        localStorage.setItem("firstLogin", true)
-        console.log(response.data.users)
-        // console.log( JSON.stringify(response.data));
-        // dispatch({type: 'AUTH', payload: {
-        //   user: response.data.users,
-        //   token: response.data.token
-        // } });
-        dispatch({
-          type: "NOTIFY",
-          payload: {success: toast.success(response.data.message)},
-        })
-        // getData("users/auth", response.data.token)
-        // .then((res) => {
-        //   localStorage.setItem("user",  JSON.stringify(res.data.user));
-        //   console.log( res.data.user);
-        // }).catch((err) => {
-        //   console.log(err.response)
-        // })
-        if (response.status == 200) {
-            const firstLogin = localStorage.getItem("firstLogin")
-          if (firstLogin) {
-            router.push("/")
-          } 
-        }
-      })
-      .catch((err) => {
-        dispatch({
-          type: "NOTIFY",
-          payload: {error: toast.error(err.response.data.message)},
-        })
-      })
+
+    const res = await postData("auth/login", data)
+    console.log(res)
+    if (res.err) {
+      return dispatch({type: "NOTIFY", payload: {error: toast.error(res.err)}})
+    }
+    dispatch({type: "NOTIFY", payload: {success: toast.success(res.message)}})
+
+    dispatch({
+      type: "AUTH",
+      payload: {
+        token: res.access_token,
+        user: res.user,
+      },
+    })
+    Cookie.set("refreshtoken", res.refresh_token, {
+      path: "api/auth/accessToken",
+      expires: 7,
+    })
+    localStorage.setItem("firstLogin", true)
+    console.log(res)
+    // postData("auth/login", data)
+    //   .then((response) => {
+    //     localStorage.setItem("token", response.data.token)
+    //     localStorage.setItem("firstLogin", true)
+    //     console.log(response.data.users)
+    //     // console.log( JSON.stringify(response.data));
+    //     // dispatch({type: 'AUTH', payload: {
+    //     //   user: response.data.users,
+    //     //   token: response.data.token
+    //     // } });
+    //     dispatch({
+    //       type: "NOTIFY",
+    //       payload: {success: toast.success(response.data.message)},
+    //     })
+    //     // getData("users/auth", response.data.token)
+    //     // .then((res) => {
+    //     //   localStorage.setItem("user",  JSON.stringify(res.data.user));
+    //     //   console.log( res.data.user);
+    //     // }).catch((err) => {
+    //     //   console.log(err.response)
+    //     // })
+    //     if (response.status == 200) {
+    //         const firstLogin = localStorage.getItem("firstLogin")
+    //       if (firstLogin) {
+    //         router.push("/")
+    //       }
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     dispatch({
+    //       type: "NOTIFY",
+    //       payload: {error: toast.error(err.response.data.message)},
+    //     })
+    //   })
     // axios
     //   .post("https://www.api-adirek.online/api/users/login", data)
     //   .then((res) => {

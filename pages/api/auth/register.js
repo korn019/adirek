@@ -12,49 +12,65 @@ export default async (req, res) => {
 
 const register = async (req, res) => {
   try {
-    const {type, first_name, last_name, email, tel, password, confirm_password} = req.body
-    const errMsg = valid(type, first_name, last_name, email, tel, password, confirm_password)
-    if (errMsg) return res.status(400).json({message: errMsg})
-    const passwordHash = await bcrypt.hash(password, 20)
-console.log(req.body.email)
-    const results = await query(
-      "SELECT COUNT(*) AS cnt FROM users WHERE email = ? ",
-      req.body.email,
-      function (err, data) {
-        if (err) {
-          console.log('122')
-          console.log(err)
+    const {
+      type,
+      username,
+      first_name,
+      last_name,
+      email,
+      password,
+      institute,
+      tel,
+      confirm_password,
+    } = req.body
+
+    const errMsg = valid(
+      type,
+      username,
+      first_name,
+      last_name,
+      email,
+      password,
+      institute,
+      tel,
+      confirm_password
+    )
+    if (errMsg) {
+      return res.status(400).json({err: errMsg})
+    }
+    if (type == "student" || type == "instructor") {
+      const find = await query(`SELECT COUNT(*) AS cnt FROM users WHERE email = ?`, email)
+      if (find[0].cnt > 0) {
+        return res.status(400).json({err: "Email นี้มีผู้ใช้งานแล้ว"})
+      } else {
+        if (password !== confirm_password) {
+          return res.status(400).json({err: "รหัสผ่านไม่ตรงกัน"})
         } else {
-          if (data[0].cnt > 0) {
-            res.status(400).json({status: "error", message: "อีเมลนี้มีผู้ใช้แล้ว"})
-          } else {
-            bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
-              var register = {
-                id: req.body.id,
-                type: req.body.type,
-                email: req.body.email,
-                password: hash,
-                //  institute: req.body.institute,
-                first_name: req.body.first_name,
-                last_name: req.body.last_name,
-                tel: req.body.tel,
-              }
-              query("INSERT INTO users SET ?", register, (err, results, fields) => {
-                if (err) {
-                  console.log(err)
-                  res.json({status: "error", message: err})
-                  return
-                }
-                console.log("2222")
-                console.log(results)
-                res.json({status: "ok", message: "ลงทะเบียนสำเร็จ"})
-              })
-            })
-          }
+          const hash = await bcrypt.hash(password, 10)
+          const insert = await query(
+            `INSERT INTO users (type, username, first_name, last_name, email, password,  tel) VALUES ( ?, ?, ?, ?, ?, ?, ?)`,
+            [type, username, first_name, last_name, email, hash, tel]
+          )
+          return res.status(200).json({message: "สมัครสมาชิกสำเร็จ"})
         }
       }
-    )
-    res.json({msg: "สมัครสมาชิกสำเร็จ", })
+    } else if (type == "institute") {
+      const find = await query(`SELECT COUNT(*) AS cnt FROM users WHERE email = ?`, email)
+      if (find[0].cnt > 0) {
+        return res.status(400).json({err: "Email นี้มีผู้ใช้งานแล้ว"})
+      } else {
+        if (password !== confirm_password) {
+          return res.status(400).json({err: "รหัสผ่านไม่ตรงกัน"})
+        } else {
+          const hash = await bcrypt.hash(password, 10)
+          const insert = await query(
+            `INSERT INTO users (type, username, institute, email, password,  tel) VALUES (  ?, ?, ?, ?, ?, ?)`,
+            [type, username, institute, email, hash, tel]
+          )
+          return res.status(200).json({message: "สมัครสมาชิกสำเร็จ"})
+        }
+      }
+    }
   } catch (err) {
     return res.status(500).json({message: err.message})
   }

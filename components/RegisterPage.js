@@ -27,69 +27,54 @@ const RegisterPage = () => {
   }, [])
   const onSubmit = async (data, e) => {
     // e.preventDefault()
-    const errMsg = valid(
-      data.type,
-      data.first_name,
-      data.last_name,
-      data.email,
-      data.tel,
-      data.password,
-      data.confirm_password
-    )
-    if (errMsg) {
-      return dispatch({
-        type: "NOTIFY",
-        payload: {error: toast(errMsg)},
-      })
-    }
+    console.log(data)
+    // const errMsg = valid(
+    //   data.type,
+    //   data.first_name,
+    //   data.last_name,
+    //   data.email,
+    //   data.tel,
+    //   data.password,
+    //   data.confirm_password
+    // )
+    // if (errMsg) {
+    //   return dispatch({
+    //     type: "NOTIFY",
+    //     payload: {error: toast(errMsg)},
+    //   })
+    // }
 
     // const res = await postData("auth/register", data)
 
     // console.log(res)
-    axios
-      .post("https://www.api-adirek.online/api/users/register", data)
-      .then((res) => {
-        setBgColor("bg-success");
-        toast("สมัครสมาชิกสำเร็จ");
-        // console.log(res);
-        router.push("/Login");
-        // window.location = "/Login";
-        dispatch({
-          type: "NOTIFY",
-          payload: { success: toast(res.data.message) },
-        });
-      })
-      .catch((error) => {
-        console.log(error.response.data.message);
-        setBgColor("bg-danger");
-        // toast(err.data.message)
-        dispatch({
-          type: "NOTIFY",
-          payload: { error: toast(error.response.data.message) },
-        });
-      });
+    // axios
+    //   .post("https://www.api-adirek.online/api/users/register", data)
+    //   .then((res) => {
+    //     setBgColor("bg-success");
+    //     toast("สมัครสมาชิกสำเร็จ");
+    //     // console.log(res);
+    //     router.push("/Login");
+    //     // window.location = "/Login";
+    //     dispatch({
+    //       type: "NOTIFY",
+    //       payload: { success: toast(res.data.message) },
+    //     });
+    //   })
+    //   .catch((error) => {
+    //     console.log(error.response.data.message);
+    //     setBgColor("bg-danger");
+    //     // toast(err.data.message)
+    //     dispatch({
+    //       type: "NOTIFY",
+    //       payload: { error: toast(error.response.data.message) },
+    //     });
+    //   });
 
-    postData("users/register", data)
-      .then((res) => {
-        setBgColor("bg-success")
-        //  toast("สมัครสมาชิกสำเร็จ");
-        dispatch({
-          type: "NOTIFY",
-          payload: {success: toast(res.data.message)},
-        })
-        if (res.status == 200) {
-          router.push("/Login")
-        }
-      })
-      .catch((error) => {
-        console.log(error.response.data.message)
-        setBgColor("bg-danger")
-        // toast(err.data.message)
-        dispatch({
-          type: "NOTIFY",
-          payload: {error: toast(error.response.data.message)},
-        })
-      })
+  const res = await postData("auth/register", data)
+  console.log(res.err)
+  if (res.err) return dispatch({type: "NOTIFY", payload: toast.error(res.err)})
+  dispatch({type: "NOTIFY", payload: toast.success(res.message)})
+  // router.push("/login")
   }
   const onChangeInput = (e) => {
     setType(e.target.value)
@@ -147,6 +132,9 @@ const RegisterPage = () => {
                 </div>
                 <div className="mb-4">
                   <Input label="tel" register={register} placeholder="เบอร์โทรศัพท์" />
+                </div>
+                <div className="mb-4">
+                  <Input label="username" register={register} placeholder="Username" />
                 </div>
                 <div className="mb-4">
                   <Input

@@ -6,12 +6,7 @@ import {toast} from "react-toastify"
 const Notify = () => {
   const { state, dispatch } = useContext(DataContext);
   const  {notify}  = state;
-  return (
-    <>
-      {notify.error &&   <Toast t={toast.message} /> }
-      {notify.success &&   <Toast   t={toast.message} />}
-    </>
-  );
+  return <>{notify && <Toast t={toast.message} />}</>
 };
 
 export default Notify;

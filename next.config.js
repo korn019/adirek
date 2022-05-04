@@ -1,4 +1,4 @@
-const webpack = require("webpack");
+const webpack = require("webpack")
 module.exports = {
   // basePath: "",
   webpack: (config, {buildId, dev, isServer, defaultLoaders, webpack}) => {
@@ -10,6 +10,11 @@ module.exports = {
       })
     )
     return config
+  },
+  env: {
+    ACCESS_TOKEN_SECRET: "WVr^~jy36rA/:kA>xv:K!YQz7595aEqNY{k-6{B7kuZK#Aq`Yz",
+    REFRESH_TOKEN_SECRET:
+      "jyQK2!HzQTq_-?K@VmmJ=3CeBysZ%tqyjT3g6_6_B2=6gjJx!acyyKpsGyLKmJZtA-qDx$mN^ZKWeJ8g",
   },
 
   // async headers() {
