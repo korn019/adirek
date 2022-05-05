@@ -47,7 +47,7 @@ const Footer = () => {
                   </h4>
                   <ul className="pe-4 text-Athiti font-medium text-white ">
                     <li>
-                      <a href="/Category" className="!text-lg">
+                      <a href="/courses" className="!text-lg">
                         ค้นหาคอร์ส
                       </a>
                     </li>

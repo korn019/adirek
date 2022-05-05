@@ -1,7 +1,7 @@
 import BreadcrumbPage from "../../components/BreadcrumbPage"
 import Layout from "../../components/Layout"
 import {useState, useEffect} from "react"
-import {SearchCourseProvider} from "../Category"
+import {SearchCourseProvider} from "../courses"
 import BannerAds from "../../components/BannerAds"
 import {
   FacebookIcon,

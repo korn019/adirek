@@ -9,7 +9,7 @@ const EditProfile = (props) => {
 export default EditProfile
 
 export async function getServerSideProps(context) {
-  const res = await fetch(`http://localhost:8000/api/test`)
+  const res = await fetch(`http://localhost:3000/api/test`)
   const post = await res.json() 
   return {
     props: {post

@@ -105,7 +105,7 @@ const CourseCategory = () => {
         breadActive="ผลลัพธ์การค้นหา"
         hrefActive="#"
         bread1="หลักสูตรทั้งหมด"
-        href1="/Category"
+        href1="/courses"
         Search={Search}
       />
       {isLoading ? (

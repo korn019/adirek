@@ -67,7 +67,7 @@ const Course = () => {
                 <h2 className="  !text-[2.6rem] !font-semibold md:!text-f4xl text-Athiti !text-titleBlue !leading-border-from-title">
                   คอร์สขายดี
                 </h2>
-                <Link href="/Category">
+                <Link href="/courses">
                   <a className=" group flex items-center justify-center ">
                     <h2 className="flex items-center justify-center !font-medium text-Athiti p-2 !text-[.9rem] md:!text-xl  !leading-0 font-DB group-hover:bg-red-500 group-hover:duration-500  group-hover:rounded-lg  group-hover:text-white ">
                       ดูทั้งหมด

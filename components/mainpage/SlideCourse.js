@@ -40,8 +40,8 @@ const SlideCourse = () => {
     //   })
   }, [])
 
-  let availableCourse = courseData.map((item) => item.filter_category_course)
-  let availableCourseCategory = available.map((item) => item.main_category)
+  let availableCourse = courseData?.map((item) => item.filter_category_course)
+  let availableCourseCategory = available?.map((item) => item.main_category)
   return (
     <>
       <div className="container ">
@@ -89,7 +89,7 @@ const SlideCourse = () => {
                     },
                   }}>
                   <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1 px-5">
-                    {available.map((SlideCourseData) => (
+                    {available?.map((SlideCourseData) => (
                       <SwiperSlide key={SlideCourseData.filter_id}>
                         <SingleSlideCourse
                           courseData={courseData}

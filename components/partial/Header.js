@@ -1,7 +1,7 @@
 // import Link from "next/link"
 // import {useEffect, useState, useContext, Fragment} from "react"
 // import {CourseCheck} from "../course/Courselabel"
-// import {SearchCourseContext} from "../../pages/Category"
+// import {SearchCourseContext} from "../../pages/courses"
 // import {useRouter} from "next/router"
 // import {Dialog,Transition} from "@headlessui/react"
 // const Header = () => {
@@ -19,7 +19,7 @@
 //   }
 //   const enterandgo = (event) => {
 //     if (event.keyCode === 13) {
-//       router.push(`/Search/${searchCourse}`)
+//       router.push(`/search/${searchCourse}`)
 //        setIsOpen(false)
 //     }
 //   }
@@ -61,7 +61,7 @@
 //                     onKeyDown={(e) => enterandgo(e)}
 //                   />
 //                 </div>
-//                 <Link href={`/Search/${searchCourse}`}>
+//                 <Link href={`/search/${searchCourse}`}>
 //                   <button
 //                     onClick={() => {
 //                       setShowModal(false)
@@ -166,7 +166,7 @@
 //                         </div>
 
 //                         <div className="mt-4">
-//                           <Link href={searchCourse ? `/Search/${searchCourse}` : `/Category`}>
+//                           <Link href={searchCourse ? `/search/${searchCourse}` : `/courses`}>
 //                             <button
 //                               onKeyDown={(e) => enterandgo(e)}
 //                               type="button"
@@ -193,7 +193,7 @@
 //                   onKeyDown={(e) => enterandgo(e)}
 //                   className="w-full"
 //                 />
-//                 <Link href={searchCourse ? `/Search/${searchCourse}` : `/Category`}>
+//                 <Link href={searchCourse ? `/search/${searchCourse}` : `/courses`}>
 //                   <button onKeyDown={(e) => enterandgo(e)}>
 //                     <i className="fa fa-search"></i>
 //                   </button>
@@ -201,7 +201,7 @@
 //               </div>
 //               <ul className="navbar-nav menu-open text-end">
 //                 <li className="menu-item">
-//                   <Link href="/Category">
+//                   <Link href="/courses">
 //                     <a>คอร์สเรียนทั้งหมด</a>
 //                   </Link>
 //                 </li>
@@ -305,7 +305,7 @@ function Header() {
   }
   const enterandgo = (event) => {
     if (event.keyCode === 13) {
-      router.push(`/Search/${searchCourse}`);
+      router.push(`/search/${searchCourse}`);
       setIsOpen(false);
     }
   };
@@ -358,7 +358,7 @@ function Header() {
                     /> */}
                     <Link
                       href={
-                        searchCourse ? `/Search/${searchCourse}` : `/Category`
+                        searchCourse ? `/search/${searchCourse}` : `/courses`
                       }
                     >
                       
@@ -389,7 +389,7 @@ function Header() {
                   </a>
                 </Link>
                 <Link
-                  href="/Category"
+                  href="/courses"
                   activeClass="Home"
                   to="about"
                   smooth={true}
@@ -586,7 +586,7 @@ function Header() {
                   หน้าแรก
                 </a>
               </Link>
-              <Link href="/Category">
+              <Link href="/courses">
                 <a className="hover:bg-gray-700 hover:!text-white   text-Athiti   block px-3 py-2 rounded-md !text-base !font-medium">
                   คอร์สเรียนทั้งหมด
                 </a>
@@ -624,7 +624,7 @@ function Header() {
                   />
                   <Link
                     href={
-                      searchCourse ? `/Search/${searchCourse}` : `/Category`
+                      searchCourse ? `/search/${searchCourse}` : `/courses`
                     }
                   >
                     <button onKeyDown={(e) => enterandgo(e)}>
