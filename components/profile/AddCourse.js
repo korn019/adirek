@@ -170,14 +170,21 @@ const AddCourse = () => {
     //    })
   };
   const categoryName = () => {
-    getData("filterCategory")
-      .then((res) => {
-        setGetCategory(res.data);
+     getData("category").then((res) => {
+      setGetCategory(res.filterCategory);
+        // console.log(res.filterCategory)
       })
-      .catch((err) => {
-        // console.log(err);
-      });
-  };
+  }
+  //   getData("filterCategory")
+  //     .then((res) => {
+  //       setGetCategory(res.data);
+  //     })
+  //     .catch((err) => {
+  //       // console.log(err);
+  //     });
+  // };
+
+      
   useEffect(() => {
     categoryName();
   }, [titleId, priceId, detailId]);

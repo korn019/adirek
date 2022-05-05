@@ -1,6 +1,12 @@
-import {Input, Inputtextarea, SelectRangeAge, SelectTeach, SelectVaccine} from "../Input"
+import {
+  Input,
+  Inputtextarea,
+  SelectRangeAge,
+  SelectTeach,
+  SelectVaccine,
+} from "../Input";
 
-const EditStudent = ({onSubmit, register, auth}) => {
+const EditStudent = ({ onSubmit, register, auth }) => {
   return (
     <div className="w-full py-10 px-12 sm:px-4 md:px-10 ">
       <div className="text-center mb-10">
@@ -121,12 +127,13 @@ const EditStudent = ({onSubmit, register, auth}) => {
           type="submit"
           data-mdb-ripple="true"
           data-mdb-ripple-color="light"
-          s>
+          s
+        >
           ยืนยัน
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default EditStudent;

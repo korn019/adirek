@@ -66,11 +66,11 @@ export const DataProvider = ({children}) => {
       //     console.log(err.response)
       //   })
     }
-    getData("instructor-course", token)
+    getData("instructor", token)
       .then((res) => {
-        setData(res.data)
+        setData(res.Instructor)
         setIsLoading(true)
-        dispatch({type: "COURSE", payload: res.data})
+        dispatch({type: "COURSE", payload: res.Instructor})
       })
       .catch((err) => {
         console.log(err)

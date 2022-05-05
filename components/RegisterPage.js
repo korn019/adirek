@@ -76,9 +76,7 @@ const RegisterPage = () => {
   dispatch({type: "NOTIFY", payload: toast.success(res.message)})
   // router.push("/login")
   }
-  const onChangeInput = (e) => {
-    setType(e.target.value)
-  }
+
   return (
     <>
       <div className="w-full bg-grey-lightest">
@@ -91,7 +89,6 @@ const RegisterPage = () => {
               <div className="py-4 px-8">
                 <div className="w-full md:w-1/3  mb-6 md:mb-0">
                   <SelectType
-                    onChange={onChangeInput}
                     label="type"
                     register={register}
                     placeholder="ประเภทบัญชี"

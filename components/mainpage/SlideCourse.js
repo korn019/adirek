@@ -26,14 +26,18 @@ const SlideCourse = () => {
 
   useEffect(() => {
     // getData2();
-
-    getData("filterCategory")
-      .then((res) => {
-        setAvailable(res.data)
-      })
-      .catch((err) => {
-        console.error(err)
-      })
+    
+      getData("category").then((res) => {
+        setAvailable(res.filterCategory);
+         // console.log(res.filterCategory)
+       })
+    // getData("filterCategory")
+    //   .then((res) => {
+    //     setAvailable(res.data)
+    //   })
+    //   .catch((err) => {
+    //     console.error(err)
+    //   })
   }, [])
 
   let availableCourse = courseData.map((item) => item.filter_category_course)

@@ -22,7 +22,7 @@ const LayoutProfile = ({ children }) => {
         {/* <div className="drawer-content flex justify-center "> */}
         <div className="drawer-content flex justify-center ">
           <div className="lg:w-[60vw] max-w-screen-lg lg:pt-4 lg:p-4">
-            <div className="navbar bg-base-100 lg:hidden sticky top-0 w-full z-50">
+            <div className="navbar lg:hidden sticky top-0 w-full z-50">
               <div className="flex-none">
                 <label
                   for="my-drawer-2"
@@ -78,7 +78,7 @@ const LayoutProfile = ({ children }) => {
           <label for="my-drawer-2 " className="drawer-overlay "></label>
           <div className="overflow-y-auto flex lg:justify-end w-fit lg:w-[30vw] ">
             {/* <!-- Sidebar content here --> */}
-            <div className="w-fit p-3 lg:m-6 bg-base-100  ">
+            <div className="w-fit p-3 lg:m-6 bg-base-100/[.8] rounded-md  ">
               {/* <!-- avatar start --> */}
               <div className=" ">
                 {Object.keys(auth).length !== 0 ? (
@@ -108,7 +108,7 @@ const LayoutProfile = ({ children }) => {
                   ) : null
                 ) : null}
 
-                <div className="bg-[rgb(245,245,255)]  rounded-box menu mt-2">
+                <div className=" rounded-box menu mt-2">
                   {/* <!-- avatar end --> */}
                   <h1 className="text-2xl p-2 text-black text-center">
                     {(() => {
@@ -213,7 +213,7 @@ const LayoutProfile = ({ children }) => {
               <div className="divider"></div>
               {/* <!-- menu start --> */}
               <div className="pt-4 ">
-                <ul className="menu  bg-[rgb(245,245,255)] rounded-box">
+                <ul className="menu  rounded-box">
                   <li>
                     <Link
                       href={`/Instructor/id=${auth.user?.id}`}
