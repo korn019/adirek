@@ -26,14 +26,14 @@ const CourseCategory = () => {
     setPageCount(Math.ceil(items.length / 20));
   }, [data, itemOffset, Search]);
 
-  const SearchCateCourse = data.filter((v) => {
+  const SearchCateCourse = courseData.filter((v) => {
     if (Search !== undefined) {
       if (Search.length > 0) {
         return (
           v.filter_category_course
             .toLowerCase()
             .includes(Search.toLowerCase()) ||
-          v.firstName.toLowerCase().includes(Search.toLowerCase()) ||
+          v.first_name.toLowerCase().includes(Search.toLowerCase()) ||
           v.detail.toLowerCase().includes(Search.toLowerCase()) ||
           v.price_course.toLowerCase().includes(Search.toLowerCase())
         );

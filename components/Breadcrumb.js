@@ -29,7 +29,7 @@ const Breadcrumb = ({bread1, bread2, breadActive, href1, href2, hrefActive}) => 
                 </svg>
               </span>
               <Link href={href1}>
-                <a className="text-gray-600 dark:text-gray-200 hover:underline font-title text-flg">
+                <a className="text-gray-600 dark:text-gray-200 hover:underline font-Athiti !font-semibold text-lg">
                   {bread1}
                 </a>
               </Link>

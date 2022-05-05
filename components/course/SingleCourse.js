@@ -162,7 +162,7 @@ const SingleCourse = ({course, index, filterImg}) => {
           <h6 className="truncate ...">
             <Link href={`/course/${course.list_id}`} as={`/course/${course.list_id}`}>
               <a href="#" className="text-Athiti !font-medium text-flg">
-                {course.title_course}
+                {course.detail}
               </a>
             </Link>
           </h6>
@@ -178,7 +178,7 @@ const SingleCourse = ({course, index, filterImg}) => {
                 alt="img"
               />
               <p className="truncate">
-                <Link href={`/Instructor/${course.id}`} as={`/Instructor/id=${course.id}`}>
+                <Link href={`/instructor/${course.id}`} as={`/instructor/id=${course.id}`}>
                   <a>
                     {course.type == "instructor" || course.type == ""
                       ? `${course.first_name}  ${course.last_name}`

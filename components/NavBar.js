@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useEffect, useState, useContext, Fragment, useRef } from "react";
 import { Disclosure, Menu, Transition, Dialog } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
-import { SearchCourseContext } from "../pages/category";
+// import { SearchCourseContext } from "../pages/category";
 import { GiArchiveResearch } from "react-icons/gi";
 import { CourseCheck } from "./course/Courselabel";
 import { useRouter } from "next/router";
@@ -65,7 +65,7 @@ export default function Navbar() {
   }
   const enterandgo = (event) => {
     if (event.keyCode === 13) {
-      router.push(`/Search/${searchCourse}`);
+      router.push(`/search/${searchCourse}`);
       setIsOpen(false);
     }
   };

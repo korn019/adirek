@@ -75,6 +75,7 @@ export const DataProvider = ({children}) => {
       .catch((err) => {
         console.log(err)
       })
+    
   }, [router.pathname])
 
   return (

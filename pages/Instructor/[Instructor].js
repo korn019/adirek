@@ -1,16 +1,18 @@
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import InstructorDetail from "../../components/Instructor/InstructorDetail";
 import { CourseCheck2 } from "../../components/category/Check";
 import axios from "axios";
 import { getData } from "../../utils/fetchData";
+import { DataContext } from "../../store/GlobalState";
 const Instructor = () => {
   const router = useRouter();
   const { Instructor } = router.query;
   const [data, setData] = useState([]);
   const [course, setCourse] = useState([]);
   const [check, setCheck] = useState(CourseCheck2);
-
+const {state, dispatch} = useContext(DataContext);
+const {courseData} = state;
   const getData2 = () => {
     axios
       .get("http://localhost:3000/api/instructor-course")
@@ -24,20 +26,17 @@ const Instructor = () => {
       });
   };
   const info = () => {
-    getData("users/usersData")
+    getData("user-data")
       .then((res) => {
         setCourse(res.data);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      
   };
-
   useEffect(() => {
     getData2();
     info();
   }, []);
-  const mapped = data.map((obj, index) => obj.main_category);
+  const mapped = courseData.map((obj, index) => obj.main_category);
   const filtered = mapped.filter(
     (type, index) => mapped.indexOf(type) === index
   );
@@ -78,7 +77,7 @@ const Instructor = () => {
               <div className="pd-bottom-115">
                 <div className="container">
                   <InstructorDetail
-                    data={data}
+                    data={courseData}
                     e={e}
                     Instructor={Instructor}
                     id={e.id}

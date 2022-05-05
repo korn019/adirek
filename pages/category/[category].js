@@ -1,9 +1,10 @@
 import {useRouter} from "next/router"
-import {useState, useEffect} from "react"
+import {useState, useEffect, useContext} from "react"
 import {CourseCheck} from "../../components/course/Courselabel"
 import {FilterCategoryLabel} from "../../components/course/filterCategory"
 import CoursePage from "../../components/course/CoursePage"
 import axios from "axios"
+import { DataContext } from "../../store/GlobalState"
 
 const Instructor = () => {
   const router = useRouter()
@@ -11,7 +12,8 @@ const Instructor = () => {
   const [data, setData] = useState(FilterCategoryLabel)
   const [courseLabel, setCourseLabel] = useState(CourseCheck)
   const [dataJson, setDataJson] = useState([])
-  
+  const {state, dispatch} = useContext(DataContext)
+  const {courseData} = state
   const getData =  () => {
     axios
       .get("https://www.api-adirek.online/api/instructor-course")
@@ -34,11 +36,11 @@ const Instructor = () => {
  <>
         {/* <div className="instector-banner-area" style={{height: 400}}></div> */}
         {data.map((e, id) => {
-          return category == e.value.toLowerCase() ? (
+          return category == e.value ? (
             <>
               <div className="pd-bottom-115" key={e.id}>
                 <div className="container">
-                  <CoursePage e={e} dataJson={dataJson} />
+                  <CoursePage e={e} dataJson={courseData} />
                 </div>
               </div>
             </>
