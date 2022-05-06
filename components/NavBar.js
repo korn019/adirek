@@ -13,7 +13,7 @@ import { dash } from "../utils/dash";
 import Cookie from "js-cookie";
 const navigation = [
   { name: "หน้าแรก", href: "/", current: true },
-  { name: "คอร์สเรียนทั้งหมด", href: "/category", current: false },
+  { name: "คอร์สเรียนทั้งหมด", href: "/courses", current: false },
   { name: "บทความและข่าวสาร", href: "/blog", current: false },
   { name: "ติดต่อเรา", href: "/contact", current: false },
 ];
