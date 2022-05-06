@@ -1,6 +1,6 @@
 import RegisterPage from '../components/RegisterPage'
-const register = () => {
+const Register = () => {
     return <RegisterPage/>
 }
 
-export default register;
+export default Register;
