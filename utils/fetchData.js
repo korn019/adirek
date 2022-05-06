@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const BaseUrl = "https://adirekth.com"
+const BaseUrl = "http://localhost:7000"
 
 export const getData = async (url, token) => {
   const res = await fetch(`${BaseUrl}/api/${url}`, {

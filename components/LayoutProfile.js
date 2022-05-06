@@ -11,9 +11,7 @@ const LayoutProfile = ({ children }) => {
   const { auth } = state;
   const router = useRouter();
   useEffect(() => {
-    const token = localStorage.getItem("token");
-
-    if (!auth) router.push("/");
+    if (Object.keys(auth).length !== 0) router.push("/");
   }, [auth]);
   return (
     <>

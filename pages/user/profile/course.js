@@ -9,7 +9,6 @@ const course = () => {
     const {auth} = state
     const router = useRouter()
     useEffect(() => {
-      const token = localStorage.getItem("token")
        if (Object.keys(auth).length == 0) {
          router.push("/")
          dispatch({type: "NOTIFY", payload: {error: toast.error("คุณยังไม่ได้เข้าสู่ระบบ")}})
