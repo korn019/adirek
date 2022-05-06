@@ -133,39 +133,40 @@ const LoginPage = () => {
                         </p>
                       </div>
                       <form onSubmit={handleSubmit(onSubmit)}>
-                        <p className="mb-4">Please login to your account</p>
-                        <div className="mb-4">
+                        {/* <p className="mb-4">Please login to your account</p> */}
+                        <div className="mb-4 mt-4">
                           <Input label="email" register={register} placeholder="Email Address" />
                         </div>
-                        <div className="">
                           <Input
                             label="password"
                             register={register}
                             placeholder="Password"
                             type="password"
                           />
-                        </div>
                         <div className="pt-1 mb-12 pb-1 items-center justify-center ">
+                          <div className="">
+
                           <button
-                            className=" bg-gradient-to-r from-pink-500 hover:to-yellow-5 inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
+                            className=" bg-gradient-to-r  relative from-pink-500 hover:to-yellow-5 inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out lg:w-full mb-3"
                             type="submit"
                             data-mdb-ripple="true"
                             data-mdb-ripple-color="light"
                             s>
                             Log in
                           </button>
+                              </div>
                           <div className="flex  justify-end">
                             <a className="text-red-500 text-right" href="#!">
                               Forgot password?
                             </a>
                           </div>
                         </div>
-                        <div className="flex items-center justify-start pb-6">
+                        <div className="flex items-center justify-start pb-6 ">
                           <p className="mb-0 mr-2">Don't have an account?</p>
-                          <Link href="/Register">
+                          <Link href="/register">
                             <button
                               type="button"
-                              className="inline-block px-6 py-2 border-2 border-red-600 text-white font-medium text-xs leading-tight uppercase rounded !bg-black hover:!bg-slate-800 hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                              className="inline-block  relative px-6 py-2 border-2 border-red-600 text-white font-medium text-xs leading-tight uppercase rounded !bg-black hover:!bg-slate-800 hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                               data-mdb-ripple="true">
                               Register
                             </button>

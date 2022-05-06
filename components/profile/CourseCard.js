@@ -3,20 +3,12 @@ import {DataContext} from "../../store/GlobalState"
 import {toast} from "react-toastify"
 import {useEffect, useState, useContext, Fragment} from "react"
 import Link from "next/link"
-import { dash } from "../../utils/dash"
+import {dash} from "../../utils/dash"
 const CourseCard = ({item}) => {
   const {searchCourse, setSearchCourse, state, dispatch} = useContext(DataContext)
   const {auth} = state
   const router = useRouter()
-  useEffect(() => {
-    const token = localStorage.getItem("token")
-
-    if (!auth) {
-      dispatch({type: "NOTIFY", payload: {error: toast.error("You are not already logged in")}})
-      router.push("/")
-    }
-  }, [])
-  console.log(item)
+  useEffect(() => {}, [])
   const IMG = () => {
     if (
       (item.filter_category_course == "UI UX" && item.รูปถ่าย == "") ||
@@ -33,7 +25,11 @@ const CourseCard = ({item}) => {
     ) {
       return (
         <Link href={`/course/${item.list_id}`} as={`/course/${item.list_id}`}>
-          <img className="object-cover shadow-lg rounded-lg group-hover:opacity-75" src="/static/img/icon/course/P1.jpg"  alt={`${item.title_course}`} />
+          <img
+            className="object-cover shadow-lg rounded-lg group-hover:opacity-75"
+            src="/static/img/icon/course/P1.jpg"
+            alt={`${item.title_course}`}
+          />
         </Link>
       )
     } else if (
@@ -43,135 +39,200 @@ const CourseCard = ({item}) => {
     ) {
       return (
         <Link href={`/course/${item.list_id}`} as={`/course/${item.list_id}`}>
-          <img className="object-cover shadow-lg rounded-lg group-hover:opacity-75" src="/static/img/icon/course/P2.jpg"  alt={`${item.title_course}`} />
+          <img
+            className="object-cover shadow-lg rounded-lg group-hover:opacity-75"
+            src="/static/img/icon/course/P2.jpg"
+            alt={`${item.title_course}`}
+          />
         </Link>
       )
     } else if (item.filter_category_course == "ทำอาหารและขนม" && item.รูปถ่าย == "") {
       return (
         <Link href={`/course/${item.list_id}`} as={`/course/${item.list_id}`}>
-          <img className="object-cover shadow-lg rounded-lg group-hover:opacity-75" src="/static/img/icon/course/P10.jpg"  alt={`${item.title_course}`} />
+          <img
+            className="object-cover shadow-lg rounded-lg group-hover:opacity-75"
+            src="/static/img/icon/course/P10.jpg"
+            alt={`${item.title_course}`}
+          />
         </Link>
       )
     } else if (item.filter_category_course == "ร้องเพลงและการแสดง" && item.รูปถ่าย == "") {
       return (
         <Link href={`/course/${item.list_id}`} as={`/course/${item.list_id}`}>
-          <img className="object-cover shadow-lg rounded-lg group-hover:opacity-75" src="/static/img/icon/course/P7.jpg"  alt={`${item.title_course}`} />
+          <img
+            className="object-cover shadow-lg rounded-lg group-hover:opacity-75"
+            src="/static/img/icon/course/P7.jpg"
+            alt={`${item.title_course}`}
+          />
         </Link>
       )
     } else if (item.filter_category_course == "งานฝีมือ" && item.รูปถ่าย == "") {
       return (
         <Link href={`/course/${item.list_id}`} as={`/course/${item.list_id}`}>
-          <img className="object-cover shadow-lg rounded-lg group-hover:opacity-75" src="/static/img/icon/course/P3.jpg"  alt={`${item.title_course}`} />
+          <img
+            className="object-cover shadow-lg rounded-lg group-hover:opacity-75"
+            src="/static/img/icon/course/P3.jpg"
+            alt={`${item.title_course}`}
+          />
         </Link>
       )
     } else if (item.filter_category_course == "ถ่ายรูปและแต่งรูป" && item.รูปถ่าย == "") {
       return (
         <Link href={`/course/${item.list_id}`} as={`/course/${item.list_id}`}>
-          <img className="object-cover shadow-lg rounded-lg group-hover:opacity-75" src="/static/img/icon/course/P4.jpg"  alt={`${item.title_course}`} />
+          <img
+            className="object-cover shadow-lg rounded-lg group-hover:opacity-75"
+            src="/static/img/icon/course/P4.jpg"
+            alt={`${item.title_course}`}
+          />
         </Link>
       )
     } else if (item.filter_category_course == "แต่งหน้า" && item.รูปถ่าย == "") {
       return (
         <Link href={`/course/${item.list_id}`} as={`/course/${item.list_id}`}>
-          <img className="object-cover shadow-lg rounded-lg group-hover:opacity-75" src="/static/img/icon/course/P5.jpg"  alt={`${item.title_course}`} />
+          <img
+            className="object-cover shadow-lg rounded-lg group-hover:opacity-75"
+            src="/static/img/icon/course/P5.jpg"
+            alt={`${item.title_course}`}
+          />
         </Link>
       )
     } else if (item.filter_category_course == "บุคลิกภาพ" && item.รูปถ่าย == "") {
       return (
         <Link href={`/course/${item.list_id}`} as={`/course/${item.list_id}`}>
-          <img className="object-cover shadow-lg rounded-lg group-hover:opacity-75" src="/static/img/icon/course/P6.jpg"  alt={`${item.title_course}`} />
+          <img
+            className="object-cover shadow-lg rounded-lg group-hover:opacity-75"
+            src="/static/img/icon/course/P6.jpg"
+            alt={`${item.title_course}`}
+          />
         </Link>
       )
     } else if (item.filter_category_course == "การพูด" && item.รูปถ่าย == "") {
       return (
         <Link href={`/course/${item.list_id}`} as={`/course/${item.list_id}`}>
-          <img className="object-cover shadow-lg rounded-lg group-hover:opacity-75" src="/static/img/icon/course/P6.jpg"  alt={`${item.title_course}`} />
+          <img
+            className="object-cover shadow-lg rounded-lg group-hover:opacity-75"
+            src="/static/img/icon/course/P6.jpg"
+            alt={`${item.title_course}`}
+          />
         </Link>
       )
     } else if (item.filter_category_course == "ร้องเพลงและการแสดง" && item.รูปถ่าย == "") {
       return (
         <Link href={`/course/${item.list_id}`} as={`/course/${item.list_id}`}>
-          <img className="object-cover shadow-lg rounded-lg group-hover:opacity-75" src="/static/img/icon/course/P7.jpg"  alt={`${item.title_course}`} />
+          <img
+            className="object-cover shadow-lg rounded-lg group-hover:opacity-75"
+            src="/static/img/icon/course/P7.jpg"
+            alt={`${item.title_course}`}
+          />
         </Link>
       )
     } else if (item.filter_category_course == "กีฬา" && item.รูปถ่าย == "") {
       return (
         <Link href={`/course/${item.list_id}`} as={`/course/${item.list_id}`}>
-          <img className="object-cover shadow-lg rounded-lg group-hover:opacity-75" src="/static/img/icon/course/P8.jpg"  alt={`${item.title_course}`} />
+          <img
+            className="object-cover shadow-lg rounded-lg group-hover:opacity-75"
+            src="/static/img/icon/course/P8.jpg"
+            alt={`${item.title_course}`}
+          />
         </Link>
       )
     } else if (item.filter_category_course == "จัดดอกไม้และจัดสวนถาด" && item.รูปถ่าย == "") {
       return (
         <Link href={`/course/${item.list_id}`} as={`/course/${item.list_id}`}>
-          <img className="object-cover shadow-lg rounded-lg group-hover:opacity-75" src="/static/img/icon/course/P14.jpg"  alt={`${item.title_course}`} />
+          <img
+            className="object-cover shadow-lg rounded-lg group-hover:opacity-75"
+            src="/static/img/icon/course/P14.jpg"
+            alt={`${item.title_course}`}
+          />
         </Link>
       )
     } else if (item.filter_category_course == "วาดรูป" && item.รูปถ่าย == "") {
       return (
         <Link href={`/course/${item.list_id}`} as={`/course/${item.list_id}`}>
-          <img className="object-cover shadow-lg rounded-lg group-hover:opacity-75" src="/static/img/icon/course/P15.jpg"  alt={`${item.title_course}`} />
+          <img
+            className="object-cover shadow-lg rounded-lg group-hover:opacity-75"
+            src="/static/img/icon/course/P15.jpg"
+            alt={`${item.title_course}`}
+          />
         </Link>
       )
     } else if (item.filter_category_course == "ดนตรี" && item.รูปถ่าย == "") {
       return (
         <Link href={`/course/${item.list_id}`} as={`/course/${item.list_id}`}>
-          <img className="object-cover shadow-lg rounded-lg group-hover:opacity-75" src="/static/img/icon/course/P9.jpg"  alt={`${item.title_course}`} />
+          <img
+            className="object-cover shadow-lg rounded-lg group-hover:opacity-75"
+            src="/static/img/icon/course/P9.jpg"
+            alt={`${item.title_course}`}
+          />
         </Link>
       )
     } else if (item.filter_category_course == "ทำอาหารและขนม" && item.รูปถ่าย == "") {
       return (
         <Link href={`/course/${item.list_id}`} as={`/course/${item.list_id}`}>
-          <img className="object-cover shadow-lg rounded-lg group-hover:opacity-75" src="/static/img/icon/course/P10.jpg"  alt={`${item.title_course}`} />
+          <img
+            className="object-cover shadow-lg rounded-lg group-hover:opacity-75"
+            src="/static/img/icon/course/P10.jpg"
+            alt={`${item.title_course}`}
+          />
         </Link>
       )
     } else if (item.filter_category_course == "ดูดวง" && item.รูปถ่าย == "") {
       return (
         <Link href={`/course/${item.list_id}`} as={`/course/${item.list_id}`}>
-          <img className="object-cover shadow-lg rounded-lg group-hover:opacity-75" src="/static/img/icon/course/P11.jpg"  alt={`${item.title_course}`} />
+          <img
+            className="object-cover shadow-lg rounded-lg group-hover:opacity-75"
+            src="/static/img/icon/course/P11.jpg"
+            alt={`${item.title_course}`}
+          />
         </Link>
       )
     } else if (item.filter_category_course == "Cryptocurrency" && item.รูปถ่าย == "") {
       return (
         <Link href={`/course/${item.list_id}`} as={`/course/${item.list_id}`}>
-          <img className="object-cover shadow-lg rounded-lg group-hover:opacity-75" src="/static/img/icon/course/P12.jpg"  alt={`${item.title_course}`} />
+          <img
+            className="object-cover shadow-lg rounded-lg group-hover:opacity-75"
+            src="/static/img/icon/course/P12.jpg"
+            alt={`${item.title_course}`}
+          />
         </Link>
       )
     } else if (item.filter_category_course == "NFT" && item.รูปถ่าย == "") {
       return (
         <Link href={`/course/${item.list_id}`} as={`/course/${item.list_id}`}>
-          <img className="object-cover shadow-lg rounded-lg group-hover:opacity-75" src="/static/img/icon/course/P13.jpg"  alt={`${item.title_course}`} />
+          <img
+            className="object-cover shadow-lg rounded-lg group-hover:opacity-75"
+            src="/static/img/icon/course/P13.jpg"
+            alt={`${item.title_course}`}
+          />
         </Link>
       )
     } else {
       return (
         <Link href={`/course/${item.list_id}`} as={`/course/${item.list_id}`}>
-          <img className="object-cover" src={`${item.รูปถ่าย}`}  alt={`${item.title_course}`} />
+          <img className="object-cover" src={`${item.รูปถ่าย}`} alt={`${item.title_course}`} />
         </Link>
       )
     }
   }
-  function ConvertUTCTimeToLocalTime(UTCDateString)
-  {
-      var convertdLocalTime = new Date(UTCDateString);
+  function ConvertUTCTimeToLocalTime(UTCDateString) {
+    var convertdLocalTime = new Date(UTCDateString)
 
-      var hourOffset = convertdLocalTime.getTimezoneOffset() / 60;
+    var hourOffset = convertdLocalTime.getTimezoneOffset() / 60
 
-      convertdLocalTime.setHours( convertdLocalTime.getHours() + hourOffset ); 
+    convertdLocalTime.setHours(convertdLocalTime.getHours() + hourOffset)
 
-      return convertdLocalTime;
+    return convertdLocalTime
   }
-  let someDate = new Date(item.create_at);
+  let someDate = new Date(item.create_at)
   let getDate = someDate.toLocaleDateString("th-TH", {
     year: "numeric",
     month: "long",
     day: "numeric",
     weekday: "long",
   })
-  let getTime = someDate.toLocaleTimeString('th-TH')
-
-  console.log(getTime);
+  let getTime = someDate.toLocaleTimeString("th-TH")
   // console.log(someDate.toLocaleString('uk', { timeZone: 'UTC' }));
-  
+
   return (
     <>
       <div className="container mx-auto py-12 px-6 card card-side !bg-[rgb(245 245 245)]">
@@ -194,7 +255,9 @@ const CourseCard = ({item}) => {
             <div className="sm:col-span-2">
               <div className="flex items-center space-x-3">
                 <div className="flex items-center space-x-2">
-                  <button className="btn btn-xs btn-error text-Athiti !leading-none !text-base">{item.filter_category_course}</button>
+                  <button className="btn btn-xs btn-error text-Athiti !leading-none !text-base">
+                    {item.filter_category_course}
+                  </button>
                   {/* <button className="btn btn-xs btn-success">Author</button> */}
                   {/* <span className="inline-flex items-center leading-none px-2.5 py-1.5 text-sm font-medium text-skin-inverted rounded-full border border-skin-input">
                     <svg
@@ -229,10 +292,8 @@ const CourseCard = ({item}) => {
               </div>
 
               <div className="mt-2">
-                <Link
-                  href={`/course/${dash(item.title_course)}`}
-                  as={`/course/${item.list_id}`}>
-                {/* <Link href={{pathname: "/course/[course]", query: {course: `${dash(item.title_course)}`}}}> */}
+                <Link href={`/course/${dash(item.title_course)}`} as={`/course/${item.list_id}`}>
+                  {/* <Link href={{pathname: "/course/[course]", query: {course: `${dash(item.title_course)}`}}}> */}
                   <a className="group">
                     <h4 className="text-xl leading-6 font-semibold  text-skin-inverted group-hover:text-skin-primary font-Athiti ">
                       {item.title_course}

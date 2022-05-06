@@ -149,7 +149,7 @@ export default function Navbar() {
                     <Link href="/login">
                       <a>
                         {" "}
-                        <p className="!text-white text-Athiti !text-md !font-semibold">
+                        <p className="!text-white text-Athiti  !font-semibold">
                           เข้าสู่ระบบ
                         </p>
                       </a>

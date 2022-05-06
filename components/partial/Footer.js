@@ -57,7 +57,7 @@ const Footer = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="/Blog" className="!text-lg">
+                      <a href="/blog" className="!text-lg">
                         Blog
                       </a>
                     </li>
@@ -91,7 +91,7 @@ const Footer = () => {
                       <a href="dashboard.html">รายงาน</a>
                     </li> */}
                     <li>
-                      <a href="/Contact" className="!text-lg">
+                      <a href="/contact" className="!text-lg">
                         ติดต่อเรา
                       </a>
                     </li>

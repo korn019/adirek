@@ -11,7 +11,7 @@ const LayoutProfile = ({ children }) => {
   const { auth } = state;
   const router = useRouter();
   useEffect(() => {
-    if (Object.keys(auth).length !== 0) router.push("/");
+    if (Object.keys(auth).length == 0) router.push("/");
   }, [auth]);
   return (
     <>
@@ -19,7 +19,7 @@ const LayoutProfile = ({ children }) => {
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         {/* <div className="drawer-content flex justify-center "> */}
         <div className="drawer-content flex justify-center ">
-          <div className="lg:w-[60vw] max-w-screen-lg lg:pt-4 lg:p-4">
+          <div className="lg:w-[60vw] max-w-screen-lg !bg-base-100  lg:pt-4 lg:p-4">
             <div className="navbar lg:hidden sticky top-0 w-full z-50">
               <div className="flex-none">
                 <label
@@ -43,7 +43,7 @@ const LayoutProfile = ({ children }) => {
               </div>
               <div className="flex-1">
                 <a
-                  className="btn btn-ghost normal-case text-xl text-white gap-1"
+                  className="btn btn-ghost normal-case text-xl !bg-base-100 text-white gap-1"
                   href=""
                 >
                   {(() => {
@@ -72,11 +72,11 @@ const LayoutProfile = ({ children }) => {
             {children}
           </div>
         </div>
-        <div className="drawer-side ">
+        <div className="drawer-side !bg-base-100 ">
           <label for="my-drawer-2 " className="drawer-overlay "></label>
           <div className="overflow-y-auto flex lg:justify-end w-fit lg:w-[30vw] ">
             {/* <!-- Sidebar content here --> */}
-            <div className="w-fit p-3 lg:m-6 bg-base-100/[.8] rounded-md  ">
+            <div className="w-fit p-3 lg:m-6 bg-white rounded-md  ">
               {/* <!-- avatar start --> */}
               <div className=" ">
                 {Object.keys(auth).length !== 0 ? (

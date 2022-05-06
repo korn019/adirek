@@ -74,7 +74,7 @@ const InstructorPromote = () => {
         <BannerAds />
       </div>
     </>
-  );
+  )
 };
 
 export default InstructorPromote;

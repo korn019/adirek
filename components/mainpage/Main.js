@@ -33,8 +33,8 @@ const Main = () => {
       <div className="py-12">
         <BannerAds />
       </div>
-
-      <InstructorPromote />
+      
+        <InstructorPromote />
 
       <div className=" py-12">
         <Course />
@@ -51,7 +51,7 @@ const Main = () => {
       </div>
       {/* <BlogCard /> */}
     </>
-  );
+  )
 };
 
 export default Main;

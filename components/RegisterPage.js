@@ -21,83 +21,45 @@ const RegisterPage = () => {
   const [bgColor, setBgColor] = useState("")
   const [type, setType] = useState("student")
   const {state, dispatch, userLogin} = useContext(DataContext)
-  const {auth} = state
+  const {auth, notify} = state
   useEffect(() => {
     if (Object.keys(auth).length !== 0) router.push("/")
   }, [])
   const onSubmit = async (data, e) => {
-    // e.preventDefault()
-    console.log(data)
-    // const errMsg = valid(
-    //   data.type,
-    //   data.first_name,
-    //   data.last_name,
-    //   data.email,
-    //   data.tel,
-    //   data.password,
-    //   data.confirm_password
-    // )
-    // if (errMsg) {
-    //   return dispatch({
-    //     type: "NOTIFY",
-    //     payload: {error: toast(errMsg)},
-    //   })
-    // }
-
-    // const res = await postData("auth/register", data)
-
-    // console.log(res)
-    // axios
-    //   .post("https://www.api-adirek.online/api/users/register", data)
-    //   .then((res) => {
-    //     setBgColor("bg-success");
-    //     toast("สมัครสมาชิกสำเร็จ");
-    //     // console.log(res);
-    //     router.push("/Login");
-    //     // window.location = "/Login";
-    //     dispatch({
-    //       type: "NOTIFY",
-    //       payload: { success: toast(res.data.message) },
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     console.log(error.response.data.message);
-    //     setBgColor("bg-danger");
-    //     // toast(err.data.message)
-    //     dispatch({
-    //       type: "NOTIFY",
-    //       payload: { error: toast(error.response.data.message) },
-    //     });
-    //   });
-
-  const res = await postData("auth/register", data)
-  console.log(res.err)
-  if (res.err) return dispatch({type: "NOTIFY", payload: toast.error(res.err)})
-  dispatch({type: "NOTIFY", payload: toast.success(res.message)})
-  // router.push("/login")
+    e.preventDefault()
+    setType(data.type)
+    const res = await postData("auth/register", data)
+    if (res.err) return dispatch({type: "NOTIFY", payload: toast.error(res.err)})
+    dispatch({type: "NOTIFY", payload: toast.success(res.message)})
+    // router.push("/login")
   }
+    console.log(notify)
 
+  const onChange = (e) => {
+    setType(e.target.value)
+  }
   return (
     <>
       <div className="w-full bg-grey-lightest">
         <div className="container mx-auto py-8">
-          <div className="w-5/6 lg:w-1/2 mx-auto bg-white rounded shadow">
-            <div className="py-4 px-8 text-black text-xl border-b border-grey-lighter">
-              Register for a free account
+          <div className="w-full lg:w-2/3 mx-auto bg-white rounded shadow">
+            <div className="py-4 px-8 text-black text-2xl border-b border-grey-lighter font-Athiti font-medium">
+              สมัครบัญชี Adirek
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="py-4 px-8">
+              <div className="py-4 px-8 ">
                 <div className="w-full md:w-1/3  mb-6 md:mb-0">
                   <SelectType
                     label="type"
+                    onChange={onChange}
                     register={register}
                     placeholder="ประเภทบัญชี"
                   />
                 </div>
-                <div className="flex mb-4">
+                <div className="md:flex  mb-4 space-x-2">
                   {type == "student" || type == "instructor" ? (
                     <>
-                      <div className="w-1/2 mr-1">
+                      <div className="md:w-1/2 ">
                         <Input
                           label="first_name"
                           register={register}
@@ -105,7 +67,7 @@ const RegisterPage = () => {
                           type="text"
                         />
                       </div>
-                      <div className="w-1/2 ml-1">
+                      <div className="md:w-1/2">
                         <Input
                           label="last_name"
                           register={register}
@@ -116,7 +78,7 @@ const RegisterPage = () => {
                     </>
                   ) : type == "institute" ? (
                     <>
-                      <div className="w-1/2 mr-1">
+                      <div className="md:w-1/2">
                         <Input
                           label="institute"
                           register={register}
@@ -148,7 +110,7 @@ const RegisterPage = () => {
                     placeholder="Password"
                     type="password"
                   />
-                  <p className="text-grey text-xs mt-1">รหัสผ่านอย่างน้อย 8 ตัวอักษร</p>
+                  {notify && <p className="text-grey text-red-400 text-sm  mt-1">รหัสผ่านอย่างน้อย 6 ตัวอักษร</p>}
                 </div>
                 <div className="">
                   <Input
@@ -160,14 +122,14 @@ const RegisterPage = () => {
                 </div>
                 <div className="flex items-center justify-between">
                   <button
-                    className="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full"
+                    className="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full relative"
                     type="submit">
                     Sign Up
                   </button>
                 </div>
                 <div className="flex items-center justify-start my-6">
                   <p className="mb-0 mr-2">Already have an account?</p>
-                  <Link href="/Login">
+                  <Link href="/login">
                     <a className="text-red-400">Login Now</a>
                   </Link>
                 </div>

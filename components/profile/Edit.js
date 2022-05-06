@@ -12,11 +12,7 @@ const Edit = () => {
   const {auth} = state
   const router = useRouter()
 
-  useEffect(() => {
-    const token = localStorage.getItem("token")
 
-    if (Object.keys(auth).length !== 0) router.push("/")
-  }, [auth])
   return (
     <>
       <LayoutProfile>

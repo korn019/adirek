@@ -13,7 +13,7 @@ const profile = () => {
   const router = useRouter()
   useEffect(() => {
     const token = localStorage.getItem("token")
-    if (Object.keys(auth).length !== 0) router.prefetch("/")
+    if (Object.keys(auth).length == 0) router.prefetch("/")
   }, [auth])
   return (
     <LayoutProfile>

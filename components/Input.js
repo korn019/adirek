@@ -1,22 +1,37 @@
 import {useForm} from "react-hook-form"
 import {ErrorMessage} from "@hookform/error-message"
+import { useState } from "react"
 
 export const Input = ({inputName, label, register, required, placeholder, type, defaultValue}) => {
   const {
     formState: {errors},
   } = useForm()
+    const [focused, setFocused] = useState(null)
   return (
     <>
-      <div>
-        <label className="text-sm !font-semibold px-1 subtext-Athiti ">{placeholder}</label>
+      <div className="relative overflow-hidden">
+        <label className="text-sm  !font-semibold px-1 subtext-Athiti ">{placeholder}</label>
         <input
           {...register(label, {required})}
           type={type}
           defaultValue={defaultValue}
           placeholder={inputName}
-          className=" subtext-Athiti !text-base !font-medium  !text-gray-700 bg-white px-3 py-1.5 bg-clip-padding rounded border-2  border-gray-200 outline-none focus:border-indigo-500  transition ease-in-out m-0
-        focus:!text-gray-700 focus:bg-white  focus:outline-none  block "
+          className="form-input w-full border py-2 px-2 border-b-2 border-gray-300 bg-white bg-opacity-80 placeholder-gray-400 focus:border-gray-300 focus:ring-0"
+          onFocus={() => setFocused(1)}
+          onBlur={() => setFocused(null)}
         />
+        <span
+          className={`absolute bottom-0 left-0 h-0.5 bg-yellow-500 transition-all duration-300 ease-in transform ${
+            focused === 1 ? "w-7/12" : "w-0"
+          }`}
+        />{" "}
+        {/* left side */}
+        <span
+          className={`absolute bottom-0 right-0 h-0.5 bg-yellow-500 transition-all duration-300 ease-in transform ${
+            focused === 1 ? "w-7/12" : "w-0"
+          }`}
+        />{" "}
+        {/* right side */}
       </div>
     </>
   )
