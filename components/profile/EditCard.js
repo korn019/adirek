@@ -22,12 +22,8 @@ const EditCard = () => {
 
   const onSubmit = (data, e) => {
     e.preventDefault()
-putData(`users-data/${auth.user?.id}`, data, auth.token)
-.then((res) => {
-  console.log(res)
-}).catch((err) => {
-  console.log(err)
-}) 
+const res = putData(`users-data/${auth.user?.id}`, data, auth?.token)
+console.log(res)
 
 console.log(auth.token)
  
