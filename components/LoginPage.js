@@ -30,7 +30,7 @@ const LoginPage = () => {
     e.preventDefault()
 
     const res = await postData("auth/login", data)
-    console.log(res)
+    // console.log(res)
     if (res.err) {
       return dispatch({type: "NOTIFY", payload: {error: toast.error(res.err)}})
     }
@@ -48,7 +48,7 @@ const LoginPage = () => {
       expires: 7,
     })
     localStorage.setItem("firstLogin", true)
-    console.log(res)
+    // console.log(res)
     // postData("auth/login", data)
     //   .then((response) => {
     //     localStorage.setItem("token", response.data.token)

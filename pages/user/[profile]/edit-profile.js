@@ -17,14 +17,3 @@ const EditProfile = (props) => {
 }
 
 export default EditProfile
-
-export async function getServerSideProps(context) {
-  const res = await fetch(`http://localhost:7000/api/test`)
-  const post = await res.json()
-  return {
-    props: {
-      post,
-      // props ที่จะส่งไปยังหน้าอื่น
-    },
-  }
-}

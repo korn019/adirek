@@ -3,7 +3,7 @@ import {useForm} from "react-hook-form"
 import {Input, SelectForm, SelectRangeAge, SelectTeach, SelectType, SelectVaccine} from "../Input"
 import {DataContext} from "../../store/GlobalState"
 import {useContext, useEffect, useState} from "react"
-import {putData, putData2} from "../../utils/fetchData"
+import {putData} from "../../utils/fetchData"
 import EditInstitute from "./EditInstitute"
 import EditProfile from "./EditStudent"
 import EditInstructor from "./EditInstructor"
@@ -22,35 +22,44 @@ const EditCard = () => {
 
   const onSubmit = (data, e) => {
     e.preventDefault()
-    putData2(`users/edit/${auth.user?.id}`, data, auth.token)
-      .then((response) => {
-        // dispatch({
-        //   type: "NOTIFY",
-        //   payload: {success: toast.success(response.data.message)},
-        // })
-        // dispatch({
-        //   type: "AUTH",
-        //   payload: {
-        //     user: auth.user,
-        //     token: auth.token,
-        //   },
-        // })
-        // dispatch({
-        //   type: "EDITPROFILE",
-        //   payload: response.data.updateInstitute || response.data.updateInstructors,
-        // })
-        // if (response.status == 200) {
-        //   window.location.reload(false)
-        // }
-        console.log(response)
-      })
-      .catch((err) => {
-        console.log(err)
-        // dispatch({
-        //   type: "NOTIFY",
-        //   payload: {error: toast.error(err.response?.data.message)},
-        // })
-      })
+putData(`users-data/${auth.user?.id}`, data, auth.token)
+.then((res) => {
+  console.log(res)
+}).catch((err) => {
+  console.log(err)
+}) 
+
+console.log(auth.token)
+ 
+    // putData2(`users/edit/${auth.user?.id}`, data, auth.token)
+    //   .then((response) => {
+    //     // dispatch({
+    //     //   type: "NOTIFY",
+    //     //   payload: {success: toast.success(response.data.message)},
+    //     // })
+    //     // dispatch({
+    //     //   type: "AUTH",
+    //     //   payload: {
+    //     //     user: auth.user,
+    //     //     token: auth.token,
+    //     //   },
+    //     // })
+    //     // dispatch({
+    //     //   type: "EDITPROFILE",
+    //     //   payload: response.data.updateInstitute || response.data.updateInstructors,
+    //     // })
+    //     // if (response.status == 200) {
+    //     //   window.location.reload(false)
+    //     // }
+    //     console.log(response)
+    //   })
+    //   .catch((err) => {
+    //     console.log(err)
+    //     // dispatch({
+    //     //   type: "NOTIFY",
+    //     //   payload: {error: toast.error(err.response?.data.message)},
+    //     // })
+    //   })
   }
 useEffect(() => {
 

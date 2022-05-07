@@ -11,7 +11,6 @@ const SingleSlideCourse = ({
   const [course, setCourse] = useState(CourseCheck2)
 
   const CourseLength = availableCourse.filter((num) => num.includes(item.filter_category_course))
-                          console.log(availableCourse)
 
   return (
     <>

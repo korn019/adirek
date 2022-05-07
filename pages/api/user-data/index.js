@@ -49,6 +49,7 @@ export default async (req, res) => {
 }
 const getUserData = async (req, res) => {
   try {
+   
     const data = await query(`SELECT id,type,email,institute,first_name,last_name,tel,ช่องทางการสอน,ช่วงอายุของกลุ่มผู้เรียนที่ถนัดในการสอน,ฉีดวัคซีนป้องกัน,ประวัติการศึกษา,ประวัติการสอน,ประกาศนียบัตร,กรณีเรียนนอกสถานที่,รูปถ่าย,อายุ FROM users ` ) /* find all the data in our database */
 
     res.status(200).json({success: true, results: data.length, data: data})

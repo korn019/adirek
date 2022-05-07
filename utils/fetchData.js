@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const BaseUrl = "http://localhost:3000"
+const BaseUrl = "http://localhost:7000"
 // const BaseUrl = "https://adirekth.com"
 // const BaseUrl = "https://adirekth.com"
 

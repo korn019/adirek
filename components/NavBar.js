@@ -199,6 +199,21 @@ export default function Navbar() {
                               auth.user?.type == "student" || auth.user?.type == "instructor" ? (
                                 <>
                                   <Link
+                                    href={`/user/${dash(auth.user?.first_name)}-${dash(
+                                      auth.user?.last_name
+                                    )}/${auth.user?.id}`}
+                                    as={`/user/${dash(auth.user?.first_name)}-${dash(
+                                      auth.user?.last_name
+                                    )}/${auth.user?.id}`}  >
+                                    <a
+                                      className={classNames(
+                                        active ? "bg-gray-100" : "",
+                                        "block px-4 py-2 text-sm text-gray-700"
+                                      )}>
+                                      โปรไฟล์ของคุณ
+                                    </a>
+                                  </Link>
+                                  {/* <Link
                                     href={`/user/profile/${dash(auth.user?.first_name)}-${dash(
                                       auth.user?.last_name
                                     )}`}
@@ -212,14 +227,25 @@ export default function Navbar() {
                                       )}>
                                       โปรไฟล์ของคุณ
                                     </a>
-                                  </Link>
+                                  </Link> */}
                                 </>
                               ) : (
                                 <>
                                   {" "}
-                                  <Link
+                                  {/* <Link
                                     href={`/user/profile/${dash(auth.user?.institute)}`}
                                     as={`/user/profile/${dash(auth.user?.institute)}`}>
+                                    <a
+                                      className={classNames(
+                                        active ? "bg-gray-100" : "",
+                                        "block px-4 py-2 text-sm text-gray-700"
+                                      )}>
+                                      โปรไฟล์ของคุณ
+                                    </a>
+                                  </Link> */}
+                                  <Link
+                                    href={`/user/${dash(auth.user?.institute)}/${auth.user?.id}`}
+                                    as={`/user/${dash(auth.user?.institute)}/${auth.user?.id}`}>
                                     <a
                                       className={classNames(
                                         active ? "bg-gray-100" : "",
