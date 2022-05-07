@@ -1,84 +1,80 @@
-import Link from "next/link";
-import { useEffect, useState, useContext, Fragment, useRef } from "react";
-import { Disclosure, Menu, Transition, Dialog } from "@headlessui/react";
-import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import Link from "next/link"
+import {useEffect, useState, useContext, Fragment, useRef} from "react"
+import {Disclosure, Menu, Transition, Dialog} from "@headlessui/react"
+import {BellIcon, MenuIcon, XIcon} from "@heroicons/react/outline"
 // import { SearchCourseContext } from "../pages/category";
-import { GiArchiveResearch } from "react-icons/gi";
-import { CourseCheck } from "./course/Courselabel";
-import { useRouter } from "next/router";
-import { DataContext } from "../store/GlobalState";
-import { toast } from "react-toastify";
-import { SearchBarLg, SearchBarMobile } from "./SearchBar";
-import { dash } from "../utils/dash";
-import Cookie from "js-cookie";
+import {GiArchiveResearch} from "react-icons/gi"
+import {CourseCheck} from "./course/Courselabel"
+import {useRouter} from "next/router"
+import {DataContext} from "../store/GlobalState"
+import {toast} from "react-toastify"
+import {SearchBarLg, SearchBarMobile} from "./SearchBar"
+import {dash} from "../utils/dash"
+import Cookie from "js-cookie"
 const navigation = [
-  { name: "หน้าแรก", href: "/", current: true },
-  { name: "คอร์สเรียนทั้งหมด", href: "/courses", current: false },
-  { name: "บทความและข่าวสาร", href: "/blog", current: false },
-  { name: "ติดต่อเรา", href: "/contact", current: false },
-];
+  {name: "หน้าแรก", href: "/", current: true},
+  {name: "คอร์สเรียนทั้งหมด", href: "/courses", current: false},
+  {name: "บทความและข่าวสาร", href: "/blog", current: false},
+  {name: "ติดต่อเรา", href: "/contact", current: false},
+]
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(" ")
 }
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [course, setCourse] = useState(CourseCheck);
-  const { searchCourse, setSearchCourse, state, dispatch } =
-    useContext(DataContext);
-  const { auth } = state;
-  const [navHead, setNavHead] = useState(false);
-  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false)
+  const [course, setCourse] = useState(CourseCheck)
+  const {searchCourse, setSearchCourse, state, dispatch} = useContext(DataContext)
+  const {auth} = state
+  const [navHead, setNavHead] = useState(false)
+  const router = useRouter()
 
   const changeBg = () => {
     if (typeof window !== "undefined") {
       if (window.scrollY > 80) {
-        setNavHead(true);
+        setNavHead(true)
       } else if (window.scrollY < 30) {
-        setNavHead(false);
+        setNavHead(false)
       }
     }
-  };
+  }
   const LogOut = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    localStorage.removeItem("firstLogin");
-    Cookie.remove("refreshtoken", { path: '"api/auth/accessToken' });
+    localStorage.removeItem("token")
+    localStorage.removeItem("user")
+    localStorage.removeItem("firstLogin")
+    Cookie.remove("refreshtoken", {path: '"api/auth/accessToken'})
     // Cookie.remove("refreshtoken", res.refresh_token, {
     //   path: "api/auth/accessToken",
     // })
-    dispatch({ type: "AUTH", payload: {} });
+    dispatch({type: "AUTH", payload: {}})
     dispatch({
       type: "NOTIFY",
-      payload: { success: toast.success("ออกจากระบบเรียบร้อย") },
-    });
+      payload: {success: toast.success("ออกจากระบบเรียบร้อย")},
+    })
     // router.push("/Login")
-  };
+  }
 
   function closeModal() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
 
   function openModal() {
-    setIsOpen(true);
+    setIsOpen(true)
   }
   const enterandgo = (event) => {
     if (event.keyCode === 13) {
-      router.push(`/search/${searchCourse}`);
-      setIsOpen(false);
+      router.push(`/search/${searchCourse}`)
+      setIsOpen(false)
     }
-  };
+  }
   useEffect(() => {
-    window.addEventListener("scroll", changeBg);
-  }, []);
-  const [isOpenModal, setIsOpenModal] = useState(false);
+    window.addEventListener("scroll", changeBg)
+  }, [])
+  const [isOpenModal, setIsOpenModal] = useState(false)
   return (
-    <Disclosure
-      as="nav"
-      className="bg-gray-800 sticky w-full z-[999] top-0 left-0"
-    >
-      {({ open }) => (
+    <Disclosure as="nav" className="bg-gray-800 sticky w-full z-[999] top-0 left-0">
+      {({open}) => (
         <>
           <div className="  max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between h-28">
@@ -123,12 +119,11 @@ export default function Navbar() {
                         <a
                           className={classNames(
                             router.pathname == item.href
-                              ? "bg-gray-900 !text-white active:bg-blue-600 "
-                              : "text-gray-300 hover:bg-gray-700 hover:text-white active:bg-blue-600 ",
-                            "px-2 py-2 rounded-md !text-sm !font-medium  !text-white text-Athiti"
+                              ? "bg-gray-900 !text-white active:bg-blue-600"
+                              : "text-gray-300 hover:bg-gray-700 hover:text-white active:bg-blue-600 text-",
+                            "px-2 py-2 rounded-md !text-xl !font-medium  !text-white text-Athiti"
                           )}
-                          aria-current={item.current ? "page" : undefined}
-                        >
+                          aria-current={item.current ? "page" : undefined}>
                           {item.name}
                         </a>
                       </Link>
@@ -149,7 +144,7 @@ export default function Navbar() {
                     <Link href="/login">
                       <a>
                         {" "}
-                        <p className="!text-white text-Athiti  !font-semibold">
+                        <p className="!text-white text-Athiti  !font-semibold !text-sm md:!text-lg">
                           เข้าสู่ระบบ
                         </p>
                       </a>
@@ -159,8 +154,7 @@ export default function Navbar() {
                   <>
                     <button
                       type="button"
-                      className=" p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                    >
+                      className=" p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                       <span className="sr-only">View notifications</span>
                       <BellIcon className="h-6 w-6" aria-hidden="true" />
                     </button>
@@ -172,10 +166,8 @@ export default function Navbar() {
                           <div className="h-8 w-8 rounded-full overflow-hidden bg-white justify-center items-center flex">
                             <span className="text-black text-Athiti !font-semibold !text-base">
                               {Object.keys(auth).length !== 0 ? (
-                                auth.user?.type == "student" ||
-                                auth.user?.type == "instructor" ? (
-                                  auth.user?.first_name?.charAt(0) +
-                                  auth.user?.last_name?.charAt(0)
+                                auth.user?.type == "student" || auth.user?.type == "instructor" ? (
+                                  auth.user?.first_name?.charAt(0) + auth.user?.last_name?.charAt(0)
                                 ) : auth.user?.type == "institute" ? (
                                   auth.user?.institute?.charAt(0)
                                 ) : null
@@ -200,29 +192,25 @@ export default function Navbar() {
                         enterTo="transform opacity-100 scale-100"
                         leave="transition ease-in duration-75"
                         leaveFrom="transform opacity-100 scale-100"
-                        leaveTo="transform opacity-0 scale-95"
-                      >
+                        leaveTo="transform opacity-0 scale-95">
                         <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                           <Menu.Item>
-                            {({ active }) =>
-                              auth.user?.type == "student" ||
-                              auth.user?.type == "instructor" ? (
+                            {({active}) =>
+                              auth.user?.type == "student" || auth.user?.type == "instructor" ? (
                                 <>
                                   <Link
-                                    href={`/user/profile/${dash(
-                                      auth.user?.first_name
-                                    )}-${dash(auth.user?.last_name)}`}
-                                    as={`/user/profile/${dash(
-                                      auth.user?.first_name
-                                    )}-${dash(auth.user?.last_name)}`}
-                                  >
+                                    href={`/user/profile/${dash(auth.user?.first_name)}-${dash(
+                                      auth.user?.last_name
+                                    )}`}
+                                    as={`/user/profile/${dash(auth.user?.first_name)}-${dash(
+                                      auth.user?.last_name
+                                    )}`}>
                                     <a
                                       className={classNames(
                                         active ? "bg-gray-100" : "",
                                         "block px-4 py-2 text-sm text-gray-700"
-                                      )}
-                                    >
-                                      Your Profile
+                                      )}>
+                                      โปรไฟล์ของคุณ
                                     </a>
                                   </Link>
                                 </>
@@ -230,20 +218,14 @@ export default function Navbar() {
                                 <>
                                   {" "}
                                   <Link
-                                    href={`/user/profile/${dash(
-                                      auth.user?.institute
-                                    )}`}
-                                    as={`/user/profile/${dash(
-                                      auth.user?.institute
-                                    )}`}
-                                  >
+                                    href={`/user/profile/${dash(auth.user?.institute)}`}
+                                    as={`/user/profile/${dash(auth.user?.institute)}`}>
                                     <a
                                       className={classNames(
                                         active ? "bg-gray-100" : "",
                                         "block px-4 py-2 text-sm text-gray-700"
-                                      )}
-                                    >
-                                      Your Profile
+                                      )}>
+                                      โปรไฟล์ของคุณ
                                     </a>
                                   </Link>
                                 </>
@@ -251,30 +233,28 @@ export default function Navbar() {
                             }
                           </Menu.Item>
                           <Menu.Item>
-                            {({ active }) => (
+                            {({active}) => (
                               <a
                                 href="#"
                                 className={classNames(
                                   active ? "bg-gray-100" : "",
                                   "block px-4 py-2 text-sm text-gray-700"
-                                )}
-                              >
+                                )}>
                                 Settings
                               </a>
                             )}
                           </Menu.Item>
 
                           <Menu.Item>
-                            {({ active }) => (
+                            {({active}) => (
                               <a
                                 href="#"
                                 className={classNames(
                                   active ? "bg-gray-100" : "",
                                   "block px-4 py-2 text-sm text-gray-700"
                                 )}
-                                onClick={LogOut}
-                              >
-                                Sign out
+                                onClick={LogOut}>
+                              ออกจากระบบ
                               </a>
                             )}
                           </Menu.Item>
@@ -299,8 +279,7 @@ export default function Navbar() {
                       : "text-gray-300 hover:bg-gray-700 hover:text-white",
                     "block px-3 py-2 rounded-md text-base font-medium"
                   )}
-                  aria-current={item.current ? "page" : undefined}
-                >
+                  aria-current={item.current ? "page" : undefined}>
                   {item.name}
                 </Disclosure.Button>
               ))}
@@ -315,5 +294,5 @@ export default function Navbar() {
         </>
       )}
     </Disclosure>
-  );
+  )
 }

@@ -11,33 +11,11 @@ const SlideCourse = () => {
   const [available, setAvailable] = useState([])
   const {state, dispatch} = useContext(DataContext)
   const {courseData} = state
-  // console.log(courseData)
-  // const getData2 = () => {
-  //   axios
-  //     .get("https://www.api-adirek.online/api/instructor-course")
-  //     .then((res) => {
-  //       // console.log(res)
-  //       setAvailable(res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  // };
 
   useEffect(() => {
-    // getData2();
-    
-      getData("category").then((res) => {
-        setAvailable(res.filterCategory);
-         // console.log(res.filterCategory)
-       })
-    // getData("filterCategory")
-    //   .then((res) => {
-    //     setAvailable(res.data)
-    //   })
-    //   .catch((err) => {
-    //     console.error(err)
-    //   })
+    getData("category").then((res) => {
+      setAvailable(res.filterCategory)
+    })
   }, [])
 
   let availableCourse = courseData?.map((item) => item.filter_category_course)
@@ -76,30 +54,34 @@ const SlideCourse = () => {
                       spaceBetween: 20,
                     },
                     1200: {
-                      slidesPerView: 4,
+                      slidesPerView: 3,
                       spaceBetween: 20,
                     },
                     1440: {
-                      slidesPerView: 4,
+                      slidesPerView: 3,
                       spaceBetween: 10,
                     },
                     1920: {
-                      slidesPerView: 4,
+                      slidesPerView: 3,
                       spaceBetween: 10,
                     },
                   }}>
-                  <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1 px-5">
-                    {available?.map((SlideCourseData) => (
-                      <SwiperSlide key={SlideCourseData.filter_id}>
-                        <SingleSlideCourse
-                          courseData={courseData}
-                          item={SlideCourseData}
-                          available={available}
-                          availableCourse={availableCourse}
-                          availableCourseCategory={availableCourseCategory}
-                        />
-                      </SwiperSlide>
-                    ))}
+                  <div className="">
+                    {available?.map((SlideCourseData) => {
+                      return (
+                        availableCourse.includes(SlideCourseData.filter_category_course) && (
+                          <SwiperSlide key={SlideCourseData.filter_id}>
+                            <SingleSlideCourse
+                              courseData={courseData}
+                              item={SlideCourseData}
+                              available={available}
+                              availableCourse={availableCourse}
+                              availableCourseCategory={availableCourseCategory}
+                            />
+                          </SwiperSlide>
+                        )
+                      )
+                    })}
                   </div>
                 </Swiper>
               </div>

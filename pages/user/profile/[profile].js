@@ -6,6 +6,12 @@ import {useRouter} from "next/router"
 import {DataContext} from "../../../store/GlobalState"
 import {toast} from "react-toastify"
 import {useEffect, useState, useContext, Fragment} from "react"
+import Edit from "../../../components/profile/Edit"
+import {Tab} from "@headlessui/react"
+import EditCard from "../../../components/profile/EditCard"
+import AddCourse from "../../../components/profile/AddCourse"
+import Link from "next/link"
+import {dash} from "../../../utils/dash"
 const profile = () => {
   const {searchCourse, setSearchCourse, state, dispatch} = useContext(DataContext)
   const {auth} = state
@@ -16,9 +22,15 @@ const profile = () => {
     if (Object.keys(auth).length == 0) router.prefetch("/")
   }, [auth])
   return (
-    <LayoutProfile>
-      <Home />
-    </LayoutProfile>
+    <>
+  
+     
+     
+      <LayoutProfile>
+        {/* <Home /> */}
+        {/* <Edit /> */}
+      </LayoutProfile> 
+    </>
   )
 }
 

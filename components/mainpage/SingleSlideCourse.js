@@ -11,16 +11,7 @@ const SingleSlideCourse = ({
   const [course, setCourse] = useState(CourseCheck2)
 
   const CourseLength = availableCourse.filter((num) => num.includes(item.filter_category_course))
-
-  // let CourseLength = availableCourseCategory.filter((num) => {
-  //   if (item.value.includes("Design")) {
-  //     return num.includes("Design");
-  //   } else if (item.value.includes("วิชาการ")) {
-  //     return num.includes("วิชาการ");
-  //   } else if (item.value.includes("Life Style")) {
-  //     return num.includes("Life Style");
-  //   }
-  // });
+                          console.log(availableCourse)
 
   return (
     <>
@@ -59,16 +50,9 @@ const SingleSlideCourse = ({
         <div
           className={`single-intro-wrap    ${
             item.filter_id % 2 == 1
-              ? "!bg-[#EB7E23]  group-hover:!bg-slate-50  "
+              ? "!bg-[#EE6724]  group-hover:!bg-slate-50  "
               : "!bg-[#22356C] group-hover:!bg-slate-50  "
           }`}>
-          {/* <div className="thumb">
-            <Link href={`/Course/${item.value}`} as={`/Course/${item.value}`}>
-              <a>
-                <img src={item.img} alt={item.value} className="group-hover:scale-125 " />
-              </a>
-            </Link>
-          </div> */}
           <div className="wrap-details ">
             <h6 className="text-center">
               <Link
@@ -76,7 +60,7 @@ const SingleSlideCourse = ({
                 as={`/category/${item.filter_category_course}`}>
                 <a
                   style={{fontSize: 22}}
-                  className='text-Athiti !font-semibold !text-slate-50  group-hover:!text-black   leading-relaxed tracking-wide'>
+                  className="text-Athiti !font-semibold !text-slate-50  group-hover:!text-black   leading-relaxed tracking-wide">
                   {item.filter_category_course}
                 </a>
               </Link>

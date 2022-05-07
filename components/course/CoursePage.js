@@ -84,7 +84,7 @@ const CoursePage = ({ e, dataJson }) => {
         breadActive={e.value}
         hrefActive="#"
         bread1="คอร์ส"
-        href1="/category"
+        href1="/courses"
       />
       <div className="flex  justify-end m-2">
         <strong className="text-lg group-hover:text-red-600 font-Mitr font-light">

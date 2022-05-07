@@ -40,7 +40,7 @@ export const SearchBarMobile = ({searchCourse, setSearchCourse, onKeyDown, onCha
     clickPoint.current.style.display = "block"
   }
   return (
-    <div className="flex-shrink-0 block md:hidden">
+    <div className="flex-shrink-0 block lg:hidden">
       <div className="relative flex  items-center justify-center">
         <div className="absolute  left-3 items-center" ref={clickPoint}>
           <GiArchiveResearch color="gray" className="text-2xl  hover:!text-bg hover:duration-700" />

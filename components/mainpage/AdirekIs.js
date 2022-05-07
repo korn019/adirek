@@ -5,7 +5,7 @@ const AdirekIs = () => {
 
   return (
     <>
-      <section className="text-gray-700 body-font -mt-20 sm:-mt-36 bg-[#FFFFFF]">
+      <section className="text-gray-700 body-font mt-24 sm:-mt-36 bg-[#FFFFFF]">
         <div className="container mx-auto flex md:px-6 py-24 md:flex-row flex-col items-center">
           <div className="lg:flex-grow md:w-1/2 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-left  z-50">
             <h1 className=" !text-[5rem] !mb-8 text-Athiti  !font-semibold !text-title">อดิเรก</h1>
