@@ -34,6 +34,7 @@ const CourseCategory = () => {
             .toLowerCase()
             .includes(Search.toLowerCase()) ||
           v.first_name.toLowerCase().includes(Search.toLowerCase()) ||
+          v.institute.toLowerCase().includes(Search.toLowerCase()) ||
           v.detail.toLowerCase().includes(Search.toLowerCase()) ||
           v.price_course.toLowerCase().includes(Search.toLowerCase())
         );
@@ -54,41 +55,7 @@ const CourseCategory = () => {
     const newOffset = (event.selected * 20) % items.length;
     setItemOffset(newOffset);
   };
-  // const getData = () => {
-  //   fetch("../../assets/json/user.json", {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Accept: "application/json",
-  //     },
-  //   })
-  //     .then(function (response) {
-  //       return response.json()
-  //     })
-  //     .then(function (myJson) {
-  //       setData(myJson)
-  //       setIsLoading(true)
-  //     })
-  // }
-  //   // สร้าง Id ใน JSON
-  //   const Id = data.forEach(function (e, i) {
-  //     e["id"] = i
-  //   })
-
-  //   const Filter = data.filter((x) => {
-  //     return x.filterCategory === "Web Design"
-  //   })
-  // const getData = () => {
-  //   axios
-  //     .get("https://www.api-adirek.online/api/instructor-course")
-  //     .then((res) => {
-  //       setData(res.data)
-  //       setIsLoading(true)
-  //     })
-  //     .catch((err) => {
-  //       console.error(err)
-  //     })
-  // }
-
+ 
   let courseCounter = [];
   for (let i = 0; i < SearchCateCourse.length; i++) {
     courseCounter = SearchCateCourse.length;

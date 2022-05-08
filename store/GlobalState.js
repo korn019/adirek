@@ -25,50 +25,23 @@ export const DataProvider = ({children}) => {
   const router = useRouter()
   useEffect(() => {
     const firstLogin = localStorage.getItem("firstLogin")
-     dispatch({
-       type: "EDITPROFILE",
-       payload: {
-         token: auth.token,
-       },
-     })
+    dispatch({
+      type: "EDITPROFILE",
+      payload: {
+        token: auth.token,
+      },
+    })
     if (firstLogin) {
       getData("auth/accesstoken").then((res) => {
         if (res.err) return localStorage.removeItem("firstLogin")
         dispatch({
           type: "AUTH",
           payload: {
-            token: res.access_token,  
+            token: res.access_token,
             user: res.user,
           },
         })
-         
       })
-
-      // getData("users/auth", token)
-      //   .then((response) => {
-      //     getData(`users/users/${response.data.user.id}`, token)
-      //       .then((res) => {
-      //         // console.log(res.data[0])
-      //         dispatch({
-      //           type: "AUTH",
-      //           payload: {
-      //             user: res.data[0],
-      //             token: token,
-      //             // editprofile: res.data.user,
-      //           },
-      //         })
-      //       })
-      //       .catch((error) => {
-      //         console.log(error)
-      //       })
-      //     // localStorage.setItem("user", JSON.stringify(res.data.user));
-      //     // let keepUser =  JSON.parse(localStorage.getItem("user"))
-      //     // setUserLogin(keepUser);
-      //   })
-      //   .catch((err) => {
-      //     localStorage.removeItem("firstLogin")
-      //     console.log(err.response)
-      //   })
     }
     getData("instructor")
       .then((res) => {
@@ -79,8 +52,7 @@ export const DataProvider = ({children}) => {
       .catch((err) => {
         console.log(err)
       })
-    
-  }, [router.pathname,auth])
+  }, [router.pathname])
 
   return (
     <DataContext.Provider

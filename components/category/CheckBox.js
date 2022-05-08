@@ -8,7 +8,7 @@ const Checkbox = ({id, type, name, handleClick, isChecked}) => {
       type={type}
       onChange={handleClick}
       checked={isChecked}
-      className="form-check-input"
+      className="checkbox  checkbox-primary"
     />
   )
 }

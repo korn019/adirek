@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react"
+import {useState, useEffect, useContext} from "react"
 import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper"
 import {Swiper, SwiperSlide} from "swiper/react"
 import SingleCourse from "./SingleCourse"
@@ -10,52 +10,22 @@ import Link from "next/link"
 import {css} from "@emotion/react"
 import ClipLoader from "react-spinners/ClipLoader"
 import {MdKeyboardArrowRight} from "react-icons/md"
+import {DataContext} from "../../store/GlobalState"
 const Course = () => {
-  const [data, setData] = useState([])
-  const [dataJson, setDataJson] = useState([])
+  const {state, dispatch} = useContext(DataContext)
+  const {courseData} = state
   const [isLoading, setIsLoading] = useState(false)
   let [loading, setLoading] = useState(true)
-  const getData = () => {
-    axios
-      .get("http://localhost:3000/api/instructor-course")
-      .then((res) => {
-        //  console.log(res)
-        setData(res.data)
-        setLoading(false)
-      })
-      .catch((err) => {
-        //  console.log(err)
-      })
-  }
-  // const getData = () => {
-  //   fetch("http://192.168.1.100:4000/instructor", {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Accept: "application/json",
-  //     },
-  //   })
-  //     .then(function (response) {
-  //       console.log(response)
-  //       return response.json()
-  //     })
-  //     .then(function (myJson) {
-  //       // console.log(myJson);
-  //       setData(myJson)
-  //       setIsLoading(true)
-  //     })
-  //   }
-
-  //  const ID = data.forEach(function (e, i) {
-  //    e["id"] = i
-  //  })
-
-  const Filter = data.map((x) => {
+ 
+  const Filter = courseData.map((x) => {
     return x
   })
-
   useEffect(() => {
-    getData()
-    // setData(dataJson.map((item, id) => Object.assign(item, {id})))
+    if (courseData.length > 0) {
+      setLoading(false)
+    } else if (courseData.length == 0) {
+      setLoading(true)
+    }
   }, [])
   return (
     <>

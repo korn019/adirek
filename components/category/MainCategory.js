@@ -1,129 +1,98 @@
-import { useState, useEffect, useContext } from "react";
-import ReactPaginate from "react-paginate";
-import SingleCourse from "../course/SingleCourse";
-import FilterCheck from "./FilterCheck";
-import PaginatedItems from "./PaginatedItems";
-import { CourseCheck2 } from "./Check";
-import { PriceData } from "./Price";
-import { useRouter } from "next/router";
-import { DataContext } from "../../store/GlobalState";
-import SearchCourse from "../blog/SearchCourse";
-import axios from "axios";
-import ClipLoader from "react-spinners/ClipLoader";
+import {useState, useEffect, useContext} from "react"
+import ReactPaginate from "react-paginate"
+import SingleCourse from "../course/SingleCourse"
+import FilterCheck from "./FilterCheck"
+import PaginatedItems from "./PaginatedItems"
+import {CourseCheck2} from "./Check"
+import {PriceData} from "./Price"
+import {useRouter} from "next/router"
+import {DataContext} from "../../store/GlobalState"
+import SearchCourse from "../blog/SearchCourse"
+import axios from "axios"
+import ClipLoader from "react-spinners/ClipLoader"
 const MainCategory = () => {
   //  console.log(`searchCourse: ${setSearchCourse}`)
   //Filter Course & Price
-  const { state, dispatch } = useContext(DataContext);
-  const { courseData } = state;
-  const [data, setData] = useState([]);
-  const [dataJson, setDataJson] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  let [loading, setLoading] = useState(true);
-  const [isCheckAll, setIsCheckAll] = useState(false);
-  const [isCheck, setIsCheck] = useState([]);
-  const [isCheckAllPrice, setIsCheckAllPrice] = useState(false);
-  const [isCheckPrice, setIsCheckPrice] = useState([]);
-  const [list, setList] = useState([]);
+  const {state, dispatch} = useContext(DataContext)
+  const {courseData} = state
+  const [data, setData] = useState([])
+  const [dataJson, setDataJson] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  let [loading, setLoading] = useState(true)
+  const [isCheckAll, setIsCheckAll] = useState(false)
+  const [isCheck, setIsCheck] = useState([])
+  const [isCheckAllPrice, setIsCheckAllPrice] = useState(false)
+  const [isCheckPrice, setIsCheckPrice] = useState([])
+  const [list, setList] = useState([])
 
-  const [reset, setReset] = useState(false);
+  const [reset, setReset] = useState(false)
 
   // Filter Address
-  const [subdistrict, setSubDistrict] = useState("");
-  const [district, setDistrict] = useState("");
-  const [province, setProvince] = useState("");
-  const [fullAddress, setFullAddress] = useState({});
-  const [error, setError] = useState({});
+  const [subdistrict, setSubDistrict] = useState("")
+  const [district, setDistrict] = useState("")
+  const [province, setProvince] = useState("")
+  const [fullAddress, setFullAddress] = useState({})
+  const [error, setError] = useState({})
 
   function onSelect(fulladdress) {
-    const { subdistrict, district, province } = fulladdress;
-    setSubDistrict(subdistrict);
-    setDistrict(district);
-    setProvince(province);
+    const {subdistrict, district, province} = fulladdress
+    setSubDistrict(subdistrict)
+    setDistrict(district)
+    setProvince(province)
     // setZipcode(zipcode)
-    setFullAddress([subdistrict, district, province]);
-    setError("");
+    setFullAddress([subdistrict, district, province])
+    setError("")
   }
 
-  const [price, setPrice] = useState([]);
-  const [checkPrice, setCheckPrice] = useState([]);
+  const [price, setPrice] = useState([])
+  const [checkPrice, setCheckPrice] = useState([])
   const handleSelectAll = (e) => {
-    setIsCheckAll(!isCheckAll);
-    setIsCheck(list.map((li) => li.value));
+    setIsCheckAll(!isCheckAll)
+    setIsCheck(list.map((li) => li.value))
     if (isCheckAll) {
-      setIsCheck([]);
+      setIsCheck([])
     }
-  };
+  }
 
   const handleClick = (e) => {
-    const { checked, name } = e.target;
-    setIsCheck([...isCheck, name]);
+    const {checked, name} = e.target
+    setIsCheck([...isCheck, name])
     // setIsCheckPrice([...isCheckPrice, name])
     if (!checked) {
-      setIsCheck(isCheck.filter((item) => item !== name));
+      setIsCheck(isCheck.filter((item) => item !== name))
 
       //  setIsCheckPrice(isCheckPrice.filter((item) => item !== name))
     }
-  };
+  }
 
   const handleClickPrice = (e) => {
-    const { checked, name } = e.target;
-    setIsCheckPrice([name]);
+    const {checked, name} = e.target
+    setIsCheckPrice([name])
     // console.log(e.target.name)
     if (!checked) {
-      setIsCheckPrice(isCheckPrice.filter((item) => item !== name));
+      setIsCheckPrice(isCheckPrice.filter((item) => item !== name))
     }
-  };
+  }
 
   const resetButton = () => {
-    setIsCheckAll(false);
-    setIsCheck([]);
-    setIsCheckAllPrice(false);
-    setIsCheckPrice([]);
-    setSubDistrict("");
-    setDistrict("");
-    setProvince("");
-    setFullAddress({});
-    setError("");
-  };
+    setIsCheckAll(false)
+    setIsCheck([])
+    setIsCheckAllPrice(false)
+    setIsCheckPrice([])
+    setSubDistrict("")
+    setDistrict("")
+    setProvince("")
+    setFullAddress({})
+    setError("")
+  }
 
-  // const getData = () => {
-  //   fetch("../../assets/json/user.json", {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Accept: "application/json",
-  //     },
-  //   })
-  //     .then(function (response) {
-  //       return response.json()
-  //     })
-  //     .then(function (myJson) {
-  //       setDataJson(myJson)
-
-  //       setIsLoading(true)
-  //     })
-  // }
-  // console.log(data)
-  const getData = async () => {
-    axios
-      .get("http://localhost:3000/api/instructor-course")
-      .then((res) => {
-        setData(res.data);
-        setIsLoading(true);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
-
-  const [mainCategory, setMainCategory] = useState([]);
+  const [mainCategory, setMainCategory] = useState([])
   useEffect(() => {
-    setMainCategory(MainCategoryData.map((item) => item.value));
-    getData();
-    // setData(dataJson.map((item, id) => Object.assign(item, {id})))
+    setMainCategory(MainCategoryData.map((item) => item.value))
     if (courseData) {
-      setIsLoading(true);
+      setIsLoading(true)
     }
-  }, [dataJson]);
+  }, [dataJson])
 
   const MainCategoryData = [
     {
@@ -146,10 +115,10 @@ const MainCategory = () => {
       id: "5",
       value: "การลงทุน",
     },
-  ];
+  ]
 
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
   }
 
   return (
@@ -212,7 +181,7 @@ const MainCategory = () => {
                       fullAddress={fullAddress}
                       setFullAddress={setFullAddress}
                     />
-                  );
+                  )
                 } else if (isCheckAll == false) {
                   return (
                     <div className="relative px-4 md:px-6">
@@ -220,7 +189,7 @@ const MainCategory = () => {
                         <ClipLoader color="blue" loading={loading} size={100} />
                       </div>
                     </div>
-                  );
+                  )
                 }
               })()}
             </div>
@@ -228,7 +197,7 @@ const MainCategory = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default MainCategory;
+export default MainCategory

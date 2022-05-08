@@ -11,15 +11,12 @@ const Home = () => {
   const {auth, courseData} = state
   const router = useRouter()
   useEffect(() => {
-    const token = localStorage.getItem("token")
 
-    //  dispatch({type: "NOTIFY", payload: {error: toast.error("คุณยังไม่ได้เข้าสู่ระบบ")}})
   }, [auth])
 
   let filterCourse = courseData.filter((item) => {
     return item.id == auth.user?.id
   })
-  // console.log(filterCourse)
 
   return (
     <>

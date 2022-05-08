@@ -258,36 +258,6 @@ const CourseCard = ({item}) => {
                   <button className="btn btn-xs btn-error text-Athiti !leading-none !text-base">
                     {item.filter_category_course}
                   </button>
-                  {/* <button className="btn btn-xs btn-success">Author</button> */}
-                  {/* <span className="inline-flex items-center leading-none px-2.5 py-1.5 text-sm font-medium text-skin-inverted rounded-full border border-skin-input">
-                    <svg
-                      className="mr-1.5 h-2 w-2 brand-react"
-                      fill="currentColor"
-                      viewBox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3"></circle>
-                    </svg>
-                    Tag #1
-                  </span>
-
-                  <span className="inline-flex items-center leading-none px-2.5 py-1.5 text-sm font-medium text-skin-inverted rounded-full border border-skin-input">
-                    <svg
-                      className="mr-1.5 h-2 w-2 brand-packages"
-                      fill="currentColor"
-                      viewBox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3"></circle>
-                    </svg>
-                    Tag #2
-                  </span>
-
-                  <span className="inline-flex items-center leading-none px-2.5 py-1.5 text-sm font-medium text-skin-inverted rounded-full border border-skin-input">
-                    <svg
-                      className="mr-1.5 h-2 w-2 brand-tutoriel"
-                      fill="currentColor"
-                      viewBox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3"></circle>
-                    </svg>
-                    Tag #3
-                  </span> */}
                 </div>
               </div>
 
@@ -300,7 +270,7 @@ const CourseCard = ({item}) => {
                     </h4>
                   </a>
                 </Link>
-                <p className="mt-1 text-sm font-normal text-skin-base leading-5 line-clamp-4">
+                <p className="mt-1 text-base font-Athiti font-medium text-skin-base leading-5 line-clamp-4">
                   {item.detail}
                 </p>
 
@@ -342,7 +312,7 @@ const CourseCard = ({item}) => {
                     </p>
 
                     <div className="flex space-x-1 text-sm text-skin-muted">
-                      <span className="subtext-Athiti ">{`${getDate} เวลา ${getTime} `}</span>
+                      <span className=" font-Athiti font-medium">{`${getDate} เวลา ${getTime} `}</span>
                       {/* <span aria-hidden="true">·</span>
                       <span>3 min read time</span> */}
                     </div>

@@ -77,7 +77,7 @@ const editUserProfile = async (req, res) => {
       id
     ) /* find all the data in our database */
     const token = req.headers.authorization.split(" ")[1]
-    const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
+    const decoded = jwt.verify(token, process.env.REFRESH_TOKEN_SECRET)
     if (id == data[0].id && decoded.id == data[0].id) {
       if (data[0].type == "student") {
         const studentData = {

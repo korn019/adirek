@@ -24,7 +24,7 @@ const AdirekIs = () => {
               </p>
             </div>
             <div className="flex justify-center">
-              <button className="btn font-body text-3xl shadow-2xl">
+              <button className="btn btn-info text-3xl shadow-2xl">
                 <Link href="/contact">
                   <span className="drop-shadow-md font-Prompt  ">ติดต่อเรา</span>
                 </Link>{" "}

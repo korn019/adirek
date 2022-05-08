@@ -46,18 +46,21 @@ const filterCheck = ({
     return (
       <ul key={item.id}>
         <li>
-          <div className="single-form-check form-check flex items-center space-x-2">
-            <Checkbox
-              type="checkbox"
-              name={item.value}
-              id={item.id}
-              handleClick={handleClickPrice}
-              isChecked={isCheckPrice.includes(item.value)}
-            />
-            <label className="form-check-label subtext-Athiti !font-semibold !text-lg" htmlFor="flexCheckDefault2">
-              {item.label} บาท
+          <div className="form-control flex  space-x-2">
+            <label class="label cursor-pointer">
+              <span class="label-text form-check-label text-black subtext-Athiti !font-semibold !text-lg">
+                {item.label} บาท
+              </span>
+              <Checkbox
+                type="checkbox"
+                name={item.value}
+                id={item.id}
+                handleClick={handleClickPrice}
+                isChecked={isCheckPrice.includes(item.value)}
+              />
             </label>
           </div>
+ 
         </li>
       </ul>
     )
@@ -101,19 +104,18 @@ const filterCheck = ({
                         return (
                           <ul key={check.id}>
                             <li>
-                              <div className="single-form-check form-check flex  space-x-2">
-                                <Checkbox
-                                  type="checkbox"
-                                  name={check.value}
-                                  id={check.id}
-                                  handleClick={handleClick}
-                                  isChecked={isCheck.includes(check.value)}
-                                />
-
-                                <label className="form-check-label subtext-Athiti !font-semibold !text-lg" htmlFor="flexCheckDefault2">
-                                  {/* {check.filterValue == 'Design' ? 'ออกแบบ' : check.value} */}
-                                  {check.value}
-                                  {/* {check.value} */}
+                              <div className="form-control flex  space-x-2">
+                                <label class="label cursor-pointer">
+                                  <span class="label-text form-check-label text-black subtext-Athiti !font-semibold !text-lg">
+                                    {check.value}
+                                  </span>
+                                  <Checkbox
+                                    type="checkbox"
+                                    name={check.value}
+                                    id={check.id}
+                                    handleClick={handleClick}
+                                    isChecked={isCheck.includes(check.value)}
+                                  />
                                 </label>
                               </div>
                             </li>
@@ -125,19 +127,18 @@ const filterCheck = ({
                         return (
                           <ul key={check.id}>
                             <li>
-                              <div className="single-form-check form-check items-center flex space-x-2">
-                                <Checkbox
-                                  type="checkbox"
-                                  name={check.value}
-                                  id={check.id}
-                                  handleClick={handleClick}
-                                  isChecked={isCheck.includes(check.value)}
-                                />
-
-                                <label className="form-check-label subtext-Athiti !font-semibold !text-lg" htmlFor="flexCheckDefault2">
-                                  {/* {check.filterValue == 'Design' ? 'ออกแบบ' : check.value} */}
-                                  {check.value}
-                                  {/* {check.value} */}
+                              <div className=" form-control flex  space-x-2">
+                                <label class="label cursor-pointer">
+                                  <span class="label-text form-check-label text-black subtext-Athiti !font-semibold !text-lg">
+                                    {check.value}
+                                  </span>
+                                  <Checkbox
+                                    type="checkbox"
+                                    name={check.value}
+                                    id={check.id}
+                                    handleClick={handleClick}
+                                    isChecked={isCheck.includes(check.value)}
+                                  />
                                 </label>
                               </div>
                             </li>
@@ -149,18 +150,18 @@ const filterCheck = ({
                         return (
                           <ul key={check.id}>
                             <li>
-                              <div className="single-form-check form-check items-center flex space-x-2">
-                                <Checkbox
-                                  type="checkbox"
-                                  name={check.value}
-                                  id={check.id}
-                                  handleClick={handleClick}
-                                  isChecked={isCheck.includes(check.value)}
-                                />
-                                <label className="form-check-label subtext-Athiti !font-semibold !text-lg" htmlFor="flexCheckDefault2">
-                                  {/* {check.filterValue == 'Design' ? 'ออกแบบ' : check.value} */}
-                                  {check.value}
-                                  {/* {check.value} */}
+                              <div className=" form-control flex  space-x-2">
+                                <label class="label cursor-pointer">
+                                  <span class="label-text form-check-label text-black subtext-Athiti !font-semibold !text-lg">
+                                    {check.value}
+                                  </span>
+                                  <Checkbox
+                                    type="checkbox"
+                                    name={check.value}
+                                    id={check.id}
+                                    handleClick={handleClick}
+                                    isChecked={isCheck.includes(check.value)}
+                                  />
                                 </label>
                               </div>
                             </li>
@@ -172,19 +173,18 @@ const filterCheck = ({
                         return (
                           <ul key={check.id}>
                             <li>
-                              <div className="single-form-check form-check items-center flex space-x-2">
-                                <Checkbox
-                                  type="checkbox"
-                                  name={check.value}
-                                  id={check.id}
-                                  handleClick={handleClick}
-                                  isChecked={isCheck.includes(check.value)}
-                                />
-
-                                <label className="form-check-label subtext-Athiti !font-semibold !text-lg" htmlFor="flexCheckDefault2">
-                                  {/* {check.filterValue == 'Design' ? 'ออกแบบ' : check.value} */}
-                                  {check.value}
-                                  {/* {check.value} */}
+                              <div className=" form-control flex  space-x-2">
+                                <label class="label cursor-pointer">
+                                  <span class="label-text form-check-label text-black subtext-Athiti !font-semibold !text-lg">
+                                    {check.value}
+                                  </span>
+                                  <Checkbox
+                                    type="checkbox"
+                                    name={check.value}
+                                    id={check.id}
+                                    handleClick={handleClick}
+                                    isChecked={isCheck.includes(check.value)}
+                                  />
                                 </label>
                               </div>
                             </li>
@@ -196,19 +196,18 @@ const filterCheck = ({
                         return (
                           <ul key={check.id}>
                             <li>
-                              <div className="single-form-check form-check items-center flex space-x-2">
-                                <Checkbox
-                                  type="checkbox"
-                                  name={check.value}
-                                  id={check.id}
-                                  handleClick={handleClick}
-                                  isChecked={isCheck.includes(check.value)}
-                                />
-
-                                <label className="form-check-label subtext-Athiti !font-semibold !text-lg" htmlFor="flexCheckDefault2">
-                                  {/* {check.filterValue == 'Design' ? 'ออกแบบ' : check.value} */}
-                                  {check.value}
-                                  {/* {check.value} */}
+                              <div className=" form-control flex  space-x-2">
+                                <label class="label cursor-pointer">
+                                  <span class="label-text form-check-label text-black subtext-Athiti !font-semibold !text-lg">
+                                    {check.value}
+                                  </span>
+                                  <Checkbox
+                                    type="checkbox"
+                                    name={check.value}
+                                    id={check.id}
+                                    handleClick={handleClick}
+                                    isChecked={isCheck.includes(check.value)}
+                                  />
                                 </label>
                               </div>
                             </li>

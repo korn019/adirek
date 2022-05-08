@@ -8,6 +8,7 @@ export default async (req, res) => {
   try {
     const rf_token = req.cookies.refreshtoken
     if (!rf_token) return res.status(400).json({err: "กรุณาเข้าสู่ระบบก่อน"})
+
     const result = jwt.verify(rf_token, process.env.REFRESH_TOKEN_SECRET)
     if (!result) return res.status(400).json({err: "เข้าสู่ระบบใหม่อีกครั้ง"})
     

@@ -8,6 +8,7 @@ import EditInstitute from "./EditInstitute"
 import EditProfile from "./EditStudent"
 import EditInstructor from "./EditInstructor"
 import EditStudent from "./EditStudent"
+import Cookies from "js-cookie"
 
 const EditCard = ({setValue,value}) => {
   const {state, dispatch} = useContext(DataContext)
@@ -22,9 +23,10 @@ const EditCard = ({setValue,value}) => {
   } = useForm()
 
   useEffect(() => {
-    const getToken = localStorage.getItem("token")
-    if (getToken) {
-      setToken(getToken)
+    // const getToken = localStorage.getItem("token")
+    const rfToken = Cookies.get("refreshtoken")
+    if (rfToken) {
+      setToken(rfToken)
     }
   }, [])
 
