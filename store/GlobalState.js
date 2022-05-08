@@ -31,15 +31,13 @@ export const DataProvider = ({children}) => {
          token: auth.token,
        },
      })
-     console.log(firstLogin)
     if (firstLogin) {
       getData("auth/accesstoken").then((res) => {
-        console.log(res.err)
         if (res.err) return localStorage.removeItem("firstLogin")
         dispatch({
           type: "AUTH",
           payload: {
-            token: res.access_token,
+            token: res.access_token,  
             user: res.user,
           },
         })
