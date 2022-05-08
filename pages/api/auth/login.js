@@ -25,7 +25,6 @@ const login = async (req, res) => {
       if (!isMatch) {
         return res.status(400).json({err: "Email หรือ Password ไม่ถูกต้อง"})
       }
-
       const access_token = createAccessToken({id: findEmail[0].id})
       const refresh_token = createRefreshToken({id: findEmail[0].id})
       const {

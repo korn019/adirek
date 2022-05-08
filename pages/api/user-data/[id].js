@@ -53,40 +53,107 @@ export default async (req, res) => {
 }
 const editUserProfile = async (req, res) => {
   try {
-    const {id} = req.query 
-    const {first_name,last_name,institute,birthday,tel,address,ช่องทางการสอน,ช่วงอายุของกลุ่มผู้เรียนที่ถนัดในการสอน,ฉีดวัคซีนป้องกัน,ประวัติการศึกษา,ประวัติการสอน,ประกาศนียบัตร,กรณีเรียนนอกสถานที่,รูปถ่าย,อายุ}= req.body
+    const {id} = req.query
+    const {
+      first_name,
+      last_name,
+      institute,
+      birthday,
+      tel,
+      address,
+      ช่องทางการสอน,
+      ช่วงอายุของกลุ่มผู้เรียนที่ถนัดในการสอน,
+      ฉีดวัคซีนป้องกัน,
+      ประวัติการศึกษา,
+      ประวัติการสอน,
+      ประกาศนียบัตร,
+      กรณีเรียนนอกสถานที่,
+      รูปถ่าย,
+      อายุ,
+    } = req.body
 
-    const data = await query(`SELECT * FROM users  WHERE id = ?`,id ) /* find all the data in our database */
-
+    const data = await query(
+      `SELECT * FROM users  WHERE id = ?`,
+      id
+    ) /* find all the data in our database */
     const token = req.headers.authorization.split(" ")[1]
-    console.log(token  )
-    var decoded = jwt.verify(token,  process.env.REFRESH_TOKEN_SECRET)
-    if(decoded && decoded.id == id){
-      if(data[0].type == 'student'){
+    const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
+    if (id == data[0].id && decoded.id == data[0].id) {
+      if (data[0].type == "student") {
         const studentData = {
-          first_name,last_name,tel,birthday,address,ฉีดวัคซีนป้องกัน,ประวัติการศึกษา,รูปถ่าย,อายุ
+          id,
+          first_name,
+          last_name,
+          tel,
+          birthday,
+          address,
+          ฉีดวัคซีนป้องกัน,
+          ประวัติการศึกษา,
+          รูปถ่าย,
+          อายุ,
         }
-        const Editstudent = await query('UPDATE users SET ? WHERE id = ?',[studentData,id ])
-        res.status(200).json({success: true, results: data.length,studentData, dataChange: Editstudent,msg:'แก้ไขข้อมูลสำเร็จ'})
-      }else if (data[0].type == 'instructor'){
+        const Editstudent = await query("UPDATE users SET ? WHERE id = ?", [studentData, id])
+        res.status(200).json({
+          success: true,
+          results: data.length,
+          studentData,
+          dataChange: Editstudent,
+          msg: "แก้ไขข้อมูลสำเร็จ",
+        })
+      } else if (data[0].type == "instructor") {
         const instructorData = {
-          first_name,last_name,tel,address,ช่องทางการสอน,ช่วงอายุของกลุ่มผู้เรียนที่ถนัดในการสอน,ฉีดวัคซีนป้องกัน,ประวัติการศึกษา,ประวัติการสอน,ประกาศนียบัตร,กรณีเรียนนอกสถานที่,รูปถ่าย,อายุ
+          id,
+          first_name,
+          last_name,
+          tel,
+          address,
+          ช่องทางการสอน,
+          ช่วงอายุของกลุ่มผู้เรียนที่ถนัดในการสอน,
+          ฉีดวัคซีนป้องกัน,
+          ประวัติการศึกษา,
+          ประวัติการสอน,
+          ประกาศนียบัตร,
+          กรณีเรียนนอกสถานที่,
+          รูปถ่าย,
+          อายุ,
         }
-        const Editinstructor = await query('UPDATE users SET ? WHERE id = ?',[instructorData,id ])
-        res.status(200).json({success: true, results: data.length,instructorData, dataChange: Editinstructor,msg:'แก้ไขข้อมูลสำเร็จ'})
-      }else if (data[0].type == 'institute'){
+        const Editinstructor = await query("UPDATE users SET ? WHERE id = ?", [instructorData, id])
+        res.status(200).json({
+          success: true,
+          results: data.length,
+          instructorData,
+          dataChange: Editinstructor,
+          msg: "แก้ไขข้อมูลสำเร็จ",
+        })
+      } else if (data[0].type == "institute") {
         const InstituteData = {
-          institute,tel,address,ช่องทางการสอน,ช่วงอายุของกลุ่มผู้เรียนที่ถนัดในการสอน,ฉีดวัคซีนป้องกัน,ประวัติการศึกษา,ประวัติการสอน,ประกาศนียบัตร,กรณีเรียนนอกสถานที่,รูปถ่าย,อายุ
+          id,
+          institute,
+          tel,
+          ช่องทางการสอน,
+          ช่วงอายุของกลุ่มผู้เรียนที่ถนัดในการสอน,
+          ฉีดวัคซีนป้องกัน,
+          ประวัติการสอน,
+          กรณีเรียนนอกสถานที่,
+          รูปถ่าย,
+          อายุ,
         }
-        const EditInstitute = await query('UPDATE users SET ? WHERE id = ?',[InstituteData,id ])
+        const EditInstitute = await query("UPDATE users SET ? WHERE id = ?", [InstituteData, id])
 
-        res.status(200).json({success: true, results: data.length,InstituteData, dataChange: EditInstitute,msg:'แก้ไขข้อมูลสำเร็จ'})
+        res.status(200).json({
+          success: true,
+          results: data.length,
+          InstituteData,
+          msg: "แก้ไขข้อมูลสำเร็จ",
+        })
       }
     } else {
-      res.status(400).json({err: 'ไม่สามารถแก้ไข้ข้อมูลได้ เข้าสู่ระบบใหม่อีกครั้ง'})
+      res.status(400).json({err: "ไม่สามารถแก้ไข้ข้อมูลได้ เข้าสู่ระบบใหม่อีกครั้ง"})
     }
   } catch (error) {
     console.log(error)
-    res.status(400).json({err:`${error}`,msgErr:'ไม่สามารถแก้ไข้ข้อมูลได้ เข้าสู่ระบบใหม่อีกครั้ง'})
+    res
+      .status(400)
+      .json({err: `${error}`, msgErr: "ไม่สามารถแก้ไข้ข้อมูลได้ เข้าสู่ระบบใหม่อีกครั้ง"})
   }
 }

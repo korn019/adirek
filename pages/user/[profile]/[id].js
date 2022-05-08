@@ -15,21 +15,16 @@ import {dash} from "../../../utils/dash"
 const profile = () => {
   const {searchCourse, setSearchCourse, state, dispatch} = useContext(DataContext)
   const {auth} = state
-  console.log(auth)
   const router = useRouter()
   useEffect(() => {
-    const token = localStorage.getItem("token")
-    if (Object.keys(auth).length == 0) router.prefetch("/")
+    if (Object.keys(auth).length == 0) router.push("/")
   }, [auth])
   return (
     <>
-  
-     
-     
       <LayoutProfile>
         {/* <Home /> */}
         {/* <Edit /> */}
-      </LayoutProfile> 
+      </LayoutProfile>
     </>
   )
 }

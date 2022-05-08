@@ -8,10 +8,9 @@ export default async (req, res) => {
   try {
     const rf_token = req.cookies.refreshtoken
     if (!rf_token) return res.status(400).json({err: "กรุณาเข้าสู่ระบบก่อน"})
-
     const result = jwt.verify(rf_token, process.env.REFRESH_TOKEN_SECRET)
     if (!result) return res.status(400).json({err: "เข้าสู่ระบบใหม่อีกครั้ง"})
-
+    
     const user = await query(`SELECT * FROM users WHERE id = ?`, result.id)
     if (!user) return res.status(400).json({err: "ไม่พบข้อมูลผู้ใช้งาน"})
 
@@ -61,6 +60,6 @@ export default async (req, res) => {
       },
     })
   } catch {
-    return res.status(500).json({err: err.message})
+    return res.status(500).json({err: 'err'})
   }
 }

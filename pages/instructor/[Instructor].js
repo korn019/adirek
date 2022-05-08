@@ -45,7 +45,6 @@ const {courseData} = state;
   return (
     <>
       {course.map((e) => {
-        console.log(e);
         if (`id=${e.id}` === Instructor && e.type !== "student") {
           return (
             <>

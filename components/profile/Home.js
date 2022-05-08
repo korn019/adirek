@@ -13,8 +13,6 @@ const Home = () => {
   useEffect(() => {
     const token = localStorage.getItem("token")
 
-    if (!auth) router.push("/")
-
     //  dispatch({type: "NOTIFY", payload: {error: toast.error("คุณยังไม่ได้เข้าสู่ระบบ")}})
   }, [auth])
 

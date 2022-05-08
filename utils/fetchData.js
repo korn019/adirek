@@ -8,6 +8,7 @@ export const getData = async (url, token) => {
   const res = await fetch(`${BaseUrl}/api/${url}`, {
     method: "GET",
     headers: {
+      
       Authorization: "Bearer " + token,
     },
   })

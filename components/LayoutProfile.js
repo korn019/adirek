@@ -12,9 +12,13 @@ import Home from "./profile/Home"
 const LayoutProfile = ({children}) => {
   const {searchCourse, setSearchCourse, state, dispatch} = useContext(DataContext)
   const {auth} = state
+    const [value, setValue] = useState(false)
+
   const router = useRouter()
   useEffect(() => {
-    if (Object.keys(auth).length == 0) router.push("/")
+       setTimeout(() => {
+         if (Object.keys(auth).length == 0) router.push("/")
+       }, 10000)
   }, [auth])
   return (
     <>
@@ -70,7 +74,7 @@ const LayoutProfile = ({children}) => {
                     <Home />
                   </Tab.Panel>
                   <Tab.Panel>
-                    <EditCard />
+                    <EditCard setValue={setValue} value={value}/>
                   </Tab.Panel>
                   <Tab.Panel>
                     <AddCourse />
@@ -224,7 +228,7 @@ const LayoutProfile = ({children}) => {
                           </a>
                         </Link>
                       </li>
-                      
+
                       <Tab>
                         <li>
                           {/* <Link

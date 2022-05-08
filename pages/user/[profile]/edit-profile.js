@@ -8,10 +8,7 @@ const EditProfile = (props) => {
   const {auth} = state
   const router = useRouter()
   useEffect(() => {
-    if (Object.keys(auth).length == 0) {
-      router.push("/")
-      dispatch({type: "NOTIFY", payload: {error: toast.error("คุณยังไม่ได้เข้าสู่ระบบ")}})
-    }
+            if (Object.keys(auth).length == 0) router.push("/")
   }, [auth])
   return <Edit />
 }

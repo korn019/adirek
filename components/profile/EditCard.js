@@ -9,10 +9,11 @@ import EditProfile from "./EditStudent"
 import EditInstructor from "./EditInstructor"
 import EditStudent from "./EditStudent"
 
-const EditCard = () => {
+const EditCard = ({setValue,value}) => {
   const {state, dispatch} = useContext(DataContext)
-  const {auth} = state
+  const {auth,edit} = state
   const [change, setChange] = useState(false)
+  const [token, setToken] = useState("")
   const {
     register,
     handleSubmit,
@@ -20,48 +21,30 @@ const EditCard = () => {
     formState: {errors},
   } = useForm()
 
-  const onSubmit = (data, e) => {
+  useEffect(() => {
+    const getToken = localStorage.getItem("token")
+    if (getToken) {
+      setToken(getToken)
+    }
+  }, [])
+
+  const onSubmit = async (data, e) => {
     e.preventDefault()
-const res = putData(`users-data/${auth.user?.id}`, data, auth?.token)
-console.log(res)
-
-console.log(auth.token)
- 
-    // putData2(`users/edit/${auth.user?.id}`, data, auth.token)
-    //   .then((response) => {
-    //     // dispatch({
-    //     //   type: "NOTIFY",
-    //     //   payload: {success: toast.success(response.data.message)},
-    //     // })
-    //     // dispatch({
-    //     //   type: "AUTH",
-    //     //   payload: {
-    //     //     user: auth.user,
-    //     //     token: auth.token,
-    //     //   },
-    //     // })
-    //     // dispatch({
-    //     //   type: "EDITPROFILE",
-    //     //   payload: response.data.updateInstitute || response.data.updateInstructors,
-    //     // })
-    //     // if (response.status == 200) {
-    //     //   window.location.reload(false)
-    //     // }
-    //     console.log(response)
-    //   })
-    //   .catch((err) => {
-    //     console.log(err)
-    //     // dispatch({
-    //     //   type: "NOTIFY",
-    //     //   payload: {error: toast.error(err.response?.data.message)},
-    //     // })
-    //   })
+   const res = await putData(`user-data/${auth.user?.id}`, data, token)
+   dispatch({
+     type: "NOTIFY",
+     payload: {success: toast.success(res.msg)},
+   })
+   dispatch({
+     type: "NOTIFY",
+     payload: {success: toast.success(res.err)},
+   })
+  // setValue(true)
+  // if (value) window.location.reload(false)
+   
   }
-useEffect(() => {
+  useEffect(() => {}, [auth])
 
-}, [auth])
-
-  
   return (
     <section id="">
       <div className="min-w-screen min-h-screen  flex items-center justify-center px-2 py-12">

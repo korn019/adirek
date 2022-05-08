@@ -23,19 +23,16 @@ const LoginPage = () => {
   const [bgColor, setBgColor] = useState("")
   useEffect(() => {
     if (Object.keys(auth).length !== 0) router.push("/")
-    router.prefetch("/")
   }, [auth, router.pathname])
 
   const onSubmit = async (data, e) => {
     e.preventDefault()
 
     const res = await postData("auth/login", data)
-    // console.log(res)
     if (res.err) {
       return dispatch({type: "NOTIFY", payload: {error: toast.error(res.err)}})
     }
     dispatch({type: "NOTIFY", payload: {success: toast.success(res.message)}})
-
     dispatch({
       type: "AUTH",
       payload: {
@@ -43,10 +40,17 @@ const LoginPage = () => {
         user: res.user,
       },
     })
+    dispatch({
+      type: "EDITPROFILE",
+      payload: {
+        token: res.access_token,
+      },
+    })
     Cookie.set("refreshtoken", res.refresh_token, {
       path: "api/auth/accessToken",
       expires: 7,
     })
+    localStorage.setItem("token", res.access_token)
     localStorage.setItem("firstLogin", true)
     // console.log(res)
     // postData("auth/login", data)

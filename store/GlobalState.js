@@ -24,8 +24,14 @@ export const DataProvider = ({children}) => {
   const [firstLogin2, setFirstLogin2] = useState(true)
   const router = useRouter()
   useEffect(() => {
-    const token = localStorage.getItem("token")
     const firstLogin = localStorage.getItem("firstLogin")
+     dispatch({
+       type: "EDITPROFILE",
+       payload: {
+         token: auth.token,
+       },
+     })
+     console.log(firstLogin)
     if (firstLogin) {
       getData("auth/accesstoken").then((res) => {
         console.log(res.err)
@@ -37,8 +43,8 @@ export const DataProvider = ({children}) => {
             user: res.user,
           },
         })
+         
       })
-
 
       // getData("users/auth", token)
       //   .then((response) => {
@@ -66,7 +72,7 @@ export const DataProvider = ({children}) => {
       //     console.log(err.response)
       //   })
     }
-    getData("instructor", token)
+    getData("instructor")
       .then((res) => {
         setData(res.Instructor)
         setIsLoading(true)
@@ -76,7 +82,7 @@ export const DataProvider = ({children}) => {
         console.log(err)
       })
     
-  }, [router.pathname])
+  }, [router.pathname,auth])
 
   return (
     <DataContext.Provider
