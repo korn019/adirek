@@ -53,6 +53,12 @@ export default async (req, res) => {
 }
 const editUserProfile = async (req, res) => {
   try {
+    function calculate_age(dob) { 
+      var diff_ms = Date.now() - dob.getTime();
+      var age_dt = new Date(diff_ms); 
+    
+      return Math.abs(age_dt.getUTCFullYear() - 1970);
+  }
     const {id} = req.query
     const {
       first_name,
@@ -106,6 +112,7 @@ const editUserProfile = async (req, res) => {
           first_name,
           last_name,
           tel,
+          birthday,
           address,
           ช่องทางการสอน,
           ช่วงอายุของกลุ่มผู้เรียนที่ถนัดในการสอน,

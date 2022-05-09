@@ -192,6 +192,7 @@ const Footer = () => {
       <script src="../../static/js/slick-slider.min.js"></script>
       <script src="../../static/js/wow.min.js"></script>
       <script src="../../static/js/main.js"></script>
+      <script src="https://unpkg.com/flowbite@1.4.5/dist/datepicker.js"></script>
       <script
         type="text/javascript"
         src="../../static/jquery.Thailand.js/dependencies/JQL.min.js"

@@ -19,6 +19,7 @@ const EditCard = ({setValue,value}) => {
     register,
     handleSubmit,
     watch,
+    control,
     formState: {errors},
   } = useForm()
 
@@ -28,10 +29,12 @@ const EditCard = ({setValue,value}) => {
     if (rfToken) {
       setToken(rfToken)
     }
-  }, [])
+  }, [auth])
 
   const onSubmit = async (data, e) => {
     e.preventDefault()
+    console.log(data)
+
    const res = await putData(`user-data/${auth.user?.id}`, data, token)
    dispatch({
      type: "NOTIFY",
@@ -57,7 +60,7 @@ const EditCard = ({setValue,value}) => {
             {auth.user?.type == "student" ? (
               <EditStudent onSubmit={handleSubmit(onSubmit)} auth={auth} register={register} />
             ) : auth.user?.type == "instructor" ? (
-              <EditInstructor onSubmit={handleSubmit(onSubmit)} auth={auth} register={register} />
+              <EditInstructor onSubmit={handleSubmit(onSubmit)} auth={auth} register={register} control={control} />
             ) : auth.user?.type == "institute" ? (
               <EditInstitute onSubmit={handleSubmit(onSubmit)} auth={auth} register={register} />
             ) : null}

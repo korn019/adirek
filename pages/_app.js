@@ -24,7 +24,8 @@ import Layout from "../components/Layout"
 import {DataProvider} from "../store/GlobalState"
 // import "/static/css/style.css"
 import "react-toastify/dist/ReactToastify.css"
-
+import "react-datepicker/dist/react-datepicker.css";
+// import 'react-date-picker/dist/DatePicker.css';
 SwiperCore.use([Autoplay, Navigation, Pagination])
 
 function MyApp({Component, pageProps}) {

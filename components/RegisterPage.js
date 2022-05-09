@@ -31,7 +31,7 @@ const RegisterPage = () => {
     const res = await postData("auth/register", data)
     if (res.err) return dispatch({type: "NOTIFY", payload: toast.error(res.err)})
     dispatch({type: "NOTIFY", payload: toast.success(res.message)})
-    // router.push("/login")
+    router.push("/login")
   }
     console.log(notify)
 

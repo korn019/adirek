@@ -1,7 +1,7 @@
 import axios from "axios"
 
-// const BaseUrl = "http://localhost:7000"
-const BaseUrl = "https://adirekth.com"
+const BaseUrl = "http://localhost:7000"
+// const BaseUrl = "https://adirekth.com"
 // const BaseUrl = "https://adirekth.com"
 
 export const getData = async (url, token) => {

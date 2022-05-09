@@ -109,7 +109,7 @@ const LayoutProfile = ({children}) => {
                       auth.user?.รูปถ่าย == "" ? (
                         <div className="text-center flex justify-center">
                           <div className=" w-40 h-40 bg-[rgb(245,245,255)]  rounded-full  text-center flex items-center justify-center ">
-                            <span className="text-black text-Athiti !text-f3xl !font-semibold">
+                            <span className="text-white text-Athiti !text-f3xl !font-semibold">
                               {auth.user?.type == "student" || auth.user?.type == "instructor"
                                 ? auth.user?.first_name?.charAt(0) + auth.user?.last_name?.charAt(0)
                                 : auth.user?.type == "institute"
@@ -128,10 +128,10 @@ const LayoutProfile = ({children}) => {
                           if (auth.user?.type == "student" || auth.user?.type == "instructor") {
                             return (
                               <>
-                                <h1 className="text-2xl p-2 pl-4  text-center">
+                                <h1 className="text-2xl p-2 pl-4  text-center text-white">
                                   {auth.user?.first_name}
                                 </h1>
-                                <h1 className="text-2xl p-2 pl-4  text-center">
+                                <h1 className="text-2xl p-2 pl-4  text-center text-white">
                                   {auth.user?.last_name}
                                 </h1>
                               </>
@@ -149,7 +149,7 @@ const LayoutProfile = ({children}) => {
                             {auth.user?.type == "student" ? "ผู้เรียน" : null}
                           </button>
                         ) : auth.user?.type == "instructor" ? (
-                          <button className="btn btn-sn  btn-warning font-Athiti font-semibold text-base">
+                          <button className="btn btn-sn  btn-warning font-Athiti font-semibold text-xl">
                             {auth.user?.type == "instructor" ? "ผู้สอน" : null}
                           </button>
                         ) : auth.user?.type == "institute" ? (
